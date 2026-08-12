@@ -1,0 +1,69 @@
+# ============================================================
+#  Never commit these.
+#
+#  .env holds the Bunny URL-signing key, the session secret and the
+#  passphrase hash. Anything with the signing key can mint playback URLs for
+#  the entire pull zone, so it goes in the host's environment variables, not
+#  in the repository — private repos still get cloned, forked and shared.
+# ============================================================
+
+.env
+.env.*
+!.env.example
+
+bunny.config.local.json
+!bunny.config.example.json
+
+# Share links may contain per-file access tokens.
+data/asset-links.json
+
+# ============================================================
+#  Build artefacts and caches
+# ============================================================
+
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+node_modules/
+.venv/
+venv/
+
+*.bak
+*.log
+tasks/
+
+# ============================================================
+#  Generated data
+#
+#  Two of these ARE required at runtime and are deliberately committed:
+#      data/catalog.json   the video catalogue the server queries
+#      data/assets.json    the reference-material index
+#  Without them a deployed instance has an empty library.
+#
+#  Everything below is an intermediate the server never reads. Regenerate
+#  with scripts/build-library-index.mjs and scripts/reconcile-bunny.mjs.
+# ============================================================
+
+bunny_catalog.json
+data/library-index.json
+data/library-nav.json
+data/library-tags.json
+data/reconcile-report.json
+
+# Categorizer audit export, produced by server/categorizer.py --csv.
+data/assignments.csv
+
+# Belongs to the superseded vanilla front-end, not the player.
+js/videos.generated.js
+
+# ============================================================
+#  OS and editor noise
+# ============================================================
+
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+.idea/
+.vscode/

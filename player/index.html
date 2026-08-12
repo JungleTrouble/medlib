@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0d1016">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>MedLib — Player</title>
+<link rel="stylesheet" href="player.css?v=19">
+</head>
+<body>
+
+<!-- Sign-in gate. Shown whenever /api/me comes back 401. -->
+<div class="gate" id="gate" hidden>
+  <form class="gate-card" id="loginForm">
+    <h1>MedLib</h1>
+    <p class="gate-sub">Private library. Sign in to continue.</p>
+    <input type="password" id="password" placeholder="Passphrase" autocomplete="current-password"
+           required autofocus>
+    <button type="submit" id="loginBtn">Sign in</button>
+    <p class="gate-error" id="gateError" hidden></p>
+  </form>
+</div>
+
+<div class="app" id="app" hidden>
+
+  <header class="topbar">
+    <button class="icon-btn" id="menuToggle" aria-label="Toggle filters" aria-expanded="false">
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+        <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+
+    <button class="brand" id="homeBtn" type="button" aria-label="Back to the front page"><span>Med</span><span class="accent">Lib</span></button>
+
+    <div class="search-wrap">
+      <input type="search" id="searchInput" placeholder="Search titles and tags…" autocomplete="off">
+    </div>
+
+    <button class="icon-btn" id="signOut" aria-label="Sign out" title="Sign out">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+        <path d="M15 4h4v16h-4M10 8l-4 4 4 4M6 12h9" stroke="currentColor" stroke-width="2"
+              fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <!-- Two ways to reach the same videos: by what they are about, or by
+           where they came from. Tabs rather than two stacked lists, because
+           the sidebar has to fit on one screen. -->
+      <div class="side-tabs" role="tablist" aria-label="Browse by">
+        <button role="tab" id="tabSubjects" aria-controls="paneSubjects"
+                aria-selected="true" class="side-tab on">Subjects</button>
+        <button role="tab" id="tabSources" aria-controls="paneSources"
+                aria-selected="false" class="side-tab">Sources</button>
+      </div>
+
+      <div id="paneSubjects" role="tabpanel" aria-labelledby="tabSubjects">
+        <div id="bucketGroups"></div>
+        <details class="side-group">
+          <summary>Level</summary>
+          <ul class="filter-list" id="levelList"></ul>
+        </details>
+        <details class="side-group">
+          <summary>Tags</summary>
+          <div class="tag-cloud" id="tagCloud"></div>
+        </details>
+        <details class="side-group" open>
+          <summary>Playlists</summary>
+          <ul class="filter-list" id="playlistList"></ul>
+        </details>
+      </div>
+
+      <div id="paneSources" role="tabpanel" aria-labelledby="tabSources" hidden>
+        <div id="collectionGroups"></div>
+      </div>
+
+      <button class="clear-btn" id="clearFilters">Clear filters</button>
+      <p class="build-stamp" id="buildStamp"></p>
+    </aside>
+    <div class="scrim" id="scrim"></div>
+
+    <main class="content">
+      <div class="content-head">
+        <h1 id="resultsTitle">All subjects</h1>
+        <span class="count" id="resultsCount"></span>
+        <!-- Videos and reference material are different kinds of thing, not
+             different filters, so they get a view switch rather than a facet.
+             The sidebar's subject and tag filters apply to both. -->
+        <div class="view-switch" role="tablist" aria-label="Library view">
+          <button role="tab" id="viewVideos" class="view-tab on" aria-selected="true">Videos</button>
+          <button role="tab" id="viewAssets" class="view-tab" aria-selected="false">Materials</button>
+        </div>
+      </div>
+      <div class="chips" id="activeFilters"></div>
+
+      <!-- Browse view: one row per subject. Shown when no filter is active;
+           picking a filter swaps to the flat grid below. -->
+      <div id="shelves"></div>
+
+      <section class="grid" id="grid" aria-live="polite"></section>
+
+      <!-- Asset library: PDFs get an inline viewer, everything else is a
+           download. Never mixed into the video grid. -->
+      <section class="assets" id="assetList" hidden aria-live="polite"></section>
+
+      <div class="sentinel" id="sentinel"></div>
+      <p class="empty" id="empty" hidden>Nothing matches those filters.</p>
+      <p class="empty" id="loading">Loading catalog…</p>
+    </main>
+  </div>
+</div>
+
+<!-- PDF viewer. An iframe because Drive offers no other embed surface;
+     video deliberately never uses one. -->
+<div class="doc-backdrop" id="docBackdrop" hidden>
+  <div class="doc" role="dialog" aria-modal="true" aria-labelledby="docTitle">
+    <header class="doc-head">
+      <h2 id="docTitle"></h2>
+      <a class="doc-dl" id="docDownload" target="_blank" rel="noopener noreferrer">Download</a>
+      <button class="doc-close" id="docClose" aria-label="Close">&times;</button>
+    </header>
+    <iframe id="docFrame" title="Document preview" referrerpolicy="no-referrer"
+            sandbox="allow-scripts allow-same-origin allow-popups"></iframe>
+  </div>
+</div>
+
+<!-- Playback surface. The <video> src is only ever a freshly minted signed URL. -->
+<div class="player-backdrop" id="playerBackdrop" hidden>
+  <div class="player" role="dialog" aria-modal="true" aria-labelledby="playerTitle">
+    <button class="player-close" id="playerClose" aria-label="Close">&times;</button>
+    <div class="video-wrap">
+      <!-- No crossorigin attribute: the progressive path plays cross-origin
+           without CORS, and requiring it would break playback if the pull zone
+           is not configured to send the headers. hls.js needs CORS regardless. -->
+      <video id="video" controls playsinline preload="metadata"
+             controlslist="nodownload"></video>
+      <div class="video-msg" id="videoMsg" hidden></div>
+    </div>
+    <div class="player-meta">
+      <h2 id="playerTitle"></h2>
+      <p class="player-sub"><span id="playerBucket"></span><span id="playerExpiry"></span></p>
+    </div>
+  </div>
+</div>
+
+<script src="player.js?v=19"></script>
+</body>
+</html>

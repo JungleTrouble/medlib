@@ -1,0 +1,3 @@
+{
+  "_comment": "Keyed by Bunny video GUID. Fields here override the auto-synced defaults for that video. Example: \"a1b2c3d4-...\": { \"category\": \"cardiology\", \"level\": \"Clinical\", \"tags\": [\"heart\", \"board-review\"], \"description\": \"...\", \"featured\": true, \"title\": \"Optional cleaner title\" }"
+}

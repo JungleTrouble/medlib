@@ -1,0 +1,10 @@
+# Floors, not exact pins: this runs on Python 3.14, and the older exact
+# versions have no cp314 wheels — pip falls back to building pydantic-core
+# from Rust source, which needs a full cargo/MSVC toolchain.
+fastapi>=0.119
+uvicorn[standard]>=0.38
+pydantic>=2.12
+pydantic-settings>=2.11
+PyYAML>=6.0.3
+itsdangerous>=2.2
+httpx>=0.28

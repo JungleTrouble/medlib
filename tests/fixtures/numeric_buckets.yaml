@@ -1,0 +1,53 @@
+# Fixture config exercising the numeric prefix and range tiers, which are
+# deliberately left empty in the shipped config/buckets.yaml because guessed
+# numbering mis-files real content. This is the shape to copy when your library
+# genuinely encodes the subject in the lecture number.
+
+version: 1
+default_bucket: uncategorized
+min_keyword_score: 6
+high_confidence_score: 10
+
+match:
+  case_sensitive: false
+  strip_extension: true
+  separators: ["_", "-", " ", "."]
+  strip_leading: []
+
+buckets:
+  anatomy:       { label: "Anatomy",       color: "#4f6bf6" }
+  physiology:    { label: "Physiology",    color: "#14bf96" }
+  pharmacology:  { label: "Pharmacology",  color: "#f5a623" }
+  microbiology:  { label: "Microbiology",  color: "#7c5cff" }
+  cardiology:    { label: "Cardiology",    color: "#ff5a5f" }
+  uncategorized: { label: "Uncategorized", color: "#5a5f6b" }
+
+patterns:
+  - name: numbered-section
+    regex: '^\s*\d+\s*[-–]\s*(?P<section>[^-–]+?)\s*[-–]\s*.+$'
+    field: section
+    skip_values: ["other"]
+    map:
+      "cardiology": cardiology
+
+prefixes:
+  "01": anatomy
+  "02": physiology
+  cardio: cardiology
+
+ranges:
+  - { from: 200, to: 249, bucket: pharmacology }
+  - { from: 250, to: 299, bucket: microbiology }
+
+keywords:
+  cardiology: { "heart failure": 12, cardiac: 9 }
+  microbiology: { bacteria: 9 }
+
+tags: []
+
+levels:
+  fallback: Uncategorized
+  rules: []
+
+media_extensions: [".mp4"]
+ignore_dirs: []

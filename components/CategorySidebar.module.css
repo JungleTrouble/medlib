@@ -1,0 +1,356 @@
+/* ============================================================
+   CategorySidebar styles.
+
+   Reads the same custom properties as css/styles.css (--surface, --border,
+   --text, --accent …) so the component inherits the existing light/dark
+   theme. Each var carries a fallback, so it also renders correctly dropped
+   into a bare Next.js app with no theme sheet loaded.
+   ============================================================ */
+
+.sidebar {
+  --row-h: 30px;
+
+  position: sticky;
+  top: var(--topbar-h, 0px);
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  width: var(--sidebar-w, 264px);
+  max-height: calc(100vh - var(--topbar-h, 0px));
+  padding: 0;
+  background: var(--surface, #fff);
+  border-right: 1px solid var(--border, #e0e2e8);
+  color: var(--text, #1a1d24);
+  font-size: 13px;
+}
+
+/* ---------- header ---------- */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border, #e0e2e8);
+}
+
+.resultCount {
+  font-size: 14px;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+
+.resultCountLabel {
+  font-weight: 450;
+  color: var(--text-muted, #6b7280);
+}
+
+.clearBtn {
+  padding: 4px 9px;
+  border: 1px solid var(--border, #e0e2e8);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-muted, #6b7280);
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  transition: color 0.12s, border-color 0.12s;
+}
+
+.clearBtn:hover:not(:disabled) {
+  color: var(--text, #1a1d24);
+  border-color: currentColor;
+}
+
+.clearBtn:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+/* ---------- scroll region ---------- */
+
+.scrollArea {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 4px 8px 24px;
+  scrollbar-width: thin;
+}
+
+.section {
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border, #e0e2e8);
+}
+
+.section:last-child {
+  border-bottom: 0;
+}
+
+.sectionHeading {
+  margin: 0;
+  font-size: inherit;
+}
+
+.sectionToggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  padding: 8px;
+  border: 0;
+  background: none;
+  color: var(--text-muted, #6b7280);
+  font: inherit;
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: left;
+  cursor: pointer;
+}
+
+.sectionToggle:hover {
+  color: var(--text, #1a1d24);
+}
+
+.sectionCount {
+  margin-left: auto;
+  font-weight: 500;
+  letter-spacing: 0;
+  opacity: 0.7;
+}
+
+.chevron {
+  flex: none;
+  transition: transform 0.15s ease;
+}
+
+.chevronOpen {
+  transform: rotate(90deg);
+}
+
+/* ---------- subject groups ---------- */
+
+.group + .group {
+  margin-top: 10px;
+}
+
+.groupLabel {
+  margin: 0 0 2px 8px;
+  color: var(--text-muted, #6b7280);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ---------- filter rows ---------- */
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  min-height: var(--row-h);
+  padding: 5px 8px;
+  border: 0;
+  border-radius: 7px;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.row:hover {
+  background: var(--surface-2, #eceef2);
+}
+
+.rowOn {
+  background: var(--accent-soft, #e8ecff);
+  color: var(--accent, #4f6bf6);
+  font-weight: 600;
+}
+
+.rowOn:hover {
+  background: var(--accent-soft, #e8ecff);
+}
+
+.rowMuted .rowLabel {
+  color: var(--text-muted, #6b7280);
+}
+
+.dot {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--text-muted, #6b7280);
+}
+
+.rowLabel {
+  flex: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.rowCount {
+  flex: none;
+  color: var(--text-muted, #6b7280);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+
+.rowOn .rowCount {
+  color: inherit;
+}
+
+/* ---------- inline search ---------- */
+
+.inlineSearch {
+  width: calc(100% - 16px);
+  margin: 0 8px 8px;
+  padding: 6px 9px;
+  border: 1px solid var(--border, #e0e2e8);
+  border-radius: 7px;
+  background: var(--bg, #f4f5f7);
+  color: inherit;
+  font: inherit;
+  font-size: 12px;
+}
+
+.inlineSearch:focus-visible {
+  outline: 2px solid var(--accent, #4f6bf6);
+  outline-offset: -1px;
+}
+
+.empty {
+  margin: 0 8px 8px;
+  color: var(--text-muted, #6b7280);
+  font-size: 12px;
+}
+
+/* ---------- tags ---------- */
+
+.tagCloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 2px 8px 8px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border: 1px solid var(--border, #e0e2e8);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-muted, #6b7280);
+  font: inherit;
+  font-size: 11.5px;
+  cursor: pointer;
+  transition: color 0.12s, border-color 0.12s, background 0.12s;
+}
+
+.tag:hover {
+  color: var(--text, #1a1d24);
+  border-color: currentColor;
+}
+
+.tagOn {
+  background: var(--accent-soft, #e8ecff);
+  border-color: var(--accent, #4f6bf6);
+  color: var(--accent, #4f6bf6);
+  font-weight: 600;
+}
+
+.tagCount {
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.7;
+}
+
+.linkBtn {
+  margin: 0 8px;
+  padding: 4px 0;
+  border: 0;
+  background: none;
+  color: var(--accent, #4f6bf6);
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.linkBtn:hover {
+  text-decoration: underline;
+}
+
+/* ---------- focus ---------- */
+
+.row:focus-visible,
+.tag:focus-visible,
+.clearBtn:focus-visible,
+.sectionToggle:focus-visible,
+.linkBtn:focus-visible {
+  outline: 2px solid var(--accent, #4f6bf6);
+  outline-offset: 1px;
+}
+
+/* ---------- mobile drawer ---------- */
+
+.scrim {
+  display: none;
+}
+
+@media (max-width: 860px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 40;
+    height: 100dvh;
+    max-height: none;
+    box-shadow: var(--shadow-lg, 0 12px 32px rgba(20, 22, 30, 0.18));
+    transform: translateX(-100%);
+    transition: transform 0.2s ease;
+  }
+
+  .sidebarOpen {
+    transform: none;
+  }
+
+  .scrim {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 39;
+    background: rgba(10, 12, 18, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .scrimOpen {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sidebar,
+  .scrim,
+  .chevron {
+    transition: none;
+  }
+}

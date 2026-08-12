@@ -1,0 +1,5 @@
+{
+  "libraryId": "your Video Library ID, e.g. 123456",
+  "apiKey": "your library's API Key / AccessKey (Stream dashboard -> your library -> API)",
+  "cdnHostname": "the Pull Zone hostname shown on that same API page, e.g. vz-xxxxxxxx-xxx.b-cdn.net"
+}

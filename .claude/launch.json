@@ -1,0 +1,23 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "sidebar-preview",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "4173",
+        "--directory",
+        "C:/Users/micha/AppData/Local/Temp/claude/C--Users-micha-OneDrive-Stream-Site/7faa157a-71d9-4934-a3d2-1de33ac3312e/scratchpad/build"
+      ],
+      "port": 4173
+    },
+    {
+      "name": "static-site",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "4174"],
+      "port": 4174
+    }
+  ]
+}

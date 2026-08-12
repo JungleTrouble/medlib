@@ -1,0 +1,481 @@
+# ============================================================
+#  Prefix -> subject bucket mappings.
+#
+#  Consumed by server/categorizer.py. Rule tiers are tried in this order and
+#  the first hit wins:
+#
+#    1. patterns  - regex with a named capture, looked up in its own map
+#    2. prefixes  - exact match on the leading token of the filename
+#    3. ranges    - numeric leading token falling inside [from, to]
+#    4. keywords  - weighted substring scoring over the whole title
+#    5. default_bucket
+#
+#  Exception: when a `patterns` regex matches the *shape* of a name but its
+#  captured label maps to nothing (a "### - Other Topics - X" title), tiers 2
+#  and 3 are skipped and scoring goes straight to keywords. The leading number
+#  in such a name is a section index, not a subject code, and letting the
+#  prefix/range tiers read it produces confident nonsense.
+#
+#  Bucket ids match the CATEGORIES ids in js/data.js so this catalog and the
+#  existing front-end agree on filter names.
+# ============================================================
+
+version: 1
+default_bucket: uncategorized
+min_keyword_score: 6          # below this, fall through to default_bucket
+high_confidence_score: 10     # at or above this, confidence is reported "high"
+
+match:
+  case_sensitive: false
+  strip_extension: true
+  # A leading token ends at the first of these characters.
+  separators: ["_", "-", " ", ".", "]", ")"]
+  # Stripped from the front of a name before tokenising (disc/part junk).
+  strip_leading: ["#", "@", "[", "(", "~"]
+
+# ------------------------------------------------------------
+#  Buckets. `label` and `color` are emitted into the catalog so the
+#  player can render sidebar entries without a second config file.
+# ------------------------------------------------------------
+buckets:
+  anatomy:         { label: "Anatomy",                    color: "#4f6bf6" }
+  physiology:      { label: "Physiology",                 color: "#14bf96" }
+  biochemistry:    { label: "Biochemistry",               color: "#00b3a4" }
+  histology:       { label: "Histology",                  color: "#9b6dff" }
+  embryology:      { label: "Embryology",                 color: "#4dbcff" }
+  genetics:        { label: "Genetics",                   color: "#2e9bd6" }
+  pathology:       { label: "Pathology",                  color: "#e0526c" }
+  pharmacology:    { label: "Pharmacology",               color: "#f5a623" }
+  microbiology:    { label: "Microbiology",               color: "#7c5cff" }
+  immunology:      { label: "Immunology",                 color: "#c060d8" }
+  cardiology:      { label: "Cardiology",                 color: "#ff5a5f" }
+  pulmonology:     { label: "Pulmonology",                color: "#3fb8e8" }
+  neurology:       { label: "Neurology",                  color: "#3fa7ff" }
+  gastro:          { label: "Gastroenterology",           color: "#d98324" }
+  renal:           { label: "Renal & Urology",            color: "#4a90d9" }
+  endocrine:       { label: "Endocrinology",              color: "#e8a33d" }
+  heme:            { label: "Hematology",                 color: "#c0392b" }
+  oncology:        { label: "Oncology",                   color: "#8e44ad" }
+  musculoskeletal: { label: "Musculoskeletal",            color: "#7f8c8d" }
+  rheumatology:    { label: "Rheumatology",               color: "#b5651d" }
+  dermatology:     { label: "Dermatology",                color: "#e8896b" }
+  reproductive:    { label: "Reproductive",               color: "#e56fa6" }
+  ophthalmology:   { label: "Ophthalmology",              color: "#00a0b0" }
+  ent:             { label: "ENT & Audiology",            color: "#6c8ebf" }
+  obgyn:           { label: "OB/GYN",                     color: "#f06ea9" }
+  pediatrics:      { label: "Pediatrics",                 color: "#5ec8a0" }
+  psychiatry:      { label: "Psychiatry",                 color: "#a678de" }
+  surgery:         { label: "Surgery & Anesthesia",       color: "#5d8aa8" }
+  emergency:       { label: "Emergency & Critical Care",  color: "#e74c3c" }
+  radiology:       { label: "Radiology",                  color: "#8a8f98" }
+  infectious:      { label: "Infectious Disease",         color: "#6ab04c" }
+  publichealth:    { label: "Public Health & Ethics",     color: "#95a5a6" }
+  biostats:        { label: "Biostatistics",              color: "#7d8ca3" }
+  nursing:         { label: "Nursing Assistant",          color: "#59a5a5" }
+  uncategorized:   { label: "Uncategorized",              color: "#5a5f6b" }
+
+# ------------------------------------------------------------
+#  Tier 1 - regex patterns with a named capture group.
+#  `field` names the group; its value is normalised (lowercased, whitespace
+#  collapsed) and looked up in `map`. A miss falls through to the next tier.
+#  – in the character classes is an en dash; titles use both dash forms.
+# ------------------------------------------------------------
+patterns:
+  # "007 - General Topics - Informed Consent"  ->  section = "general topics"
+  # The middle field is the publisher's own section name, so it is trusted
+  # over keyword guessing.
+  - name: numbered-section
+    regex: '^\s*\d+\s*[-–]\s*(?P<section>[^-–]+?)\s*[-–]\s*.+$'
+    field: section
+    # Labels that carry no subject signal. Matching one marks the title as
+    # structured-but-unmapped, which skips the prefix and range tiers.
+    skip_values: ["other", "misc"]
+    map:
+      "pathology": pathology
+      "obstetrics": obgyn
+      "gynecology": obgyn
+      "breast": obgyn
+      "red cells": heme
+      "white cells": heme
+      "coagulation": heme
+      "pulmonary disease": pulmonology
+      "other pulmonary topics": pulmonology
+      "anatomy and orthopedics": musculoskeletal
+      "trauma": emergency
+      "emergencies": emergency
+      "critical care": emergency
+      "liver": gastro
+      "biliary tree and pancreas": gastro
+      "esophagus and stomach": gastro
+      "intestines": gastro
+      "general pediatrics": pediatrics
+      "newborns": pediatrics
+      "psychiatric disorders": psychiatry
+      "abnormal psychology": psychiatry
+      "psychopharmacology": psychiatry
+      "substance abuse": psychiatry
+      "diabetes": endocrine
+      "thyroid gland": endocrine
+      "adrenal glands": endocrine
+      "acid base": renal
+      "fluids and electrolytes": renal
+      "glomerular disease": renal
+      "renal failure": renal
+      "arrhythmias": cardiology
+      "heart failure": cardiology
+      "cardiac auscultation": cardiology
+      "ischemic heart disease": cardiology
+      "antibiotics": infectious
+      "hiv": infectious
+      "fungi and parasites": microbiology
+      "stroke and hemorrhage": neurology
+      "demyelinating disorders": neurology
+      "movement disorders": neurology
+      "seizures": neurology
+      "anesthesia": surgery
+      "surgery": surgery
+      "pharmacology": pharmacology
+      "general topics": publichealth
+      "embryology, anatomy and physiology": embryology
+      "cell biology": biochemistry
+      "immunology": immunology
+      "dermatology": dermatology
+      "ophthalmology": ophthalmology
+      "rheumatology": rheumatology
+      "genetics": genetics
+      "biochemistry": biochemistry
+      "microbiology": microbiology
+      "neurology": neurology
+      "cardiology": cardiology
+      "endocrinology": endocrine
+      "nephrology": renal
+      "hematology": heme
+      "oncology": oncology
+      "gastroenterology": gastro
+      "infectious disease": infectious
+      "psychiatry": psychiatry
+      "pediatrics": pediatrics
+      "radiology": radiology
+
+  # "Cardio / 014 - Preload", "Neuro__03 - Stroke" - a subject word joined by a
+  # separator the leading-token tier does not stop at.
+  - name: qualified-subject
+    regex: '^\s*(?P<subject>[A-Za-z]{2,16})\s*(?:/|__|::)\s*\S'
+    field: subject
+    map:
+      "cardio": cardiology
+      "pulm": pulmonology
+      "neuro": neurology
+      "gi": gastro
+      "renal": renal
+      "endo": endocrine
+      "heme": heme
+      "msk": musculoskeletal
+      "derm": dermatology
+      "peds": pediatrics
+      "psych": psychiatry
+      "obgyn": obgyn
+      "micro": microbiology
+      "path": pathology
+      "pharm": pharmacology
+      "biochem": biochemistry
+      "anat": anatomy
+      "histo": histology
+      "embryo": embryology
+
+# ------------------------------------------------------------
+#  Tier 2 - exact leading-token match, e.g. "Cardio_014 - Preload.mp4".
+#  Compared after lowercasing and cutting at the first `match.separators` char.
+#
+#  Only topic-word prefixes are enabled by default. Bare numeric prefixes are
+#  deliberately absent: in this library "01 Acute Leukemia" and "01 Adrenal
+#  Gland" are within-section indices, not subject codes, so a numeric map would
+#  file several hundred files under one confidently wrong bucket. Enable them
+#  only for a tree whose numbering really is a subject code:
+#
+#    "01": anatomy
+#    "02": physiology
+#
+#  Run `--dry-run --list-unmatched` after any change and check the tier
+#  breakdown before trusting the result.
+# ------------------------------------------------------------
+prefixes:
+  cardio: cardiology
+  cards: cardiology
+  cv: cardiology
+  pulm: pulmonology
+  resp: pulmonology
+  neuro: neurology
+  neuroanat: neurology
+  gi: gastro
+  git: gastro
+  hepat: gastro
+  renal: renal
+  nephro: renal
+  uro: renal
+  endo: endocrine
+  heme: heme
+  hemeonc: heme
+  onc: oncology
+  msk: musculoskeletal
+  ortho: musculoskeletal
+  rheum: rheumatology
+  derm: dermatology
+  repro: reproductive
+  ophtho: ophthalmology
+  ent: ent
+  oto: ent
+  obgyn: obgyn
+  gyn: obgyn
+  peds: pediatrics
+  psych: psychiatry
+  surg: surgery
+  anes: surgery
+  rad: radiology
+  micro: microbiology
+  immuno: immunology
+  path: pathology
+  pharm: pharmacology
+  biochem: biochemistry
+  physio: physiology
+  anat: anatomy
+  histo: histology
+  embryo: embryology
+  biostat: biostats
+  cna: nursing
+
+# ------------------------------------------------------------
+#  Tier 3 - numeric ranges, for a tree where the lecture number encodes the
+#  subject ("230-Beta Blockers.mp4"). Inclusive on both ends, checked in order,
+#  so put narrower ranges first where they overlap.
+#
+#  Empty by default for the same reason the numeric prefixes are: guessed
+#  ranges mis-file real content. Fill in the bands your library actually uses:
+#
+#    - { from: 200, to: 249, bucket: pharmacology }
+#    - { from: 250, to: 299, bucket: microbiology }
+# ------------------------------------------------------------
+ranges: []
+
+# ------------------------------------------------------------
+#  Tier 4 - weighted keyword fallback for anything the prefix tiers miss.
+#  Multi-word phrases carry more weight than bare words so a title like
+#  "cardiac muscle histology" resolves to histology instead of ping-ponging
+#  between cardiology and musculoskeletal. Scores are summed per bucket and the
+#  highest total wins provided it clears min_keyword_score.
+# ------------------------------------------------------------
+keywords:
+  anatomy:
+    { "abdominal wall": 10, anatomy: 10, innervation: 10, anatomic: 9, "blood supply": 9,
+      fascia: 9, foramen: 9, lymphatics: 9, plexus: 9, viscera: 9, arteries: 8, veins: 8,
+      compartment: 7, nerves: 7 }
+  physiology:
+    { physiolog: 11, "action potential": 10, homeostasis: 10, "membrane potential": 10,
+      autoregulation: 9, "cardiac output": 9, "conduction velocity": 9, filtration: 7,
+      absorption: 6, secretion: 6 }
+  biochemistry:
+    { "electron transport": 12, gluconeogenesis: 12, "hmp shunt": 12, "lysosomal storage": 12,
+      "pentose phosphate": 12, porphyria: 12, "tca cycle": 12, "urea cycle": 12, blotting: 11,
+      "citric acid cycle": 11, "dna repair": 11, "dna replication": 11, "dna structure": 11,
+      elisa: 11, "flow cytometry": 11, glycogen: 11, glycolysis: 11, "ketone body": 11,
+      phenylalanine: 11, pyruvate: 11, "amino acid": 10, "fatty acid": 10, fructose: 10,
+      galactose: 10, homocystein: 10, krebs: 10, pcr: 10, tyrosine: 10, ammonia: 9,
+      "b vitamins": 9, "protein synthesis": 9, "cell cycle": 8, enzyme: 8, purine: 8,
+      pyrimidine: 8, starvation: 8, transcription: 8, metabolism: 7, translation: 7,
+      glucose: 6, lipid: 6, molecular: 6, vitamin: 6 }
+  histology:
+    { histology: 12, cytoskeleton: 9, "epithelial cell": 9, "microscopic anatomy": 9,
+      organelle: 9, "cell structure": 8, histo: 8, "nervous tissue": 8, "connective tissue": 7,
+      epithelium: 7, stratum: 7 }
+  embryology:
+    { embryology: 12, branchial: 9, "fetal development": 9, gastrulation: 9, organogenesis: 9,
+      "pharyngeal arch": 9, embryo: 8, "neural crest": 8 }
+  genetics:
+    { "hardy-weinberg": 12, "trinucleotide repeat": 12, "deletion syndrome": 11,
+      "fragile x": 11, "gene mapping": 11, klinefelter: 11, pedigree: 11, achondroplasia: 10,
+      "cystic fibrosis": 10, genetic: 10, marfan: 10, meiosis: 10, microarray: 10,
+      "muscular dystrophy": 10, trisom: 10, "down syndrome": 9, inheritance: 9, karyotype: 9,
+      mendelian: 9, turner: 9, chromosom: 8, imprinting: 8, mitosis: 8, mutation: 6 }
+  pathology:
+    { "cellular adaptation": 12, "cell injury": 11, "free radical": 11, metaplasia: 11,
+      pathology: 11, "cellular injury": 10, dysplasia: 10, granuloma: 10, hyperplasia: 10,
+      "inflammatory response": 10, patholog: 10, abscess: 9, apoptosis: 9, atrophy: 9,
+      calcification: 9, necrosis: 9, fibrosis: 8, infarct: 8, inflammation: 8, thrombosis: 8,
+      edema: 7 }
+  pharmacology:
+    { pharmacodynamic: 12, pharmacokinetic: 12, pharmacolog: 12, "beta blocker": 11, nsaid: 10,
+      opioid: 10, agonist: 9, antagonist: 9, medication: 9, dosing: 8, drug: 8, inhibitor: 7,
+      "side effect": 7, toxicity: 7 }
+  microbiology:
+    { actinomyc: 11, corynebacterium: 11, malaria: 11, neisseria: 11, protoza: 11,
+      protozoa: 11, pseudomonas: 11, rickettsia: 11, "shapes and stains": 11, spirochete: 11,
+      chlamydia: 10, clostrid: 10, "gram negative": 10, "gram positive": 10, "gram stain": 10,
+      "growth requirement": 10, helminth: 10, mycobacter: 10, prion: 10, salmonella: 10,
+      staphylo: 10, strepto: 10, virulence: 10, bacteria: 9, candida: 9, "e. coli": 9,
+      fungal: 9, fungi: 9, parasit: 9, virus: 8, bacteri: 7, viral: 7 }
+  immunology:
+    { immunolog: 12, "immune deficiency": 11, hypersensitivity: 10, immunity: 10,
+      immunodeficiency: 10, interleukin: 10, amyloidosis: 9, cytokine: 9, "lymph node": 9,
+      thymus: 9, transplant: 9, antibody: 8, antigen: 8, autoimmun: 8, "b-cell": 8, mhc: 8,
+      spleen: 8, "t-cell": 8, vaccination: 8, complement: 7, "t cell": 7, vaccine: 7,
+      "b cell": 6 }
+  cardiology:
+    { avnrt: 12, avrt: 12, "bundle branch": 12, coarctation: 12, "heart failure": 12,
+      nstemi: 12, "pressure-volume loop": 12, "pv loop": 12, "starling curve": 12, stemi: 12,
+      wiggers: 12, "wolff-parkinson": 12, wpw: 12, arrhythmia: 11, cardiomyopathy: 11, ecg: 11,
+      ekg: 11, afterload: 10, angina: 10, atherosclerosis: 10, bradycardia: 10,
+      cardiovascular: 10, coronary: 10, "cv response": 10, defibrillat: 10,
+      "ejection fraction": 10, endocarditis: 10, murmur: 10, myocardial: 10, pericard: 10,
+      "peripheral vascular": 10, preload: 10, tachycardia: 10, "venous pressure": 10,
+      aneurysm: 9, atrial: 9, cardiac: 9, hypertension: 9, pacemaker: 9, statin: 9,
+      "stroke volume": 9, syncope: 9, aortic: 8, heart: 8, "lipid-lowering": 8, ventricular: 8,
+      "blood pressure": 7, valve: 7 }
+  pulmonology:
+    { "pulmonary embolism": 12, asthma: 11, copd: 11, pneumothorax: 11, spirometry: 11,
+      pneumonia: 10, pulmonary: 10, lung: 9, pleural: 9, respiratory: 9, "tidal volume": 9,
+      bronch: 8, hypoxia: 7, ventilation: 7, oxygen: 5 }
+  neurology:
+    { "bell's palsy": 12, "cranial nerve": 12, "multiple sclerosis": 12,
+      "altered mental status": 11, alzheimer: 11, aphasia: 11, apraxia: 11,
+      "basal ganglia": 11, dementia: 11, demyelinat: 11, epilep: 11, huntington: 11,
+      hydrocephalus: 11, myasthenia: 11, "neuromuscular disease": 11, neurotransmitter: 11,
+      parkinson: 11, seizure: 11, "ventricles and sinuses": 11, acetylcholine: 10,
+      cerebellar: 10, cerebellum: 10, cerebral: 10, encephal: 10, headache: 10,
+      intracranial: 10, migraine: 10, "motor neuron": 10, "nerve damage": 10, neurolog: 10,
+      neuropathy: 10, "spinal cord": 10, stroke: 10, thalamus: 10, cortex: 9, dopamine: 9,
+      gaba: 9, meninges: 9, myelin: 9, "nervous system": 9, norepinephrine: 9, serotonin: 9,
+      brain: 8, cns: 8, csf: 8, neuron: 8, pns: 8, reflex: 7, tracts: 7 }
+  gastro:
+    { cholangitis: 12, cholecystitis: 12, gallstone: 12, hemochromatosis: 12,
+      "peptic ulcer": 12, "ulcerative colitis": 12, "wilson's disease": 12, appendicitis: 11,
+      bilirubin: 11, cirrhosis: 11, crohn: 11, diverticul: 11, gallbladder: 11,
+      gastrointestinal: 11, malabsorption: 11, "salivary gland": 11, ascites: 10, biliary: 10,
+      celiac: 10, esophag: 10, hernia: 10, jaundice: 10, liver: 10, bile: 9, bowel: 9,
+      colon: 9, gastric: 9, hepat: 9, intestin: 9, stomach: 9, diarrhea: 8, digestion: 8,
+      pancrea: 8 }
+  renal:
+    { nephritic: 12, nephrotic: 12, pyelonephritis: 12, tubulointerstitial: 12, dialysis: 11,
+      gfr: 11, glomerul: 11, hematuria: 11, rhabdomyolysis: 11, "acid base": 10,
+      "acid-base": 10, creatinine: 10, cystitis: 10, diuretic: 10, kidney: 10, nephro: 10,
+      renal: 10, urolog: 10, acidosis: 9, alkalosis: 9, electrolyte: 9, incontinence: 9,
+      ureter: 9, urinary: 9, bladder: 8, tubular: 8, potassium: 6, sodium: 6 }
+  endocrine:
+    { "5-alpha-reductase": 12, acromegaly: 12, "hyperosmolar hyperglycemic": 12,
+      hyperthyroid: 12, hypothyroid: 12, ketoacidosis: 12, "men syndrome": 12,
+      pheochromocytoma: 12, thyroiditis: 12, addison: 11, adrenal: 11, cushing: 11, diabet: 11,
+      endocrine: 11, goiter: 11, "growth hormone": 11, parathyroid: 11,
+      pituitary: 11, thyroid: 11, aldosterone: 10, cortisol: 10, glucocorticoid: 10,
+      hypoglycemia: 10, insulin: 10, prolactin: 10, hormone: 8, calcium: 6 }
+  heme:
+    { "b12 and folate": 12, coagulopath: 12, hematolog: 12, hypercoagulable: 12,
+      myeloproliferative: 12, "plasma cell disorder": 12, polycythemia: 12, "sickle cell": 12,
+      thalassemia: 12, anemia: 11, anticoagulant: 11, hemolysis: 11, hemolytic: 11,
+      "iron deficiency": 11, pancytopenia: 11, coagulation: 10, hemoglobin: 10, heparin: 10,
+      platelet: 10, "red cell": 10, transfusion: 10, warfarin: 10, "white cell": 10,
+      clotting: 9, folate: 9, marrow: 9, neutrophil: 9, thrombo: 8, bleeding: 7, blood: 6 }
+  oncology:
+    { "alkylating agent": 12, oncolog: 12, paraneoplastic: 12, "tumor suppressor": 12,
+      chemotherap: 11, leukemia: 11, lymphoma: 11, myeloma: 11, oncogene: 11,
+      antimetabolite: 10, cancer: 10, carcinoma: 10, metasta: 10, neoplas: 10, sarcoma: 10,
+      tumor: 9, malignan: 8 }
+  musculoskeletal:
+    { musculoskeletal: 12, "curvatures of the spine": 11, "disc herniation": 11,
+      "intervertebral disc": 11, kyphosis: 11, "lower back pain": 11, orthoped: 11,
+      "rotator cuff": 11, scoliosis: 11, clavicle: 10, femur: 10, fracture: 10, sarcomere: 10,
+      achondroplasia: 9, cartilage: 9, knee: 9, ligament: 9, myopathy: 9, shoulder: 9,
+      tendon: 9, bone: 8, joint: 8, osteo: 8, muscle: 7, skeletal: 7 }
+  rheumatology:
+    { ankylosing: 12, dermatomyositis: 12, fibromyalgia: 12, polymyalgia: 12, polymyositis: 12,
+      rheumat: 12, scleroderma: 12, sjogren: 12, vasculitis: 12, arthritis: 11,
+      "connective tissue disease": 11, gout: 11, lupus: 11, spondyl: 10, autoantibod: 9 }
+  dermatology:
+    { dermatolog: 12, pemphig: 12, alopecia: 11, blistering: 11, bullous: 11, eczema: 11,
+      epidermis: 11, melanoma: 11, "pigment disorder": 11, psoriasis: 11, urticaria: 11,
+      acne: 10, cellulitis: 10, dermis: 10, cutaneous: 9, skin: 9, "vascular lesion": 9,
+      "wound healing": 9, rash: 8 }
+  reproductive:
+    { prostate: 10, reproductive: 10, scrotum: 10, spermato: 10, menstrual: 9, penis: 9,
+      testes: 9, testic: 9, ovarian: 8, ovary: 8, puberty: 8, uterus: 8 }
+  ophthalmology:
+    { cataract: 12, "gaze palsies": 12, "gaze palsy": 12, glaucoma: 12, "intro to the eye": 12,
+      ophthalmolog: 12, strabismus: 12, "structural eye": 12, uveitis: 12, conjunctiv: 11,
+      cornea: 11, "eye movement": 11, macular: 11, pupil: 11, retina: 11, retinal: 11,
+      "visual field": 11, "optic nerve": 10, vision: 8 }
+  ent:
+    { meniere: 12, otitis: 12, auditory: 11, cochlea: 11, deafness: 11, pharyngitis: 11,
+      sinusitis: 11, tinnitus: 11, vertigo: 11, hearing: 10, laryng: 10, olfact: 10,
+      tonsil: 10, vestibular: 10, nasal: 9 }
+  obgyn:
+    { gynecolog: 12, obstetric: 12, preeclampsia: 12, postpartum: 11, contracept: 10,
+      placenta: 10, pregnan: 10, prenatal: 10, breast: 8, fetal: 8, cervical: 7 }
+  pediatrics:
+    { pediatric: 12, kawasaki: 11, neonat: 11, newborn: 11, "vaccination schedule": 10,
+      infant: 9, child: 8, milestone: 8, congenital: 7 }
+  psychiatry:
+    { adhd: 12, autism: 12, "personality disorder": 12, psychiatr: 12, psychosis: 12,
+      schizophren: 12, antidepressant: 11, antipsychotic: 11, bipolar: 11,
+      "cognitive disorder": 11, "defense mechanism": 11, "eating disorder": 11, insomnia: 11,
+      psychotic: 11, ptsd: 11, "sleep disorder": 11, "somatic symptom": 11,
+      "substance abuse": 11, addiction: 10, anxiety: 10, benzodiazepine: 10, delirium: 10,
+      depress: 10, lithium: 10, ocd: 10, transference: 10, conditioning: 9, psycholog: 9 }
+  surgery:
+    { "general anesthesia": 12, anesthes: 11, "local anesthetic": 11,
+      "neuromuscular blocker": 11, surgery: 11, laparoscop: 10, surgical: 10, operative: 9,
+      suture: 9, incision: 8 }
+  emergency:
+    { acls: 12, "critical care": 12, "code blue": 11, emergency: 11, resuscitat: 11, icu: 10,
+      intubat: 10, trauma: 10, triage: 10, shock: 9 }
+  radiology:
+    { radiolog: 12, "chest film": 11, "ct scan": 11, mri: 11, radiograph: 11, ultrasound: 11,
+      "x-ray": 11, xray: 11, imaging: 10 }
+  infectious:
+    { antimalarial: 11, tuberculosis: 11, antibiotic: 10, antifungal: 10, antimicrobial: 10,
+      antiviral: 10, "beta lactam": 10, cephalosporin: 10, hiv: 10, penicillin: 10,
+      vancomycin: 10, infectious: 9, sepsis: 9, aids: 8, meningitis: 8, infection: 6 }
+  publichealth:
+    { confidentiality: 10, "decision-making capacity": 10, "delivering bad news": 10,
+      ethics: 10, "informed consent": 10, "public health": 10, "healthcare system": 8,
+      malpractice: 8, "end of life": 7, "physician-patient": 7 }
+  biostats:
+    { "basic statistics": 12, biostatistic: 12, "number needed to treat": 12,
+      "risk quantification": 12, "roc curve": 12, "tests of significance": 12,
+      "clinical trial": 11, "dose-response": 11, "odds ratio": 11, "p-value": 11,
+      "relative risk": 11, "confidence interval": 10, "diagnostic test": 10,
+      "hypothesis testing": 10, correlation: 9, epidemiolog: 9, "predictive value": 9,
+      "study design": 9, statistics: 8, screening: 7, incidence: 6, prevalence: 6,
+      sensitivity: 5, specificity: 5 }
+  nursing:
+    { "nursing assistant": 12, "nurse aide": 10, "bed bath": 6, nursing: 5,
+      "patient transfer": 5, "vital signs measurement": 5 }
+
+# ------------------------------------------------------------
+#  Content-format tags, applied on top of whichever bucket won.
+#  Matched case-insensitively against the full title.
+# ------------------------------------------------------------
+tags:
+  - { regex: 'board-?style question|question breakdown', tag: board-style-question }
+  - { regex: 'practice question',                        tag: practice-questions }
+  - { regex: 'clinical reasoning',                       tag: clinical-reasoning }
+  - { regex: "clinician'?s? corner",                     tag: clinicians-corner }
+  - { regex: 'clinical correlate',                       tag: clinical-correlates }
+  - { regex: '\bhisto(logy)?\b',                         tag: histology }
+  - { regex: 'summary|overview|high[- ]yield',           tag: overview }
+  - { regex: '\batf\b',                                  tag: atf-series }
+
+# ------------------------------------------------------------
+#  Level inference. First matching regex wins; no match -> fallback.
+# ------------------------------------------------------------
+levels:
+  fallback: Uncategorized
+  rules:
+    - { regex: 'board-?style question|practice question|question breakdown', level: "Board Review" }
+    - { regex: "clinical reasoning|clinician'?s? corner|clinical correlate|management|treatment", level: "Clinical" }
+    - { regex: 'anatomy|embryolog|histolog|biochem|physiolog|genetic', level: "Preclinical" }
+
+# ------------------------------------------------------------
+#  Which files the scanner treats as playable media.
+# ------------------------------------------------------------
+media_extensions: [".mp4", ".mkv", ".m4v", ".mov", ".webm", ".avi", ".m3u8", ".mpd"]
+
+# Directory names skipped entirely during a filesystem scan.
+ignore_dirs: [".git", ".svn", "node_modules", "__pycache__", ".DS_Store", "@eaDir", ".thumbnails"]
