@@ -1,0 +1,84 @@
+# ============================================================
+#  Render deployment.
+#
+#  Infrastructure as code: connect the repo once and Render reads this
+#  instead of you filling in a form. Committed deliberately — it contains
+#  no secrets, only their names.
+#
+#  Every secret is `sync: false`, which tells Render "this value lives in
+#  the dashboard, never in the repository". Set them under
+#  Service -> Environment after the first deploy:
+#
+#      BUNNY_TOKEN_KEY     URL-signing key from the Bunny dashboard
+#      SESSION_SECRET      python -m server.auth secret
+#      APP_PASSWORD_HASH   python -m server.auth hash "your passphrase"
+#      ALLOWED_REFERRERS   your-service.onrender.com
+#
+#  The first deploy will fail its health check until those exist. That is
+#  the app refusing to run half-configured rather than a broken deploy.
+# ============================================================
+
+services:
+  - type: web
+    name: medlib
+    runtime: python
+    plan: starter          # always on; `free` sleeps after 15 minutes idle
+    region: ohio           # closest Render region to Chicago
+    branch: main
+
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn server.main:app --host 0.0.0.0 --port $PORT
+
+    # Cheap and unauthenticated by design, so Render can poll it.
+    healthCheckPath: /api/health
+
+    envVars:
+      # Render's images track a recent Python; pinning avoids a surprise
+      # major-version bump breaking a deploy you did not touch.
+      - key: PYTHON_VERSION
+        value: "3.12.7"
+
+      # The gate goes back on. A public URL with no passphrase is the whole
+      # library open to anyone who finds it, and the loopback guard that
+      # protects the local setup cannot help once traffic is remote.
+      - key: AUTH_DISABLED
+        value: "false"
+
+      # Render terminates TLS, so the session cookie can require HTTPS.
+      - key: SESSION_COOKIE_SECURE
+        value: "true"
+
+      - key: BUNNY_CDN_HOSTNAME
+        value: vz-26e92cee-791.b-cdn.net
+      - key: BUNNY_LIBRARY_ID
+        value: "724698"
+
+      - key: TOKEN_TTL_SECONDS
+        value: "21600"
+      - key: TOKEN_MAX_TTL_SECONDS
+        value: "43200"
+      - key: TOKEN_DIRECTORY_SCOPE
+        value: "true"
+      # Off: a phone moving between wifi and cellular changes IP mid-lecture,
+      # and a token bound to the old one stops playing.
+      - key: TOKEN_BIND_IP
+        value: "false"
+
+      - key: REQUIRE_REFERRER
+        value: "true"
+
+      - key: CATALOG_PATH
+        value: data/catalog.json
+      - key: BUCKETS_CONFIG
+        value: config/buckets.yaml
+
+      # --- set these in the dashboard, not here ---
+      - key: BUNNY_TOKEN_KEY
+        sync: false
+      - key: SESSION_SECRET
+        sync: false
+      - key: APP_PASSWORD_HASH
+        sync: false
+      # Only known once Render assigns the hostname.
+      - key: ALLOWED_REFERRERS
+        sync: false
