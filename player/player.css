@@ -1099,3 +1099,43 @@ video { width: 100%; height: 100%; display: block; background: #000; }
 }
 
 .side-group.has-selection > summary { color: var(--accent); }
+
+/* ---------- touch ---------- */
+
+/* Hover-revealed controls are invisible and unreachable on a phone. The +
+   is the only way to add to a playlist, so on touch it is always shown
+   rather than waiting for a hover that can never happen. */
+@media (hover: none) {
+  .card-add {
+    opacity: 1;
+    background: color-mix(in srgb, var(--bg) 78%, transparent);
+  }
+
+  /* Rails have no arrows on touch — you swipe — so the shelf head does not
+     need to reserve room for them. */
+  .rail-arrow { display: none; }
+}
+
+/* The header carries a title, a count and the view switch. On a narrow
+   screen that is too much for one line, so let it wrap as a block instead
+   of squeezing "All subjects" into two words per line. */
+@media (max-width: 560px) {
+  .content-head {
+    flex-wrap: wrap;
+    row-gap: 6px;
+  }
+
+  .content-head h1 {
+    flex: 1 1 auto;
+    font-size: 19px;
+  }
+
+  .view-switch {
+    flex: 0 0 auto;
+    order: 3;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .view-tab { flex: 1; }
+}
