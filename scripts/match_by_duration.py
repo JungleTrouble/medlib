@@ -118,7 +118,8 @@ def main() -> int:
             groups.setdefault(norm(d["filename"]), []).append(d)
 
     resolved: dict[str, str] = {}       # bunny id -> folder
-    stats = {"groups": 0, "paired": 0, "declined_margin": 0, "declined_tolerance": 0, "no_candidates": 0}
+    stats = {"groups": 0, "paired": 0, "declined_margin": 0, "declined_tolerance": 0,
+             "no_candidates": 0, "tie_same_collection": 0}
 
     for key, copies in groups.items():
         candidates = unplaced.get(key)
@@ -127,11 +128,19 @@ def main() -> int:
             continue
         stats["groups"] += 1
 
+        # When every copy of a title sits inside one collection, the copies are
+        # the same lesson filed twice by the same publisher — Sketchy keeps one
+        # under Microbiology and another under Old but Gold. Identical runtimes
+        # make them undecidable, but also interchangeable: either folder is
+        # correct, so a tie can be settled arbitrarily. Across publishers it
+        # stays undecidable and stays unplaced.
+        one_collection = len({c["folder"].split("/")[0] for c in copies}) == 1
+
         taken: set[str] = set()
         # Longest first: the biggest runtime gaps are the least ambiguous, so
         # settling them early stops a confident pair losing its video to a
         # marginal one.
-        for d in sorted(copies, key=lambda c: -c["seconds"]):
+        for d in sorted(copies, key=lambda c: (-c["seconds"], c["folder"])):
             ranked = sorted(
                 (c for c in candidates if c["id"] not in taken),
                 key=lambda c: abs(c["seconds"] - d["seconds"]),
@@ -145,11 +154,15 @@ def main() -> int:
             if delta > TOLERANCE:
                 stats["declined_tolerance"] += 1
                 continue
-            if len(ranked) > 1:
+            if len(ranked) > 1 and not one_collection:
                 runner_up = abs(ranked[1]["seconds"] - d["seconds"])
                 if runner_up - delta < MARGIN:
                     stats["declined_margin"] += 1
                     continue
+            if one_collection and len(ranked) > 1:
+                runner_up = abs(ranked[1]["seconds"] - d["seconds"])
+                if runner_up - delta < MARGIN:
+                    stats["tie_same_collection"] += 1
 
             resolved[best["id"]] = d["folder"]
             taken.add(best["id"])
@@ -158,7 +171,8 @@ def main() -> int:
     print(f"Title groups considered     : {stats['groups']:,}")
     print(f"  paired by runtime         : {stats['paired']:,}")
     print(f"  declined, too far apart   : {stats['declined_tolerance']:,}")
-    print(f"  declined, too close to call: {stats['declined_margin']:,}")
+    print(f"  declined, too close to call: {stats['declined_margin']:,}  (different publishers)")
+    print(f"  tie settled within one collection: {stats['tie_same_collection']:,}")
     print(f"  no unplaced Bunny copy    : {stats['no_candidates']:,}")
 
     if not WRITE:
