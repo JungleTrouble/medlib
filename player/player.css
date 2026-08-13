@@ -1139,3 +1139,99 @@ video { width: 100%; height: 100%; display: block; background: #000; }
 
   .view-tab { flex: 1; }
 }
+
+/* ---------- playback speed ---------- */
+
+.speed {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 10px 0 0;
+}
+
+.speed button {
+  padding: 3px 9px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--fg-dim);
+  font: inherit;
+  font-size: 11.5px;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+}
+
+.speed button:hover { color: var(--fg); border-color: currentColor; }
+.speed button.on { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 650; }
+
+/* ---------- related lessons ---------- */
+
+.related {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.related-head {
+  width: 100%;
+  margin: 0 0 2px;
+  color: var(--fg-dim);
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.related-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 4px 10px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--bg-3);
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.related-item:hover { background: var(--bg-2); }
+
+.related-src {
+  padding: 1px 7px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 650;
+}
+
+.related-dur {
+  color: var(--fg-dim);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- shortcut hint ---------- */
+
+.shortcuts {
+  margin: 12px 0 0;
+  color: var(--fg-dim);
+  font-size: 11px;
+  line-height: 1.9;
+}
+
+.shortcuts kbd {
+  padding: 1px 5px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--bg-3);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 10px;
+}
+
+/* Touch has no keyboard, so the hint is noise there. */
+@media (hover: none) { .shortcuts { display: none; } }

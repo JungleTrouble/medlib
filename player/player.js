@@ -50,6 +50,7 @@ const el = {
   playlistList: $("playlistList"), assetList: $("assetList"), viewVideos: $("viewVideos"), viewAssets: $("viewAssets"),
   docBackdrop: $("docBackdrop"), docFrame: $("docFrame"), docTitle: $("docTitle"),
   docDownload: $("docDownload"), docClose: $("docClose"),
+  relatedBox: $("relatedBox"), speedBox: $("speedBox"),
   resultsTitle: $("resultsTitle"), resultsCount: $("resultsCount"),
   activeFilters: $("activeFilters"), grid: $("grid"), sentinel: $("sentinel"),
   shelves: $("shelves"),
@@ -229,6 +230,7 @@ async function loadPage(reset = false) {
 }
 
 function renderSummary() {
+  syncUrl();
   const f = state.filters;
   const bucket = state.buckets.find((b) => b.id === f.bucket);
   el.resultsTitle.textContent =
@@ -1478,6 +1480,197 @@ function formatClock(seconds) {
 }
 
 /* ---------------------------------------------------------------
+   URL state
+
+   Every filter lives in the query string, so a view can be bookmarked,
+   sent to yourself, or reached with the back button. Without this the app
+   has exactly one address and the browser's own navigation does nothing,
+   which is the kind of gap you stop noticing and never stop being annoyed
+   by.
+
+   replaceState on the first paint, pushState afterwards: the initial
+   render should not add a history entry you have to press back through.
+   --------------------------------------------------------------- */
+
+let urlPrimed = false;
+
+function filtersToQuery() {
+  const f = state.filters;
+  const p = new URLSearchParams();
+  if (f.bucket) p.set("subject", f.bucket);
+  if (f.level) p.set("level", f.level);
+  if (f.folder) p.set("folder", f.folder);
+  if (f.collection) p.set("source", f.collection);
+  if (f.section) p.set("section", f.section);
+  if (f.playlist) p.set("playlist", f.playlist);
+  for (const tag of f.tags || []) p.append("tag", tag);
+  if (f.search) p.set("q", f.search);
+  if (state.view === "assets") p.set("view", "materials");
+  return p.toString();
+}
+
+function syncUrl() {
+  const qs = filtersToQuery();
+  const url = qs ? `${location.pathname}?${qs}` : location.pathname;
+  // Prime on the very first call even when the URL is unchanged. Returning
+  // early without priming meant the first real filter change still used
+  // replaceState, so it created no history entry and back did nothing.
+  if (url === location.pathname + location.search) {
+    urlPrimed = true;
+    return;
+  }
+  if (urlPrimed) history.pushState(null, "", url);
+  else history.replaceState(null, "", url);
+  urlPrimed = true;
+}
+
+/** Read filters back out of the address bar. */
+function filtersFromUrl() {
+  const p = new URLSearchParams(location.search);
+  return {
+    filters: {
+      bucket: p.get("subject"),
+      level: p.get("level"),
+      folder: p.get("folder"),
+      collection: p.get("source"),
+      section: p.get("section"),
+      playlist: p.get("playlist"),
+      tags: p.getAll("tag"),
+      search: p.get("q") || "",
+    },
+    view: p.get("view") === "materials" ? "assets" : "videos",
+  };
+}
+
+function applyUrlState({ replace = false } = {}) {
+  const { filters, view } = filtersFromUrl();
+  state.filters = { ...EMPTY_STATE_FILTERS(), ...filters, tags: filters.tags || [] };
+  el.searchInput.value = state.filters.search;
+  urlPrimed = !replace;
+
+  if (state.filters.playlist && loadPlaylists()[state.filters.playlist]) {
+    openPlaylist(state.filters.playlist);
+    return;
+  }
+  syncFilterUI();
+  setView(view === "assets" ? "assets" : "videos");
+}
+
+window.addEventListener("popstate", () => applyUrlState({ replace: true }));
+
+/* ---------------------------------------------------------------
+   Related lessons
+
+   The same topic taught by a different publisher. 399 titles appear in more
+   than one collection, which was an obstacle when placing videos and is the
+   useful thing when watching one: if an explanation does not land, the next
+   move is hearing it explained by someone else.
+   --------------------------------------------------------------- */
+
+async function renderRelated(item) {
+  el.relatedBox.innerHTML = "";
+  el.relatedBox.hidden = true;
+  try {
+    const data = await api(`/api/related/${encodeURIComponent(item.id)}`);
+    if (!data.related.length) return;
+
+    const head = document.createElement("p");
+    head.className = "related-head";
+    head.textContent = data.related.length === 1
+      ? "Also explained by"
+      : `Also explained by ${data.related.length} others`;
+    el.relatedBox.appendChild(head);
+
+    for (const r of data.related) {
+      const btn = document.createElement("button");
+      btn.className = "related-item";
+      btn.type = "button";
+      const colour = collectionColors.get(r.collection) || "var(--fg-dim)";
+      btn.innerHTML =
+        `<span class="related-src" style="border-color:${colour};color:${colour}">` +
+        `${escapeHtml(r.collection)}</span>` +
+        `<span class="related-dur">${escapeHtml(r.duration || "")}</span>`;
+      btn.addEventListener("click", () => play(r));
+      el.relatedBox.appendChild(btn);
+    }
+    el.relatedBox.hidden = false;
+  } catch {
+    /* related is a bonus; its absence is not worth an error */
+  }
+}
+
+/* ---------------------------------------------------------------
+   Playback speed and keyboard control
+
+   Lectures get watched at 1.5x and above, so speed is a primary control
+   rather than a setting buried in a menu. The chosen rate is remembered and
+   applied to the next video, because nobody wants to set it every time.
+   --------------------------------------------------------------- */
+
+const SPEEDS = [0.75, 1, 1.25, 1.5, 1.75, 2, 2.5];
+const SPEED_KEY = "medlib:speed";
+
+function preferredSpeed() {
+  const v = parseFloat(localStorage.getItem(SPEED_KEY) || "1");
+  return SPEEDS.includes(v) ? v : 1;
+}
+
+function setSpeed(rate) {
+  el.video.playbackRate = rate;
+  try { localStorage.setItem(SPEED_KEY, String(rate)); } catch { /* private mode */ }
+  for (const b of el.speedBox.querySelectorAll("button")) {
+    b.classList.toggle("on", Number(b.dataset.speed) === rate);
+  }
+}
+
+function buildSpeedControls() {
+  el.speedBox.innerHTML = "";
+  for (const rate of SPEEDS) {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.dataset.speed = String(rate);
+    b.textContent = `${rate}x`;
+    b.addEventListener("click", () => setSpeed(rate));
+    el.speedBox.appendChild(b);
+  }
+}
+
+function nudgeSpeed(direction) {
+  const i = SPEEDS.indexOf(el.video.playbackRate);
+  const next = SPEEDS[Math.min(SPEEDS.length - 1, Math.max(0, (i < 0 ? 1 : i) + direction))];
+  setSpeed(next);
+  setMsg(`${next}x`, { transient: true });
+}
+
+/* Shortcuts apply only while the player is open, and never while typing in
+   a field — otherwise space would pause a video mid-search. */
+document.addEventListener("keydown", (e) => {
+  if (el.backdrop.hidden) return;
+  const typing = /^(input|textarea|select)$/i.test(e.target.tagName) || e.target.isContentEditable;
+  if (typing || e.metaKey || e.ctrlKey || e.altKey) return;
+
+  const v = el.video;
+  switch (e.key) {
+    case " ": case "k":
+      e.preventDefault(); v.paused ? v.play().catch(() => {}) : v.pause(); break;
+    case "ArrowRight": e.preventDefault(); v.currentTime += e.shiftKey ? 30 : 10; break;
+    case "ArrowLeft":  e.preventDefault(); v.currentTime -= e.shiftKey ? 30 : 10; break;
+    case "j": v.currentTime -= 10; break;
+    case "l": v.currentTime += 10; break;
+    case "ArrowUp":   e.preventDefault(); v.volume = Math.min(1, v.volume + 0.1); break;
+    case "ArrowDown": e.preventDefault(); v.volume = Math.max(0, v.volume - 0.1); break;
+    case "m": v.muted = !v.muted; setMsg(v.muted ? "Muted" : "Unmuted", { transient: true }); break;
+    case "f":
+      if (document.fullscreenElement) document.exitFullscreen();
+      else v.requestFullscreen?.().catch(() => {});
+      break;
+    case ">": case ".": nudgeSpeed(1); break;
+    case "<": case ",": nudgeSpeed(-1); break;
+    default: break;
+  }
+});
+
+/* ---------------------------------------------------------------
    Playback
    --------------------------------------------------------------- */
 
@@ -1507,6 +1700,7 @@ async function play(item) {
       else el.video.addEventListener("loadedmetadata", seek, { once: true });
     }
 
+    setSpeed(preferredSpeed());
     el.video.play().catch(() => { /* autoplay blocked; the controls still work */ });
   } catch (err) {
     if (err.message !== "unauthenticated") setMsg(`Could not start playback: ${err.message}`);
@@ -1653,6 +1847,7 @@ function teardownHls() {
 }
 
 function openPlayer(item) {
+  renderRelated(item);
   const bucket = state.buckets.find((b) => b.id === item.bucket);
   el.playerTitle.textContent = item.title;
   el.playerBucket.textContent = bucket ? bucket.label : item.bucket;
@@ -1878,6 +2073,8 @@ function escapeHtml(s) {
 /* --------------------------------------------------------------- */
 
 async function bootstrap() {
+  buildSpeedControls();
+  if (location.search) { applyUrlState({ replace: true }); return; }
   await loadPage(true);
 }
 

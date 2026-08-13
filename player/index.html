@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#0d1016">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>MedLib — Player</title>
-<link rel="stylesheet" href="player.css?v=20">
+<link rel="stylesheet" href="player.css?v=22">
 </head>
 <body>
 
@@ -142,10 +142,23 @@
     <div class="player-meta">
       <h2 id="playerTitle"></h2>
       <p class="player-sub"><span id="playerBucket"></span><span id="playerExpiry"></span></p>
+
+      <!-- Speed is a primary control here, not a buried setting: lectures
+           get watched well above 1x. -->
+      <div class="speed" id="speedBox" role="group" aria-label="Playback speed"></div>
+
+      <!-- The same lesson from another publisher. -->
+      <div class="related" id="relatedBox" hidden></div>
+
+      <p class="shortcuts">
+        <kbd>space</kbd> play · <kbd>←</kbd><kbd>→</kbd> 10s
+        (<kbd>shift</kbd> 30s) · <kbd>,</kbd><kbd>.</kbd> speed ·
+        <kbd>m</kbd> mute · <kbd>f</kbd> fullscreen
+      </p>
     </div>
   </div>
 </div>
 
-<script src="player.js?v=20"></script>
+<script src="player.js?v=22"></script>
 </body>
 </html>

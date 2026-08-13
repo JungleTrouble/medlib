@@ -20,6 +20,7 @@ from __future__ import annotations
 
 import json
 import logging
+import re
 import time
 from collections import defaultdict
 from contextlib import asynccontextmanager
@@ -270,6 +271,82 @@ def _public_item(item: dict) -> dict:
 # --------------------------------------------------------------------------
 #  Token minting
 # --------------------------------------------------------------------------
+
+
+_TITLE_NOISE = re.compile(r"[^a-z0-9]+")
+
+# Upload and ordering noise that differs between publishers for the same
+# lesson: Sketchy ships "2.3 - Clostridium botulinum", Bootcamp ships
+# "Clostridium botulinum atf". Stripping both reveals that they are the
+# same topic.
+_TITLE_INDEX = re.compile(r"^\s*\d+(?:[.\-]\d+)*\s*[-.)]?\s*")
+_TITLE_MARKERS = re.compile(r"\b(atf|converted|new|copy|final|hd)\b")
+_TITLE_COPY = re.compile(r"\(\s*\d+\s*\)\s*$")
+
+# Titles too generic to relate. "Introduction" from four publishers is four
+# unrelated lessons, and offering them as alternatives is worse than silence.
+_TITLE_GENERIC = {
+    "introduction", "intro", "overview", "summary", "review", "commentary",
+    "part", "conclusion", "basics", "questions", "practice questions",
+}
+
+
+def _norm_title(title: str) -> str:
+    """Loose title key: lowercase, punctuation flattened, extension dropped."""
+    title = re.sub(r"\.(mp4|m4v|mkv|mov|webm|avi|wmv|flv|ts|mpg|mpeg)$", "", title or "", flags=re.I)
+    title = _TITLE_COPY.sub("", title)
+    title = _TITLE_INDEX.sub("", title)
+    key = _TITLE_NOISE.sub(" ", title.lower()).strip()
+    key = _TITLE_MARKERS.sub(" ", key)
+    key = re.sub(r"\s+", " ", key).strip()
+    return "" if key in _TITLE_GENERIC or len(key) < 6 else key
+
+
+@app.get("/api/related/{key}")
+def get_related(key: str, _: dict = Depends(require_session)):
+    """
+    Other publishers' takes on the same lesson.
+
+    399 titles appear in more than one collection — Sketchy, Bootcamp,
+    Pixorize and Osmosis each have a "Clostridium botulinum atf". That
+    overlap was a problem for placement; for a viewer it is the useful
+    thing, because the best move when an explanation does not land is the
+    same topic explained by someone else.
+
+    Copies from the *same* collection are excluded: those are one publisher
+    filing a lesson twice, which is a duplicate rather than an alternative.
+    """
+    try:
+        catalog.refresh_if_stale()
+    except CatalogError as exc:
+        raise HTTPException(status.HTTP_503_SERVICE_UNAVAILABLE, str(exc))
+
+    item = catalog.get(key)
+    if not item:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, "not in catalog")
+
+    wanted = _norm_title(item["title"])
+    here = item.get("collection", "")
+    if not wanted:
+        return {"id": item["id"], "title": item["title"], "related": []}
+
+    related = [
+        {
+            "id": r["id"],
+            "title": r["title"],
+            "collection": r.get("collection", ""),
+            "folder": r.get("folder", ""),
+            "duration": r.get("duration", ""),
+            "bucket": r.get("bucket", ""),
+        }
+        for r in catalog.query(limit=None)[0]
+        if r["id"] != item["id"]
+        and _norm_title(r["title"]) == wanted
+        and r.get("collection", "") != here
+    ]
+    related.sort(key=lambda r: r["collection"])
+
+    return {"id": item["id"], "title": item["title"], "related": related}
 
 
 @app.get("/api/token/{path:path}")
