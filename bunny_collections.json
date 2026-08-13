@@ -1,0 +1,5552 @@
+[
+  {
+    "id": "73555fe0-2465-4acd-bae7-7d21c8e34d8d",
+    "name": "The EKG GUY - Ultimate EKG Breakdown Course / 9.Part - IX Miscellaneous",
+    "video_count": 5
+  },
+  {
+    "id": "d5ff0df3-5a15-4325-a4f6-e16cf3e650bc",
+    "name": "The EKG GUY - Ultimate EKG Breakdown Course / 8.Part - VIII Inherited Arrhythmia Disorders",
+    "video_count": 4
+  },
+  {
+    "id": "1fcead88-8994-47f5-a209-a9c804edd76b",
+    "name": "The EKG GUY - Ultimate EKG Breakdown Course / 7.Part - VII Artifacts",
+    "video_count": 12
+  },
+  {
+    "id": "455ed0f7-c4df-43f9-ab3e-40584c4314a9",
+    "name": "The EKG GUY - Ultimate EKG Breakdown Course / 6.Part - VI Drugs & Electrolytes",
+    "video_count": 6
+  },
+  {
+    "id": "3615aca2-7ecd-42ee-899f-c88ca1974099",
+    "name": "The EKG GUY - Ultimate EKG Breakdown Course / 5.Part - V Myocardial Ischemia & Infarction",
+    "video_count": 26
+  },
+  {
+    "id": "d251e519-14a5-4910-b4c8-3e43aa60f27b",
+    "name": "The EKG GUY - Ultimate EKG Breakdown Course / 4.Part - IV Conduction Defects",
+    "video_count": 11
+  },
+  {
+    "id": "8092661b-1a88-4a9d-a547-aca8c0cadfc8",
+    "name": "The EKG GUY - Ultimate EKG Breakdown Course / 3.Part III - Chamber Enlargement",
+    "video_count": 6
+  },
+  {
+    "id": "eeae416d-7fc1-47b3-97b0-0507e43b9810",
+    "name": "The EKG GUY - Ultimate EKG Breakdown Course / 2.Part II - Rhythms",
+    "video_count": 34
+  },
+  {
+    "id": "90796bf3-4dfd-49b2-afd0-ea8350d62705",
+    "name": "The EKG GUY - Ultimate EKG Breakdown Course / 10.Part - X Congenital Heart Disease",
+    "video_count": 24
+  },
+  {
+    "id": "bc1c7fb1-6087-4867-85c5-c2a4aea32fe1",
+    "name": "The EKG GUY - Ultimate EKG Breakdown Course / 1.Part I - The Basics",
+    "video_count": 31
+  },
+  {
+    "id": "e01ce3c0-d979-49bd-aa8e-0b17b47c2dba",
+    "name": "Sketchy / Toxicology / Common Toxic Exposures / Toxic Ingestions",
+    "video_count": 2
+  },
+  {
+    "id": "61fdf871-20c5-493b-9b0f-aa47db232e65",
+    "name": "Sketchy / Toxicology / Common Toxic Exposures / Inhalation & Contact Toxins",
+    "video_count": 2
+  },
+  {
+    "id": "c9e774e5-1f68-48c3-a32e-88f2d36444a2",
+    "name": "Sketchy / Surgery / Vascular Disorders / Peripheral",
+    "video_count": 4
+  },
+  {
+    "id": "01a3d05d-5af5-4c74-9d79-b9ca4ff8f491",
+    "name": "Sketchy / Surgery / Vascular Disorders / Mesenteric",
+    "video_count": 3
+  },
+  {
+    "id": "94df6565-76b2-4a99-a81c-2eb59b4ed102",
+    "name": "Sketchy / Surgery / Vascular Disorders / Aorta",
+    "video_count": 4
+  },
+  {
+    "id": "c11c9208-3076-4a54-a24c-bf2e0c372203",
+    "name": "Sketchy / Surgery / Trauma, Burns, Critical Care / Thoracic Trauma",
+    "video_count": 8
+  },
+  {
+    "id": "5b645476-a8c3-4ebd-9d5a-4114da7e410f",
+    "name": "Sketchy / Surgery / Trauma, Burns, Critical Care / Retired Lessons",
+    "video_count": 1
+  },
+  {
+    "id": "fd4833c0-5b5d-414f-b3d9-cf490a2ba77a",
+    "name": "Sketchy / Surgery / Trauma, Burns, Critical Care / Initial Assessment of a Trauma Patient",
+    "video_count": 2
+  },
+  {
+    "id": "828351c3-d34f-4a3a-a8af-e99b4f5a657a",
+    "name": "Sketchy / Surgery / Trauma, Burns, Critical Care / Head & Neck Trauma",
+    "video_count": 6
+  },
+  {
+    "id": "aad1fd31-67d3-47ee-9f5d-61b7d6d7a23e",
+    "name": "Sketchy / Surgery / Trauma, Burns, Critical Care / Abdominal Trauma",
+    "video_count": 9
+  },
+  {
+    "id": "5d98c500-85de-47c5-a9d8-9c8b84320527",
+    "name": "Sketchy / Surgery / Preoperative & Postoperative Surgical Considerations / Preoperative",
+    "video_count": 1
+  },
+  {
+    "id": "f28fb2aa-ba78-4378-80bf-a8678e6d0119",
+    "name": "Sketchy / Surgery / Preoperative & Postoperative Surgical Considerations / Postoperative",
+    "video_count": 1
+  },
+  {
+    "id": "20c0e882-1191-4610-9ac2-5cbc144d32c2",
+    "name": "Sketchy / Surgery / Lower GI Disorders / Small Bowel",
+    "video_count": 2
+  },
+  {
+    "id": "18b9e2ad-dc89-4db9-b1f2-9e94e13fb06f",
+    "name": "Sketchy / Surgery / Lower GI Disorders / Retired Lessons",
+    "video_count": 3
+  },
+  {
+    "id": "54489f50-88c0-44d8-93f5-06d2ebce1b7d",
+    "name": "Sketchy / Surgery / Lower GI Disorders / Benign Colon Disorders",
+    "video_count": 4
+  },
+  {
+    "id": "6861b3a6-5885-495e-9cb1-0225f21f23c3",
+    "name": "Sketchy / Surgery / Lower GI Disorders / Anorectal",
+    "video_count": 6
+  },
+  {
+    "id": "4208d67b-3e81-419f-9dee-1132b5de229d",
+    "name": "Sketchy / Surgery / Hepatobiliary Disorders / Pancreas",
+    "video_count": 1
+  },
+  {
+    "id": "57dff50a-fe29-4416-ab88-f02dc4b70aab",
+    "name": "Sketchy / Surgery / Hepatobiliary Disorders / Liver",
+    "video_count": 3
+  },
+  {
+    "id": "2e4d5983-bd38-4661-a8cf-ddd9834dac7b",
+    "name": "Sketchy / Surgery / Hepatobiliary Disorders / Gallbladder & Bile Ducts",
+    "video_count": 5
+  },
+  {
+    "id": "79a72a9f-9543-4b9d-b7ae-771d43ac2269",
+    "name": "Sketchy / Physiology / Respiratory Physiology / Pulmonary Circulation",
+    "video_count": 2
+  },
+  {
+    "id": "9b3cfbde-c1f2-40f8-b92b-f5cc9eebcb38",
+    "name": "Sketchy / Physiology / Respiratory Physiology / Oxygen Transport",
+    "video_count": 4
+  },
+  {
+    "id": "93341e66-4eee-4c31-b34a-b0434febdd31",
+    "name": "Sketchy / Physiology / Respiratory Physiology / Mechanics of Breathing",
+    "video_count": 5
+  },
+  {
+    "id": "47a0415a-4dc7-48ae-af4f-e6d60802adb5",
+    "name": "Sketchy / Physiology / Respiratory Physiology / Lung Volumes & Capacities",
+    "video_count": 2
+  },
+  {
+    "id": "450c5b61-fa51-45cb-a90d-16f1f1d3d111",
+    "name": "Sketchy / Physiology / Respiratory Physiology / Integrative Functions of the Respiratory System",
+    "video_count": 2
+  },
+  {
+    "id": "5449476e-6449-440b-8830-872b3446a4f9",
+    "name": "Sketchy / Physiology / Respiratory Physiology / Control of Breathing",
+    "video_count": 1
+  },
+  {
+    "id": "1c18e5d4-a962-4faf-86b3-b938cb2c9c1a",
+    "name": "Sketchy / Physiology / Respiratory Physiology / Carbon Dioxide Transport",
+    "video_count": 1
+  },
+  {
+    "id": "31fb22f9-9176-4fe6-8c05-a56bc6cec5c7",
+    "name": "Sketchy / Physiology / Reproductive Physiology / Male Reproduction",
+    "video_count": 1
+  },
+  {
+    "id": "874e2873-5955-4a0c-bbb5-aa15907236d8",
+    "name": "Sketchy / Physiology / Reproductive Physiology / Female Reproduction",
+    "video_count": 2
+  },
+  {
+    "id": "f431a65b-b9e9-457e-9a26-ef352a5d2cb3",
+    "name": "Sketchy / Physiology / Renal Physiology / Water Balance Concentration & Dilution of Urine",
+    "video_count": 5
+  },
+  {
+    "id": "74144a5b-1c3d-44d0-a7ac-04a3b27b59a7",
+    "name": "Sketchy / Physiology / Renal Physiology / Body Fluids",
+    "video_count": 1
+  },
+  {
+    "id": "ab6e2001-d086-4c17-b751-722d5768190b",
+    "name": "Sketchy / Physiology / Renal Physiology / Acid-Base Disorders",
+    "video_count": 4
+  },
+  {
+    "id": "9c10f289-09b3-45db-a61f-e5d0e3a04b37",
+    "name": "Sketchy / Physiology / Renal Physiology / Acid-Base Disorders",
+    "video_count": 1
+  },
+  {
+    "id": "63cf2b54-3b95-4ca6-89bf-d10171166648",
+    "name": "Sketchy / Physiology / Neurophysiology / Sensory Systems",
+    "video_count": 4
+  },
+  {
+    "id": "8c5a394e-108c-42af-aa29-52249e79fe3c",
+    "name": "Sketchy / Physiology / Neurophysiology / Organization of Nervous System",
+    "video_count": 2
+  },
+  {
+    "id": "b2f92a0f-3020-44b5-96e0-18334f0d1bd4",
+    "name": "Sketchy / Physiology / Neurophysiology / Blood-Brain Barrier & Cerebrospinal Fluid",
+    "video_count": 1
+  },
+  {
+    "id": "bad47d33-1fa8-49a7-9e4c-3da12949f4b4",
+    "name": "Sketchy / Physiology / Hematology / Blood Components & Function",
+    "video_count": 1
+  },
+  {
+    "id": "92292208-02ee-4874-99a0-1d6dde9f28cd",
+    "name": "Sketchy / Physiology / Gastrointestinal Physiology / Structure of the GI Tract",
+    "video_count": 1
+  },
+  {
+    "id": "6d93a11d-0c67-490c-9c1c-0d6edf08d973",
+    "name": "Sketchy / Physiology / Gastrointestinal Physiology / Regulation of the GI Tract",
+    "video_count": 2
+  },
+  {
+    "id": "1b523b99-201d-4bde-99eb-61a7ee5aa681",
+    "name": "Sketchy / Physiology / Gastrointestinal Physiology / Gastrointestinal Secretions",
+    "video_count": 2
+  },
+  {
+    "id": "ede5a9db-f8a5-4be9-a3c7-7ffeaf9e63e3",
+    "name": "Sketchy / Physiology / Endocrine Physiology / Thyroid Hormones",
+    "video_count": 2
+  },
+  {
+    "id": "51660470-5338-4143-899f-6397d21d9a80",
+    "name": "Sketchy / Physiology / Endocrine Physiology / Hypothalamic-Pituitary Axis",
+    "video_count": 3
+  },
+  {
+    "id": "97ef1caf-b9a4-45e3-8447-7f12cd66193a",
+    "name": "Sketchy / Physiology / Endocrine Physiology / Endocrine Pancreas",
+    "video_count": 1
+  },
+  {
+    "id": "ea037471-c0b0-4d76-b149-2a277bbb2fc0",
+    "name": "Sketchy / Physiology / Endocrine Physiology / Calcium & Phosphate Metabolism",
+    "video_count": 1
+  },
+  {
+    "id": "b55975ed-aca0-4ff2-aec3-6dc5d6d7793c",
+    "name": "Sketchy / Physiology / Endocrine Physiology / Calcium & Phosphate Metabolism",
+    "video_count": 1
+  },
+  {
+    "id": "f5aef118-d2da-44bb-88f1-3a6e21c500de",
+    "name": "Sketchy / Physiology / Cell Physiology / Skeletal Muscle",
+    "video_count": 3
+  },
+  {
+    "id": "8791b743-92d2-4915-9ee9-84faf231918d",
+    "name": "Sketchy / Physiology / Cell Physiology / Neuromuscular & Synaptic Transmission",
+    "video_count": 1
+  },
+  {
+    "id": "53de0b19-1809-4812-a217-a3ac4428953a",
+    "name": "Sketchy / Physiology / Cell Physiology / Diffusion Potential, Resting Membrane Potential, Action Potentials",
+    "video_count": 2
+  },
+  {
+    "id": "5d679c75-48b2-474b-84f2-affc07ee6f44",
+    "name": "Sketchy / Physiology / Cell Physiology / Bone",
+    "video_count": 2
+  },
+  {
+    "id": "2aa5728a-d76b-4160-9316-7d3656c542e3",
+    "name": "Sketchy / Physiology / Cardiovascular Physiology / Regulation of Arterial Pressure",
+    "video_count": 2
+  },
+  {
+    "id": "abe62c22-c9d8-4ff6-8bbb-e38026776dd3",
+    "name": "Sketchy / Physiology / Cardiovascular Physiology / Integrative Functions of the Cardiovascular System",
+    "video_count": 1
+  },
+  {
+    "id": "36bd8527-9ede-4c1a-8c1b-4312ea881af6",
+    "name": "Sketchy / Physiology / Cardiovascular Physiology / Integrative Functions of the Cardiovascular System",
+    "video_count": 1
+  },
+  {
+    "id": "6a95d20b-b166-4f00-8ad7-2c3acbc365a1",
+    "name": "Sketchy / Physiology / Cardiovascular Physiology / Hemodynamics",
+    "video_count": 3
+  },
+  {
+    "id": "3e93eba1-94a7-4342-a099-da793d458be8",
+    "name": "Sketchy / Physiology / Cardiovascular Physiology / Cardiac Muscle & Cardiac Output",
+    "video_count": 4
+  },
+  {
+    "id": "431f31d3-d0cf-4494-a1fd-e392a6688cfb",
+    "name": "Sketchy / Physiology / Cardiovascular Physiology / Cardiac Electrophysiology",
+    "video_count": 3
+  },
+  {
+    "id": "359d0651-b4b2-405a-a4bb-f208af3860e4",
+    "name": "Sketchy / Physiology / Cardiovascular Physiology / Cardiac Cycle",
+    "video_count": 1
+  },
+  {
+    "id": "88913fc1-82fe-47dd-9d1d-4c34e6a577c5",
+    "name": "Sketchy / Physiology / Autonomic Nervous System / Organization & Features of ANS",
+    "video_count": 4
+  },
+  {
+    "id": "3a3f8466-ba0a-403a-92b1-2da5b43d9ab8",
+    "name": "Sketchy / Physiology / Autonomic Nervous System / Autonomic Receptors",
+    "video_count": 2
+  },
+  {
+    "id": "7d9e3f2b-6ffc-4284-8c31-9f383e13a4bf",
+    "name": "Sketchy / Pharmacology / Smooth Muscle / Vasoactive",
+    "video_count": 3
+  },
+  {
+    "id": "98387407-c102-4ccf-8255-2c5c687c219e",
+    "name": "Sketchy / Pharmacology / Smooth Muscle / Allergy & Pulmonary",
+    "video_count": 2
+  },
+  {
+    "id": "a5ffc6bb-c331-4fc6-adc9-61bf0bf194fa",
+    "name": "Sketchy / Pharmacology / Pharmacology Foundations / Pharmacokinetic Basics",
+    "video_count": 2
+  },
+  {
+    "id": "a2d26beb-f9f0-4ede-9be3-bab432bf98fa",
+    "name": "Sketchy / Pharmacology / Pharmacology Foundations / Pharmacodynamic Basics",
+    "video_count": 1
+  },
+  {
+    "id": "651d3de2-3cc9-4cc2-b71c-0df1a7a52624",
+    "name": "Sketchy / Pharmacology / Pharmacology Foundations / Metabolism",
+    "video_count": 2
+  },
+  {
+    "id": "e62f9d65-1574-4878-8742-02f077872db1",
+    "name": "Sketchy / Pharmacology / Pharmacology Foundations / Elimination",
+    "video_count": 2
+  },
+  {
+    "id": "d3bf5cb8-1d1b-4c50-8ccd-24fb410591a4",
+    "name": "Sketchy / Pharmacology / Pharmacology Foundations / Drug-Drug Interactions",
+    "video_count": 1
+  },
+  {
+    "id": "6caa24bb-0237-4afc-bcb8-54ee6f2b3874",
+    "name": "Sketchy / Pharmacology / Pharmacology Foundations / Distribution",
+    "video_count": 2
+  },
+  {
+    "id": "e3b429ac-6a79-42be-95a6-e8e18a07dcb7",
+    "name": "Sketchy / Pharmacology / Pharmacology Foundations / Absorption",
+    "video_count": 2
+  },
+  {
+    "id": "15ca8af2-0701-42ea-a269-326cc0838b35",
+    "name": "Sketchy / Pharmacology / Neuro & Psych / Smoking Cessation Aids",
+    "video_count": 1
+  },
+  {
+    "id": "e25c63be-7416-4683-8d3f-ee8afcc5291b",
+    "name": "Sketchy / Pharmacology / Neuro & Psych / Sedative-Hypnotics",
+    "video_count": 3
+  },
+  {
+    "id": "a2e0d326-10e9-4284-b1b2-c1344bca5f3e",
+    "name": "Sketchy / Pharmacology / Neuro & Psych / Retired Lessons",
+    "video_count": 1
+  },
+  {
+    "id": "58b14fe6-e5ed-43ff-b201-92b6e51b83eb",
+    "name": "Sketchy / Pharmacology / Neuro & Psych / Psychostimulants Narcolepsy & ADHD",
+    "video_count": 2
+  },
+  {
+    "id": "a1e81ce6-dc2e-4ede-820d-fead7610e8e2",
+    "name": "Sketchy / Pharmacology / Neuro & Psych / Muscle Relaxants",
+    "video_count": 1
+  },
+  {
+    "id": "0a7c91a3-4f3c-440d-b79a-0116bc15af94",
+    "name": "Sketchy / Pharmacology / Neuro & Psych / Mood Stabilizers & Antiepileptic Drugs",
+    "video_count": 5
+  },
+  {
+    "id": "9f2d2007-d4aa-475b-a658-4f72981e1e94",
+    "name": "Sketchy / Pharmacology / Neuro & Psych / Antipsychotics & Parkinson's",
+    "video_count": 3
+  },
+  {
+    "id": "1cdefb5d-bed2-442d-b93e-259a2626a526",
+    "name": "Sketchy / Pharmacology / Neuro & Psych / Antidepressants & Anxiolytics",
+    "video_count": 5
+  },
+  {
+    "id": "07752223-a63e-4410-bfa7-c0244f5b04f5",
+    "name": "Sketchy / Pharmacology / Neuro & Psych / Anesthetics & Analgesics",
+    "video_count": 3
+  },
+  {
+    "id": "b6738db2-62de-4e38-b70a-a1759276ffaf",
+    "name": "Sketchy / Pharmacology / Neuro & Psych / Alzheimer's Medications",
+    "video_count": 1
+  },
+  {
+    "id": "767319ec-a332-413c-baf3-772d3092a013",
+    "name": "Sketchy / Pharmacology / GI & Endocrine / Thyroid, Parathyroid, Adrenal",
+    "video_count": 4
+  },
+  {
+    "id": "9562861c-18fb-477a-939f-77a4788b1fe9",
+    "name": "Sketchy / Pharmacology / GI & Endocrine / Sex Hormones",
+    "video_count": 3
+  },
+  {
+    "id": "1f4c0cd5-1965-4c63-917f-65d935e3cc8c",
+    "name": "Sketchy / Pharmacology / GI & Endocrine / Retired Lessons",
+    "video_count": 2
+  },
+  {
+    "id": "79ba024f-6362-457a-86c7-74629ba213e5",
+    "name": "Sketchy / Pharmacology / GI & Endocrine / Hypothalamic & Pituitary",
+    "video_count": 2
+  },
+  {
+    "id": "cd5b8270-596b-4811-abbc-9d2ac81a7b6f",
+    "name": "Sketchy / Pharmacology / GI & Endocrine / GI",
+    "video_count": 4
+  },
+  {
+    "id": "630f0e3c-e258-4f26-935c-247ccf4ee85f",
+    "name": "Sketchy / Pharmacology / GI & Endocrine / Diabetes",
+    "video_count": 2
+  },
+  {
+    "id": "0a155ac1-b471-4e60-a7ef-ee276a4a9ac4",
+    "name": "Sketchy / Pharmacology / Cardiovascular & Renal / Heart Failure Drugs",
+    "video_count": 3
+  },
+  {
+    "id": "c837a8c5-6f73-47b5-b4fa-b9d971391050",
+    "name": "Sketchy / Pharmacology / Cardiovascular & Renal / Diuretics",
+    "video_count": 4
+  },
+  {
+    "id": "c1dabbd2-9df5-413d-8a62-1e4914cad89e",
+    "name": "Sketchy / Pharmacology / Cardiovascular & Renal / Antihypertensives",
+    "video_count": 2
+  },
+  {
+    "id": "afc5bf5b-2125-4304-8392-f3b26be9970e",
+    "name": "Sketchy / Pharmacology / Cardiovascular & Renal / Antiarrhythmics",
+    "video_count": 5
+  },
+  {
+    "id": "30931506-3dde-4992-8c5c-1dfcf3d7e9a3",
+    "name": "Sketchy / Pharmacology / Blood & Inflammation / Dyslipidemia Drugs",
+    "video_count": 4
+  },
+  {
+    "id": "4360aa65-0aa2-4677-ac55-bf883a40df04",
+    "name": "Sketchy / Pharmacology / Blood & Inflammation / Anticoagulants & Thrombolytics",
+    "video_count": 4
+  },
+  {
+    "id": "df8d3fb0-e44c-4550-8af1-27285f032c74",
+    "name": "Sketchy / Pharmacology / Blood & Inflammation / Anti-Inflammatory",
+    "video_count": 4
+  },
+  {
+    "id": "a69e1934-5169-4dcd-b309-fcdcd6f1d440",
+    "name": "Sketchy / Pharmacology / Autonomic Drugs / Sympathetic",
+    "video_count": 4
+  },
+  {
+    "id": "25365118-568c-4976-9c58-558895e1a50c",
+    "name": "Sketchy / Pharmacology / Autonomic Drugs / Retired Lessons",
+    "video_count": 1
+  },
+  {
+    "id": "7dda8829-3068-4762-bd54-746e8fd0f51d",
+    "name": "Sketchy / Pharmacology / Autonomic Drugs / Parasympathetic",
+    "video_count": 3
+  },
+  {
+    "id": "46cbe88b-bd98-413c-bb72-c85ef56d8253",
+    "name": "Sketchy / Pharmacology / Antineoplastics / Kinase Inhibitors & Monoclonal Antibodies",
+    "video_count": 2
+  },
+  {
+    "id": "292c0996-9d79-45a7-9966-8386a131d9e1",
+    "name": "Sketchy / Pharmacology / Antineoplastics / Immunology",
+    "video_count": 1
+  },
+  {
+    "id": "09420744-64f3-4eae-bd8d-ce04b2395a3f",
+    "name": "Sketchy / Pharmacology / Antineoplastics / DNA & Cellular Division",
+    "video_count": 5
+  },
+  {
+    "id": "61fb243a-ced8-4cdf-b094-a5e51646f382",
+    "name": "Sketchy / Pharmacology / Antineoplastics / Antimetabolites",
+    "video_count": 3
+  },
+  {
+    "id": "297168b8-9f39-4210-86bf-1d3d4adfdca0",
+    "name": "Sketchy / Pharmacology / Antimicrobials / Retired Lessons",
+    "video_count": 2
+  },
+  {
+    "id": "573c52fd-8529-43b9-b8d8-96918cedceba",
+    "name": "Sketchy / Pharmacology / Antimicrobials / Other Antivirals",
+    "video_count": 3
+  },
+  {
+    "id": "0f23bf5c-3d0c-41fd-80ac-5a2acaf54378",
+    "name": "Sketchy / Pharmacology / Antimicrobials / Other Antibiotics",
+    "video_count": 3
+  },
+  {
+    "id": "fc1c1eec-046e-45af-a624-6217aec01a9e",
+    "name": "Sketchy / Pharmacology / Antimicrobials / Inhibitors of Bacterial Protein Synthesis",
+    "video_count": 6
+  },
+  {
+    "id": "8d349356-9b17-4343-a27c-98b32faf10d7",
+    "name": "Sketchy / Pharmacology / Antimicrobials / HIV Antivirals",
+    "video_count": 4
+  },
+  {
+    "id": "331afb17-93f6-42cf-8431-45f76ce0a698",
+    "name": "Sketchy / Pharmacology / Antimicrobials / Cell Wall & Membrane-Active Antibiotics",
+    "video_count": 7
+  },
+  {
+    "id": "a89a2cd2-a2b2-4244-bc45-b9ea12f3c248",
+    "name": "Sketchy / Pharmacology / Antimicrobials / Antimycobacterials",
+    "video_count": 2
+  },
+  {
+    "id": "d2f7c9a8-4666-4dc4-9e99-1278f59c5100",
+    "name": "Sketchy / Pharmacology / Antimicrobials / Antifungals",
+    "video_count": 3
+  },
+  {
+    "id": "b86ea8b8-3d28-4de6-b53d-a51c23dad02b",
+    "name": "Sketchy / Pediatrics / Urology / Bladder & Ureteral Diseases",
+    "video_count": 2
+  },
+  {
+    "id": "e69fab79-7432-48a0-84bc-09cf8152bd04",
+    "name": "Sketchy / Pediatrics / Rheumatology / Vasculitides",
+    "video_count": 3
+  },
+  {
+    "id": "25d176f0-f701-4d7a-ac40-27c01ce0b982",
+    "name": "Sketchy / Pediatrics / Rheumatology / Joint Diseases",
+    "video_count": 1
+  },
+  {
+    "id": "df03bb07-c84d-4981-bb9e-c81f6495c8be",
+    "name": "Sketchy / Pediatrics / Pulmonology / Congenital Pulmonary Diseases",
+    "video_count": 2
+  },
+  {
+    "id": "e1d59eb6-8b65-46a3-90f7-52353435122f",
+    "name": "Sketchy / Pediatrics / Pulmonology / Acquired Pulmonary Diseases",
+    "video_count": 2
+  },
+  {
+    "id": "4a3b5afc-2f06-4bf1-b3d6-caa35830360a",
+    "name": "Sketchy / Pediatrics / Otolaryngology / Common Pediatric ENT Disorders",
+    "video_count": 1
+  },
+  {
+    "id": "52e10834-aa81-4c7e-ad1e-151676465ede",
+    "name": "Sketchy / Pediatrics / Orthopedics / Intro to Pediatric Orthopedics",
+    "video_count": 1
+  },
+  {
+    "id": "07ffcfe2-429f-4865-8db7-88afaf7c76c2",
+    "name": "Sketchy / Pediatrics / Orthopedics / Common Pediatric Musculoskeletal Disorders",
+    "video_count": 5
+  },
+  {
+    "id": "3a223e9b-b3f8-4951-ad01-5ab78c0a754d",
+    "name": "Sketchy / Pediatrics / Oncology / Solid Tumors",
+    "video_count": 4
+  },
+  {
+    "id": "7abb33ae-b1b8-4316-8203-4b8fcd6938e0",
+    "name": "Sketchy / Pediatrics / Nephrology / Acquired Kidney Diseases",
+    "video_count": 1
+  },
+  {
+    "id": "8b2bd56e-cbb6-4e49-b88f-eecad574bf1b",
+    "name": "Sketchy / Pediatrics / Infectious Diseases / Soft Tissue Infections",
+    "video_count": 1
+  },
+  {
+    "id": "0785d777-5377-4ee4-b457-dc32151b9735",
+    "name": "Sketchy / Pediatrics / Infectious Diseases / Retired Lessons",
+    "video_count": 2
+  },
+  {
+    "id": "496ddbfd-e955-42d3-ae3e-917f506adacc",
+    "name": "Sketchy / Pediatrics / Infectious Diseases / Respiratory Infections",
+    "video_count": 1
+  },
+  {
+    "id": "f3dff231-13c2-4d97-a2ba-3a35ded03187",
+    "name": "Sketchy / Pediatrics / Infectious Diseases / Respiratory Infections",
+    "video_count": 1
+  },
+  {
+    "id": "1bfb1392-71b6-4b3b-86c9-37613f405d55",
+    "name": "Sketchy / Pediatrics / Infectious Diseases / Pediatric Vaccines",
+    "video_count": 2
+  },
+  {
+    "id": "1c534dc5-8686-4b61-9b13-33c7c9987234",
+    "name": "Sketchy / Pediatrics / Infectious Diseases / Neurologic Infections",
+    "video_count": 3
+  },
+  {
+    "id": "524d5a47-9a5c-41c7-94c0-6a0e3de2dd46",
+    "name": "Sketchy / Pediatrics / Infectious Diseases / Head & Neck Infections",
+    "video_count": 6
+  },
+  {
+    "id": "09b08c5b-4224-4a59-add6-71d4a64b12ed",
+    "name": "Sketchy / Pediatrics / Hepatobiliary / Congenital Hepatobiliary Disease",
+    "video_count": 1
+  },
+  {
+    "id": "b1313650-e52e-48d9-8cd4-1f3e17a99e17",
+    "name": "Sketchy / Pediatrics / Genetics, Metabolism, Dysmorphology / Dysmorphology",
+    "video_count": 4
+  },
+  {
+    "id": "f52a2704-3c39-4bb6-bee9-90bb8b83b667",
+    "name": "Sketchy / Pediatrics / Gastroenterology / Retired Lessons",
+    "video_count": 1
+  },
+  {
+    "id": "7ebb547f-9900-48b7-bb50-2bc9a2720ab2",
+    "name": "Sketchy / Pediatrics / Gastroenterology / Intro to Pediatric Gastroenterology",
+    "video_count": 2
+  },
+  {
+    "id": "e26fffc4-a552-4da8-8bcd-6169171478b6",
+    "name": "Sketchy / Pediatrics / Gastroenterology / Congenital GI Diseases",
+    "video_count": 5
+  },
+  {
+    "id": "79ba9fa3-0a1a-4f1c-b9af-9477012f3948",
+    "name": "Sketchy / Pediatrics / Gastroenterology / Acquired GI Diseases",
+    "video_count": 4
+  },
+  {
+    "id": "0199c6bc-7a2f-4026-bb80-1dced23bb9be",
+    "name": "Sketchy / Pediatrics / Dermatology / Infectious Rashes",
+    "video_count": 6
+  },
+  {
+    "id": "f9de9433-0a76-42ea-a212-373c854ae349",
+    "name": "Sketchy / Pediatrics / Dermatology / Infectious Rashes",
+    "video_count": 1
+  },
+  {
+    "id": "4b2ab4a6-6606-469a-9099-ee65b09dfbb3",
+    "name": "Sketchy / Pathophysiology / Vascular / Vasculitides",
+    "video_count": 2
+  },
+  {
+    "id": "17e2d3c3-f3be-4933-98f7-867df5c8ce0b",
+    "name": "Sketchy / Pathophysiology / Vascular / Hypertension",
+    "video_count": 3
+  },
+  {
+    "id": "20028aec-4f3c-42d1-be72-d95ba7712509",
+    "name": "Sketchy / Pathophysiology / Vascular / Atherosclerosis",
+    "video_count": 2
+  },
+  {
+    "id": "7e83c6f5-ef00-4307-bb70-079e08fb91d2",
+    "name": "Sketchy / Pathophysiology / Reproductive & GU / Uterine & Vulvovaginal Disorders",
+    "video_count": 3
+  },
+  {
+    "id": "29bc688b-04a7-43bb-b5d9-cd2a6b227cf2",
+    "name": "Sketchy / Pathophysiology / Reproductive & GU / Reproductive Hormones & Ovarian Disorders",
+    "video_count": 4
+  },
+  {
+    "id": "da9b6a65-1b73-4ebb-bad3-47ee67450de9",
+    "name": "Sketchy / Pathophysiology / Reproductive & GU / Male GU",
+    "video_count": 3
+  },
+  {
+    "id": "959836cb-adc1-48ea-9076-73f9ff63c5eb",
+    "name": "Sketchy / Pathophysiology / Reproductive & GU / Gestational Disorders",
+    "video_count": 3
+  },
+  {
+    "id": "f6012390-03cd-4fc7-b72e-19adc34935f8",
+    "name": "Sketchy / Pathophysiology / Reproductive & GU / Breast",
+    "video_count": 2
+  },
+  {
+    "id": "812ad875-2d2f-4df0-b7c1-168968130f5c",
+    "name": "Sketchy / Pathophysiology / Renal / Volume, Electrolyte, Acid-Base Disorders",
+    "video_count": 5
+  },
+  {
+    "id": "62e9b5b2-8b28-451e-88ed-1bb275197ef6",
+    "name": "Sketchy / Pathophysiology / Renal / Urinary Tract Obstruction",
+    "video_count": 3
+  },
+  {
+    "id": "d8dd3fd8-88fa-4ffd-afe2-1519c29b2386",
+    "name": "Sketchy / Pathophysiology / Renal / Renal Cancer",
+    "video_count": 1
+  },
+  {
+    "id": "74253da4-60f0-43cd-9737-52c012242e0d",
+    "name": "Sketchy / Pathophysiology / Renal / Glomerulopathy",
+    "video_count": 2
+  },
+  {
+    "id": "16e12635-43ca-4d40-be9f-675367b190fc",
+    "name": "Sketchy / Pathophysiology / Renal / Congenital & Chronic Kidney Disease",
+    "video_count": 1
+  },
+  {
+    "id": "59b0f966-406e-4ea6-94ce-40d9292d6b9f",
+    "name": "Sketchy / Pathophysiology / Renal / Acute Kidney Injury",
+    "video_count": 3
+  },
+  {
+    "id": "aa2c6c04-5288-40c2-ac42-23fb64799eec",
+    "name": "Sketchy / Pathophysiology / Pulmonary / Restrictive Lung Disease",
+    "video_count": 4
+  },
+  {
+    "id": "abd4d53a-d8cd-4742-b0d8-594fe4b09272",
+    "name": "Sketchy / Pathophysiology / Pulmonary / Obstructive Lung Disease",
+    "video_count": 2
+  },
+  {
+    "id": "0f1400f3-7b0c-40c5-aafb-16aa40462245",
+    "name": "Sketchy / Pathophysiology / Pulmonary / Lung Cancer",
+    "video_count": 1
+  },
+  {
+    "id": "e1774578-2bec-4a48-b82d-cf31c07c1f14",
+    "name": "Sketchy / Pathophysiology / Pulmonary / Acute Lung Disorders",
+    "video_count": 3
+  },
+  {
+    "id": "b546b892-7d59-44a3-93b8-104980935869",
+    "name": "Sketchy / Pathophysiology / Neuro / Spinal Cord & Peripheral Nerve",
+    "video_count": 3
+  },
+  {
+    "id": "badc3f74-fbeb-4992-83f0-adb01f1699ac",
+    "name": "Sketchy / Pathophysiology / Neuro / Neurodegenerative",
+    "video_count": 2
+  },
+  {
+    "id": "3859ca2e-dae1-43a9-8b23-3e13cdcda0c2",
+    "name": "Sketchy / Pathophysiology / Neuro / Intracranial Hypertension & Tumors",
+    "video_count": 4
+  },
+  {
+    "id": "5c845933-4d71-4cb8-b88e-b0302bb89f55",
+    "name": "Sketchy / Pathophysiology / Neuro / Congenital & Neurocutaneous",
+    "video_count": 3
+  },
+  {
+    "id": "6d9f5adc-2a4a-4f95-bafd-788eac66466f",
+    "name": "Sketchy / Pathophysiology / Neuro / Cerebrovascular",
+    "video_count": 2
+  },
+  {
+    "id": "66229248-3db4-4392-8acc-f8eb28722acf",
+    "name": "Sketchy / Pathophysiology / Myeloid & Lymphoid / Myeloid Disorders",
+    "video_count": 3
+  },
+  {
+    "id": "91565174-3023-4640-bf6a-9d54647d321c",
+    "name": "Sketchy / Pathophysiology / Myeloid & Lymphoid / Lymphoid & Plasma Cell Disorders",
+    "video_count": 4
+  },
+  {
+    "id": "46705706-68e6-4e66-8fb9-918a09c48da9",
+    "name": "Sketchy / Pathophysiology / Musculoskeletal & Derm / Retired Lessons",
+    "video_count": 1
+  },
+  {
+    "id": "9cf9d6af-15e7-407d-bc4f-1f1cfde88d06",
+    "name": "Sketchy / Pathophysiology / Musculoskeletal & Derm / Muscle",
+    "video_count": 2
+  },
+  {
+    "id": "6e8db529-31d5-4784-8ed5-fca797fbd224",
+    "name": "Sketchy / Pathophysiology / Musculoskeletal & Derm / Joint",
+    "video_count": 3
+  },
+  {
+    "id": "60b1ab5b-e0f8-4a62-bd48-8c157c2aaca4",
+    "name": "Sketchy / Pathophysiology / Musculoskeletal & Derm / Dermatology",
+    "video_count": 2
+  },
+  {
+    "id": "79c65ab6-8306-46c2-96ab-3cf386599a98",
+    "name": "Sketchy / Pathophysiology / Musculoskeletal & Derm / Bone",
+    "video_count": 5
+  },
+  {
+    "id": "0137d59f-8abf-4af8-9810-f9d143a471d1",
+    "name": "Sketchy / Pathophysiology / Immunology / Immunodeficiency",
+    "video_count": 4
+  },
+  {
+    "id": "7cde673f-9f0a-4c71-9b88-e5ed36aee55e",
+    "name": "Sketchy / Pathophysiology / Immunology / Autoimmune Disease & Amyloidosis",
+    "video_count": 4
+  },
+  {
+    "id": "1fb83738-6f32-446f-9d80-08dc40082f0e",
+    "name": "Sketchy / Pathophysiology / Hepatobiliary / Pancreatic Disease",
+    "video_count": 2
+  },
+  {
+    "id": "cc2e674a-7249-4d06-a0c9-66b371faf173",
+    "name": "Sketchy / Pathophysiology / Hepatobiliary / Liver Disease",
+    "video_count": 4
+  },
+  {
+    "id": "7beefcc8-cbc1-4521-99df-9f518f145d52",
+    "name": "Sketchy / Pathophysiology / Hepatobiliary / Gallbladder & Biliary Tract Disease",
+    "video_count": 3
+  },
+  {
+    "id": "5a274d59-8af1-4369-9780-2e29e1d78901",
+    "name": "Sketchy / Pathophysiology / Hepatobiliary / Gallbladder & Biliary Tract Disease",
+    "video_count": 1
+  },
+  {
+    "id": "b3828e08-4045-40e9-b528-5761c5d2441a",
+    "name": "Sketchy / Pathophysiology / GI / Small Bowel Disorders",
+    "video_count": 4
+  },
+  {
+    "id": "ac90869a-1269-4fdc-992b-13ace5c471c4",
+    "name": "Sketchy / Pathophysiology / GI / Esophageal & Gastric Disorders",
+    "video_count": 4
+  },
+  {
+    "id": "2c94096c-04d3-4a94-bc9d-39372f2d92c4",
+    "name": "Sketchy / Pathophysiology / GI / Colorectal & Anal Disorders",
+    "video_count": 4
+  },
+  {
+    "id": "14488c47-f096-4beb-8470-54434c52f31d",
+    "name": "Sketchy / Pathophysiology / Endocrine / Thyroid & Parathyroid",
+    "video_count": 6
+  },
+  {
+    "id": "6177a90c-057b-47b5-9e8a-699a2a79f02c",
+    "name": "Sketchy / Pathophysiology / Endocrine / Hypothalamic & Pituitary Disorders",
+    "video_count": 4
+  },
+  {
+    "id": "df25ac5f-d35f-4d89-812b-76b252ad4a70",
+    "name": "Sketchy / Pathophysiology / Endocrine / Diabetes",
+    "video_count": 3
+  },
+  {
+    "id": "36ab1e6f-5d8b-4a6b-8a82-2cdaddf344aa",
+    "name": "Sketchy / Pathophysiology / Endocrine / Adrenal Disorders",
+    "video_count": 5
+  },
+  {
+    "id": "b6091843-245d-4699-91f0-857bfab92703",
+    "name": "Sketchy / Pathophysiology / Cardiac / Valvular Disorders",
+    "video_count": 3
+  },
+  {
+    "id": "9858a02c-a57b-4cc6-bebe-abb6c269ce9a",
+    "name": "Sketchy / Pathophysiology / Cardiac / Myocardial & Pericardial Disorders",
+    "video_count": 4
+  },
+  {
+    "id": "5708d75a-176b-481c-be9f-aa7032d5f428",
+    "name": "Sketchy / Pathophysiology / Cardiac / Ischemic Heart Disease",
+    "video_count": 3
+  },
+  {
+    "id": "b8d42fb3-c0cc-45d4-ab43-137887e927f7",
+    "name": "Sketchy / Pathophysiology / Cardiac / Heart Failure",
+    "video_count": 2
+  },
+  {
+    "id": "5dada984-37ea-4b9e-b81d-bb2f50ac6791",
+    "name": "Sketchy / Pathophysiology / Cardiac / Congenital Heart Disease",
+    "video_count": 2
+  },
+  {
+    "id": "0a01bc6b-c68c-4d74-9e3f-543d776bf751",
+    "name": "Sketchy / Pathophysiology / Blood & Coagulation / Normocytic & Macrocytic Anemias",
+    "video_count": 5
+  },
+  {
+    "id": "d3332cd5-d662-4c8a-a5ca-c46a8700eb15",
+    "name": "Sketchy / Pathophysiology / Blood & Coagulation / Microcytic Anemias",
+    "video_count": 2
+  },
+  {
+    "id": "6961c61a-3529-4f95-88f1-ac715b4ccc18",
+    "name": "Sketchy / Pathophysiology / Blood & Coagulation / Coagulopathies & Platelet Disorders",
+    "video_count": 5
+  },
+  {
+    "id": "2c06a467-9a98-4cfd-81f6-eeaafea44f60",
+    "name": "Sketchy / Old but Gold Sketchys / Pharm / Smooth Muscle / 2- Allergy & Pulmonary",
+    "video_count": 2
+  },
+  {
+    "id": "6afa92a3-bb3f-4439-8d59-c599da4aa683",
+    "name": "Sketchy / Old but Gold Sketchys / Pharm / Smooth Muscle / 1- Vasoactive",
+    "video_count": 3
+  },
+  {
+    "id": "fca65e64-3f5c-4319-b25c-0737918991f3",
+    "name": "Sketchy / Old but Gold Sketchys / Pharm / Neuro-Psych / 5- Antipsychotics and Parkinson's",
+    "video_count": 3
+  },
+  {
+    "id": "ca497d83-bda4-4b62-ac50-9a59523f4c2f",
+    "name": "Sketchy / Old but Gold Sketchys / Pharm / Neuro-Psych / 4- Mood Stabilizers & Antiepileptic Drugs",
+    "video_count": 4
+  },
+  {
+    "id": "3f2ead3e-24f1-420a-b19a-52e665b0a4e6",
+    "name": "Sketchy / Old but Gold Sketchys / Pharm / Neuro-Psych / 3- Antidepressants and Anxiolytics",
+    "video_count": 4
+  },
+  {
+    "id": "6d7097bb-a8ed-462f-bbfe-cc0621c2ab13",
+    "name": "Sketchy / Old but Gold Sketchys / Pharm / Neuro-Psych / 2- Anesthetics and Analegesic",
+    "video_count": 3
+  },
+  {
+    "id": "1ff71b8f-0f87-4910-b2cf-6b96f02e8352",
+    "name": "Sketchy / Old but Gold Sketchys / Pharm / Neuro-Psych / 1- Sedative Hypnotics",
+    "video_count": 3
+  },
+  {
+    "id": "2bc62f4e-e72b-48a0-9f7a-5095ff47756f",
+    "name": "Sketchy / Old but Gold Sketchys / Pharm / GI and Endocrine / 4 - Hypothalamic & Pituitary",
+    "video_count": 2
+  },
+  {
+    "id": "9bd8af43-50da-4cc2-ab4a-3b75d60c5d42",
+    "name": "Sketchy / Old but Gold Sketchys / Pharm / GI and Endocrine / 3 - Thyroid, Parathyroid & Adrenal",
+    "video_count": 4
+  },
+  {
+    "id": "b951aaee-e658-497d-ac2a-f1e3d9f3bf23",
+    "name": "Sketchy / Old but Gold Sketchys / Pharm / GI and Endocrine / 2- Diabetes",
+    "video_count": 2
+  },
+  {
+    "id": "806794da-13a2-4469-b8b3-7574786b330f",
+    "name": "Sketchy / Old but Gold Sketchys / Pharm / GI and Endocrine / 1- GI",
+    "video_count": 4
+  },
+  {
+    "id": "6943d64b-6d86-47f1-b0fa-d75882bb7380",
+    "name": "Sketchy / Old but Gold Sketchys / Pharm / Cardiovascular and Renal / 4- Antiarrhythmics",
+    "video_count": 5
+  },
+  {
+    "id": "b09f5590-f271-40b7-9905-9d560419988f",
+    "name": "Sketchy / Old but Gold Sketchys / Pharm / Cardiovascular and Renal / 3- Antihypertensives",
+    "video_count": 2
+  },
+  {
+    "id": "6fc70fce-6538-426a-8030-600bd4d9f1c1",
+    "name": "Sketchy / Old but Gold Sketchys / Pharm / Cardiovascular and Renal / 2- Diuretics",
+    "video_count": 4
+  },
+  {
+    "id": "79833432-dd13-445b-8d51-ed38fa6f0a96",
+    "name": "Sketchy / Old but Gold Sketchys / Pharm / Cardiovascular and Renal / 1- Heart Failure Drugs",
+    "video_count": 2
+  },
+  {
+    "id": "62b6354c-09e9-442c-8a80-4930e615a7d3",
+    "name": "Sketchy / Old but Gold Sketchys / Pharm / Blood and Inflammation / 3- Anti-Inflammatory",
+    "video_count": 2
+  },
+  {
+    "id": "ccfae363-d376-4d0c-a59f-eaee64e31ba1",
+    "name": "Sketchy / Old but Gold Sketchys / Pharm / Blood and Inflammation / 2- Dyslipidemia Drugs",
+    "video_count": 3
+  },
+  {
+    "id": "4c62e0e8-e503-446f-bfb6-5c6028d5934a",
+    "name": "Sketchy / Old but Gold Sketchys / Pharm / Blood and Inflammation / 1- Anticoagulants & Thrombolytics",
+    "video_count": 4
+  },
+  {
+    "id": "2aa1e8ef-66f5-474a-bbca-3d10c531b2d2",
+    "name": "Sketchy / Old but Gold Sketchys / Pharm / Autonomic Drugs / 2- Sympathetic",
+    "video_count": 4
+  },
+  {
+    "id": "67bf8c51-a14b-48a6-b0a2-b7992751bc9c",
+    "name": "Sketchy / Old but Gold Sketchys / Pharm / Autonomic Drugs / 1- Parasympathetic",
+    "video_count": 3
+  },
+  {
+    "id": "ab7df3e6-fc6d-443e-86c1-633b83ecd516",
+    "name": "Sketchy / Old but Gold Sketchys / Pharm / Antineoplastics / 3- Kinase Inhibitors & Monoclonal Antibodies",
+    "video_count": 2
+  },
+  {
+    "id": "6aacb6c7-9c08-4742-962e-14b29f214365",
+    "name": "Sketchy / Old but Gold Sketchys / Pharm / Antineoplastics / 2- DNA and Cellular Division",
+    "video_count": 5
+  },
+  {
+    "id": "ed0cbe7e-e29f-4302-b3a0-dd7eac5907b8",
+    "name": "Sketchy / Old but Gold Sketchys / Pharm / Antineoplastics / 1- Antimetabolites",
+    "video_count": 3
+  },
+  {
+    "id": "6abb6770-9431-40c8-a007-ebd4d1f3fb08",
+    "name": "Sketchy / Old but Gold Sketchys / Pharm / Antimicrobials / 8- Antivirals other",
+    "video_count": 1
+  },
+  {
+    "id": "5166c7df-2c8c-4caf-94bc-1a5d94f9e3b4",
+    "name": "Sketchy / Old but Gold Sketchys / Pharm / Antimicrobials / 7- Antivirals Hepatitis",
+    "video_count": 2
+  },
+  {
+    "id": "2d04cc0e-b5ad-4d3f-84f8-02c844b09b35",
+    "name": "Sketchy / Old but Gold Sketchys / Pharm / Antimicrobials / 6- Antivirals HIV",
+    "video_count": 4
+  },
+  {
+    "id": "45ad3b35-ae2b-4213-b3aa-35a97fb0f36f",
+    "name": "Sketchy / Old but Gold Sketchys / Pharm / Antimicrobials / 5- Antifungals",
+    "video_count": 3
+  },
+  {
+    "id": "777a9ac9-474d-4a36-8440-5d3221b2fa0b",
+    "name": "Sketchy / Old but Gold Sketchys / Pharm / Antimicrobials / 4- Other Antibiotics",
+    "video_count": 3
+  },
+  {
+    "id": "9dcf0fdb-7015-4173-9f49-7436934153a4",
+    "name": "Sketchy / Old but Gold Sketchys / Pharm / Antimicrobials / 3- Antimycobacterials",
+    "video_count": 2
+  },
+  {
+    "id": "5fd2dab8-c78f-482e-b487-03fac12694c4",
+    "name": "Sketchy / Old but Gold Sketchys / Pharm / Antimicrobials / 2- Inhibitors of Bacterial Protein Synthesis",
+    "video_count": 7
+  },
+  {
+    "id": "bc315706-b41a-40af-bc64-b23a8c70f10b",
+    "name": "Sketchy / Old but Gold Sketchys / Pharm / Antimicrobials / 1- Cell Wall and Membrane Active Antibiotics",
+    "video_count": 8
+  },
+  {
+    "id": "258e7b31-22f3-467e-9d33-fbad876414a9",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Vascular / Chapter 3 - Vasculitides",
+    "video_count": 2
+  },
+  {
+    "id": "b6473c56-b445-4a0b-9186-dc65fd951f2a",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Vascular / Chapter 2 - Hypertension",
+    "video_count": 3
+  },
+  {
+    "id": "96c74cb0-cd7b-41fa-b5e7-9215cb4be303",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Vascular / Chapter 1 - Atherosclerosis",
+    "video_count": 2
+  },
+  {
+    "id": "c7634185-86f8-41f9-b18c-12e5ae670605",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Reproductive & GU / Chapter 5 - Male GU",
+    "video_count": 3
+  },
+  {
+    "id": "2106bfe1-48b0-4a24-b59c-43e239bf3686",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Reproductive & GU / Chapter 4 - Breast",
+    "video_count": 2
+  },
+  {
+    "id": "c80127cf-9c86-4b59-8f18-f0207924a10a",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Reproductive & GU / Chapter 3 - Gestational Disorders",
+    "video_count": 3
+  },
+  {
+    "id": "0bb3af5b-4ae4-4bcf-9917-c25720c5c6fc",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Reproductive & GU / Chapter 2 - Reproductive Hormones & Ovarian Disorders",
+    "video_count": 4
+  },
+  {
+    "id": "5dd7d673-bd09-4dbb-8713-ecd04f0a478e",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Reproductive & GU / Chapter 1 - Uterine & Vulvovaginal Disorders",
+    "video_count": 3
+  },
+  {
+    "id": "b7f60914-d932-47ab-a3be-023ed27b4de7",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Renal / Chapter 6 - Volume, Electrolyte & AcidBase Disorders",
+    "video_count": 5
+  },
+  {
+    "id": "e38a7c90-a1bd-4397-bd1c-a3866d7878b5",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Renal / Chapter 5 - Renal Cancer",
+    "video_count": 1
+  },
+  {
+    "id": "56a2cddb-dfa9-4404-a75a-9e7e78bab21e",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Renal / 4 - Urinary Tract Obstruction",
+    "video_count": 3
+  },
+  {
+    "id": "409dbccb-033e-47dd-a644-88d509f7aa77",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Renal / 3 - Congenital & Chronic Kidney Disease",
+    "video_count": 2
+  },
+  {
+    "id": "fb6cf5f1-b373-437e-bd82-c57e3b86b15f",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Renal / 2 - Glomerulopathy",
+    "video_count": 2
+  },
+  {
+    "id": "18d0f870-e535-4bbf-ab7c-d99c32a6db6c",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Renal / 1 - Acute Kidney Injury",
+    "video_count": 3
+  },
+  {
+    "id": "6aeae346-63e3-40ba-99b2-e62fd9a28d1f",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Pulmonary / 4 - Lung Cancer",
+    "video_count": 1
+  },
+  {
+    "id": "4413a1f5-8248-4258-8b51-33e5dfe24c37",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Pulmonary / 3 - Acute Lung Disorders",
+    "video_count": 3
+  },
+  {
+    "id": "bc7f330d-7976-4155-a91b-7af8f31bc9b3",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Pulmonary / 2 - Restrictive Lung Disease",
+    "video_count": 4
+  },
+  {
+    "id": "713aef14-6219-4629-b6eb-9b132e835223",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Pulmonary / 1 - Obstructive Lung Disease",
+    "video_count": 2
+  },
+  {
+    "id": "a6fd38da-ef2b-4f0c-8039-22898c0f70fd",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Neuro / Chapter 5 - Neurodegenerative",
+    "video_count": 2
+  },
+  {
+    "id": "efebe001-94cd-4993-a5f2-96f3d261360f",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Neuro / Chapter 4 - Congenital",
+    "video_count": 3
+  },
+  {
+    "id": "f3773086-eab9-49b1-bf9e-32ae2080dcb1",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Neuro / Chapter 3 - Spinal Cord & Peripheral Nerve",
+    "video_count": 3
+  },
+  {
+    "id": "afcf1cb8-4b04-452d-8ca1-cb3215add486",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Neuro / Chapter 2 - Intracranial Hypertension and Tumors",
+    "video_count": 4
+  },
+  {
+    "id": "0de1b967-05ca-485e-9b2c-f9d02aee87ff",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Neuro / Chapter 1 - Cerebrovascular",
+    "video_count": 2
+  },
+  {
+    "id": "44ceb712-093f-43b8-9afb-f8e7dd0e27f4",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Myeloid & Lymphoid / Chapter 2 - Lymphoid & Plasma Cell Disorders",
+    "video_count": 4
+  },
+  {
+    "id": "146d5447-1414-4b2c-920b-469cd5c32116",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Myeloid & Lymphoid / Chapter 1 - Myeloid Disorders",
+    "video_count": 3
+  },
+  {
+    "id": "d638c35a-2f28-4c93-89d5-8fafa0e43c8c",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Musculoskeletal & Derm / Chapter 4 - Derm",
+    "video_count": 2
+  },
+  {
+    "id": "61cf4028-4a90-466f-8ce0-057dbf0c3d2a",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Musculoskeletal & Derm / Chapter 3 - Muscle",
+    "video_count": 2
+  },
+  {
+    "id": "a75494f5-19ea-4957-8eda-7a587af6142a",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Musculoskeletal & Derm / Chapter 2 - Joint",
+    "video_count": 3
+  },
+  {
+    "id": "def2c1c0-cbbd-4ead-9539-f743ba769c73",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Musculoskeletal & Derm / Chapter 1 - Bone",
+    "video_count": 5
+  },
+  {
+    "id": "99a3712f-f844-4852-bf3d-7609ab437f22",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Immunology / Chapter 2 - Immunodeficiency",
+    "video_count": 4
+  },
+  {
+    "id": "a1c99f79-1e85-449c-9b51-b55f11f4b89b",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Immunology / Chapter 1 - Autoimmune & Amyloidosis",
+    "video_count": 4
+  },
+  {
+    "id": "dc76dd71-263e-4f18-9293-793bdf61e239",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Hepatobiliary / Chapter 3 - Pancreatic Disease",
+    "video_count": 2
+  },
+  {
+    "id": "72f34b53-fd63-4f4a-a53a-08a7d27dda62",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Hepatobiliary / Chapter 2 - Liver Disease",
+    "video_count": 4
+  },
+  {
+    "id": "c9037c51-02e5-4656-8b0a-4e040322f2b6",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Hepatobiliary / Chapter 1 - Gallbladder & Biliary Tract Disease",
+    "video_count": 3
+  },
+  {
+    "id": "be5b9925-30e5-4401-9041-3936d1862421",
+    "name": "Sketchy / Old but Gold Sketchys / Path / GI / Chapter 3 - Colorectal & Anal Disorders",
+    "video_count": 4
+  },
+  {
+    "id": "af2d916c-26fe-41d4-af45-9949c0279428",
+    "name": "Sketchy / Old but Gold Sketchys / Path / GI / Chapter 2 - Small Bowel Disorders",
+    "video_count": 4
+  },
+  {
+    "id": "7d77a30d-ad10-41aa-ac97-9576c1b22bab",
+    "name": "Sketchy / Old but Gold Sketchys / Path / GI / Chapter 1 - Esophageal & Gastric Disorders",
+    "video_count": 4
+  },
+  {
+    "id": "2ead6f2d-6c06-4055-8c82-3c6052595467",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Endocrine / Chapter 4 - Thyroid & Parathyroid",
+    "video_count": 6
+  },
+  {
+    "id": "d6288a7d-8b33-493f-8411-13db4b28dac8",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Endocrine / Chapter 3 - Diabetes",
+    "video_count": 3
+  },
+  {
+    "id": "abefcf98-6dbf-4c50-ac33-0762afe799dd",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Endocrine / Chapter 2 - Adrenal Disorders",
+    "video_count": 5
+  },
+  {
+    "id": "76c5428a-74fe-4144-888f-42347bfad9ae",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Endocrine / Chapter 1 - Hypothalamic & Pituitary Disorders",
+    "video_count": 4
+  },
+  {
+    "id": "650f6b1f-b534-45a9-877a-9d186424adde",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Cardio / 5 - Congenital Heart Disease",
+    "video_count": 2
+  },
+  {
+    "id": "451be8ae-f8ea-418f-ac93-c2144229fb0b",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Cardio / 4 - Valvular Disorders",
+    "video_count": 3
+  },
+  {
+    "id": "ec9a0be0-0e3f-473a-87c1-27bf38bacc00",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Cardio / 3 - Myocardial & Pericardial Disorders",
+    "video_count": 4
+  },
+  {
+    "id": "11773b00-663b-4d8b-a342-b87b639a7876",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Cardio / 2 - Heart Failure",
+    "video_count": 2
+  },
+  {
+    "id": "7dee93e5-7acb-4df8-863c-29cc7780ad5f",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Cardio / 1 - Ischemic Heart Disease",
+    "video_count": 3
+  },
+  {
+    "id": "8e770ef1-7ddd-4c5f-9eb3-3946d409f9a3",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Blood & Coagulation / Chapter 3 - Coagulopathies & Platelet Disorders",
+    "video_count": 5
+  },
+  {
+    "id": "19ce100f-f395-47e0-bd94-9ce1889eb33f",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Blood & Coagulation / Chapter 2 - Normocytic & Macrocytic Anemias",
+    "video_count": 5
+  },
+  {
+    "id": "c1e4fbbc-51ac-4170-8f94-30155f9794f2",
+    "name": "Sketchy / Old but Gold Sketchys / Path / Blood & Coagulation / Chapter 1 - Microcytic Anemias",
+    "video_count": 2
+  },
+  {
+    "id": "fd7dd7fc-e01a-4c4b-88a7-f681af5885e2",
+    "name": "Sketchy / Old but Gold Sketchys / Micro / Viruses / 3 - DNA Viruses",
+    "video_count": 12
+  },
+  {
+    "id": "64a7d0ae-744c-48e7-91d7-c5c3b94fd488",
+    "name": "Sketchy / Old but Gold Sketchys / Micro / Viruses / 2 - RNA Viruses - Negative Sense",
+    "video_count": 8
+  },
+  {
+    "id": "9e09c47c-6b6c-4297-83c9-9c299159b0e5",
+    "name": "Sketchy / Old but Gold Sketchys / Micro / Viruses / 1 - RNA Viruses - Positive Sense",
+    "video_count": 13
+  },
+  {
+    "id": "acb04042-89ab-4dc8-b4f0-a4c5f18714ba",
+    "name": "Sketchy / Old but Gold Sketchys / Micro / Parasites / 6 - Helminths - Trematodes and Cestodes",
+    "video_count": 2
+  },
+  {
+    "id": "bb51912d-eb0f-4fe0-b9bc-bdde9b926d6c",
+    "name": "Sketchy / Old but Gold Sketchys / Micro / Parasites / 5 - Helminths - Nematodes",
+    "video_count": 2
+  },
+  {
+    "id": "9f292ff0-1267-43bd-9f34-a54786e0ece5",
+    "name": "Sketchy / Old but Gold Sketchys / Micro / Parasites / 4 - Protozoa - Other Tissue",
+    "video_count": 1
+  },
+  {
+    "id": "098d63c5-83a1-4659-9759-4e6e61c86ec7",
+    "name": "Sketchy / Old but Gold Sketchys / Micro / Parasites",
+    "video_count": 2
+  },
+  {
+    "id": "f1c1cb97-8818-4ad4-b744-6f7a0fc38831",
+    "name": "Sketchy / Old but Gold Sketchys / Micro / Parasites / 3 - Protozoa of the Blood",
+    "video_count": 4
+  },
+  {
+    "id": "ef3c2768-6b90-4f44-a68f-92eae3606ecb",
+    "name": "Sketchy / Old but Gold Sketchys / Micro / Parasites / 2 - Protozoa of the CNS",
+    "video_count": 3
+  },
+  {
+    "id": "de17c927-6321-40e0-bb8b-cbc53802dd72",
+    "name": "Sketchy / Old but Gold Sketchys / Micro / Parasites / 1 - Protozoa of the Intestinal Tract",
+    "video_count": 3
+  },
+  {
+    "id": "4d2ff16b-ff41-4f58-be1a-fab867df2398",
+    "name": "Sketchy / Old but Gold Sketchys / Micro / Fungi / 3 - Opportunistic Fungal Infections",
+    "video_count": 5
+  },
+  {
+    "id": "c995f311-01bf-4d6a-96fc-5321ef69c050",
+    "name": "Sketchy / Old but Gold Sketchys / Micro / Fungi / 2 - Cutaneous Mycoses",
+    "video_count": 2
+  },
+  {
+    "id": "d71bb5f2-c6ad-44d0-aa51-f7e8a13dfe4f",
+    "name": "Sketchy / Old but Gold Sketchys / Micro / Fungi / 1 - Systemic Mycoses",
+    "video_count": 4
+  },
+  {
+    "id": "3f9fa019-13ab-40e2-898e-ce129b0edbf2",
+    "name": "Sketchy / Old but Gold Sketchys / Micro / Bacteria / 10 - Gram-Indeterminate Bacteria",
+    "video_count": 7
+  },
+  {
+    "id": "6c469c81-2ad3-46d0-b200-72ad31c50103",
+    "name": "Sketchy / Old but Gold Sketchys / Micro / Bacteria / 09 - Spirochetes",
+    "video_count": 3
+  },
+  {
+    "id": "6c24356a-dc08-4d32-98c7-174a4ab9c7ac",
+    "name": "Sketchy / Old but Gold Sketchys / Micro / Bacteria / 08 - Mycobacteria",
+    "video_count": 2
+  },
+  {
+    "id": "7250c761-e995-4ceb-a401-321703bbc6aa",
+    "name": "Sketchy / Old but Gold Sketchys / Micro / Bacteria / 07 - Gram-Negative Bacilli - Zoonotics",
+    "video_count": 5
+  },
+  {
+    "id": "75fe7512-a1e2-4af7-87e9-5c2cfb6ffcf6",
+    "name": "Sketchy / Old but Gold Sketchys / Micro / Bacteria / 06 - Gram-Negative Bacilli - Respiratory tract",
+    "video_count": 3
+  },
+  {
+    "id": "ce218623-ecc2-43ea-a804-9f8d58346aa0",
+    "name": "Sketchy / Old but Gold Sketchys / Micro / Bacteria / 05 - Gram-Negative Bacilli - Enteric tract",
+    "video_count": 10
+  },
+  {
+    "id": "8644122c-8937-4aae-8925-1630a2ee5dc9",
+    "name": "Sketchy / Old but Gold Sketchys / Micro / Bacteria / 04 - Gram-Negative Cocci",
+    "video_count": 4
+  },
+  {
+    "id": "344bdcba-1a24-4cc5-ae82-a529d6729c34",
+    "name": "Sketchy / Old but Gold Sketchys / Micro / Bacteria / 03 - Gram-Positive Branching Filamentous Rods",
+    "video_count": 1
+  },
+  {
+    "id": "281cf973-75b1-4bcc-abac-829e47231595",
+    "name": "Sketchy / Old but Gold Sketchys / Micro / Bacteria / 02 - Gram Positive Bacilli",
+    "video_count": 8
+  },
+  {
+    "id": "1c3a493d-8e0f-43c9-ba8a-31eaa74c7404",
+    "name": "Sketchy / Old but Gold Sketchys / Micro / Bacteria / 01 - Gram Positive Cocci",
+    "video_count": 4
+  },
+  {
+    "id": "163582b3-6288-49b4-aaae-440b9fdfd0ab",
+    "name": "Sketchy / Obstetrics & Gynecology / Reproductive Endocrinology & Infertility / Reproductive Endocrinology",
+    "video_count": 6
+  },
+  {
+    "id": "2ccd1410-4478-45cc-982b-e1eeabd9868d",
+    "name": "Sketchy / Obstetrics & Gynecology / Reproductive Endocrinology & Infertility / Infertility",
+    "video_count": 1
+  },
+  {
+    "id": "84d42d55-8e89-46b9-93dc-08af34a86e5c",
+    "name": "Sketchy / Obstetrics & Gynecology / OB Prenatal Care & Early Pregnancy / Prenatal Care",
+    "video_count": 2
+  },
+  {
+    "id": "ce6d8dac-de49-47ee-b988-3b7d00d8af9c",
+    "name": "Sketchy / Obstetrics & Gynecology / OB Prenatal Care & Early Pregnancy / Intro to OB",
+    "video_count": 4
+  },
+  {
+    "id": "466c36de-abd8-4aea-8a80-ca449245597a",
+    "name": "Sketchy / Obstetrics & Gynecology / OB Prenatal Care & Early Pregnancy / Early Pregnancy Complications",
+    "video_count": 3
+  },
+  {
+    "id": "81b24379-6323-4919-a3d8-829a496a44fc",
+    "name": "Sketchy / Obstetrics & Gynecology / OB Pregnancy Complications / Placental Disorders",
+    "video_count": 1
+  },
+  {
+    "id": "94d320c3-c966-4764-9737-5d803ec96d98",
+    "name": "Sketchy / Obstetrics & Gynecology / OB Pregnancy Complications / Maternal Complications of Pregnancy",
+    "video_count": 3
+  },
+  {
+    "id": "df842914-4cc1-433c-9498-349b1a3822b7",
+    "name": "Sketchy / Obstetrics & Gynecology / OB Pregnancy Complications / Fetal Complications of Pregnancy",
+    "video_count": 5
+  },
+  {
+    "id": "2268f5a6-cc71-4769-8317-068ea46dd75b",
+    "name": "Sketchy / Obstetrics & Gynecology / OB Postpartum / Postpartum Care",
+    "video_count": 3
+  },
+  {
+    "id": "34a9c005-5b6e-49de-aa6c-6c91b8065738",
+    "name": "Sketchy / Obstetrics & Gynecology / OB Labor & Delivery / Preterm Labor & Delivery",
+    "video_count": 2
+  },
+  {
+    "id": "76391aca-0a7f-48c5-bb95-962775702528",
+    "name": "Sketchy / Obstetrics & Gynecology / OB Labor & Delivery / Intro to Labor & Delivery",
+    "video_count": 4
+  },
+  {
+    "id": "e05aa0c9-4597-41c2-aff8-2fef23b84d15",
+    "name": "Sketchy / Obstetrics & Gynecology / Gyn Neoplasia / Uterine Neoplasia",
+    "video_count": 1
+  },
+  {
+    "id": "fdaab65d-94a7-481c-b99a-86964ef241d6",
+    "name": "Sketchy / Obstetrics & Gynecology / Gyn Neoplasia / Ovarian Cysts & Neoplasia",
+    "video_count": 3
+  },
+  {
+    "id": "1c2d8ac6-8800-4efa-82ee-b8b18e088cd3",
+    "name": "Sketchy / Obstetrics & Gynecology / Gyn Neoplasia / Gestational Trophoblastic Disease",
+    "video_count": 1
+  },
+  {
+    "id": "398eed75-dbb2-4211-bd44-0df514599ef5",
+    "name": "Sketchy / Obstetrics & Gynecology / Gyn Neoplasia / Cervical Neoplasia & Cancer",
+    "video_count": 1
+  },
+  {
+    "id": "4e86feec-933f-4b35-aa98-054d7c1f276f",
+    "name": "Sketchy / Obstetrics & Gynecology / Family Planning / Pregnancy Termination",
+    "video_count": 1
+  },
+  {
+    "id": "a5448897-9d9c-4b39-8fbc-acc9d4ff96e3",
+    "name": "Sketchy / Obstetrics & Gynecology / Family Planning / Contraception",
+    "video_count": 1
+  },
+  {
+    "id": "dab0934a-482a-4925-bac1-8486f412f1fb",
+    "name": "Sketchy / Obstetrics & Gynecology / Benign Gynecology & Urogynecology / Urogynecology",
+    "video_count": 2
+  },
+  {
+    "id": "0f2207b7-47ef-4d87-8688-dfa5d1011eef",
+    "name": "Sketchy / Obstetrics & Gynecology / Benign Gynecology & Urogynecology / STIs & Other GYN Infections",
+    "video_count": 2
+  },
+  {
+    "id": "f2a21a90-83b7-43d2-8b8e-35c94967cd39",
+    "name": "Sketchy / Obstetrics & Gynecology / Benign Gynecology & Urogynecology / Benign Vulvar & Vaginal Disease",
+    "video_count": 1
+  },
+  {
+    "id": "8bc09f83-b8f4-4c10-a8cf-419758a12401",
+    "name": "Sketchy / Obstetrics & Gynecology / Benign Gynecology & Urogynecology / Abnormal Uterine Bleeding & Pelvic Pain",
+    "video_count": 2
+  },
+  {
+    "id": "520901df-9e73-4baa-922c-31fdebc450e8",
+    "name": "Sketchy / Neurology / Trauma / Traumatic Brain Injury",
+    "video_count": 5
+  },
+  {
+    "id": "680b0de7-be2e-4780-9246-851bf9f22f61",
+    "name": "Sketchy / Neurology / Pain, Palsies, Sensory Disorders / Vertigo",
+    "video_count": 1
+  },
+  {
+    "id": "e7add12d-cdf9-470d-9938-42d063bfc7cd",
+    "name": "Sketchy / Neurology / Pain, Palsies, Sensory Disorders / Headache",
+    "video_count": 1
+  },
+  {
+    "id": "5a70a14d-7ec1-4a50-bf0d-fd20f01a4533",
+    "name": "Sketchy / Neurology / Neurovascular / Stroke Location",
+    "video_count": 2
+  },
+  {
+    "id": "5cddcf59-ee3b-4414-95fc-adf610e1df27",
+    "name": "Sketchy / Neurology / Epilepsy / Seizure Evaluation & Management",
+    "video_count": 4
+  },
+  {
+    "id": "3ee82d3e-239a-42dd-932f-5e2d994a1704",
+    "name": "Sketchy / Neurology / Encephalopathy / Encephalopathy",
+    "video_count": 1
+  },
+  {
+    "id": "ae7122aa-2570-48e2-bd71-2448709ccae6",
+    "name": "Sketchy / Neurology / Demyelinating & Inflammatory Disease / CNS Demyelinating & Inflammatory Disease",
+    "video_count": 2
+  },
+  {
+    "id": "07c356c2-5d75-43d2-a4f1-3ed6b347522a",
+    "name": "Sketchy / Microbiology / Viruses / RNA Viruses Positive Sense",
+    "video_count": 12
+  },
+  {
+    "id": "0ffcf70f-3592-4804-8c43-dc5afddd4b15",
+    "name": "Sketchy / Microbiology / Viruses / RNA Viruses Negative Sense",
+    "video_count": 8
+  },
+  {
+    "id": "a07fa543-d764-450f-9cf1-9c2fc6708e87",
+    "name": "Sketchy / Microbiology / Viruses / Retired Lessons",
+    "video_count": 5
+  },
+  {
+    "id": "70dfffc1-21e3-4a38-8fa7-b26ae9598ba7",
+    "name": "Sketchy / Microbiology / Viruses / DNA Viruses",
+    "video_count": 13
+  },
+  {
+    "id": "09090763-47ab-43dc-86ae-6ce128b622c2",
+    "name": "Sketchy / Microbiology / Parasites / Retired Lessons",
+    "video_count": 2
+  },
+  {
+    "id": "61fe5793-01e4-4d72-be15-7bd474168fd1",
+    "name": "Sketchy / Microbiology / Parasites / Protozoa Other Tissue",
+    "video_count": 1
+  },
+  {
+    "id": "bb63c801-78fb-47e7-98b5-c8370c3f2e0a",
+    "name": "Sketchy / Microbiology / Parasites / Protozoa of the Intestinal Tract",
+    "video_count": 3
+  },
+  {
+    "id": "e3d5408c-33ff-41ce-806b-a3208eaea67d",
+    "name": "Sketchy / Microbiology / Parasites / Protozoa of the CNS",
+    "video_count": 3
+  },
+  {
+    "id": "f19cc300-5c4b-44af-9cfa-3fd230b98d3c",
+    "name": "Sketchy / Microbiology / Parasites / Protozoa of the Blood",
+    "video_count": 5
+  },
+  {
+    "id": "04cc2507-81b8-4190-8c5d-f83730e1a94b",
+    "name": "Sketchy / Microbiology / Parasites / Helminths Trematodes & Cestodes",
+    "video_count": 2
+  },
+  {
+    "id": "4c316d74-7cc1-42a3-88ef-cb1856a3686d",
+    "name": "Sketchy / Microbiology / Parasites / Helminths Nematodes",
+    "video_count": 2
+  },
+  {
+    "id": "6f3c1101-5435-406a-8740-3559973fc38a",
+    "name": "Sketchy / Microbiology / Parasites / Ectoparasites",
+    "video_count": 1
+  },
+  {
+    "id": "8f9f22a4-0c85-4ea5-a21b-c659aec43684",
+    "name": "Sketchy / Microbiology / Fungi / Systemic Mycoses",
+    "video_count": 4
+  },
+  {
+    "id": "777c62c2-d783-428a-8b42-1daaa2a57583",
+    "name": "Sketchy / Microbiology / Fungi / Opportunistic Fungal Infections",
+    "video_count": 4
+  },
+  {
+    "id": "b17f2545-19a7-4082-9416-8011a86bc9e0",
+    "name": "Sketchy / Microbiology / Fungi / Cutaneous Mycoses",
+    "video_count": 3
+  },
+  {
+    "id": "a90c8d3a-6931-457c-92ea-e6572c3b5017",
+    "name": "Sketchy / Microbiology / Bacteria / Spirochetes",
+    "video_count": 4
+  },
+  {
+    "id": "3495cdc5-843c-45d0-b8b6-dc9294562529",
+    "name": "Sketchy / Microbiology / Bacteria / Retired Lessons",
+    "video_count": 5
+  },
+  {
+    "id": "aecabfdd-0c98-4489-971c-28022ab065c5",
+    "name": "Sketchy / Microbiology / Bacteria / Mycobacteria",
+    "video_count": 3
+  },
+  {
+    "id": "3070c15d-7f81-4a36-b9b9-d3de8524f070",
+    "name": "Sketchy / Microbiology / Bacteria / Gram-Positive Cocci",
+    "video_count": 7
+  },
+  {
+    "id": "e169e29a-ecb4-4d50-99e2-e7f91634746c",
+    "name": "Sketchy / Microbiology / Bacteria / Gram-Positive Branching Filamentous Rods",
+    "video_count": 2
+  },
+  {
+    "id": "30957f0f-7d83-46ea-a928-7ea5d153694f",
+    "name": "Sketchy / Microbiology / Bacteria / Gram-Positive Bacilli",
+    "video_count": 7
+  },
+  {
+    "id": "0ebfea61-8806-4caf-b50b-1dc2461ac7a0",
+    "name": "Sketchy / Microbiology / Bacteria / Gram-Negative Cocci",
+    "video_count": 2
+  },
+  {
+    "id": "a82f5ad3-c068-4edb-a3f0-3468dde9cb96",
+    "name": "Sketchy / Microbiology / Bacteria / Gram-Negative Cocci",
+    "video_count": 1
+  },
+  {
+    "id": "55ab8726-0b59-408e-ad09-99000861b3eb",
+    "name": "Sketchy / Microbiology / Bacteria / Gram-Negative Bacilli Zoonotics",
+    "video_count": 5
+  },
+  {
+    "id": "988b6619-6de1-44ce-a49e-19f1c6b30653",
+    "name": "Sketchy / Microbiology / Bacteria / Gram-Negative Bacilli Respiratory Tract",
+    "video_count": 5
+  },
+  {
+    "id": "5ab37647-6a95-455f-93ab-77e0d3605cab",
+    "name": "Sketchy / Microbiology / Bacteria / Gram-Negative Bacilli Enteric Tract",
+    "video_count": 9
+  },
+  {
+    "id": "6038049a-23a8-4ae0-a280-4037b0abd78c",
+    "name": "Sketchy / Microbiology / Bacteria / Gram-Indeterminate Bacteria",
+    "video_count": 7
+  },
+  {
+    "id": "b445a95c-b4ae-4781-b69d-dc75863bdda0",
+    "name": "Sketchy / Internal Medicine / Sketchy Pearls / Clinical Basics",
+    "video_count": 3
+  },
+  {
+    "id": "008399a1-37d5-4511-8f1b-9841c2a70c6c",
+    "name": "Sketchy / Internal Medicine / Rheumatology / Systemic Rheumatic Diseases",
+    "video_count": 1
+  },
+  {
+    "id": "38f37880-5099-4c06-80ae-018f3c7b30d9",
+    "name": "Sketchy / Internal Medicine / Rheumatology / Joint Diseases",
+    "video_count": 2
+  },
+  {
+    "id": "8fa1dd18-9f6b-4292-8ea8-1f2ffd1c3d4a",
+    "name": "Sketchy / Internal Medicine / Pulmonology / Pulmonary Dead Space Processes",
+    "video_count": 1
+  },
+  {
+    "id": "a375f35e-9044-4706-95a6-35e4a297a079",
+    "name": "Sketchy / Internal Medicine / Pulmonology / Pulm How-To & DDx",
+    "video_count": 9
+  },
+  {
+    "id": "00c3a15e-dc60-41d0-ad7c-31ced858bf39",
+    "name": "Sketchy / Internal Medicine / Pulmonology / Obstructive Lung Disease",
+    "video_count": 5
+  },
+  {
+    "id": "cfa49f0e-61ed-4d30-a803-3daf25bcc998",
+    "name": "Sketchy / Internal Medicine / Pulmonology / Intrapulmonary Shunt Processes",
+    "video_count": 5
+  },
+  {
+    "id": "890f9a2f-2881-40c5-a854-d6d67d2a21d9",
+    "name": "Sketchy / Internal Medicine / Pulmonology / Interstitial Lung Disease",
+    "video_count": 3
+  },
+  {
+    "id": "5895274f-f949-46be-a293-2996b7b33e78",
+    "name": "Sketchy / Internal Medicine / Ophthalmology / Retinal Disorders",
+    "video_count": 1
+  },
+  {
+    "id": "79177039-c1a8-4b57-a6e4-31221abbccb2",
+    "name": "Sketchy / Internal Medicine / Ophthalmology / Glaucoma",
+    "video_count": 1
+  },
+  {
+    "id": "05e3e652-9e11-46c9-8cb7-f3ccf5eecbf9",
+    "name": "Sketchy / Internal Medicine / Nephrology & Urology / Nephrology",
+    "video_count": 2
+  },
+  {
+    "id": "fc98c1e5-1c4d-4958-9294-33614874f808",
+    "name": "Sketchy / Internal Medicine / Nephrology & Urology / Kidney Stones",
+    "video_count": 2
+  },
+  {
+    "id": "ab85aa68-966b-4cae-83bc-8afcfe970109",
+    "name": "Sketchy / Internal Medicine / Nephrology & Urology / Chronic Kidney Disease",
+    "video_count": 2
+  },
+  {
+    "id": "444ebce6-2db2-4906-8449-c7b2e5f0e6a7",
+    "name": "Sketchy / Internal Medicine / Nephrology & Urology / Acute Kidney Injury",
+    "video_count": 5
+  },
+  {
+    "id": "5f9d64f8-5110-48de-a327-6183c35b467a",
+    "name": "Sketchy / Internal Medicine / Infectious Diseases / Tick-Borne Diseases",
+    "video_count": 1
+  },
+  {
+    "id": "58b1e145-8dd8-4bf6-b92d-18255502f504",
+    "name": "Sketchy / Internal Medicine / Infectious Diseases / Skin & Soft Tissue Infections",
+    "video_count": 2
+  },
+  {
+    "id": "8b5186fc-038b-4a17-9a77-39d5002cd80d",
+    "name": "Sketchy / Internal Medicine / Infectious Diseases / Respiratory Infections",
+    "video_count": 2
+  },
+  {
+    "id": "26fd768c-8ceb-41a6-aa8f-8c707c3d4d1b",
+    "name": "Sketchy / Internal Medicine / Infectious Diseases / Intro to Infectious Disease Wards",
+    "video_count": 2
+  },
+  {
+    "id": "266a51aa-301d-4b51-981d-76b9c28a0920",
+    "name": "Sketchy / Internal Medicine / Infectious Diseases / HIV & AIDS",
+    "video_count": 2
+  },
+  {
+    "id": "0336b6a4-7503-4988-8dc9-cf0afdabf908",
+    "name": "Sketchy / Internal Medicine / Infectious Diseases / GU Infections",
+    "video_count": 4
+  },
+  {
+    "id": "c8b3355d-af17-4779-a581-a4e8f4beb2c6",
+    "name": "Sketchy / Internal Medicine / Hepatobiliary / Pancreatic Disease",
+    "video_count": 1
+  },
+  {
+    "id": "21ffaf5f-51c1-43b0-8cbb-1904cb0e0657",
+    "name": "Sketchy / Internal Medicine / Hepatobiliary / Liver Disease",
+    "video_count": 5
+  },
+  {
+    "id": "dce30058-5c66-4d99-9ead-c127089551f8",
+    "name": "Sketchy / Internal Medicine / Hepatobiliary / Gallbladder & Biliary Diseases",
+    "video_count": 4
+  },
+  {
+    "id": "c077d016-0daa-4eb6-a702-6ea61f3ed154",
+    "name": "Sketchy / Internal Medicine / Hematology & Oncology / Oncology",
+    "video_count": 5
+  },
+  {
+    "id": "23cd6e0c-8c26-4ed9-8531-f699db132aab",
+    "name": "Sketchy / Internal Medicine / Hematology & Oncology / Bleeding & Clotting Disorders",
+    "video_count": 3
+  },
+  {
+    "id": "33de99b4-e767-4047-98d6-c97d21869f46",
+    "name": "Sketchy / Internal Medicine / Hematology & Oncology / Anemia",
+    "video_count": 8
+  },
+  {
+    "id": "b2bb9492-17b9-426d-9778-5ceea8e4dc14",
+    "name": "Sketchy / Internal Medicine / Gastroenterology / Esophageal & Gastric Disorders",
+    "video_count": 7
+  },
+  {
+    "id": "440cfd4e-465d-4e52-b755-fcec5e802d76",
+    "name": "Sketchy / Internal Medicine / Gastroenterology / Colorectal Cancer",
+    "video_count": 3
+  },
+  {
+    "id": "c59e12b8-178b-426b-953f-9a1249bace5b",
+    "name": "Sketchy / Internal Medicine / Gastroenterology / Benign Colorectal Disorders",
+    "video_count": 1
+  },
+  {
+    "id": "b0cdbe30-b834-4b1f-a816-78549e56b59b",
+    "name": "Sketchy / Internal Medicine / Endocrinology / Thyroid Disease",
+    "video_count": 2
+  },
+  {
+    "id": "0b9a7e52-6fd3-46b5-9e37-ca9fcce421ca",
+    "name": "Sketchy / Internal Medicine / Endocrinology / Retired Lessons",
+    "video_count": 1
+  },
+  {
+    "id": "98898e6b-223c-4e76-962d-f61c80c101b8",
+    "name": "Sketchy / Internal Medicine / Endocrinology / Diabetes Mellitus",
+    "video_count": 4
+  },
+  {
+    "id": "5a07a564-b3bb-45a4-9619-ccc6289f0a0d",
+    "name": "Sketchy / Internal Medicine / Endocrinology / Diabetes Insipidus",
+    "video_count": 1
+  },
+  {
+    "id": "409d3d6a-6bb7-4b5d-af68-e90dc5d48a97",
+    "name": "Sketchy / Internal Medicine / Endocrinology / Adrenal Disease",
+    "video_count": 2
+  },
+  {
+    "id": "80324021-5daa-4b6d-9c21-72337f09430b",
+    "name": "Sketchy / Internal Medicine / Electrolytes & Acid-Base / Sodium Abnormalities",
+    "video_count": 3
+  },
+  {
+    "id": "48970306-3fff-456a-a51f-8bfee2219989",
+    "name": "Sketchy / Internal Medicine / Electrolytes & Acid-Base / Retired Lessons",
+    "video_count": 4
+  },
+  {
+    "id": "879d356f-7eee-4a60-b4c3-d81c5c7b53cc",
+    "name": "Sketchy / Internal Medicine / Electrolytes & Acid-Base / Retired Lessons",
+    "video_count": 1
+  },
+  {
+    "id": "2e29aadf-6f15-4ee3-a73b-734ed9934195",
+    "name": "Sketchy / Internal Medicine / Electrolytes & Acid-Base / Potassium Abnormalities",
+    "video_count": 4
+  },
+  {
+    "id": "4f669460-b086-4ce5-acde-4b46370af680",
+    "name": "Sketchy / Internal Medicine / Electrolytes & Acid-Base / Calcium Abnormalities",
+    "video_count": 5
+  },
+  {
+    "id": "deb2f81b-3e2e-466c-ae49-d09e4225cab0",
+    "name": "Sketchy / Internal Medicine / ECG Interpretation & Arrhythmias / Tachycardia",
+    "video_count": 5
+  },
+  {
+    "id": "5f59e9be-efad-4c0e-adb5-c1d3a6ae06dc",
+    "name": "Sketchy / Internal Medicine / ECG Interpretation & Arrhythmias / ECG Interpretation",
+    "video_count": 1
+  },
+  {
+    "id": "4136ff50-522e-4f92-a02f-72a3936d458f",
+    "name": "Sketchy / Internal Medicine / ECG Interpretation & Arrhythmias / ECG Basics",
+    "video_count": 1
+  },
+  {
+    "id": "0b83f26e-29c2-4e6f-9848-4cd7f08095bd",
+    "name": "Sketchy / Internal Medicine / ECG Interpretation & Arrhythmias / Bradycardia",
+    "video_count": 2
+  },
+  {
+    "id": "02d774f9-51d0-407f-9bae-71fdd66ac44c",
+    "name": "Sketchy / Internal Medicine / Cardiology / Valvular Disease",
+    "video_count": 6
+  },
+  {
+    "id": "4a7772ff-5aa0-4c30-b191-f84fbe2f008b",
+    "name": "Sketchy / Internal Medicine / Cardiology / Retired Lessons",
+    "video_count": 4
+  },
+  {
+    "id": "2ce6d66f-07f1-4bf8-aea9-5c9a39f91bc4",
+    "name": "Sketchy / Internal Medicine / Cardiology / Ischemic Heart Disease",
+    "video_count": 9
+  },
+  {
+    "id": "5a99809f-37e4-4fd5-9fe9-6c91b58ca425",
+    "name": "Sketchy / Internal Medicine / Cardiology / Heart Failure",
+    "video_count": 13
+  },
+  {
+    "id": "458e6fa6-2b3e-4537-a87b-47ad6f024c5c",
+    "name": "Sketchy / Internal Medicine / Cardiology / Blood Vessel Disease",
+    "video_count": 1
+  },
+  {
+    "id": "d7fdee8d-e9e9-4f34-846c-4ca3f3994d97",
+    "name": "Sketchy / Internal Medicine / Cardiology / Blood Pressure",
+    "video_count": 6
+  },
+  {
+    "id": "b7b9fcfd-4e19-4145-b453-645aa3d99018",
+    "name": "Sketchy / Immunology / The Innate Immune System / Response to Viruses",
+    "video_count": 1
+  },
+  {
+    "id": "9c848f03-5ec1-40f4-b8f1-9d836b40c9d7",
+    "name": "Sketchy / Immunology / The Innate Immune System / Recognizing Invaders",
+    "video_count": 1
+  },
+  {
+    "id": "09729296-318a-4879-8f7b-59ac36059a6c",
+    "name": "Sketchy / Immunology / The Innate Immune System / Phagocytes",
+    "video_count": 2
+  },
+  {
+    "id": "bf7b329a-c846-420f-b9ee-efa673ef488a",
+    "name": "Sketchy / Immunology / The Innate Immune System / Complement",
+    "video_count": 2
+  },
+  {
+    "id": "26995138-3323-4e7d-a0a2-614499e7cfb4",
+    "name": "Sketchy / Immunology / The Adaptive Immune System / Humoral Immunity (B-Cells)",
+    "video_count": 3
+  },
+  {
+    "id": "8b13d18e-1505-44f7-8ff8-3794ca87bddd",
+    "name": "Sketchy / Immunology / The Adaptive Immune System / Cell Mediated Immunity (T-Cells)",
+    "video_count": 6
+  },
+  {
+    "id": "82e291cb-6982-462a-b48b-e671d781329b",
+    "name": "Sketchy / Immunology / The Adaptive Immune System / Antibodies & Receptors",
+    "video_count": 1
+  },
+  {
+    "id": "1e0c0c51-53f9-47dd-9601-60debcebbe44",
+    "name": "Sketchy / Immunology / The Adaptive Immune System / Antibodies & Receptors",
+    "video_count": 1
+  },
+  {
+    "id": "98d58b4b-8bf8-4e41-be18-d78d2992b49b",
+    "name": "Sketchy / Immunology / Components of the Immune System / Organs of the Immune System",
+    "video_count": 1
+  },
+  {
+    "id": "ca4ef8a2-e616-443c-8f94-27987257f6df",
+    "name": "Sketchy / Immunology / Components of the Immune System / Cells of the Immune System",
+    "video_count": 1
+  },
+  {
+    "id": "5b82d0f5-9f8d-49b6-ac02-51fc6bf0fdc5",
+    "name": "Sketchy / Immunology / Components of the Immune System / Branches of the Immune System",
+    "video_count": 1
+  },
+  {
+    "id": "60496a58-6b87-49ae-8c69-e0f9d1f6d74f",
+    "name": "Sketchy / Immunology / Autoimmune Diseases / Hypersensitivity Reactions",
+    "video_count": 3
+  },
+  {
+    "id": "f1582a1b-4353-41e5-bb36-928e927aa0a8",
+    "name": "Sketchy / Biostatistics & Epidemiology / Epidemiology / Validity",
+    "video_count": 2
+  },
+  {
+    "id": "80f14a05-3f0c-4f79-8dcb-f1ba9cfce0fb",
+    "name": "Sketchy / Biostatistics & Epidemiology / Epidemiology / Study Designs",
+    "video_count": 6
+  },
+  {
+    "id": "2809ad89-c5c4-465d-8689-fdb87dd3e929",
+    "name": "Sketchy / Biostatistics & Epidemiology / Epidemiology / Clinical Research",
+    "video_count": 2
+  },
+  {
+    "id": "c66cbe91-a1f8-473b-b3fc-b44a51cc6bd3",
+    "name": "Sketchy / Biostatistics & Epidemiology / Biostatistics / Biostatistics & Data",
+    "video_count": 11
+  },
+  {
+    "id": "ec96a78e-86f5-42ce-997c-6ed8fd344a7d",
+    "name": "Sketchy / Biochemistry / Vitamins & Minerals / Water-Soluble Vitamins",
+    "video_count": 9
+  },
+  {
+    "id": "bfca1273-ca6a-435c-a29e-9efc1785ec0b",
+    "name": "Sketchy / Biochemistry / Vitamins & Minerals / Fat-Soluble Vitamins",
+    "video_count": 4
+  },
+  {
+    "id": "b61f1154-1ec6-4a72-831c-cb0e0041d34c",
+    "name": "Sketchy / Biochemistry / Molecular Biology / RNA",
+    "video_count": 2
+  },
+  {
+    "id": "013efec6-3f3f-4736-a6a4-0940b375760d",
+    "name": "Sketchy / Biochemistry / Molecular Biology / Recombinant DNA & Biotechnology",
+    "video_count": 4
+  },
+  {
+    "id": "0ddabf18-cf1c-4ede-8bab-df1229e7abe3",
+    "name": "Sketchy / Biochemistry / Molecular Biology / Protein",
+    "video_count": 1
+  },
+  {
+    "id": "7768855c-80c4-47bc-94e6-d5869a6adbf7",
+    "name": "Sketchy / Biochemistry / Molecular Biology / DNA",
+    "video_count": 8
+  },
+  {
+    "id": "09b822f2-fea2-4816-a9b4-74695b3685d5",
+    "name": "Sketchy / Biochemistry / Metabolism / Lipids",
+    "video_count": 7
+  },
+  {
+    "id": "6d6f3cc7-245f-405e-ad38-e84567500b8b",
+    "name": "Sketchy / Biochemistry / Metabolism / Heme & Porphyrias",
+    "video_count": 2
+  },
+  {
+    "id": "587bfa69-e843-4407-8b9f-970f25e25940",
+    "name": "Sketchy / Biochemistry / Metabolism / Carbohydrates",
+    "video_count": 17
+  },
+  {
+    "id": "1d9c5c89-3624-43d9-b502-655fb820cee4",
+    "name": "Sketchy / Biochemistry / Metabolism / Amino Acids & Proteins",
+    "video_count": 10
+  },
+  {
+    "id": "6c220f35-120b-464e-b0c6-d547ebbb60aa",
+    "name": "Sketchy / Biochemistry / Metabolism / Alcohol Metabolism",
+    "video_count": 1
+  },
+  {
+    "id": "f3b7a7c4-0cad-4574-af18-d492a383cba7",
+    "name": "Sketchy / Biochemistry / Clinical Genetics / X-Linked Dominant Diseases",
+    "video_count": 1
+  },
+  {
+    "id": "45dba759-5d4c-40a8-9f23-5459b044fbb2",
+    "name": "Sketchy / Biochemistry / Clinical Genetics / Trisomy Diseases",
+    "video_count": 2
+  },
+  {
+    "id": "a2187568-3d23-43a0-b3ac-c0e865f72178",
+    "name": "Sketchy / Biochemistry / Clinical Genetics / Trinucleotide Repeat Diseases",
+    "video_count": 1
+  },
+  {
+    "id": "98ecb12f-e256-45e7-a3e5-11353cc1123a",
+    "name": "Sketchy / Biochemistry / Clinical Genetics / Population Genetics",
+    "video_count": 1
+  },
+  {
+    "id": "288c5cb1-27f3-4ef3-92a5-b0a381b20b19",
+    "name": "Sketchy / Biochemistry / Clinical Genetics / Mitochondrial Diseases",
+    "video_count": 1
+  },
+  {
+    "id": "b1833398-45cc-4dc9-91ef-d5dd0ed323e7",
+    "name": "Sketchy / Biochemistry / Clinical Genetics / Disorders of Imprinting & Microdeletion",
+    "video_count": 1
+  },
+  {
+    "id": "b31e7442-c3ab-4b14-a81e-a9aa0a40f382",
+    "name": "Sketchy / Biochemistry / Clinical Genetics / Autosomal Recessive Diseases",
+    "video_count": 1
+  },
+  {
+    "id": "11235b21-3fcc-4eaa-8dcc-944d89896901",
+    "name": "Sketchy / Biochemistry / Cell Biology / Parts of the Cell",
+    "video_count": 5
+  },
+  {
+    "id": "f4399ae4-b714-46cf-a62b-99fb98379af3",
+    "name": "Sketchy / Biochemistry / Cell Biology / Lysosomal Storage Diseases",
+    "video_count": 4
+  },
+  {
+    "id": "5df67c78-2b89-4dde-a8f5-438c9e6715ea",
+    "name": "Sketchy / Biochemistry / Cell Biology / Cell Cycle & Division",
+    "video_count": 4
+  },
+  {
+    "id": "647463aa-a1b7-4a78-b55e-7b3d836b08a4",
+    "name": "Sketchy / Anatomy / Upper Extremity / Brachial Plexus",
+    "video_count": 2
+  },
+  {
+    "id": "3b48f209-a91f-438c-84e3-5a8f3f6d23ab",
+    "name": "Sketchy / Anatomy / Thorax / Vasculature",
+    "video_count": 2
+  },
+  {
+    "id": "2f7de636-9f7b-4f3d-9b4b-cb61d38b0756",
+    "name": "Sketchy / Anatomy / Thorax / Lungs",
+    "video_count": 2
+  },
+  {
+    "id": "0dfdbf65-aa2b-4b2f-a7b6-909e4ea7c7cf",
+    "name": "Sketchy / Anatomy / Thorax / Lungs",
+    "video_count": 1
+  },
+  {
+    "id": "1456569d-2cc3-4a50-a48c-be88a7e63f0b",
+    "name": "Sketchy / Anatomy / Thorax / Heart",
+    "video_count": 3
+  },
+  {
+    "id": "716911a7-00ef-4952-899d-230a31577761",
+    "name": "Sketchy / Anatomy / Thorax / Chest Wall",
+    "video_count": 1
+  },
+  {
+    "id": "2f9161d3-ed94-4460-9ad6-ede63dc9c721",
+    "name": "Sketchy / Anatomy / Pelvis / Vasculature",
+    "video_count": 1
+  },
+  {
+    "id": "55bf8cf2-260a-4e7d-a153-d11832df2b0f",
+    "name": "Sketchy / Anatomy / Lower Extremity / Knee",
+    "video_count": 1
+  },
+  {
+    "id": "d0444093-d555-42ae-bec8-948e14722e5a",
+    "name": "Sketchy / Anatomy / Lower Extremity / Innervation of Lower Extremity",
+    "video_count": 4
+  },
+  {
+    "id": "f930432e-8aad-4646-8af3-f98992ad7c85",
+    "name": "Sketchy / Anatomy / Lower Extremity / Ankle & Foot",
+    "video_count": 1
+  },
+  {
+    "id": "65f4bb5b-e2f1-46d0-a1d0-e966dac990d6",
+    "name": "Sketchy / Anatomy / Head & Neck / Vasculature",
+    "video_count": 1
+  },
+  {
+    "id": "ecf46524-c338-43a6-8000-3bb4418d2854",
+    "name": "Sketchy / Anatomy / Head & Neck / Skull & Face",
+    "video_count": 5
+  },
+  {
+    "id": "97fdb467-9ec8-4b1f-add6-a39a481b8a83",
+    "name": "Sketchy / Anatomy / Head & Neck / Pharynx & Ear",
+    "video_count": 2
+  },
+  {
+    "id": "3d1932c1-6ddb-46b6-9245-6e365176f0e6",
+    "name": "Sketchy / Anatomy / Head & Neck / Neck",
+    "video_count": 1
+  },
+  {
+    "id": "a418c88d-1e45-4e6f-9585-ccdee01b2a16",
+    "name": "Sketchy / Anatomy / Head & Neck / Larynx",
+    "video_count": 2
+  },
+  {
+    "id": "6065d92f-0c6a-49c2-90ff-e600556c5d18",
+    "name": "Sketchy / Anatomy / Head & Neck / Cranial Nerves",
+    "video_count": 14
+  },
+  {
+    "id": "2807074d-3192-4ab1-a085-2c91cd265e14",
+    "name": "Sketchy / Anatomy / Back / Spine",
+    "video_count": 1
+  },
+  {
+    "id": "1021bfa8-4122-46c4-8ebf-af2b7f6dcfee",
+    "name": "Sketchy / Anatomy / Abdomen / Vasculature",
+    "video_count": 5
+  },
+  {
+    "id": "8777455a-790d-45e6-8074-a1b97a8cf1b7",
+    "name": "Sketchy / Anatomy / Abdomen / Abdominal Wall",
+    "video_count": 2
+  },
+  {
+    "id": "9148a49a-7867-47b9-a318-bb3bc4b41fa8",
+    "name": "Sketchy / Anatomy / Abdomen / Abdominal Overview",
+    "video_count": 1
+  },
+  {
+    "id": "48120394-243d-4ae5-8738-3ac751bd0ecc",
+    "name": "Pixorize / pixorize Psychology and Sociology / Status and Social Stratification",
+    "video_count": 3
+  },
+  {
+    "id": "7e7bd595-2adb-4eb5-8df8-e67971bb0643",
+    "name": "Pixorize / pixorize Psychology and Sociology / Social Structure",
+    "video_count": 6
+  },
+  {
+    "id": "8e343095-141e-4364-9e73-1a38cf3cb892",
+    "name": "Pixorize / pixorize Psychology and Sociology / Psychoactive Drugs",
+    "video_count": 2
+  },
+  {
+    "id": "b2e4f037-95ee-4eb0-9def-f9f48e469f0c",
+    "name": "Pixorize / pixorize Psychology and Sociology / Psychoactive Drugs",
+    "video_count": 1
+  },
+  {
+    "id": "0cb77827-9861-4e4d-9043-eb531325d157",
+    "name": "Pixorize / pixorize Psychology and Sociology / Piaget Cognitive Development",
+    "video_count": 4
+  },
+  {
+    "id": "5adb7886-bd99-4390-8e07-fce94935cb40",
+    "name": "Pixorize / pixorize Psychology and Sociology / Personality Disorders",
+    "video_count": 3
+  },
+  {
+    "id": "fab6ccca-1355-4208-8136-5549e87c064d",
+    "name": "Pixorize / pixorize Psychology and Sociology / Personality",
+    "video_count": 5
+  },
+  {
+    "id": "22f70d36-b292-42e3-851a-b2a7cebd9e95",
+    "name": "Pixorize / pixorize Psychology and Sociology / Misc PS",
+    "video_count": 6
+  },
+  {
+    "id": "075daf3d-e70f-467d-b29c-eb99aabd158c",
+    "name": "Pixorize / pixorize Psychology and Sociology / Memory",
+    "video_count": 4
+  },
+  {
+    "id": "48becf7b-b2b1-49e4-a4be-6fab62d5888c",
+    "name": "Pixorize / pixorize Psychology and Sociology / Kohlberg Moral Development",
+    "video_count": 3
+  },
+  {
+    "id": "230b87ec-28bc-430b-94ce-f83f818b2fe9",
+    "name": "Pixorize / pixorize Psychology and Sociology / Intelligence",
+    "video_count": 5
+  },
+  {
+    "id": "8e7d54de-69bc-4fc0-8646-780e09803360",
+    "name": "Pixorize / pixorize Psychology and Sociology / Freud Psychosexual Development",
+    "video_count": 4
+  },
+  {
+    "id": "3e570245-ed3b-4b04-b4c5-b071c06daa4f",
+    "name": "Pixorize / pixorize Psychology and Sociology / Emotion",
+    "video_count": 3
+  },
+  {
+    "id": "3ddf6274-423e-4639-af41-450a12909fb6",
+    "name": "Pixorize / pixorize Psychology and Sociology / Conditioning",
+    "video_count": 3
+  },
+  {
+    "id": "193afc71-4fa1-4ef2-af1b-a411d79ab71f",
+    "name": "Pixorize / pixorize Pharmacology / Sympathomimetics and Sympatholytics",
+    "video_count": 13
+  },
+  {
+    "id": "1b47307a-9168-4757-88a1-c6f2a42f8043",
+    "name": "Pixorize / pixorize Pharmacology / Respiratory Pharm",
+    "video_count": 13
+  },
+  {
+    "id": "5fb64c15-caeb-4b66-9ae7-f679c2a037ab",
+    "name": "Pixorize / pixorize Pharmacology / Reproductive Pharm",
+    "video_count": 14
+  },
+  {
+    "id": "77cdf1a1-9a80-40b3-a3a5-d6f6a3bef2e9",
+    "name": "Pixorize / pixorize Pharmacology / Renal Pharm",
+    "video_count": 10
+  },
+  {
+    "id": "5fc6cb00-7f83-446b-874b-d9397479fdf2",
+    "name": "Pixorize / pixorize Pharmacology / Psych Pharm",
+    "video_count": 15
+  },
+  {
+    "id": "4a3f83f1-9627-4d58-8b18-7567275d1d7a",
+    "name": "Pixorize / pixorize Pharmacology / Other Neuro Pharm",
+    "video_count": 20
+  },
+  {
+    "id": "30a21f56-823a-4a8f-8a45-40d78e0e58e9",
+    "name": "Pixorize / pixorize Pharmacology / Other Endocrine Pharm",
+    "video_count": 7
+  },
+  {
+    "id": "8c0e9c41-a878-472c-81c0-13c0bc7f44db",
+    "name": "Pixorize / pixorize Pharmacology / Oncology Pharm",
+    "video_count": 25
+  },
+  {
+    "id": "5b9b85fb-74a7-41ad-b989-9369ac5f81fb",
+    "name": "Pixorize / pixorize Pharmacology / Musculoskeletal Pharm",
+    "video_count": 15
+  },
+  {
+    "id": "7e4a5ee8-5c74-401f-8327-4b2e0e1a1094",
+    "name": "Pixorize / pixorize Pharmacology / Heme Pharm",
+    "video_count": 9
+  },
+  {
+    "id": "c2be16dd-5049-40ff-89d1-3a8464180a81",
+    "name": "Pixorize / pixorize Pharmacology / General Pharm",
+    "video_count": 19
+  },
+  {
+    "id": "7819b584-97b3-472d-b576-501cb2eb9eb7",
+    "name": "Pixorize / pixorize Pharmacology / Gastrointestinal Pharm",
+    "video_count": 14
+  },
+  {
+    "id": "e55c4432-d7c1-44c1-8059-4a54dde50d35",
+    "name": "Pixorize / pixorize Pharmacology / Diabetes Drugs (Old)",
+    "video_count": 10
+  },
+  {
+    "id": "6d77bdf6-2899-4582-b1ce-e8e05e814033",
+    "name": "Pixorize / pixorize Pharmacology / Diabetes Drugs (New)",
+    "video_count": 10
+  },
+  {
+    "id": "c3a83ee1-38b7-47ae-81e6-7ef38d1c9f9d",
+    "name": "Pixorize / pixorize Pharmacology / Cholinomimetics",
+    "video_count": 9
+  },
+  {
+    "id": "34849a6f-3e39-4f3a-8bd7-59ca9249d6c6",
+    "name": "Pixorize / pixorize Pharmacology / Cardiovascular Pharm (Old)",
+    "video_count": 23
+  },
+  {
+    "id": "a7472db1-6427-4eee-af94-03babb4c80a7",
+    "name": "Pixorize / pixorize Pharmacology / Cardiovascular Drugs (New)",
+    "video_count": 7
+  },
+  {
+    "id": "62e5da0a-6421-4697-90d4-9e7123834c3f",
+    "name": "Pixorize / pixorize Pharmacology / Antiepileptics",
+    "video_count": 10
+  },
+  {
+    "id": "ed614e9e-8b31-48b4-982c-d582e2b15d59",
+    "name": "Pixorize / pixorize Pharmacology / Anticholinergics",
+    "video_count": 5
+  },
+  {
+    "id": "23a72314-2d44-49c1-8946-a95d1b94353d",
+    "name": "Pixorize / pixorize Pharmacology / Anesthetics",
+    "video_count": 8
+  },
+  {
+    "id": "ce5e2aba-044f-4c1a-9dd7-055ad5859770",
+    "name": "Pixorize / pixorize Pharmacology / Alpha and Beta Blockers",
+    "video_count": 8
+  },
+  {
+    "id": "03c28679-1f2c-4cc5-a876-d5f785fe5237",
+    "name": "Pixorize / pixorize Neuroanatomy / Vagal Nuclei",
+    "video_count": 3
+  },
+  {
+    "id": "dbe2f78f-3352-4886-bfa9-c5c7d7f39215",
+    "name": "Pixorize / pixorize Neuroanatomy / Thalamic Nuclei",
+    "video_count": 4
+  },
+  {
+    "id": "813e4082-1926-4f43-9d2b-ef9b64351f86",
+    "name": "Pixorize / pixorize Neuroanatomy / Thalamic Nuclei",
+    "video_count": 1
+  },
+  {
+    "id": "4b61194e-a92b-43f3-b1c9-c0d40fbe0cd1",
+    "name": "Pixorize / pixorize Neuroanatomy / Strokes",
+    "video_count": 8
+  },
+  {
+    "id": "394b659e-ea88-4fa6-84ed-08be28c1ec9e",
+    "name": "Pixorize / pixorize Neuroanatomy / Spinal Tracts",
+    "video_count": 5
+  },
+  {
+    "id": "c1951488-9a3f-477e-9fc9-e4ee3e3ee3e7",
+    "name": "Pixorize / pixorize Neuroanatomy / Spinal Lesions",
+    "video_count": 8
+  },
+  {
+    "id": "277bedfa-ea1a-4baa-bede-319c1e4a7889",
+    "name": "Pixorize / pixorize Neuroanatomy / Posterior Fossa Malformations",
+    "video_count": 4
+  },
+  {
+    "id": "ec23b555-465c-457b-86a2-05c21b498ffc",
+    "name": "Pixorize / pixorize Neuroanatomy / Neurological Disorders",
+    "video_count": 7
+  },
+  {
+    "id": "6b2b21ca-0165-4c1e-88e1-710f8bcb957c",
+    "name": "Pixorize / pixorize Neuroanatomy / Neurodegenerative Diseases",
+    "video_count": 7
+  },
+  {
+    "id": "5437e320-06a0-480b-8634-e150aa774428",
+    "name": "Pixorize / pixorize Neuroanatomy / Hypothalamic Nuclei",
+    "video_count": 7
+  },
+  {
+    "id": "585e7925-3251-4d94-a0ae-0d248cdc4496",
+    "name": "Pixorize / pixorize Neuroanatomy / Hemorrhage",
+    "video_count": 4
+  },
+  {
+    "id": "91b317f9-73d7-42e7-889e-aa2ac3fc66a1",
+    "name": "Pixorize / pixorize Neuroanatomy / Headaches",
+    "video_count": 4
+  },
+  {
+    "id": "691fcdee-9c0d-4beb-a273-d94193c457ae",
+    "name": "Pixorize / pixorize Neuroanatomy / Dopaminergic Pathways",
+    "video_count": 4
+  },
+  {
+    "id": "cc89db18-0b59-4eb0-84e0-b2f079b8b6ea",
+    "name": "Pixorize / pixorize Neuroanatomy / Cranial Nerves",
+    "video_count": 12
+  },
+  {
+    "id": "4e55cd46-bc7f-4463-b5b5-393f856f79f6",
+    "name": "Pixorize / pixorize Neuroanatomy / Brain Tumors",
+    "video_count": 11
+  },
+  {
+    "id": "84cfb69b-eda3-4b15-bc24-938937c4cc8c",
+    "name": "Pixorize / pixorize Microbiology / Viruses - RNA Viruses",
+    "video_count": 31
+  },
+  {
+    "id": "81bee784-81c8-4a6a-8e93-9cb3ecd952d5",
+    "name": "Pixorize / pixorize Microbiology / Viruses - DNA Viruses",
+    "video_count": 12
+  },
+  {
+    "id": "0df2bcec-159b-471d-b74f-5a1941e0f1e3",
+    "name": "Pixorize / pixorize Microbiology / Parasites",
+    "video_count": 30
+  },
+  {
+    "id": "c45d4478-c902-4347-8942-e46dce31e3c2",
+    "name": "Pixorize / pixorize Microbiology / Fungi",
+    "video_count": 11
+  },
+  {
+    "id": "bebc3289-e28e-44fb-a6be-d63e58ce342d",
+    "name": "Pixorize / pixorize Microbiology / Fungi",
+    "video_count": 1
+  },
+  {
+    "id": "95dfd2f1-dff1-4a18-a70b-8c7c8fd3ec91",
+    "name": "Pixorize / pixorize Microbiology / Bacteria - Gram Positive",
+    "video_count": 21
+  },
+  {
+    "id": "fb506076-f560-4593-97e9-cf84a36ea978",
+    "name": "Pixorize / pixorize Microbiology / Bacteria - Gram Negative",
+    "video_count": 33
+  },
+  {
+    "id": "83541c78-1242-4cf8-9ae1-f26be4134691",
+    "name": "Pixorize / pixorize Microbiology / Bacteria - Gram Indeterminate",
+    "video_count": 7
+  },
+  {
+    "id": "ce0c639c-5ce2-4ca0-abeb-9e3fb5891e90",
+    "name": "Pixorize / pixorize Microbiology / Antivirals",
+    "video_count": 13
+  },
+  {
+    "id": "ecea2716-7131-4b88-b727-beacff0fcf1c",
+    "name": "Pixorize / pixorize Microbiology / Antifungals",
+    "video_count": 7
+  },
+  {
+    "id": "c2670df1-00d7-44ff-9736-f97d42b88e91",
+    "name": "Pixorize / pixorize Microbiology / Antibiotics  Antiparasitics",
+    "video_count": 29
+  },
+  {
+    "id": "d9f11252-1c66-481b-88cd-e8181505c1cf",
+    "name": "Pixorize / PIxorize Immuno / 09 Transplant Rejection",
+    "video_count": 8
+  },
+  {
+    "id": "643c7ddb-d994-4407-9fae-2984089c274c",
+    "name": "Pixorize / PIxorize Immuno / 08 Transfusion Reactions",
+    "video_count": 4
+  },
+  {
+    "id": "c216c869-1bae-4b59-960b-75f0a07fb7f4",
+    "name": "Pixorize / PIxorize Immuno / 07 Hypersensitivity Reactions",
+    "video_count": 4
+  },
+  {
+    "id": "34c66a68-33e4-4b51-8cef-350829e3b289",
+    "name": "Pixorize / PIxorize Immuno / 06 Immunodeficiencies",
+    "video_count": 8
+  },
+  {
+    "id": "5db8c5c2-94ff-4249-a833-a1e86c0192d1",
+    "name": "Pixorize / PIxorize Immuno / 06 Immunodeficiencies",
+    "video_count": 1
+  },
+  {
+    "id": "5518c2ec-3159-48f9-93ba-5938d8d78185",
+    "name": "Pixorize / PIxorize Immuno / 05 Cytokines",
+    "video_count": 12
+  },
+  {
+    "id": "405c6c75-f314-442f-9597-860c66395125",
+    "name": "Pixorize / PIxorize Immuno / 04 B and T Cells",
+    "video_count": 15
+  },
+  {
+    "id": "f892a60c-73d9-44a1-89db-9834aca0bd39",
+    "name": "Pixorize / PIxorize Immuno / 03 Other Immune Cells",
+    "video_count": 9
+  },
+  {
+    "id": "96805d67-7718-4a02-810b-06dc41407cdd",
+    "name": "Pixorize / PIxorize Immuno / 02 Complement Pathways",
+    "video_count": 4
+  },
+  {
+    "id": "54a46bfe-0c64-4cac-8a58-1c9bded09dd9",
+    "name": "Pixorize / PIxorize Immuno / 01 Immunoglobulins",
+    "video_count": 5
+  },
+  {
+    "id": "ee829451-1c0a-4d04-b500-db30a67ebbb4",
+    "name": "Pixorize / Pixorize Biochem / 16 Misc",
+    "video_count": 5
+  },
+  {
+    "id": "49f27d57-031c-47a5-8e2d-b242835aea89",
+    "name": "Pixorize / Pixorize Biochem / 15 Mechanoreceptors",
+    "video_count": 4
+  },
+  {
+    "id": "9e73a044-95df-4392-9fb7-f95300a5ceb6",
+    "name": "Pixorize / Pixorize Biochem / 14 Toxins",
+    "video_count": 6
+  },
+  {
+    "id": "887837be-9b42-4da4-8f0e-94d9d435f418",
+    "name": "Pixorize / Pixorize Biochem / 13 DNA Repair Disorders",
+    "video_count": 4
+  },
+  {
+    "id": "3af08f57-d3df-4464-9d46-94a15a8ab0ea",
+    "name": "Pixorize / Pixorize Biochem / 12 Chromosomal Abnormalities",
+    "video_count": 10
+  },
+  {
+    "id": "8d122167-e02f-4b84-8424-f64d99f3322a",
+    "name": "Pixorize / Pixorize Biochem / 11 Collagen Disorders",
+    "video_count": 6
+  },
+  {
+    "id": "e9c4087a-016a-4620-afb6-d4b45ba4b4a4",
+    "name": "Pixorize / Pixorize Biochem / 10 Mitochondrial Diseases",
+    "video_count": 2
+  },
+  {
+    "id": "79b23649-7636-4862-bfcd-8709bb6048e2",
+    "name": "Pixorize / Pixorize Biochem / 09 Peroxisome Diseases",
+    "video_count": 3
+  },
+  {
+    "id": "d2f49f78-eb28-4e3d-9c60-d1d1513753cd",
+    "name": "Pixorize / Pixorize Biochem / 08 Glycogen Storage Diseases",
+    "video_count": 4
+  },
+  {
+    "id": "81a4bca2-4447-413e-9c43-826ec74c012e",
+    "name": "Pixorize / Pixorize Biochem / 07 Lysosomal Storage Diseases",
+    "video_count": 7
+  },
+  {
+    "id": "c7617ca7-bc43-4e9b-bb7d-38f56442a71a",
+    "name": "Pixorize / Pixorize Biochem / 06 Metabolic Disorders",
+    "video_count": 12
+  },
+  {
+    "id": "9ccbb103-222d-41a0-b54d-837c509399d2",
+    "name": "Pixorize / Pixorize Biochem / 05 Autosomal Dominant Diseases",
+    "video_count": 14
+  },
+  {
+    "id": "dcb026bc-6fd3-4f82-97dd-aee4d798c25e",
+    "name": "Pixorize / Pixorize Biochem / 04 Porphyrias",
+    "video_count": 2
+  },
+  {
+    "id": "9934c205-03ed-469e-b5b1-7aa569ea9041",
+    "name": "Pixorize / Pixorize Biochem / 03 Lipids",
+    "video_count": 8
+  },
+  {
+    "id": "4562ed14-c0c0-499c-9037-0d33485a1d6e",
+    "name": "Pixorize / Pixorize Biochem / 02 Biochemical Pathways",
+    "video_count": 16
+  },
+  {
+    "id": "241cd34f-473a-4dd8-8f6b-cfccb7c54f55",
+    "name": "Pixorize / Pixorize Biochem / 01 Vitamins",
+    "video_count": 23
+  },
+  {
+    "id": "467c6370-f651-4ff2-8430-1b3d777c9552",
+    "name": "Physeo Courses / Phy$e0- Anatomy",
+    "video_count": 32
+  },
+  {
+    "id": "473ac70e-cf96-4f58-a759-ec309b94da29",
+    "name": "Physeo Courses / Phy$e0 - Reproduction",
+    "video_count": 6
+  },
+  {
+    "id": "d8c55ab8-37b8-4fd2-9a73-6892d9e77901",
+    "name": "Physeo Courses / Phy$e0 - Pulmonology",
+    "video_count": 8
+  },
+  {
+    "id": "80d6a03a-16c5-44a0-9745-96b70e02471a",
+    "name": "Physeo Courses / Phy$e0 - Neurology",
+    "video_count": 15
+  },
+  {
+    "id": "3c5c942d-0ae5-4daa-b869-58856fd4b357",
+    "name": "Physeo Courses / Phy$e0 - Nephrology",
+    "video_count": 7
+  },
+  {
+    "id": "190bee3d-80c4-40d2-b371-3443dc1ffcb3",
+    "name": "Physeo Courses / Phy$e0 - Musculoskeletal",
+    "video_count": 5
+  },
+  {
+    "id": "7fefeca5-205a-41b6-8319-8af4bde8c2de",
+    "name": "Physeo Courses / Phy$e0 - Immunology",
+    "video_count": 22
+  },
+  {
+    "id": "1cba0045-b182-4bbd-af07-b05dae8f278c",
+    "name": "Physeo Courses / Phy$e0 - General Principles",
+    "video_count": 5
+  },
+  {
+    "id": "c4bdbc91-9353-42da-90e5-da28855539c7",
+    "name": "Physeo Courses / Phy$e0 - Gastroenterology",
+    "video_count": 5
+  },
+  {
+    "id": "8e7606f6-9460-4c03-a1bc-0e518e8e780c",
+    "name": "Physeo Courses / Phy$e0 - Endocrinology",
+    "video_count": 8
+  },
+  {
+    "id": "2dd12580-068b-4bc9-ac48-3ae744c50c5c",
+    "name": "Physeo Courses / Phy$e0 - Cardiology",
+    "video_count": 12
+  },
+  {
+    "id": "2b1bfe8f-1502-46ee-a36f-acf083101e93",
+    "name": "Physeo Courses / phy$e0 - Biostatistics",
+    "video_count": 8
+  },
+  {
+    "id": "71b22803-0005-46d4-9dd2-86cea5681799",
+    "name": "Physeo / reproduction",
+    "video_count": 1
+  },
+  {
+    "id": "9751a4dd-843c-4ee1-a9c5-6a91876af8be",
+    "name": "Pathoma / 19. Skin Pathology",
+    "video_count": 10
+  },
+  {
+    "id": "9cbc8d5f-3fce-4185-805c-316937bae467",
+    "name": "Pathoma / 18. Musculoskeletal Pathology",
+    "video_count": 4
+  },
+  {
+    "id": "cb43987f-3e03-47a2-a635-8df7b3a033e9",
+    "name": "Pathoma / 17. Central Nervous System Pathology",
+    "video_count": 6
+  },
+  {
+    "id": "d027c56f-0971-43ab-8ea9-c5c2a852c543",
+    "name": "Pathoma / 16. Breast Pathology",
+    "video_count": 4
+  },
+  {
+    "id": "dd4ae9e3-a238-480c-b1a3-ef2141289e91",
+    "name": "Pathoma / 15. Endocrine Pathology",
+    "video_count": 7
+  },
+  {
+    "id": "4eb7f351-c173-48a2-8c8a-3dc88396858d",
+    "name": "Pathoma / 14. Male Genital System Pathology",
+    "video_count": 8
+  },
+  {
+    "id": "f5221015-d98a-4bf6-acf1-3e1cbd31b495",
+    "name": "Pathoma / 13. Female Genital System and Gestational Pathology",
+    "video_count": 6
+  },
+  {
+    "id": "5602219c-47c6-49ed-aa87-6c8452fef5ad",
+    "name": "Pathoma / 12. Kidney and Urinary Tract Pathology",
+    "video_count": 7
+  },
+  {
+    "id": "1e22bcb2-7523-440b-b912-bc14898d2e45",
+    "name": "Pathoma / 11. Exocrine Pancreas, Gallbladder, and Liver Pathology",
+    "video_count": 4
+  },
+  {
+    "id": "da761027-f0e1-479f-b4d1-aee4ebf73954",
+    "name": "Pathoma / 10. Gastrointestinal Pathology",
+    "video_count": 14
+  },
+  {
+    "id": "cd5953d5-6c76-4f2f-84d4-0649dba3ebed",
+    "name": "Pathoma / 09. Respiratory Tract Pathology",
+    "video_count": 13
+  },
+  {
+    "id": "01dfe856-33b2-4f49-9507-fb4081f76848",
+    "name": "Pathoma / 08. Cardiac Pathology",
+    "video_count": 9
+  },
+  {
+    "id": "5626bc7d-4019-43d1-9c72-f184569a1b42",
+    "name": "Pathoma / 07. Vascular Pathology",
+    "video_count": 8
+  },
+  {
+    "id": "312f9617-1da1-466f-8919-cae960d1d41b",
+    "name": "Pathoma / 06. White Blood Cell Disorders",
+    "video_count": 6
+  },
+  {
+    "id": "f0a2406a-51b5-414d-80cc-48bf64ff0f12",
+    "name": "Pathoma / 05. Red Blood Cell Disorders",
+    "video_count": 10
+  },
+  {
+    "id": "8f678a0b-d236-42d4-8686-9e68420de794",
+    "name": "Pathoma / 04. Homeostasis and Related Disoders",
+    "video_count": 4
+  },
+  {
+    "id": "db74a1f1-e41d-497f-8715-64f4e4e2ffac",
+    "name": "Pathoma / 03. Principles of Neoplasia",
+    "video_count": 6
+  },
+  {
+    "id": "e8ea26d3-54d0-4acb-9b13-ba6f6dc14a44",
+    "name": "Pathoma / 02. Inflammation, Inflammatory Disorders, and Healing",
+    "video_count": 7
+  },
+  {
+    "id": "7628274e-836a-4711-90c3-11506585f87b",
+    "name": "Pathoma / 01. Growth Adaptations, Cellular Injury, and Cell Death",
+    "video_count": 5
+  },
+  {
+    "id": "06905d0a-3669-4f93-bf7b-01647e099a49",
+    "name": "Osmosis / Osmosis Vids / Osmosis Step 1 Path Review / Path Review Respiratory ATF",
+    "video_count": 7
+  },
+  {
+    "id": "8f5afabb-f812-4f43-80de-3c4f058aa8e7",
+    "name": "Osmosis / Osmosis Vids / Osmosis Step 1 Path Review / Path Review Reproductive System ATF",
+    "video_count": 8
+  },
+  {
+    "id": "2184f490-7ed5-4be3-89e0-99c083425d3a",
+    "name": "Osmosis / Osmosis Vids / Osmosis Step 1 Path Review / Path Review Neurology ATF",
+    "video_count": 11
+  },
+  {
+    "id": "d2eb4e90-6ef0-4310-87ce-80e93805d1f0",
+    "name": "Osmosis / Osmosis Vids / Osmosis Step 1 Path Review / Path Review Nephrology ATF",
+    "video_count": 11
+  },
+  {
+    "id": "8e91601e-da61-46f8-bcaf-fe2b355d11c1",
+    "name": "Osmosis / Osmosis Vids / Osmosis Step 1 Path Review / Path Review Gastrointestinal System ATF",
+    "video_count": 12
+  },
+  {
+    "id": "359f5fe6-e8a9-4166-ab13-9314f6d15a13",
+    "name": "Osmosis / Osmosis Vids / Osmosis Step 1 Path Review / Path Review Endocrinology ATF",
+    "video_count": 12
+  },
+  {
+    "id": "36bfe09e-e871-4cc2-a489-df7a9daa66f2",
+    "name": "Osmosis / Osmosis Vids / Osmosis Step 1 Path Review / Path Review Cardiovascular ATF",
+    "video_count": 16
+  },
+  {
+    "id": "3c807658-cf4a-4ffc-b4b2-fcfbecb8c416",
+    "name": "Osmosis / Osmosis Vids / Osmosis Step 1 Path Review / Musculoskeletal ATF",
+    "video_count": 9
+  },
+  {
+    "id": "03fa4b4b-bf45-44da-ad92-76962c1a2313",
+    "name": "Osmosis / Osmosis Vids / Osmosis Step 1 Path Review / Hematology ATF",
+    "video_count": 13
+  },
+  {
+    "id": "25262e05-e8dd-4230-a635-816f839db18a",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Respiratory (50 Videos)",
+    "video_count": 47
+  },
+  {
+    "id": "3528b76e-460f-475f-950c-ed648686f755",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Reproductive (40 Videos)",
+    "video_count": 40
+  },
+  {
+    "id": "a608c812-1fdb-4879-97fa-f6b4223a200a",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Renal (84 Videos)",
+    "video_count": 83
+  },
+  {
+    "id": "5a630ffc-0707-418f-b5a3-d0cfcd07b4f3",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Psychiatry (45 Videos)",
+    "video_count": 41
+  },
+  {
+    "id": "9a2dbeb5-ab55-42cd-b80c-38b2f0706b84",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Pharmacology (85 Videos) / 9. Psychiatry",
+    "video_count": 10
+  },
+  {
+    "id": "38054d15-22e1-44a2-ac5b-edf39480a3b3",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Pharmacology (85 Videos) / 8. Neurology / 8.3 - By Mechanism",
+    "video_count": 1
+  },
+  {
+    "id": "8470574a-6b8c-4bbc-8d68-729b4fa4c5d1",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Pharmacology (85 Videos) / 8. Neurology / 8.2 - By common use",
+    "video_count": 2
+  },
+  {
+    "id": "bd71b2e5-005b-4473-a1b0-71502c64d0e8",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Pharmacology (85 Videos) / 8. Neurology / 8. 1- Anesthetics and sedatives",
+    "video_count": 3
+  },
+  {
+    "id": "21cc22f5-a173-46f9-b624-f69f9e229f1b",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Pharmacology (85 Videos) / 7. Musculoskeletal / 7.2–Promoting bone formation",
+    "video_count": 1
+  },
+  {
+    "id": "8b54897b-f395-4280-bef2-8e785673171e",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Pharmacology (85 Videos) / 7. Musculoskeletal / 7.1–Inflammation",
+    "video_count": 4
+  },
+  {
+    "id": "e9029622-0590-434b-a59c-48447285b7d1",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Pharmacology (85 Videos) / 6. Microbiology / 6.4 - Antiparasitics",
+    "video_count": 3
+  },
+  {
+    "id": "09ab3c0b-d0f5-47c7-8884-d28bdeb619e9",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Pharmacology (85 Videos) / 6. Microbiology / 6.3 - Antifungal",
+    "video_count": 3
+  },
+  {
+    "id": "5a0d93bc-7643-4029-be1f-63b801b86a48",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Pharmacology (85 Videos) / 6. Microbiology / 6.2 - Antivirals",
+    "video_count": 4
+  },
+  {
+    "id": "2e5a594a-148a-4c15-8b7e-28e389799888",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Pharmacology (85 Videos) / 6. Microbiology / 6.1 - Antibiotics",
+    "video_count": 6
+  },
+  {
+    "id": "f2b9629a-2508-4241-8dba-8aa9c9bdbb3d",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Pharmacology (85 Videos) / 5. Hematology and oncology / 5.2 Cancer medications",
+    "video_count": 1
+  },
+  {
+    "id": "54e4474b-1bc7-4fcf-b7bb-b861b33248e1",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Pharmacology (85 Videos) / 5. Hematology and oncology / 5.2 Cancer medications",
+    "video_count": 5
+  },
+  {
+    "id": "5a8b9c69-bd8e-45fe-b9f0-cd58f2e446f6",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Pharmacology (85 Videos) / 5. Hematology and oncology / 5.1 - Anticoagulants",
+    "video_count": 5
+  },
+  {
+    "id": "cf1552df-c5d5-4764-aca1-8938a3869f92",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Pharmacology (85 Videos) / 4. Gastrointestinal",
+    "video_count": 3
+  },
+  {
+    "id": "aa5c89d1-a504-41a2-9532-4b37e94721b2",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Pharmacology (85 Videos) / 3. Endocrine",
+    "video_count": 5
+  },
+  {
+    "id": "bda40b60-ed36-4b97-a55a-1eb137fc4c18",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Pharmacology (85 Videos) / 2. Cardiovascular",
+    "video_count": 10
+  },
+  {
+    "id": "842a068c-3cd7-419f-ae60-8fea5b4c6f7a",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Pharmacology (85 Videos) / 11. Respiratory / Asthma and COPD",
+    "video_count": 3
+  },
+  {
+    "id": "4805365d-0a1b-46cb-b084-56bae7dd7b91",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Pharmacology (85 Videos) / 10. Renal / Diuretics",
+    "video_count": 5
+  },
+  {
+    "id": "f1bdcc19-120b-4636-9ba9-4dd54ed44b99",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Pharmacology (85 Videos) / 1. General Pharmacology / 1.3 - Pharmacokinetics",
+    "video_count": 3
+  },
+  {
+    "id": "d978c56d-a595-4e61-b437-d0a6ea160998",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Pharmacology (85 Videos) / 1. General Pharmacology / 1.2 - Pharmacodynamics",
+    "video_count": 3
+  },
+  {
+    "id": "f7977eb8-c5a9-4662-8d59-aebc284ebed2",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Pharmacology (85 Videos) / 1. General Pharmacology / 1.1 - Introduction",
+    "video_count": 1
+  },
+  {
+    "id": "2723dcbc-d616-4d7f-8377-1c53f1c7f1ef",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Osmosis Clinical Reasoning (213 Videos)",
+    "video_count": 1
+  },
+  {
+    "id": "7f42e9cf-8920-4262-89f3-5f73d77b0147",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Osmosis Clinical Reasoning (213 Videos) / Dermatology",
+    "video_count": 9
+  },
+  {
+    "id": "bcf711b3-a560-4c0b-acac-967c68ae0990",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Osmosis Clinical Reasoning (213 Videos) / 8. Biostatistics (13 Videos)",
+    "video_count": 12
+  },
+  {
+    "id": "1392d2ad-c650-41e8-94fb-d2cba51ae941",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Osmosis Clinical Reasoning (213 Videos) / 7. Emergency medicine (10 Videos)",
+    "video_count": 10
+  },
+  {
+    "id": "dadbb797-b0f4-4d3d-8925-0f994d32f0a1",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Osmosis Clinical Reasoning (213 Videos) / 6. Surgery (12 Videos)",
+    "video_count": 12
+  },
+  {
+    "id": "9b213810-45b3-4526-8024-0e6c9c214c6a",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Osmosis Clinical Reasoning (213 Videos) / 5. Obstetrics and Gynecology (9 Videos) / Obstetrics",
+    "video_count": 15
+  },
+  {
+    "id": "23425c97-b9f4-4a2b-a6d0-d25c208ed1ff",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Osmosis Clinical Reasoning (213 Videos) / 5. Obstetrics and Gynecology (9 Videos) / Gynecology",
+    "video_count": 15
+  },
+  {
+    "id": "c56373a1-7fb2-4295-a8b2-8639ada9cf48",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Osmosis Clinical Reasoning (213 Videos) / 4. Pediatrics (40 Videos)",
+    "video_count": 40
+  },
+  {
+    "id": "afe15da8-1b04-4eb5-98a6-b8e15fb8c339",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Osmosis Clinical Reasoning (213 Videos) / 3. Psychiatry (13 Videos)",
+    "video_count": 13
+  },
+  {
+    "id": "7f28bf89-13ec-480c-b9f9-e1f656eb1548",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Osmosis Clinical Reasoning (213 Videos) / 2. Neurology (24 Videos)",
+    "video_count": 24
+  },
+  {
+    "id": "29f8ba05-f1b9-473f-9881-6c95b6180f09",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Osmosis Clinical Reasoning (213 Videos) / 1. Internal Medicine (66 Videos) / 1.7–Nephrology",
+    "video_count": 10
+  },
+  {
+    "id": "ed09292b-ec82-4d39-80b9-05b089be67dd",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Osmosis Clinical Reasoning (213 Videos) / 1. Internal Medicine (66 Videos) / 1.6–Gastroenterology",
+    "video_count": 16
+  },
+  {
+    "id": "97f956bc-cf4c-4941-aa47-5c09aabe767e",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Osmosis Clinical Reasoning (213 Videos) / 1. Internal Medicine (66 Videos) / 1.5–Rheumatology",
+    "video_count": 7
+  },
+  {
+    "id": "55deec04-e819-4209-b27d-746b0f14c55e",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Osmosis Clinical Reasoning (213 Videos) / 1. Internal Medicine (66 Videos) / 1.4–Endocrinology",
+    "video_count": 11
+  },
+  {
+    "id": "cc7b7f2c-e82b-4572-8061-639ea57c4af6",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Osmosis Clinical Reasoning (213 Videos) / 1. Internal Medicine (66 Videos) / 1.3–HematologyOncology",
+    "video_count": 9
+  },
+  {
+    "id": "ccc53a19-eb19-4577-aeee-c302a642dcbd",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Osmosis Clinical Reasoning (213 Videos) / 1. Internal Medicine (66 Videos) / 1.2–Pulmonology",
+    "video_count": 8
+  },
+  {
+    "id": "903af69c-a0e8-4d51-a79c-00ae0060d4f3",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Osmosis Clinical Reasoning (213 Videos) / 1. Internal Medicine (66 Videos) / 1.1–Cardiology",
+    "video_count": 11
+  },
+  {
+    "id": "e399d969-abc3-4c6b-8b3e-261a7e3c3f5a",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Neurology (81 Videos)",
+    "video_count": 80
+  },
+  {
+    "id": "f50b5c5e-70ff-4808-8822-42f08b7883cf",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Musculoskeletal (47 Videos)",
+    "video_count": 45
+  },
+  {
+    "id": "cab4e587-0b87-4b3d-af3e-3762d82d3b55",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Microbiology (96 Videos) / viruses",
+    "video_count": 18
+  },
+  {
+    "id": "e637e2da-25b6-468b-a830-879e7cfa1c4d",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Microbiology (96 Videos) / Pharmacology",
+    "video_count": 23
+  },
+  {
+    "id": "702fdc2a-f3db-40d2-82b4-6d769cd4b9ba",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Microbiology (96 Videos) / Bacteria / Other Bacteria",
+    "video_count": 13
+  },
+  {
+    "id": "42c94972-b741-4c51-b284-b0a2d8257469",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Microbiology (96 Videos) / Bacteria / Gram Positive Bacteria",
+    "video_count": 17
+  },
+  {
+    "id": "ee4e56f0-b92f-4e5f-b001-3c4ea9b5f47a",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Microbiology (96 Videos) / Bacteria / Gram Negative Bacteria",
+    "video_count": 23
+  },
+  {
+    "id": "3d0513a1-2f7c-4395-b321-716b3199de64",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Microbiology (96 Videos)",
+    "video_count": 1
+  },
+  {
+    "id": "8d1179f3-845c-4893-bc0f-e0f046537388",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Metabolism (20 Videos)",
+    "video_count": 19
+  },
+  {
+    "id": "e880258c-8b4e-459e-855d-a3fb710406a8",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Immunology (38 Videos)",
+    "video_count": 38
+  },
+  {
+    "id": "b54b2bdd-c6c0-4229-b861-982964bb3af7",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / How to succeed in health professions (17 Videos) / 1.4. Career development and other resources",
+    "video_count": 5
+  },
+  {
+    "id": "826bd1ee-660a-4b28-8121-99d20af8efd1",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / How to succeed in health professions (17 Videos) / 1.3. Teaching",
+    "video_count": 3
+  },
+  {
+    "id": "1a81fd7c-676d-493f-b208-7ebe2f5ce059",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / How to succeed in health professions (17 Videos) / 1.2 Learning",
+    "video_count": 5
+  },
+  {
+    "id": "c151358b-29fe-4d18-8d09-2695fbb8aad7",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / How to succeed in health professions (17 Videos) / 1.1 Retention techniques",
+    "video_count": 4
+  },
+  {
+    "id": "04a215e1-028a-419f-bf0c-ca08a87fe9c9",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Histology / Osmosis Histology ATF",
+    "video_count": 22
+  },
+  {
+    "id": "bd44e7a8-67dd-4740-a1c4-6320a9e2df9f",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Histology / Osmosis Histology 2021 update",
+    "video_count": 22
+  },
+  {
+    "id": "f7050428-5795-497d-9f42-8cf1e156678c",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Hematology and Oncology (48 Videos)",
+    "video_count": 47
+  },
+  {
+    "id": "5e529c9a-1eb1-42bc-9f8a-69a189493afe",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Genetics (39 Videos)",
+    "video_count": 36
+  },
+  {
+    "id": "2e2883e0-91e9-4efc-909c-0ef1f19ff92e",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Genetics (39 Videos)",
+    "video_count": 1
+  },
+  {
+    "id": "c1da74cd-58b7-4e1b-ac94-548a399ebb9d",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Gastrointestinal (79 Videos)",
+    "video_count": 79
+  },
+  {
+    "id": "a91b4749-c06e-4f55-b4ef-41ccff3193a0",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Eye",
+    "video_count": 17
+  },
+  {
+    "id": "809cb25d-eaa4-4287-be60-baa6a1b8e693",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Endocrine (66 Videos)",
+    "video_count": 66
+  },
+  {
+    "id": "d81cae59-ada9-4488-86a0-dbfb1b08d880",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Embryology (22 Videos)",
+    "video_count": 21
+  },
+  {
+    "id": "cfd9190a-26d1-4351-9498-70c2b712f765",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Electrocardiography (8 Topics)",
+    "video_count": 6
+  },
+  {
+    "id": "91658cdd-a29f-4fc0-a9c3-a2d51642bc55",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Dermatology (15 Videos)",
+    "video_count": 15
+  },
+  {
+    "id": "3a0d6457-ce44-4184-8c88-a5a63428f995",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Clinician_s corner (20 Videos) / 1.7–Practice based learning and improvement",
+    "video_count": 1
+  },
+  {
+    "id": "c811e76f-af38-4f34-ba13-48e22dd617c6",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Clinician_s corner (20 Videos) / 1.6 – How to succeed in medical school",
+    "video_count": 6
+  },
+  {
+    "id": "0ac1ab2a-4e54-4b8f-862e-207f5fef11ae",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Clinician_s corner (20 Videos) / 1.5  –Medical business and legal issues",
+    "video_count": 2
+  },
+  {
+    "id": "d8f9d3d6-104a-4ae2-b026-650c34b4e0a9",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Clinician_s corner (20 Videos) / 1.4 - WellBeing",
+    "video_count": 1
+  },
+  {
+    "id": "40387874-6a2a-4453-b296-bf22653071c5",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Clinician_s corner (20 Videos) / 1.3 - Interpersonal and Communication Skills",
+    "video_count": 5
+  },
+  {
+    "id": "bafe3775-f15c-42c8-8d5c-0b1366944fc2",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Clinician_s corner (20 Videos) / 1.2 - Patient care",
+    "video_count": 4
+  },
+  {
+    "id": "00d7073e-16ec-4942-aed2-7ee54f2a5eb0",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Clinician_s corner (20 Videos) / 1.1 - Professionalism",
+    "video_count": 1
+  },
+  {
+    "id": "2fd41d23-158a-445d-ae39-4f4663597918",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Clinical Skills",
+    "video_count": 41
+  },
+  {
+    "id": "537a94f3-5a3a-485e-a0d9-74526af2cff0",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Cell Physiology (19 Videos)",
+    "video_count": 19
+  },
+  {
+    "id": "0abd7847-30aa-4ed1-92b0-50de99c9650c",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Cardiovascular (98 Videos)",
+    "video_count": 89
+  },
+  {
+    "id": "596a181f-60d4-463a-947e-87b64e78400c",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Biostatistics and Epidemiology (38 Videos)",
+    "video_count": 37
+  },
+  {
+    "id": "4c351b12-7b9b-4ea0-ab1b-55a8d7017627",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Biochemistry (15 Videos)",
+    "video_count": 8
+  },
+  {
+    "id": "6e8d3567-d72c-43cf-bbeb-c41b7ec5b11c",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Anatomy ATF / Osmosis Anatomy - Upper limb ATF",
+    "video_count": 15
+  },
+  {
+    "id": "0040e916-983f-4c12-88f0-9b81de9874a2",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Anatomy ATF / Osmosis Anatomy - Thorax ATF",
+    "video_count": 17
+  },
+  {
+    "id": "018a8250-09bd-4aea-ae27-4da342b08f4f",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Anatomy ATF / Osmosis Anatomy - Lower Limb ATF",
+    "video_count": 13
+  },
+  {
+    "id": "c3bf440c-22a0-49e5-91e6-2ed5b531c7c4",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Anatomy ATF / Osmosis Anatomy - Head and Neck ATF",
+    "video_count": 16
+  },
+  {
+    "id": "40c74adc-3da7-4208-a7ff-33ae59d57fdf",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Anatomy ATF / Osmosis Anaotomy - Abdomen ATF",
+    "video_count": 7
+  },
+  {
+    "id": "348f6be8-05d3-479d-af5c-abae1c34c79d",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Anatomy ATF / Osmosis 2021 / Upper Limb",
+    "video_count": 5
+  },
+  {
+    "id": "ca96674c-af7c-4c00-989f-33307f416315",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Anatomy ATF / Osmosis 2021 / Thorax",
+    "video_count": 5
+  },
+  {
+    "id": "6f0356c6-6dbe-475b-8a09-6c016a8b90ec",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Anatomy ATF / Osmosis 2021 / Pelvis",
+    "video_count": 12
+  },
+  {
+    "id": "066f5507-bf51-4956-9720-4cddb20500fe",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Anatomy ATF / Osmosis 2021 / Neuroanatomy",
+    "video_count": 19
+  },
+  {
+    "id": "e7a180d5-95bb-4d37-9061-fa92defd92bc",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Anatomy ATF / Osmosis 2021 / Lower Limb",
+    "video_count": 3
+  },
+  {
+    "id": "b89f0d9c-cfd9-4090-9845-49fbfe8059bb",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Anatomy ATF / Osmosis 2021 / Head & Neck",
+    "video_count": 11
+  },
+  {
+    "id": "1acbe456-7609-44c8-a0d3-635cac973db3",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Anatomy ATF / Osmosis 2021 / Back",
+    "video_count": 6
+  },
+  {
+    "id": "08ba0173-2f37-4ee3-adb9-cac70da66fb4",
+    "name": "Osmosis / Osmosis Vids / Osmosis Prime wum / Anatomy ATF / Osmosis 2021 / Abdomen",
+    "video_count": 9
+  },
+  {
+    "id": "8cb60c99-d2b8-4f4e-a828-2a30a63204ab",
+    "name": "Osmosis / Osmosis Vids / Microbiology Updates November ATF 2019",
+    "video_count": 39
+  },
+  {
+    "id": "67af0386-d728-480f-b051-452c5ea78287",
+    "name": "Osmosis / Osmosis Vids / Microbiology Updates November ATF 2019",
+    "video_count": 1
+  },
+  {
+    "id": "6a72d3a1-679b-4ae2-a9ea-5989f46a394f",
+    "name": "IBM / SPSS / Statistics / 26 / Python3 / Lib / test / sndhdrdata",
+    "video_count": 1
+  },
+  {
+    "id": "92f59089-3a7b-4f0b-82a7-b89e4c401ca5",
+    "name": "IBM / SPSS / Statistics / 26 / Python3 / Lib / test / audiodata",
+    "video_count": 4
+  },
+  {
+    "id": "95b73247-e0b3-4e28-b67f-d1182717e4f8",
+    "name": "Bootcamp / Reproduction / Pregnancy and Menstruation",
+    "video_count": 8
+  },
+  {
+    "id": "0f72191e-82d9-4f83-bd34-d85e48699609",
+    "name": "Bootcamp / Reproduction / Pharmacology",
+    "video_count": 7
+  },
+  {
+    "id": "8d4681ce-1a04-47b7-91ed-b720a169f55d",
+    "name": "Bootcamp / Reproduction / Pathologies of Pregnancy",
+    "video_count": 8
+  },
+  {
+    "id": "a46ceb67-f8bf-498f-95ab-6733aa33a83b",
+    "name": "Bootcamp / Reproduction / Male Pathology",
+    "video_count": 9
+  },
+  {
+    "id": "1e32cf34-5fd2-42e9-9ca3-5db1495c8aaf",
+    "name": "Bootcamp / Reproduction / Fetal Development",
+    "video_count": 11
+  },
+  {
+    "id": "b3b30cda-e8e2-4764-b344-47af24adb24c",
+    "name": "Bootcamp / Reproduction / Female Pathology",
+    "video_count": 15
+  },
+  {
+    "id": "a0b3baaa-ae56-4326-889d-163b807c9d00",
+    "name": "Bootcamp / Pulmonology / Restrictive Lung Disease",
+    "video_count": 4
+  },
+  {
+    "id": "a5327009-e391-4614-9179-38cce0d43875",
+    "name": "Bootcamp / Pulmonology / Obstructive Lung Disease",
+    "video_count": 5
+  },
+  {
+    "id": "bdea2ae7-1d3e-426a-8102-2713fbf7a1aa",
+    "name": "Bootcamp / Pulmonology / Lung Pathology Special Topics",
+    "video_count": 7
+  },
+  {
+    "id": "a6e028a4-3ae9-43db-aec6-b897b5508d86",
+    "name": "Bootcamp / Pulmonology / Lung Pathology Fundamentals",
+    "video_count": 2
+  },
+  {
+    "id": "8f4efc00-35f8-47da-83e2-6195662aa6b8",
+    "name": "Bootcamp / Pulmonology / Lung Cancer",
+    "video_count": 4
+  },
+  {
+    "id": "81561987-df00-40ab-a8bb-10b6c5094cda",
+    "name": "Bootcamp / Pulmonology / Introduction to the Respiratory System",
+    "video_count": 2
+  },
+  {
+    "id": "873455b1-0cba-4b50-8adc-e6424e25e830",
+    "name": "Bootcamp / Pulmonology / Blood Physiology / Pathological V",
+    "video_count": 1
+  },
+  {
+    "id": "0677365c-24ef-49bf-8786-22ef3f6bcb1d",
+    "name": "Bootcamp / Pulmonology / Blood Physiology",
+    "video_count": 10
+  },
+  {
+    "id": "c2762b29-4889-4556-94b6-1d0e5d82f012",
+    "name": "Bootcamp / Pulmonology / Air Physiology",
+    "video_count": 11
+  },
+  {
+    "id": "fcc993fb-fa4c-4610-9633-c8584488ed05",
+    "name": "Bootcamp / Public Health Sciences / Safety",
+    "video_count": 1
+  },
+  {
+    "id": "fbc52089-5cb6-4fc8-a77e-2b71bb24269d",
+    "name": "Bootcamp / Public Health Sciences / Practice Questions",
+    "video_count": 8
+  },
+  {
+    "id": "8fb85ae0-d0ff-46a8-918d-128e3b336821",
+    "name": "Bootcamp / Public Health Sciences / Ethics",
+    "video_count": 3
+  },
+  {
+    "id": "a8e06d16-bca9-429c-a1ad-a2be73d29adb",
+    "name": "Bootcamp / Public Health Sciences / Delivering Care",
+    "video_count": 3
+  },
+  {
+    "id": "3bca091f-3176-4500-a954-779e7f1cda64",
+    "name": "Bootcamp / Public Health Sciences / Communication",
+    "video_count": 2
+  },
+  {
+    "id": "fae9a188-cd49-4441-9c48-58750449fde0",
+    "name": "Bootcamp / Psychiatry / Substance Misuse",
+    "video_count": 13
+  },
+  {
+    "id": "6d172e0c-7687-4204-b40e-337aa52c5f83",
+    "name": "Bootcamp / Psychiatry / Sleep and Psychosomatic Conditions",
+    "video_count": 6
+  },
+  {
+    "id": "031648f4-7fe1-4148-8cbc-518c9a761169",
+    "name": "Bootcamp / Psychiatry / Psychotic and Mood Disorders",
+    "video_count": 7
+  },
+  {
+    "id": "f60c5aa1-d53c-4909-a4c6-cf6076b4205f",
+    "name": "Bootcamp / Psychiatry / Psychology",
+    "video_count": 6
+  },
+  {
+    "id": "d74b588b-fe5d-4807-94c6-2ef7d50a37e2",
+    "name": "Bootcamp / Psychiatry / Pharmacology",
+    "video_count": 17
+  },
+  {
+    "id": "475622bc-b642-4d68-907c-931dfb1f7622",
+    "name": "Bootcamp / Psychiatry / Personality Disorders",
+    "video_count": 3
+  },
+  {
+    "id": "a4db4dc1-03a0-491d-bd72-f5a859caf319",
+    "name": "Bootcamp / Psychiatry / Memory, Dissociation, and Orientation",
+    "video_count": 3
+  },
+  {
+    "id": "7694c703-64a0-4160-b3bb-669164e66e7f",
+    "name": "Bootcamp / Psychiatry / Developmental Disorders",
+    "video_count": 4
+  },
+  {
+    "id": "9f175f80-7e13-40b9-b6d0-ee2ee1821617",
+    "name": "Bootcamp / Psychiatry / Developmental Disorders",
+    "video_count": 1
+  },
+  {
+    "id": "aa55c93a-2ebc-4322-894d-51aef54ddab8",
+    "name": "Bootcamp / Psychiatry / Anxiety, Trauma, and Stress Disorders",
+    "video_count": 5
+  },
+  {
+    "id": "e3d534d6-efbb-48e9-8f6d-9e32850871a8",
+    "name": "Bootcamp / Pharmacology (Principles) / Side Effects and Toxins",
+    "video_count": 3
+  },
+  {
+    "id": "0508f9db-1641-42c7-a006-e1760fd0f809",
+    "name": "Bootcamp / Pharmacology (Principles) / Pharmacokinetics",
+    "video_count": 8
+  },
+  {
+    "id": "02c4fc60-47e1-414f-a1d5-bee17352ada3",
+    "name": "Bootcamp / Pharmacology (Principles) / Pharmacodynamics",
+    "video_count": 10
+  },
+  {
+    "id": "f6b25cfc-d3cd-43b6-a0dd-d06476ee3b19",
+    "name": "Bootcamp / Pharmacology (Principles) / Autonomic System",
+    "video_count": 18
+  },
+  {
+    "id": "e0c917b2-57b6-4138-add3-27fcf6bb2631",
+    "name": "Bootcamp / Pathology (Principles) / Inflammatory Response",
+    "video_count": 5
+  },
+  {
+    "id": "4a3bb2d6-4ce6-49fa-ad02-f82804477ecf",
+    "name": "Bootcamp / Pathology (Principles) / Cellular Injury & Neoplasia",
+    "video_count": 11
+  },
+  {
+    "id": "f5164f52-531e-4edf-b8b4-1c324e996e70",
+    "name": "Bootcamp / OMM / Thoracic Region and Ribs",
+    "video_count": 6
+  },
+  {
+    "id": "0ffbbe0e-be9c-4fae-94f6-c840732a207a",
+    "name": "Bootcamp / OMM / Principles of Osteopathy",
+    "video_count": 5
+  },
+  {
+    "id": "fe1cb237-3359-421b-8001-6d58858c33ec",
+    "name": "Bootcamp / OMM / Lumbar Region",
+    "video_count": 2
+  },
+  {
+    "id": "fb210d70-7826-4692-84d0-52debf2510a7",
+    "name": "Bootcamp / OMM / Cervical Region",
+    "video_count": 1
+  },
+  {
+    "id": "5a46cd40-6c2d-421a-a4fa-d22829ed1ecc",
+    "name": "Bootcamp / Neurology / Vision",
+    "video_count": 7
+  },
+  {
+    "id": "e023cac0-bbb0-47aa-8705-a43ff747e41c",
+    "name": "Bootcamp / Neurology / Vertigo",
+    "video_count": 7
+  },
+  {
+    "id": "97c9fc28-0e35-470d-be63-e3134c476f1d",
+    "name": "Bootcamp / Neurology / Traumatic Brain Injuries",
+    "video_count": 4
+  },
+  {
+    "id": "e06aa446-a31d-41ff-9fc2-7df4fa9a763d",
+    "name": "Bootcamp / Neurology / Traumatic Brain Injuries",
+    "video_count": 1
+  },
+  {
+    "id": "0939ad2b-39c5-4ccb-9039-1589f6669c46",
+    "name": "Bootcamp / Neurology / Spinal Cord Syndromes",
+    "video_count": 6
+  },
+  {
+    "id": "30a8288b-10a8-46cc-8976-d9a1a657138a",
+    "name": "Bootcamp / Neurology / Seizures",
+    "video_count": 7
+  },
+  {
+    "id": "31a2ba23-4b62-47c0-a1fe-fc5894d5498d",
+    "name": "Bootcamp / Neurology / Radiculopathy",
+    "video_count": 5
+  },
+  {
+    "id": "5e5bee49-035d-4a92-88e8-d4f796c605ff",
+    "name": "Bootcamp / Neurology / Pediatric Brain Tumors",
+    "video_count": 7
+  },
+  {
+    "id": "e200872f-2ced-49de-a7b0-7454a5af5f47",
+    "name": "Bootcamp / Neurology / Neurotransmitter Activity in Psychiatric Disease",
+    "video_count": 2
+  },
+  {
+    "id": "5c3983e0-4aa9-4ade-91f7-3125ae518027",
+    "name": "Bootcamp / Neurology / Neurotransmitter Activity in Psychiatric Disease",
+    "video_count": 1
+  },
+  {
+    "id": "434efc9b-6db5-4b8b-9d5c-4963e97ce94e",
+    "name": "Bootcamp / Neurology / Neuromuscular Junction (NMJ)",
+    "video_count": 7
+  },
+  {
+    "id": "36517251-6584-475a-bb14-acac5ec735e2",
+    "name": "Bootcamp / Neurology / Ischemic Cerebrovascular Accidents",
+    "video_count": 6
+  },
+  {
+    "id": "c97650e8-3e4d-40ae-b285-56dcd1645164",
+    "name": "Bootcamp / Neurology / Invasive Spinal Cord Disease",
+    "video_count": 7
+  },
+  {
+    "id": "db7a52bb-ab86-443b-b2ed-af2362cf2011",
+    "name": "Bootcamp / Neurology / Headache",
+    "video_count": 7
+  },
+  {
+    "id": "d70cbb3e-a56e-45a1-a74f-fa5c79dc78c4",
+    "name": "Bootcamp / Neurology / Embryology",
+    "video_count": 5
+  },
+  {
+    "id": "47a54868-1f3f-4c5c-9da6-85aff01428e4",
+    "name": "Bootcamp / Neurology / Diencephalon",
+    "video_count": 6
+  },
+  {
+    "id": "34a5203a-c5d8-423b-8df4-ab7ea90f3350",
+    "name": "Bootcamp / Neurology / Descending Spinal Cord Tracts",
+    "video_count": 4
+  },
+  {
+    "id": "1f3ea20c-49ab-4a2e-a1cd-16a662fba49c",
+    "name": "Bootcamp / Neurology / Demyelinating Disease",
+    "video_count": 4
+  },
+  {
+    "id": "f9cfc9fd-6de9-4c6a-9d45-c19811081e41",
+    "name": "Bootcamp / Neurology / Dementia",
+    "video_count": 8
+  },
+  {
+    "id": "69626d06-37c2-4834-8158-f7110d6609d7",
+    "name": "Bootcamp / Neurology / Cranial Nerves 7-12",
+    "video_count": 7
+  },
+  {
+    "id": "1a3059b0-d20e-435c-b5e5-9a6289d82650",
+    "name": "Bootcamp / Neurology / Cranial Nerves 1-6",
+    "video_count": 8
+  },
+  {
+    "id": "baf1e536-44a2-4d35-a2bd-623619ff0a66",
+    "name": "Bootcamp / Neurology / Conduction Physiology",
+    "video_count": 6
+  },
+  {
+    "id": "946e2a87-5411-4fca-83ce-6e979bd6328a",
+    "name": "Bootcamp / Neurology / Cerebral Cortex",
+    "video_count": 6
+  },
+  {
+    "id": "6dc7edc0-7f91-438d-9df4-ba5d27deb61f",
+    "name": "Bootcamp / Neurology / Cerebellum and Ventricles",
+    "video_count": 5
+  },
+  {
+    "id": "18efecc2-31aa-42c8-a3c6-13d400f15f25",
+    "name": "Bootcamp / Neurology / Cellular Function",
+    "video_count": 5
+  },
+  {
+    "id": "fe6391d5-5591-478a-97dd-a0832db76be6",
+    "name": "Bootcamp / Neurology / Brainstem Anatomy",
+    "video_count": 3
+  },
+  {
+    "id": "ea836fc7-b199-40c6-8b9d-1637df6a5cf8",
+    "name": "Bootcamp / Neurology / Basal Ganglia",
+    "video_count": 4
+  },
+  {
+    "id": "5ccdecb4-e347-4993-958c-a3b2eb59c854",
+    "name": "Bootcamp / Neurology / Auditory Sensation",
+    "video_count": 5
+  },
+  {
+    "id": "2ee6b1b8-1bab-4320-8ca9-ba7969692669",
+    "name": "Bootcamp / Neurology / Ascending Spinal Cord Tracts",
+    "video_count": 5
+  },
+  {
+    "id": "9ae8ac5f-c1f4-4783-bd97-42cb606fc253",
+    "name": "Bootcamp / Neurology / Aneurysms and Intracranial Hemorrhage",
+    "video_count": 1
+  },
+  {
+    "id": "11d0c866-4df6-4578-8cf2-ab4f153839c1",
+    "name": "Bootcamp / Neurology / Aneurysms and Intracranial Hemorrhage",
+    "video_count": 6
+  },
+  {
+    "id": "1a8b7722-006e-4485-a105-a45f07cce835",
+    "name": "Bootcamp / Neurology / Adult Primary Brain Tumors",
+    "video_count": 6
+  },
+  {
+    "id": "7461044a-a9af-4cbb-9807-5f4929c0fd88",
+    "name": "Bootcamp / Neuroanatomy / Superficial Brainstem",
+    "video_count": 3
+  },
+  {
+    "id": "07d48e9b-93bc-4c6b-8f1e-8d9cd6dc53a3",
+    "name": "Bootcamp / Neuroanatomy / Subcortical White Matter",
+    "video_count": 4
+  },
+  {
+    "id": "27d41b0c-2f88-4c5d-be62-d175ca61fdea",
+    "name": "Bootcamp / Neuroanatomy / Spinal Cord Tracts",
+    "video_count": 15
+  },
+  {
+    "id": "d2502ca9-97ed-48dd-814e-634038ec75ba",
+    "name": "Bootcamp / Neuroanatomy / Diencephalon",
+    "video_count": 3
+  },
+  {
+    "id": "53e5dfa5-b9e5-4585-b4f9-4afa5700b26e",
+    "name": "Bootcamp / Neuroanatomy / Cranial Nerves",
+    "video_count": 4
+  },
+  {
+    "id": "2e46d2d8-d4df-401d-9aa1-fc687b3c7ae0",
+    "name": "Bootcamp / Neuroanatomy / Cerebral Vasculature",
+    "video_count": 3
+  },
+  {
+    "id": "69f2c14d-556a-4edd-9ac6-7254d711abb9",
+    "name": "Bootcamp / Neuroanatomy / Cerebral Cortex",
+    "video_count": 5
+  },
+  {
+    "id": "986d0d75-6ee3-4851-8aef-dc64f99ad829",
+    "name": "Bootcamp / Neuroanatomy / Cerebellum",
+    "video_count": 3
+  },
+  {
+    "id": "afa5c202-6710-4c38-bfa0-762c0c8466c9",
+    "name": "Bootcamp / Neuroanatomy / Brain Ventricles",
+    "video_count": 2
+  },
+  {
+    "id": "84766736-2456-484e-a6cc-256bb700eb95",
+    "name": "Bootcamp / Neuroanatomy / Basal Ganglia",
+    "video_count": 3
+  },
+  {
+    "id": "d55c5169-0e09-4ed7-bb59-8f043c1f026b",
+    "name": "Bootcamp / Nephrology / Urinary Incontinence",
+    "video_count": 4
+  },
+  {
+    "id": "fda10a28-dd30-4b8a-81c4-fd81631c532e",
+    "name": "Bootcamp / Nephrology / Renin-Angiotensin-Aldosterone System",
+    "video_count": 3
+  },
+  {
+    "id": "cb217827-3c21-4ef9-941c-3e793d49e516",
+    "name": "Bootcamp / Nephrology / Renal Pharmacology",
+    "video_count": 6
+  },
+  {
+    "id": "e4c98c1d-a5cc-44d9-9ed7-35d78060dd16",
+    "name": "Bootcamp / Nephrology / Pathology Diagnostics",
+    "video_count": 3
+  },
+  {
+    "id": "520c54a7-e2f4-4ad6-830d-4f8023b1dfb2",
+    "name": "Bootcamp / Nephrology / Nephrotic Syndromes",
+    "video_count": 5
+  },
+  {
+    "id": "1f99ab99-1793-416e-97ff-b3ff5100df9c",
+    "name": "Bootcamp / Nephrology / Nephrotic Syndromes",
+    "video_count": 1
+  },
+  {
+    "id": "1a651d1c-bd50-48a3-846f-1a1cb3455a1d",
+    "name": "Bootcamp / Nephrology / Nephron Transporters",
+    "video_count": 4
+  },
+  {
+    "id": "60d82a13-4aa2-4ca6-9997-81c19351f4b9",
+    "name": "Bootcamp / Nephrology / Nephrolithiasis",
+    "video_count": 6
+  },
+  {
+    "id": "06cfa168-c691-46ea-a54c-0e8add1e4eb5",
+    "name": "Bootcamp / Nephrology / Nephritic Syndromes",
+    "video_count": 6
+  },
+  {
+    "id": "0056c4b3-0342-463e-b94e-b3ef49c26060",
+    "name": "Bootcamp / Nephrology / Kidney Injury",
+    "video_count": 10
+  },
+  {
+    "id": "bb1be812-4590-4064-9b9e-1165adf1aba6",
+    "name": "Bootcamp / Nephrology / Inflammatory Conditions & Malignancy",
+    "video_count": 8
+  },
+  {
+    "id": "a9250878-a3f7-4579-a0ff-d3fbb4889435",
+    "name": "Bootcamp / Nephrology / Fluid & Filtration Physiology",
+    "video_count": 5
+  },
+  {
+    "id": "23a9febc-489a-46d7-acc2-48cebd52b224",
+    "name": "Bootcamp / Nephrology / Electrolytes",
+    "video_count": 5
+  },
+  {
+    "id": "c4c46af9-7cc2-45fd-8a76-b44c78c4cabf",
+    "name": "Bootcamp / Nephrology / Cystic Kidney Disease",
+    "video_count": 3
+  },
+  {
+    "id": "1a44e0cd-0778-434a-9623-71719cac4706",
+    "name": "Bootcamp / Nephrology / Anatomy & Embryology",
+    "video_count": 3
+  },
+  {
+    "id": "74eb62e2-acd3-4a07-b9af-fd188b0969d3",
+    "name": "Bootcamp / Nephrology / Acid-Base Physiology",
+    "video_count": 9
+  },
+  {
+    "id": "af52bf0e-6775-4ca2-b0c1-e156fb7c5bee",
+    "name": "Bootcamp / Musculoskeletal / Wrist & Hand",
+    "video_count": 9
+  },
+  {
+    "id": "a7f350a1-ba6d-49bf-bbdb-faad17884f8f",
+    "name": "Bootcamp / Musculoskeletal / Vasculitides",
+    "video_count": 11
+  },
+  {
+    "id": "0d32565e-1e3f-45da-8b53-d8421eb38e86",
+    "name": "Bootcamp / Musculoskeletal / Vasculitides",
+    "video_count": 1
+  },
+  {
+    "id": "890c2ce8-ad2d-4c5d-b91f-7143c07c6829",
+    "name": "Bootcamp / Musculoskeletal / Spine",
+    "video_count": 8
+  },
+  {
+    "id": "b0996caf-3cdb-4402-9aad-5b3bd8a70a95",
+    "name": "Bootcamp / Musculoskeletal / Skeletal Muscle",
+    "video_count": 8
+  },
+  {
+    "id": "e68a8101-ba1c-42b5-a778-af8e760fa479",
+    "name": "Bootcamp / Musculoskeletal / Shoulder & Elbow",
+    "video_count": 6
+  },
+  {
+    "id": "4303bd85-b69d-4b4b-ad8f-7c71f20e756d",
+    "name": "Bootcamp / Musculoskeletal / Seronegative Spondyloarthritis",
+    "video_count": 5
+  },
+  {
+    "id": "1f9686f0-4e10-49ce-9af9-1d95a4fafc86",
+    "name": "Bootcamp / Musculoskeletal / Rheumatologic Diseases",
+    "video_count": 12
+  },
+  {
+    "id": "af246730-89aa-4f4f-9055-5cea9721ec78",
+    "name": "Bootcamp / Musculoskeletal / Primary Bone Tumors",
+    "video_count": 8
+  },
+  {
+    "id": "e85601c5-6b9e-4615-88a5-e7c9491caf95",
+    "name": "Bootcamp / Musculoskeletal / Non-Rheumatologic Diseases / Osteomalacia",
+    "video_count": 1
+  },
+  {
+    "id": "6e695e4e-9923-4423-b2c9-aacc836d52cb",
+    "name": "Bootcamp / Musculoskeletal / Non-Rheumatologic Diseases / CPPD",
+    "video_count": 1
+  },
+  {
+    "id": "bed3ab82-f254-4771-b16a-7ccedaaa17ab",
+    "name": "Bootcamp / Musculoskeletal / Non-Rheumatologic Diseases",
+    "video_count": 9
+  },
+  {
+    "id": "d09e0f44-a6c3-41f5-bd9a-896d1cd011b7",
+    "name": "Bootcamp / Musculoskeletal / Childhood Musculoskeletal Pathology",
+    "video_count": 7
+  },
+  {
+    "id": "9bc6e717-b170-44d6-ae2a-b6ea782fec26",
+    "name": "Bootcamp / Musculoskeletal / Brachial Plexus Nerves & Lesions",
+    "video_count": 10
+  },
+  {
+    "id": "6ee4da5f-2145-42d5-8dab-0c93e2e3990d",
+    "name": "Bootcamp / Microbiology / Trematodes",
+    "video_count": 2
+  },
+  {
+    "id": "dcf3dcaf-d451-4dbe-b163-f7b16af5de7e",
+    "name": "Bootcamp / Microbiology / Tinea",
+    "video_count": 5
+  },
+  {
+    "id": "ca129a9d-a137-47a1-876d-6e13b9208c1b",
+    "name": "Bootcamp / Microbiology / Systemic Protozoa",
+    "video_count": 8
+  },
+  {
+    "id": "c9ff6981-21fa-4e64-9818-e0a06401fb75",
+    "name": "Bootcamp / Microbiology / Streptococcus",
+    "video_count": 6
+  },
+  {
+    "id": "168d2c34-24ad-4d8c-adf9-3ade2f228031",
+    "name": "Bootcamp / Microbiology / Staphylococcus",
+    "video_count": 6
+  },
+  {
+    "id": "2470de1b-6672-44fc-b600-8dab1f27543e",
+    "name": "Bootcamp / Microbiology / Spirochetes",
+    "video_count": 7
+  },
+  {
+    "id": "433226c4-1512-4689-bb78-dc760901364d",
+    "name": "Bootcamp / Microbiology / Opportunistic Mycosis",
+    "video_count": 9
+  },
+  {
+    "id": "b7fea184-d271-4e88-9b26-c7f59a76ac6b",
+    "name": "Bootcamp / Microbiology / Opportunistic Infections",
+    "video_count": 8
+  },
+  {
+    "id": "4d78d9a4-0fe7-430d-8fb4-4d83d9bd4e6d",
+    "name": "Bootcamp / Microbiology / Non-Spore Forming Gram Positive Bacilli",
+    "video_count": 6
+  },
+  {
+    "id": "91fc19be-bfa1-489d-bc1e-9645e8771094",
+    "name": "Bootcamp / Microbiology / Non-lactose Fermenting Gram Negative Bacilli",
+    "video_count": 9
+  },
+  {
+    "id": "0aaa2eb3-ddfb-4bc6-bf49-355d874ab24c",
+    "name": "Bootcamp / Microbiology / Nematodes",
+    "video_count": 10
+  },
+  {
+    "id": "ff6a5cc0-8fb5-4fe2-b620-0d0db87c8218",
+    "name": "Bootcamp / Microbiology / Mycobacteria",
+    "video_count": 8
+  },
+  {
+    "id": "90014d71-43d0-487e-a1c0-bb11dee40e1e",
+    "name": "Bootcamp / Microbiology / Lactose Fermenting Gram Negative Bacilli",
+    "video_count": 5
+  },
+  {
+    "id": "0d1991f6-1f8d-4069-9d67-262c2f7ece40",
+    "name": "Bootcamp / Microbiology / Infectious Neuropathology",
+    "video_count": 10
+  },
+  {
+    "id": "08b1821b-cc12-4d2c-8d3c-587bca2eddc4",
+    "name": "Bootcamp / Microbiology / Infectious Dermatologic Disease",
+    "video_count": 9
+  },
+  {
+    "id": "c5e8bc73-5fbe-4c9a-9e83-ecf85f766119",
+    "name": "Bootcamp / Microbiology / Gram Negative Diplococci",
+    "video_count": 3
+  },
+  {
+    "id": "b8424407-16c2-4160-a632-194263d50d33",
+    "name": "Bootcamp / Microbiology / Gram Negative Curved Bacilli",
+    "video_count": 4
+  },
+  {
+    "id": "bd2bf975-1cda-4b8e-a1bf-a4024759a602",
+    "name": "Bootcamp / Microbiology / Gram Negative Coccobacilli",
+    "video_count": 4
+  },
+  {
+    "id": "fee66a10-c937-428f-aeb8-f936e88e3e8a",
+    "name": "Bootcamp / Microbiology / Gastrointestinal Protozoa",
+    "video_count": 3
+  },
+  {
+    "id": "d0e15ce3-5713-4d0c-a05f-c53faebeeb3d",
+    "name": "Bootcamp / Microbiology / Fundamentals of Bacteriology",
+    "video_count": 9
+  },
+  {
+    "id": "df770648-f650-4226-a6fb-22562d84ce47",
+    "name": "Bootcamp / Microbiology / Enterococcus and Bacillus",
+    "video_count": 4
+  },
+  {
+    "id": "4548f39c-c267-49a0-94f2-f3baec352d73",
+    "name": "Bootcamp / Microbiology / Ectoparasites",
+    "video_count": 2
+  },
+  {
+    "id": "6e4895d0-b099-49d3-b935-51153cd67c68",
+    "name": "Bootcamp / Microbiology / Ectoparasites",
+    "video_count": 1
+  },
+  {
+    "id": "b87a2712-da40-44fc-a360-b649ec5609d6",
+    "name": "Bootcamp / Microbiology / Dimorphic Mycosis",
+    "video_count": 7
+  },
+  {
+    "id": "a319d79a-db9b-4d86-ba77-bc2773cb988c",
+    "name": "Bootcamp / Microbiology / Clostridium",
+    "video_count": 5
+  },
+  {
+    "id": "fe99c4b9-9ea8-4aca-b4ed-8b23368d530c",
+    "name": "Bootcamp / Microbiology / Cestodes",
+    "video_count": 3
+  },
+  {
+    "id": "fa212a53-e582-4af7-8d94-0f438b4bb505",
+    "name": "Bootcamp / Microbiology / Cardiorespiratory Infections",
+    "video_count": 12
+  },
+  {
+    "id": "92b81166-ecdd-478e-95c1-bcb321135f40",
+    "name": "Bootcamp / Microbiology / Basics of Virology",
+    "video_count": 4
+  },
+  {
+    "id": "74ae9f48-8980-4c25-a294-8e321f41f530",
+    "name": "Bootcamp / Microbiology / Bacterial Toxins",
+    "video_count": 5
+  },
+  {
+    "id": "61ba4490-6e8a-4262-b2ae-004d43e2dabd",
+    "name": "Bootcamp / Microbiology / Bacterial Genetics",
+    "video_count": 6
+  },
+  {
+    "id": "ab65c2f3-7672-422a-a9a4-49b45af9586f",
+    "name": "Bootcamp / Microbiology / Atypical Bacteria",
+    "video_count": 9
+  },
+  {
+    "id": "3fb0b6b6-87ee-45cb-b731-590de3645d83",
+    "name": "Bootcamp / Microbiology / Approach to Virology",
+    "video_count": 2
+  },
+  {
+    "id": "979b73fc-2b98-433a-ba49-8ea977c30a24",
+    "name": "Bootcamp / Microbiology / Antifungals",
+    "video_count": 6
+  },
+  {
+    "id": "7b5f2455-9f63-49ab-8539-52facb8fad8d",
+    "name": "Bootcamp / Microbiology / Antibiotics",
+    "video_count": 27
+  },
+  {
+    "id": "f6ea5fbd-f355-4718-9602-a90980db74dc",
+    "name": "Bootcamp / Immunology / Vaccinations",
+    "video_count": 5
+  },
+  {
+    "id": "085fae2b-59f5-475d-a12c-a1ede12d319c",
+    "name": "Bootcamp / Immunology / Transplant Rejection",
+    "video_count": 9
+  },
+  {
+    "id": "93865986-37a0-43ac-b5c0-6cb8f3d8a715",
+    "name": "Bootcamp / Immunology / The Innate Immune System / Response to Viruses",
+    "video_count": 1
+  },
+  {
+    "id": "44caa02a-a81f-4827-b378-741b53f22605",
+    "name": "Bootcamp / Immunology / The Innate Immune System / Recognizing Invaders",
+    "video_count": 1
+  },
+  {
+    "id": "4d300531-508c-42fa-ad03-79edcbaebf36",
+    "name": "Bootcamp / Immunology / The Innate Immune System / Phagocytes",
+    "video_count": 2
+  },
+  {
+    "id": "4459b890-fa8b-4e9c-99c6-e1723702d152",
+    "name": "Bootcamp / Immunology / The Innate Immune System / Complement",
+    "video_count": 2
+  },
+  {
+    "id": "b486545e-c714-4fc3-9af2-4297cf6cfa47",
+    "name": "Bootcamp / Immunology / The Adaptive Immune System / Humoral Immunity (B-Cells)",
+    "video_count": 2
+  },
+  {
+    "id": "c5ec7acc-3442-45d0-bd72-d5cd58df93e4",
+    "name": "Bootcamp / Immunology / The Adaptive Immune System / Cell Mediated Immunity (T-Cells)",
+    "video_count": 6
+  },
+  {
+    "id": "44f67546-3465-4efb-adad-2d00c18e7380",
+    "name": "Bootcamp / Immunology / The Adaptive Immune System / Antibodies & Receptors",
+    "video_count": 1
+  },
+  {
+    "id": "b0b258f6-cb30-4d45-87cf-0d8dfe0e218a",
+    "name": "Bootcamp / Immunology / T-cells",
+    "video_count": 4
+  },
+  {
+    "id": "74382766-d671-4568-bee7-556fb3fc30eb",
+    "name": "Bootcamp / Immunology / Lymphoid Tissue",
+    "video_count": 4
+  },
+  {
+    "id": "70404c54-e90f-4613-866c-9c221f941466",
+    "name": "Bootcamp / Immunology / Innate vs Adaptive Immunity",
+    "video_count": 3
+  },
+  {
+    "id": "7a45b611-ff01-4d43-a86d-1dfb0da2f9e4",
+    "name": "Bootcamp / Immunology / Inflammatory Response",
+    "video_count": 5
+  },
+  {
+    "id": "6aef1b0e-8b2a-4a84-985e-ba13e96613ca",
+    "name": "Bootcamp / Immunology / Immunodeficiency Syndromes",
+    "video_count": 7
+  },
+  {
+    "id": "8715a9ba-21fa-4cb9-b405-45dbda1be311",
+    "name": "Bootcamp / Immunology / Hypersensitivities",
+    "video_count": 7
+  },
+  {
+    "id": "6c7af757-9d3b-42ed-99db-b97961200137",
+    "name": "Bootcamp / Immunology / Cytokines",
+    "video_count": 3
+  },
+  {
+    "id": "b7795129-3fab-451f-92d9-cb5471ae4c7b",
+    "name": "Bootcamp / Immunology / Components of the Immune System / Organs of the Immune System",
+    "video_count": 1
+  },
+  {
+    "id": "9291e0b5-8d16-4e7b-92e5-fbb498b2d464",
+    "name": "Bootcamp / Immunology / Components of the Immune System / Cells of the Immune System",
+    "video_count": 1
+  },
+  {
+    "id": "2a393192-1371-4f47-8e56-1bba5e7b1065",
+    "name": "Bootcamp / Immunology / Components of the Immune System / Branches of the Immune System",
+    "video_count": 1
+  },
+  {
+    "id": "b453918e-8c2d-4a41-9481-cf714201e9fe",
+    "name": "Bootcamp / Immunology / Complement",
+    "video_count": 4
+  },
+  {
+    "id": "01d746bd-5da7-464f-84ed-735e94d2d77a",
+    "name": "Bootcamp / Immunology / Blood Transfusion Reactions",
+    "video_count": 8
+  },
+  {
+    "id": "25b27f92-6150-420a-a5e1-6a14d89a5db4",
+    "name": "Bootcamp / Immunology / B-cells",
+    "video_count": 3
+  },
+  {
+    "id": "d1af6369-3a1b-417d-96be-efaa71df7d9f",
+    "name": "Bootcamp / Immunology / Autoimmune Diseases / Hypersensitivity Reactions",
+    "video_count": 3
+  },
+  {
+    "id": "0f8d42f6-e6e1-4394-9d0f-ebb6f35f6e4b",
+    "name": "Bootcamp / Immunology / Antibodies",
+    "video_count": 4
+  },
+  {
+    "id": "2fbdae63-88a0-4a68-9344-4999b4a20b5f",
+    "name": "Bootcamp / Histology / Urinary System",
+    "video_count": 13
+  },
+  {
+    "id": "715af896-5acd-4e06-8e09-9d53a7cdae98",
+    "name": "Bootcamp / Histology / Skin",
+    "video_count": 13
+  },
+  {
+    "id": "0431cb14-ba5e-460e-8095-b7c70b0807d8",
+    "name": "Bootcamp / Histology / Respiratory System",
+    "video_count": 13
+  },
+  {
+    "id": "946ea855-f7f6-4d36-8b51-9ae1402a035e",
+    "name": "Bootcamp / Histology / Oral Cavity",
+    "video_count": 5
+  },
+  {
+    "id": "f22ef959-3158-429e-9ab8-9a71dc510623",
+    "name": "Bootcamp / Histology / Nervous System",
+    "video_count": 31
+  },
+  {
+    "id": "5059a771-81c8-4d51-96dd-d300f8ffa1c5",
+    "name": "Bootcamp / Histology / Muscles",
+    "video_count": 15
+  },
+  {
+    "id": "aabc7608-0f84-4996-aa84-5966c84f528a",
+    "name": "Bootcamp / Histology / Methods and Overview of Cells",
+    "video_count": 10
+  },
+  {
+    "id": "f988176f-6667-4d53-bf27-01853ffac6f6",
+    "name": "Bootcamp / Histology / Male Reproductive System",
+    "video_count": 8
+  },
+  {
+    "id": "38beb286-ac5c-4836-bb6d-28d3fa8cbefe",
+    "name": "Bootcamp / Histology / Lymphatic System",
+    "video_count": 17
+  },
+  {
+    "id": "7f444833-a555-4815-9d93-8b904c3467c0",
+    "name": "Bootcamp / Histology / Liver, Gallbladder and Pancreas",
+    "video_count": 11
+  },
+  {
+    "id": "3310e8d1-2294-4c7b-b3da-364afc230096",
+    "name": "Bootcamp / Histology / Liver, Gallbladder and Pancreas",
+    "video_count": 1
+  },
+  {
+    "id": "4178fc80-3a29-4ec9-be48-b4ae14b0a413",
+    "name": "Bootcamp / Histology / Gastrointestinal Tract",
+    "video_count": 12
+  },
+  {
+    "id": "ec4117e5-ba44-45b1-9e90-cd25b90cdba8",
+    "name": "Bootcamp / Histology / Female Reproductive System",
+    "video_count": 14
+  },
+  {
+    "id": "d6d1f79b-b2b2-4b4d-97d3-044e31da4ae3",
+    "name": "Bootcamp / Histology / Eyes",
+    "video_count": 11
+  },
+  {
+    "id": "bfdaa460-7eac-464a-bc1d-36bb73ecd8c4",
+    "name": "Bootcamp / Histology / Eyes",
+    "video_count": 1
+  },
+  {
+    "id": "02d05415-aca8-4d8a-b90b-50a6aed3a602",
+    "name": "Bootcamp / Histology / Epithelium",
+    "video_count": 16
+  },
+  {
+    "id": "289d9ac0-5847-4d92-8b0c-93cfafd123df",
+    "name": "Bootcamp / Histology / Endocrine System",
+    "video_count": 24
+  },
+  {
+    "id": "e01f254d-ce5c-4fa2-b937-3f7555540f19",
+    "name": "Bootcamp / Histology / Ears",
+    "video_count": 16
+  },
+  {
+    "id": "98d6fdd4-a6a0-4a13-90ca-5c35de1bc840",
+    "name": "Bootcamp / Histology / Connective Tissue",
+    "video_count": 9
+  },
+  {
+    "id": "86a324ef-2dad-4e6a-acbc-3a6fe468c3f9",
+    "name": "Bootcamp / Histology / Cartilage",
+    "video_count": 7
+  },
+  {
+    "id": "5ca543d2-4f45-44e3-b771-4e6b38e51fa1",
+    "name": "Bootcamp / Histology / Cardiovascular System",
+    "video_count": 17
+  },
+  {
+    "id": "f9dacb84-57cd-4a59-876f-81a6e78124b1",
+    "name": "Bootcamp / Histology / Bone",
+    "video_count": 21
+  },
+  {
+    "id": "f055078d-da5e-4bc4-b493-f67477bcf475",
+    "name": "Bootcamp / Histology / Blood and Blood Formation",
+    "video_count": 29
+  },
+  {
+    "id": "9020d586-8334-4b0c-ace8-f4d2d11225f1",
+    "name": "Bootcamp / High-Yield Anatomy / High-Yield Step 1 Anatomy",
+    "video_count": 56
+  },
+  {
+    "id": "84c98653-f13a-41ac-b57f-3f16d481eb16",
+    "name": "Bootcamp / Hematology & Oncology / Principles of Oncology and Therapeutics",
+    "video_count": 11
+  },
+  {
+    "id": "71a4b2c2-be5f-4dab-b47e-9606d19d2bce",
+    "name": "Bootcamp / Hematology & Oncology / Platelets",
+    "video_count": 5
+  },
+  {
+    "id": "c6181da0-5d5f-4d89-9a1e-af8b9c9e4bcf",
+    "name": "Bootcamp / Hematology & Oncology / Plasma Cell Dyscrasias & Myeloproliferative Disease",
+    "video_count": 4
+  },
+  {
+    "id": "0a7c31e8-fb81-4089-8b1c-86f7b6d9c46b",
+    "name": "Bootcamp / Hematology & Oncology / Plasma Cell Dyscrasias & Myeloproliferative Disease",
+    "video_count": 1
+  },
+  {
+    "id": "78b211fd-c1d5-41af-88df-28e45734836b",
+    "name": "Bootcamp / Hematology & Oncology / Normocytic Anemia",
+    "video_count": 10
+  },
+  {
+    "id": "1fec9275-9fe1-4992-b2a8-cef47df59c24",
+    "name": "Bootcamp / Hematology & Oncology / Microcytic Anemia",
+    "video_count": 9
+  },
+  {
+    "id": "9dc2a426-402c-4fbf-9acb-968946ccca5d",
+    "name": "Bootcamp / Hematology & Oncology / Macrocytic Anemia",
+    "video_count": 4
+  },
+  {
+    "id": "8d969047-c9cf-40d1-9f2e-ea57670aa953",
+    "name": "Bootcamp / Hematology & Oncology / Leukemias and Lymphomas",
+    "video_count": 10
+  },
+  {
+    "id": "fbbf66a0-b18f-4d5c-931e-461ed586c968",
+    "name": "Bootcamp / Hematology & Oncology / Embryology",
+    "video_count": 2
+  },
+  {
+    "id": "3fafeb3f-1ffb-49ba-8453-7c792487d6ff",
+    "name": "Bootcamp / Hematology & Oncology / Coagulation and Fibrinolysis",
+    "video_count": 11
+  },
+  {
+    "id": "f6d72070-4e22-45a3-a6d7-b55ac8ccbaf4",
+    "name": "Bootcamp / Hematology & Oncology / Blood Cells",
+    "video_count": 7
+  },
+  {
+    "id": "f1e0b23f-f749-4d2c-bc7b-6494dd56eee7",
+    "name": "Bootcamp / Gross Anatomy / Tongue & Floor of the Mouth",
+    "video_count": 3
+  },
+  {
+    "id": "d2ba160a-a03d-4ef1-874a-6889a36a6b9c",
+    "name": "Bootcamp / Gross Anatomy / Thoracic Wall",
+    "video_count": 8
+  },
+  {
+    "id": "d704dc24-9713-4377-8f0b-28780dbef6f8",
+    "name": "Bootcamp / Gross Anatomy / Superior Mesenteric Artery, Inferior Mesenteric Artery, Small Intestine, Pancreas, Large Intestine",
+    "video_count": 10
+  },
+  {
+    "id": "b47db712-df01-41ab-90c6-262bbb3fc8f0",
+    "name": "Bootcamp / Gross Anatomy / Spinal Cord",
+    "video_count": 3
+  },
+  {
+    "id": "7c7beab5-03ae-42bb-9dd1-0eb5daf004bf",
+    "name": "Bootcamp / Gross Anatomy / Scapular Region and Posterior Arm",
+    "video_count": 7
+  },
+  {
+    "id": "280d7341-7885-4010-951e-d1f60e8a120c",
+    "name": "Bootcamp / Gross Anatomy / Posterior Triangle of the Neck",
+    "video_count": 4
+  },
+  {
+    "id": "22657b69-a356-469a-b003-ae6754e35bd1",
+    "name": "Bootcamp / Gross Anatomy / Posterior Abdominal Wall, Inguinal Region, Scrotum, Testis & Spermatic Cord",
+    "video_count": 9
+  },
+  {
+    "id": "aab8e014-d3f5-4f5e-9530-4ad0cfc2f075",
+    "name": "Bootcamp / Gross Anatomy / Posterior Abdominal Viscera, Muscles and Diaphragm",
+    "video_count": 7
+  },
+  {
+    "id": "17b696ad-1bfe-41eb-a7ed-0a8ff56fb6ae",
+    "name": "Bootcamp / Gross Anatomy / Pharynx",
+    "video_count": 6
+  },
+  {
+    "id": "0fe55ee8-4dcd-426d-9b46-991e0fbf7000",
+    "name": "Bootcamp / Gross Anatomy / Perineum & External Genitalia",
+    "video_count": 8
+  },
+  {
+    "id": "e5d5844a-5545-4991-a7b6-11e627864c14",
+    "name": "Bootcamp / Gross Anatomy / Pelvic Cavity",
+    "video_count": 16
+  },
+  {
+    "id": "179b185f-3328-40f1-89fd-000ae8f35104",
+    "name": "Bootcamp / Gross Anatomy / Pectoral Region",
+    "video_count": 6
+  },
+  {
+    "id": "6447b1c4-38dd-4b1c-b752-7ae13fd6f907",
+    "name": "Bootcamp / Gross Anatomy / Orbit",
+    "video_count": 8
+  },
+  {
+    "id": "51a4ac42-f3c9-4804-8784-885646ea547e",
+    "name": "Bootcamp / Gross Anatomy / Occipital Region & Posterior Neck",
+    "video_count": 7
+  },
+  {
+    "id": "bb8e9c92-7ec2-4878-97d8-3c4452126de5",
+    "name": "Bootcamp / Gross Anatomy / Nose & Nasal Cavity",
+    "video_count": 4
+  },
+  {
+    "id": "38911337-6c9b-4c69-a3ee-80398fb1593b",
+    "name": "Bootcamp / Gross Anatomy / Mediastinum",
+    "video_count": 6
+  },
+  {
+    "id": "45b1630b-ede2-4092-9ad2-d256f7ee4f4d",
+    "name": "Bootcamp / Gross Anatomy / Lungs",
+    "video_count": 8
+  },
+  {
+    "id": "175244ac-154a-49cf-acd8-89659a30c1e6",
+    "name": "Bootcamp / Gross Anatomy / Leg",
+    "video_count": 8
+  },
+  {
+    "id": "84a3eca7-56ee-48d6-9da8-2bcefdbb1d7c",
+    "name": "Bootcamp / Gross Anatomy / Larynx",
+    "video_count": 2
+  },
+  {
+    "id": "03223c07-81b3-4eac-91ae-9aabb3b4c041",
+    "name": "Bootcamp / Gross Anatomy / Larynx",
+    "video_count": 1
+  },
+  {
+    "id": "be9ee4e7-f885-4c7d-b26b-5b452f67a817",
+    "name": "Bootcamp / Gross Anatomy / Infratemporal Fossa",
+    "video_count": 3
+  },
+  {
+    "id": "8e582512-4096-443d-ac0b-6a8a1e703803",
+    "name": "Bootcamp / Gross Anatomy / Hepatoduodenal Ligament, Celiac Trunk, Stomach, Spleen, Liver & Gallbladder",
+    "video_count": 10
+  },
+  {
+    "id": "c87a943a-2244-495e-934b-93894f9068f4",
+    "name": "Bootcamp / Gross Anatomy / Heart",
+    "video_count": 13
+  },
+  {
+    "id": "6f3882dc-cc32-40e7-90e0-b7c3bb0b90ea",
+    "name": "Bootcamp / Gross Anatomy / Hard & Soft Palate, and Pterygopalatine Fossa",
+    "video_count": 4
+  },
+  {
+    "id": "a4867882-2028-4547-9329-65d71513c9f8",
+    "name": "Bootcamp / Gross Anatomy / Hand",
+    "video_count": 10
+  },
+  {
+    "id": "08ac04cc-c656-414a-952f-20240f30dfac",
+    "name": "Bootcamp / Gross Anatomy / Gluteal Region, Posterior Thigh, Popliteal Fossa",
+    "video_count": 13
+  },
+  {
+    "id": "35035bb5-f724-4b85-9a49-5eae6feb4a79",
+    "name": "Bootcamp / Gross Anatomy / Foundational Concepts in Anatomy",
+    "video_count": 13
+  },
+  {
+    "id": "4725ea2c-9aec-4437-8c1e-74de766b3ae9",
+    "name": "Bootcamp / Gross Anatomy / Forearm and Cubital Fossa",
+    "video_count": 10
+  },
+  {
+    "id": "269e7424-05ed-4802-b79a-0fb534ffe684",
+    "name": "Bootcamp / Gross Anatomy / Foot",
+    "video_count": 11
+  },
+  {
+    "id": "c76f098c-4913-44f6-a162-8f97854896de",
+    "name": "Bootcamp / Gross Anatomy / Face",
+    "video_count": 5
+  },
+  {
+    "id": "5b3eab99-7c77-4b37-8707-3b74c2ffa0f0",
+    "name": "Bootcamp / Gross Anatomy / External Examination of the Brain + Skull",
+    "video_count": 24
+  },
+  {
+    "id": "8cda6d5d-26fa-42f8-a706-61d185b1479a",
+    "name": "Bootcamp / Gross Anatomy / Cranial Nerve Review",
+    "video_count": 3
+  },
+  {
+    "id": "d6dac778-c23b-4ee5-8d27-bbd3c11517f9",
+    "name": "Bootcamp / Gross Anatomy / Back",
+    "video_count": 14
+  },
+  {
+    "id": "859cda43-f01b-46bb-ae86-d762ffc64524",
+    "name": "Bootcamp / Gross Anatomy / Axilla",
+    "video_count": 6
+  },
+  {
+    "id": "e3db39f9-8495-4e12-ae96-7ef0cdd7d44b",
+    "name": "Bootcamp / Gross Anatomy / Anterior Triangle of the Neck",
+    "video_count": 7
+  },
+  {
+    "id": "89a36d85-7c6d-429d-b731-207fa2c1c1f6",
+    "name": "Bootcamp / Gross Anatomy / Anterior Arm",
+    "video_count": 8
+  },
+  {
+    "id": "24d2f022-a39e-4714-bd8a-07a54e83e9df",
+    "name": "Bootcamp / Gross Anatomy / Anterior & Medial Thigh, Knee",
+    "video_count": 18
+  },
+  {
+    "id": "61b6c3af-6919-4dbf-a2fb-515df302f675",
+    "name": "Bootcamp / Gross Anatomy / Abdominal Wall and Viscera in situ",
+    "video_count": 12
+  },
+  {
+    "id": "d2306fa6-e957-4d68-98f5-24381f2820ce",
+    "name": "Bootcamp / Genetics / Mitosis, Meiosis, and the Cell Cycle",
+    "video_count": 4
+  },
+  {
+    "id": "c0f28bac-5912-407e-8f8d-a2a6cf675cdc",
+    "name": "Bootcamp / Genetics / Laboratory Techniques",
+    "video_count": 4
+  },
+  {
+    "id": "64a9b620-9872-499e-b1c2-536c10ae27d2",
+    "name": "Bootcamp / Genetics / Laboratory Techniques / CRISPR",
+    "video_count": 1
+  },
+  {
+    "id": "89305392-0eb3-47da-b4f0-011dcf819e89",
+    "name": "Bootcamp / Genetics / High Yield Genetic Disorders",
+    "video_count": 6
+  },
+  {
+    "id": "e0915ada-8a08-41af-a9fc-cf40e0de2a2a",
+    "name": "Bootcamp / Genetics / DNA Structure",
+    "video_count": 6
+  },
+  {
+    "id": "7a7016c4-a8a5-466c-9bb5-af5baccd8dd7",
+    "name": "Bootcamp / Genetics / DNA Replication, Transcription, and Translation",
+    "video_count": 6
+  },
+  {
+    "id": "9b3e4d73-09d9-4f68-8506-8c52c401d4e2",
+    "name": "Bootcamp / Genetics / DNA Mutations, Damage, and Repair",
+    "video_count": 3
+  },
+  {
+    "id": "b6c12f6c-e917-471b-b015-a5c4b054eb64",
+    "name": "Bootcamp / Genetics / Basics of Clinical Genetics",
+    "video_count": 5
+  },
+  {
+    "id": "af1a84f0-c6cc-466b-9856-1065f3f0f001",
+    "name": "Bootcamp / Gastroenterology / Visceral Anatomy",
+    "video_count": 7
+  },
+  {
+    "id": "7a5d56f9-78e3-4b15-bc7f-97bd6c8b4493",
+    "name": "Bootcamp / Gastroenterology / Physiology",
+    "video_count": 8
+  },
+  {
+    "id": "6a99e7f3-930e-4aa0-bf7e-3711f0acda2b",
+    "name": "Bootcamp / Gastroenterology / Pharmacology",
+    "video_count": 11
+  },
+  {
+    "id": "98643957-aae1-40a9-a1d4-bb95384da984",
+    "name": "Bootcamp / Gastroenterology / Pancreatic and Biliary Pathology",
+    "video_count": 8
+  },
+  {
+    "id": "aead2505-4401-48a8-bbd4-1825431dfae2",
+    "name": "Bootcamp / Gastroenterology / Non-visceral Anatomy",
+    "video_count": 6
+  },
+  {
+    "id": "d9991032-0e94-471f-bed0-fc44dca8d945",
+    "name": "Bootcamp / Gastroenterology / Intestinal Pathology",
+    "video_count": 9
+  },
+  {
+    "id": "06d21a47-923c-4a10-a1b8-a3c9f0701b71",
+    "name": "Bootcamp / Gastroenterology / Hepatic Pathology",
+    "video_count": 10
+  },
+  {
+    "id": "97701cfb-4e34-4dd1-b0a7-aab079eba76b",
+    "name": "Bootcamp / Gastroenterology / Esophageal and Gastric Pathology",
+    "video_count": 7
+  },
+  {
+    "id": "fe57c8ce-9617-44e8-81d1-ae836526de73",
+    "name": "Bootcamp / Gastroenterology / Embryology",
+    "video_count": 5
+  },
+  {
+    "id": "50419c80-5580-49d6-b5b8-7866532af1c4",
+    "name": "Bootcamp / Gastroenterology / Colorectal Pathology",
+    "video_count": 9
+  },
+  {
+    "id": "b7de6814-adf4-458f-8ae7-b75057506f8e",
+    "name": "Bootcamp / Endocrinology / Thyroid",
+    "video_count": 7
+  },
+  {
+    "id": "8280afb9-dd84-44c7-9172-c40171d092ca",
+    "name": "Bootcamp / Endocrinology / Thyroid / Hyper",
+    "video_count": 2
+  },
+  {
+    "id": "b11ddef9-c1c4-45ff-95d9-b9d91c796e75",
+    "name": "Bootcamp / Endocrinology / Parathyroids",
+    "video_count": 4
+  },
+  {
+    "id": "fbd4cb04-4842-429f-a6d2-35269abc5487",
+    "name": "Bootcamp / Endocrinology / Pancreas",
+    "video_count": 9
+  },
+  {
+    "id": "4fa56657-3c47-4f9d-b991-a994caca85eb",
+    "name": "Bootcamp / Endocrinology / Hypothalamus",
+    "video_count": 7
+  },
+  {
+    "id": "0067e97d-4ed4-4fe8-b052-92226f128166",
+    "name": "Bootcamp / Endocrinology / Fundamental Principles of Endocrinology",
+    "video_count": 3
+  },
+  {
+    "id": "17377fcb-6756-4580-9321-181724ce2c8e",
+    "name": "Bootcamp / Endocrinology / Anterior and Posterior Pituitary",
+    "video_count": 7
+  },
+  {
+    "id": "52a5c753-8c25-44de-9255-c2077def2382",
+    "name": "Bootcamp / Endocrinology / Adrenal Glands",
+    "video_count": 15
+  },
+  {
+    "id": "401047d2-c50e-4ae5-8a1f-ecf1d3ed4cad",
+    "name": "Bootcamp / Embryology / Thoracic Systems Respiratory & Cardiovascular",
+    "video_count": 8
+  },
+  {
+    "id": "52c1c610-e41b-496e-824b-99d6a669919b",
+    "name": "Bootcamp / Embryology / Germinal Period Weeks 1-2",
+    "video_count": 5
+  },
+  {
+    "id": "7937fafb-2ac2-482c-b37b-846f88537cfd",
+    "name": "Bootcamp / Embryology / Embryonic Period Weeks 3-8",
+    "video_count": 10
+  },
+  {
+    "id": "605c639d-0042-4753-9328-0844f7eb39f9",
+    "name": "Bootcamp / Embryology / Abdominopelvic Systems Digestive, Urinary & Reproductive",
+    "video_count": 6
+  },
+  {
+    "id": "95099a30-4e66-46b4-b123-9f45d56311b3",
+    "name": "Bootcamp / Dermatology / Malignant Skin Disorders",
+    "video_count": 2
+  },
+  {
+    "id": "f669ba42-a6f5-452b-aac6-8a87bca0d754",
+    "name": "Bootcamp / Dermatology / Inflammatory Diseases of the Skin",
+    "video_count": 5
+  },
+  {
+    "id": "61c57bd4-0621-4082-909a-42f02d5b39d5",
+    "name": "Bootcamp / Dermatology / Infectious Diseases of the Skin",
+    "video_count": 5
+  },
+  {
+    "id": "026f3db5-d7a4-4706-bd6c-5a6408b630d6",
+    "name": "Bootcamp / Dermatology / General Principles",
+    "video_count": 3
+  },
+  {
+    "id": "11a832bb-91b2-4ac9-9ca2-a502e0204310",
+    "name": "Bootcamp / Dermatology / Additional Dermatologic Disorders",
+    "video_count": 3
+  },
+  {
+    "id": "36965ee0-d1b2-4147-8c05-b40f7391204e",
+    "name": "Bootcamp / Cardiology / Ventricular Arrhythmias",
+    "video_count": 5
+  },
+  {
+    "id": "1c08c66e-f210-4877-864b-b12509a36d38",
+    "name": "Bootcamp / Cardiology / Vasodilation and Vasoconstriction",
+    "video_count": 5
+  },
+  {
+    "id": "80b150b4-3faa-46e4-95c7-53983c46de90",
+    "name": "Bootcamp / Cardiology / Vascular System",
+    "video_count": 6
+  },
+  {
+    "id": "59f8e709-a0ca-419c-bbb4-e383fa33d247",
+    "name": "Bootcamp / Cardiology / Valvular Disease",
+    "video_count": 7
+  },
+  {
+    "id": "93db50df-e602-4902-8b04-b2b29daf926e",
+    "name": "Bootcamp / Cardiology / Stable Angina and Atherosclerosis",
+    "video_count": 8
+  },
+  {
+    "id": "caec0655-685a-477e-8b46-47c5f5dddb26",
+    "name": "Bootcamp / Cardiology / Shock",
+    "video_count": 8
+  },
+  {
+    "id": "4274c3c1-8e66-46f0-9e30-92dd7af4cac3",
+    "name": "Bootcamp / Cardiology / Renin-Angiotensin-Aldosterone System",
+    "video_count": 3
+  },
+  {
+    "id": "06d45ae0-e520-4976-ae6b-feded70c529a",
+    "name": "Bootcamp / Cardiology / Pressure-Volume Loops",
+    "video_count": 5
+  },
+  {
+    "id": "085ee5b2-f287-4a19-a79c-9f18ea0b8fe4",
+    "name": "Bootcamp / Cardiology / Pressure and Flow Physiology",
+    "video_count": 4
+  },
+  {
+    "id": "f6277c5c-88ed-4740-a35c-6570061bdad9",
+    "name": "Bootcamp / Cardiology / Peripheral Venous and Arterial Disease",
+    "video_count": 4
+  },
+  {
+    "id": "2afd4089-d613-459e-a1cc-fca5bf2de971",
+    "name": "Bootcamp / Cardiology / Pericardial Disease",
+    "video_count": 5
+  },
+  {
+    "id": "60224bed-6be5-4fff-b4fd-ec6ccda13489",
+    "name": "Bootcamp / Cardiology / Myocardial Infarction",
+    "video_count": 6
+  },
+  {
+    "id": "37f462bb-6133-41b3-ba67-c88fb9112437",
+    "name": "Bootcamp / Cardiology / Hypertension",
+    "video_count": 6
+  },
+  {
+    "id": "1ec29b8d-2b56-4e5b-8b73-f82fca69b775",
+    "name": "Bootcamp / Cardiology / Heart Failure",
+    "video_count": 5
+  },
+  {
+    "id": "c5a7363c-8968-4fa3-95a6-422720aa0a5b",
+    "name": "Bootcamp / Cardiology / Exercise Physiology",
+    "video_count": 3
+  },
+  {
+    "id": "932114ac-c410-415b-b271-2bb3fc99f300",
+    "name": "Bootcamp / Cardiology / Exercise Physiology",
+    "video_count": 1
+  },
+  {
+    "id": "1067d238-12ad-42e0-8cac-970b68250153",
+    "name": "Bootcamp / Cardiology / Embryology",
+    "video_count": 5
+  },
+  {
+    "id": "70c1f9f1-a659-44cd-a87a-43a99759e6ff",
+    "name": "Bootcamp / Cardiology / Cyanotic Congenital Heart Defects",
+    "video_count": 6
+  },
+  {
+    "id": "87e3d2a4-bd6a-48b7-b098-743960a0cf8b",
+    "name": "Bootcamp / Cardiology / Conduction Blocks",
+    "video_count": 4
+  },
+  {
+    "id": "3a5507d8-390a-4330-ad8e-be3cd601cbce",
+    "name": "Bootcamp / Cardiology / Cardiomyopathy",
+    "video_count": 11
+  },
+  {
+    "id": "534ce4dd-c648-4746-85b4-745965dac1f6",
+    "name": "Bootcamp / Cardiology / Cardiac Parameters of Physiologic Function",
+    "video_count": 8
+  },
+  {
+    "id": "f8df810d-99a3-4d9a-acdb-b53d56170d0a",
+    "name": "Bootcamp / Cardiology / Cardiac Function and Venous Return Curves",
+    "video_count": 4
+  },
+  {
+    "id": "5cc09620-a887-4dbc-8ceb-9f5a6783dacf",
+    "name": "Bootcamp / Cardiology / Cardiac Cycle",
+    "video_count": 6
+  },
+  {
+    "id": "23aaae6c-cd8e-4001-bdb4-432b8ea5453a",
+    "name": "Bootcamp / Cardiology / Cardiac Conductive Physiology",
+    "video_count": 5
+  },
+  {
+    "id": "28fb26e1-54dc-4bb6-b4c1-edd06a8e59ab",
+    "name": "Bootcamp / Cardiology / Atrial Arrhythmias",
+    "video_count": 3
+  },
+  {
+    "id": "a3474d9b-500f-4789-9d27-24070acb9956",
+    "name": "Bootcamp / Cardiology / Atrial Arrhythmias",
+    "video_count": 1
+  },
+  {
+    "id": "d8a6253d-5403-4242-bde9-0cdb26d719c7",
+    "name": "Bootcamp / Cardiology / Aortic Disease",
+    "video_count": 6
+  },
+  {
+    "id": "8bfd3e7b-2409-4e54-9914-8d1b19f4dbf3",
+    "name": "Bootcamp / Cardiology / Antiarrhythmics",
+    "video_count": 8
+  },
+  {
+    "id": "070c8e7b-c0ce-4a08-8572-44412c041a07",
+    "name": "Bootcamp / Cardiology / Anatomy",
+    "video_count": 9
+  },
+  {
+    "id": "789821eb-219e-4133-8947-ba3a1a5a5d7f",
+    "name": "Bootcamp / Cardiology / Acyanotic Congenital Heart Defects",
+    "video_count": 6
+  },
+  {
+    "id": "5a999638-4301-4172-8649-a9a3aba3aa49",
+    "name": "Bootcamp / Biostatistics / Statistical Testing",
+    "video_count": 6
+  },
+  {
+    "id": "afaf2ca3-5430-438d-9a12-3c76b8cc9395",
+    "name": "Bootcamp / Biostatistics / Statistical Distributions",
+    "video_count": 5
+  },
+  {
+    "id": "5b7d9810-537a-4dc6-a20d-756a8a1628b4",
+    "name": "Bootcamp / Biostatistics / Risk Quantification",
+    "video_count": 9
+  },
+  {
+    "id": "85fe185c-92d0-4c69-88fe-63aeb57adbf7",
+    "name": "Bootcamp / Biostatistics / Research Study Designs",
+    "video_count": 7
+  },
+  {
+    "id": "8ff642ca-8af4-426d-b5d7-59b7e45fd382",
+    "name": "Bootcamp / Biostatistics / Diagnostic Tests",
+    "video_count": 5
+  },
+  {
+    "id": "dd100d13-33ca-481a-a69c-3b6f807c4591",
+    "name": "Bootcamp / Biostatistics / Bias and Study Errors",
+    "video_count": 4
+  },
+  {
+    "id": "739c6120-332b-4f2e-b277-187f34007191",
+    "name": "Bootcamp / Biochemistry / Oxidative Stress",
+    "video_count": 6
+  },
+  {
+    "id": "76530989-5bd4-4c84-a680-0a5f3af2b1ba",
+    "name": "Bootcamp / Biochemistry / One-Carbon Metabolism",
+    "video_count": 8
+  },
+  {
+    "id": "d18714ce-b87e-40f0-a418-7d2f3e43c3fc",
+    "name": "Bootcamp / Biochemistry / Lysosomal Storage Diseases",
+    "video_count": 8
+  },
+  {
+    "id": "c3a772fa-8a1d-4063-80c2-021bfa60ddbe",
+    "name": "Bootcamp / Biochemistry / Lipid Metabolism",
+    "video_count": 18
+  },
+  {
+    "id": "95bd20d5-22a2-456c-b770-d018407a3924",
+    "name": "Bootcamp / Biochemistry / Glycogen",
+    "video_count": 11
+  },
+  {
+    "id": "b9aebafc-a04b-4f12-b791-027f6e78cdbb",
+    "name": "Bootcamp / Biochemistry / Energy Production",
+    "video_count": 10
+  },
+  {
+    "id": "3fffb192-43d2-48b4-a5c7-29dce7d1cf9d",
+    "name": "Bootcamp / Biochemistry / Connective Tissue",
+    "video_count": 8
+  },
+  {
+    "id": "b604d51c-b25a-4bba-8c38-26885b7d07c6",
+    "name": "Bootcamp / Biochemistry / Cell Biology",
+    "video_count": 7
+  },
+  {
+    "id": "15163500-0ef8-4b80-b5d9-a2ef48fea245",
+    "name": "Bootcamp / Biochemistry / Carbohydrates",
+    "video_count": 8
+  },
+  {
+    "id": "f6920493-8f9c-47f1-8c4e-52bb256a6b0c",
+    "name": "Boards&Beyond / Reproductive System / VII. Other Topics",
+    "video_count": 2
+  },
+  {
+    "id": "7895eac8-788b-4e36-aebf-974bdf5ad2be",
+    "name": "Boards&Beyond / Reproductive System / VI. Male Disorders",
+    "video_count": 4
+  },
+  {
+    "id": "48c6afc8-7385-46b7-918a-b07fb61a148a",
+    "name": "Boards&Beyond / Reproductive System / V. Breast",
+    "video_count": 3
+  },
+  {
+    "id": "4ea74e77-e21f-4835-a152-845f3a021d63",
+    "name": "Boards&Beyond / Reproductive System / IV. Ovary",
+    "video_count": 3
+  },
+  {
+    "id": "f8c12a2e-e893-48f8-9321-e1b1fc1a154b",
+    "name": "Boards&Beyond / Reproductive System / III. Vagina, Cervix, Uterus",
+    "video_count": 5
+  },
+  {
+    "id": "ff294ce6-cd4d-480f-a62c-79fc14bb16f8",
+    "name": "Boards&Beyond / Reproductive System / II. Pregnancy",
+    "video_count": 9
+  },
+  {
+    "id": "1a4ebdaf-3afc-4524-bf8e-55dd16f86204",
+    "name": "Boards&Beyond / Reproductive System / I. Embryology",
+    "video_count": 10
+  },
+  {
+    "id": "bc52a771-b567-4bcf-84fb-bc1b2c215713",
+    "name": "Boards&Beyond / Renal / 05. Other Renal Topics",
+    "video_count": 6
+  },
+  {
+    "id": "f746740c-1857-46bb-9770-e5faf48b00cb",
+    "name": "Boards&Beyond / Renal / 04. Diseases of the Nephron",
+    "video_count": 12
+  },
+  {
+    "id": "4b87b5b2-5c9d-48cd-bb81-63019167dd31",
+    "name": "Boards&Beyond / Renal / 03. Electrolytes",
+    "video_count": 6
+  },
+  {
+    "id": "cf5f83fc-4bba-4889-9aa2-7e624b120d59",
+    "name": "Boards&Beyond / Renal / 02. Acid-Base",
+    "video_count": 10
+  },
+  {
+    "id": "611fb75a-c816-4903-bc3d-a2a89eab274f",
+    "name": "Boards&Beyond / Renal / 02. Acid-Base",
+    "video_count": 1
+  },
+  {
+    "id": "4551f454-df1c-4bef-bf28-a9c45f676e69",
+    "name": "Boards&Beyond / Renal / 01. Introduction to Renal Medicine",
+    "video_count": 7
+  },
+  {
+    "id": "eddb9301-f62c-4f16-bfd7-d5be39f60273",
+    "name": "Boards&Beyond / Quality and Safety / 01. General Topics",
+    "video_count": 1
+  },
+  {
+    "id": "e4f076e8-fb2b-4cbc-9e9a-24109781b992",
+    "name": "Boards&Beyond / Pulmonology / 03. Other Pulmonary Topics",
+    "video_count": 16
+  },
+  {
+    "id": "50715b69-9635-410d-a8ef-bfe1b4b0a988",
+    "name": "Boards&Beyond / Pulmonology / 02. Obstructive and Restrictive Diseases",
+    "video_count": 5
+  },
+  {
+    "id": "f5ccb225-334a-4240-a808-5566b60c298e",
+    "name": "Boards&Beyond / Pulmonology / 01. Introduction to Pulmonary Medicine",
+    "video_count": 16
+  },
+  {
+    "id": "c6aa3e86-0edc-45be-becf-d644c3866e6f",
+    "name": "Boards&Beyond / Psychiatry / 4. Pharmacology",
+    "video_count": 3
+  },
+  {
+    "id": "441e97cd-2398-45ce-9f17-34523ba395b2",
+    "name": "Boards&Beyond / Psychiatry / 3. Substance Abuse",
+    "video_count": 4
+  },
+  {
+    "id": "6bb28a87-5a6c-450f-8862-deb41eb8264b",
+    "name": "Boards&Beyond / Psychiatry / 2. Pathology",
+    "video_count": 13
+  },
+  {
+    "id": "653f8615-addd-42cc-ae85-a0e3542f436c",
+    "name": "Boards&Beyond / Psychiatry / 1. Psychology",
+    "video_count": 2
+  },
+  {
+    "id": "bf13ffec-8eb3-48c2-ac2b-5cf843ec41a7",
+    "name": "Boards&Beyond / Neurology / 07. Other Neurology Topics",
+    "video_count": 13
+  },
+  {
+    "id": "a3547969-86c6-40a3-8d17-85a763b46de9",
+    "name": "Boards&Beyond / Neurology / 06. Anesthesia",
+    "video_count": 6
+  },
+  {
+    "id": "00a5b56b-d3f5-4d92-83ba-cd738985140b",
+    "name": "Boards&Beyond / Neurology / 05. The Eye / Older videos",
+    "video_count": 4
+  },
+  {
+    "id": "6e373a5a-1ed4-49ee-a83f-54bcb0ec2b21",
+    "name": "Boards&Beyond / Neurology / 05. The Eye",
+    "video_count": 12
+  },
+  {
+    "id": "d1efe6a9-c1d4-4be4-975d-68715b898de1",
+    "name": "Boards&Beyond / Neurology / 04. Autonomic Nervous System",
+    "video_count": 6
+  },
+  {
+    "id": "8f524e11-86d4-45f5-961c-6f8e152f5022",
+    "name": "Boards&Beyond / Neurology / 03. Neurovascular Disorders",
+    "video_count": 9
+  },
+  {
+    "id": "9f91c6cc-577e-4c8f-8cfc-438459f258ed",
+    "name": "Boards&Beyond / Neurology / 02. Nervous System Structures",
+    "video_count": 19
+  },
+  {
+    "id": "6bc53750-1334-4ce7-96e5-e828bab903d9",
+    "name": "Boards&Beyond / Neurology / 01. Introduction to Neurology",
+    "video_count": 10
+  },
+  {
+    "id": "aa59964a-8505-40ca-b3f3-d33326e1f9c1",
+    "name": "Boards&Beyond / MSK / Pathology",
+    "video_count": 11
+  },
+  {
+    "id": "ddee54e2-35a0-49fb-88da-c9dbb0ab576f",
+    "name": "Boards&Beyond / MSK / II. Cell Biology",
+    "video_count": 4
+  },
+  {
+    "id": "50d066b0-0924-484d-9802-0bfec2d53e72",
+    "name": "Boards&Beyond / MSK / I. Anatomy and Orthopedics",
+    "video_count": 8
+  },
+  {
+    "id": "57603937-bed8-4a7b-b611-518551e22392",
+    "name": "Boards&Beyond / MSK / 14.Musculoskeletal",
+    "video_count": 22
+  },
+  {
+    "id": "2d8d771b-713f-4529-b7bb-c9fad075423d",
+    "name": "Boards&Beyond / Infectious Disease / 06. Viruses",
+    "video_count": 8
+  },
+  {
+    "id": "ee8a81ad-d391-4ef0-a883-94655caee7a8",
+    "name": "Boards&Beyond / Infectious Disease / 05. Parasites and Helminths",
+    "video_count": 3
+  },
+  {
+    "id": "5b85d93c-cb7f-45a9-8ad9-edc284a50e4a",
+    "name": "Boards&Beyond / Infectious Disease / 04. Fungi",
+    "video_count": 4
+  },
+  {
+    "id": "8a2c6e95-a85b-4235-8f8f-48cefe780c7b",
+    "name": "Boards&Beyond / Infectious Disease / 03. Antibiotics",
+    "video_count": 3
+  },
+  {
+    "id": "91ceb14b-84b4-4c38-bdd0-16cde986c5e7",
+    "name": "Boards&Beyond / Infectious Disease / 02. Bacteria",
+    "video_count": 7
+  },
+  {
+    "id": "32536477-5d3d-42b7-8aa9-09eee9719262",
+    "name": "Boards&Beyond / Infectious Disease / 01. Basics of Microbiology",
+    "video_count": 7
+  },
+  {
+    "id": "fb55287a-8f71-43f5-94aa-b382010eedbc",
+    "name": "Boards&Beyond / Immunology / 04. Autoimmune Disorders",
+    "video_count": 4
+  },
+  {
+    "id": "91dbf92f-7316-448b-a30d-bc1be97028c4",
+    "name": "Boards&Beyond / Immunology / 04. Autoimmune Disorders",
+    "video_count": 1
+  },
+  {
+    "id": "e886bb1a-2f9d-40d2-b8aa-fcbe958fb79f",
+    "name": "Boards&Beyond / Immunology / 03. Pharmacology",
+    "video_count": 2
+  },
+  {
+    "id": "a30a3f58-1232-4524-852c-38f5146004f2",
+    "name": "Boards&Beyond / Immunology / 02. Clinical Immunology",
+    "video_count": 3
+  },
+  {
+    "id": "4c02a241-2336-4750-a9a4-dff2e99c47ae",
+    "name": "Boards&Beyond / Immunology / 01. Basic Immunology",
+    "video_count": 5
+  },
+  {
+    "id": "25fc6e08-024a-44e8-a1fa-c2194c5ecbcc",
+    "name": "Boards&Beyond / Hematology / V. Other Topics",
+    "video_count": 1
+  },
+  {
+    "id": "f1eb1d27-e1ea-4b5e-a4f2-b5cc706d18ca",
+    "name": "Boards&Beyond / Hematology / Older videos / OLD 03. Other Topics",
+    "video_count": 1
+  },
+  {
+    "id": "0a6841ee-c169-4225-9f01-9a481bb1e0f7",
+    "name": "Boards&Beyond / Hematology / Older videos / OLD 02. Red Blood Cells",
+    "video_count": 7
+  },
+  {
+    "id": "b1c4858c-3198-44b6-88e2-0fbdbb91667c",
+    "name": "Boards&Beyond / Hematology / Older videos / 01. Hemostasis",
+    "video_count": 7
+  },
+  {
+    "id": "acc1ff93-0dae-4d65-bf45-9e11c243136d",
+    "name": "Boards&Beyond / Hematology / IV. Cancer Drugs",
+    "video_count": 6
+  },
+  {
+    "id": "4f1b28ba-c81c-4544-95aa-c802ff5060f1",
+    "name": "Boards&Beyond / Hematology / III. White Blood Cells",
+    "video_count": 7
+  },
+  {
+    "id": "3a41b12e-7ce1-4a9d-a386-d59a8494510e",
+    "name": "Boards&Beyond / Hematology / II. Red Blood Cells",
+    "video_count": 8
+  },
+  {
+    "id": "56908894-1aa9-4070-874c-3afb15e00c32",
+    "name": "Boards&Beyond / Hematology / I. Hemostasis",
+    "video_count": 7
+  },
+  {
+    "id": "64b929c8-a53c-4c23-98bc-98cb93bb2867",
+    "name": "Boards&Beyond / Genetics / II. Genetic Disorders",
+    "video_count": 5
+  },
+  {
+    "id": "159bf7ab-73df-4fdd-8a8a-490517c3bc89",
+    "name": "Boards&Beyond / Genetics / I. Genetic Concepts",
+    "video_count": 6
+  },
+  {
+    "id": "cc80afcb-3d15-4ca6-a1c6-b1b85e643ec1",
+    "name": "Boards&Beyond / Gastroenterology / 03. Clinical Gastroenterology",
+    "video_count": 15
+  },
+  {
+    "id": "4264a639-4541-46c0-a82a-6de1ab28446b",
+    "name": "Boards&Beyond / Gastroenterology / 02. GI Physiology",
+    "video_count": 5
+  },
+  {
+    "id": "9020c64c-a084-4fcb-a86c-06f6130ab95e",
+    "name": "Boards&Beyond / Gastroenterology / 01. Anatomy",
+    "video_count": 7
+  },
+  {
+    "id": "4ac1b3d6-7449-41b4-94ac-455d0b5a4319",
+    "name": "Boards&Beyond / Endocrinology / 05. Other Topics",
+    "video_count": 3
+  },
+  {
+    "id": "0e4d39b5-6cd0-4284-93f4-eacfb316c616",
+    "name": "Boards&Beyond / Endocrinology / 04. Reproductive",
+    "video_count": 4
+  },
+  {
+    "id": "79e9a1d5-7cc3-482d-b501-27c0f7e4855c",
+    "name": "Boards&Beyond / Endocrinology / 03. Pancreas",
+    "video_count": 4
+  },
+  {
+    "id": "f8605076-72a2-41b1-afbd-883c8053255d",
+    "name": "Boards&Beyond / Endocrinology / 02. Adrenals",
+    "video_count": 3
+  },
+  {
+    "id": "47ed91de-4266-4268-a1b1-9d8ff2bfc29e",
+    "name": "Boards&Beyond / Endocrinology / 01. Thyroid",
+    "video_count": 3
+  },
+  {
+    "id": "8bd6a6f3-c2f2-490a-a146-6759e8e31bf2",
+    "name": "Boards&Beyond / Cell Biology / III. Cellular Biology",
+    "video_count": 8
+  },
+  {
+    "id": "fe4d4496-22f4-44b0-ba02-a0d230ac0b3e",
+    "name": "Boards&Beyond / Cell Biology / II. Laboratory Techniques",
+    "video_count": 10
+  },
+  {
+    "id": "6ec13c88-9d22-46c4-82f9-51ee6bc4d2af",
+    "name": "Boards&Beyond / Cell Biology / I Molecular Biology",
+    "video_count": 8
+  },
+  {
+    "id": "f58d869d-643b-4791-8022-1cba2249f907",
+    "name": "Boards&Beyond / Cardiology / 09. Other Cardiovascular Topics",
+    "video_count": 8
+  },
+  {
+    "id": "6ff3ba1c-884b-4eea-a1c8-0494e36ee9db",
+    "name": "Boards&Beyond / Cardiology / 08. Hypertension",
+    "video_count": 3
+  },
+  {
+    "id": "554ac99c-76d3-466b-b8b8-612261422d4a",
+    "name": "Boards&Beyond / Cardiology / 07. The Developing Heart",
+    "video_count": 4
+  },
+  {
+    "id": "c508a9b9-8f6f-4719-88d0-9f825b0ab1b2",
+    "name": "Boards&Beyond / Cardiology / 06. Heart Failure",
+    "video_count": 5
+  },
+  {
+    "id": "dc97d7c0-6714-40c1-ad06-59f483299825",
+    "name": "Boards&Beyond / Cardiology / 05. Cardiac Ascultation",
+    "video_count": 2
+  },
+  {
+    "id": "de6556ec-c7aa-4ea8-a85b-21f136453307",
+    "name": "Boards&Beyond / Cardiology / 04. Arrhythmias",
+    "video_count": 6
+  },
+  {
+    "id": "9edb730b-ed56-4ccd-9cd8-b807a44213fa",
+    "name": "Boards&Beyond / Cardiology / 03. EKGs",
+    "video_count": 2
+  },
+  {
+    "id": "0fc75d7e-3f3c-42c6-b06b-035f4aed5526",
+    "name": "Boards&Beyond / Cardiology / 02. Cardiac Ischemia",
+    "video_count": 4
+  },
+  {
+    "id": "43d79336-0809-4f25-aa79-4d6a891a2f71",
+    "name": "Boards&Beyond / Cardiology / 01. Introduction to Cardiac Medicine",
+    "video_count": 9
+  },
+  {
+    "id": "42e6dcca-4762-44ec-8597-c0419c4b5865",
+    "name": "Boards&Beyond / BnB Step 2 and 3 Vids / 9. Neurology",
+    "video_count": 22
+  },
+  {
+    "id": "0a9c5003-f070-4c28-803a-5a7dc2a0addf",
+    "name": "Boards&Beyond / BnB Step 2 and 3 Vids / 8. Infectious Disease",
+    "video_count": 16
+  },
+  {
+    "id": "4aac3418-f694-4a89-b734-c50b274a2ddc",
+    "name": "Boards&Beyond / BnB Step 2 and 3 Vids / 7. Hematology and Oncology",
+    "video_count": 19
+  },
+  {
+    "id": "cfea4c07-f2da-494e-917b-e0ece74a0e59",
+    "name": "Boards&Beyond / BnB Step 2 and 3 Vids / 6. Gastroenterology",
+    "video_count": 24
+  },
+  {
+    "id": "048e6edf-5584-430f-a5fe-f212cdfcd747",
+    "name": "Boards&Beyond / BnB Step 2 and 3 Vids / 5. Epidemiology",
+    "video_count": 12
+  },
+  {
+    "id": "998ea63b-ae5f-41d0-a74a-08e9377c2b2c",
+    "name": "Boards&Beyond / BnB Step 2 and 3 Vids / 4. Emergency Medicine",
+    "video_count": 10
+  },
+  {
+    "id": "c0f74aff-fd2e-419f-af13-78a66c906b69",
+    "name": "Boards&Beyond / BnB Step 2 and 3 Vids / 3. Endocrinology",
+    "video_count": 15
+  },
+  {
+    "id": "a609bba8-ba8b-49a6-bc8d-3194b78d3d4e",
+    "name": "Boards&Beyond / BnB Step 2 and 3 Vids / 2. Cardiology",
+    "video_count": 19
+  },
+  {
+    "id": "c8c5a777-e982-4e8b-9fe6-97e57eba1a2c",
+    "name": "Boards&Beyond / BnB Step 2 and 3 Vids / 16. Surgery and Anesthesia",
+    "video_count": 6
+  },
+  {
+    "id": "7f16ad4c-11c0-48e3-bc79-374b5adb5791",
+    "name": "Boards&Beyond / BnB Step 2 and 3 Vids / 15. Musculoskeletal",
+    "video_count": 9
+  },
+  {
+    "id": "b7027a70-3b0d-4c8a-90fa-a0d98b0e12b2",
+    "name": "Boards&Beyond / BnB Step 2 and 3 Vids / 14. Renal and Genitourinary",
+    "video_count": 24
+  },
+  {
+    "id": "9e4413cd-ba2e-4886-a091-f698d64f40f3",
+    "name": "Boards&Beyond / BnB Step 2 and 3 Vids / 13. Pulmonary Critical Care",
+    "video_count": 15
+  },
+  {
+    "id": "603bdda6-44b4-490f-80bb-33a2fd9d14b9",
+    "name": "Boards&Beyond / BnB Step 2 and 3 Vids / 12. Psychiatry",
+    "video_count": 14
+  },
+  {
+    "id": "4ec68225-dc20-4a80-9779-3ba72d404105",
+    "name": "Boards&Beyond / BnB Step 2 and 3 Vids / 11. Pediatrics",
+    "video_count": 15
+  },
+  {
+    "id": "9fb7e86f-52c1-403b-bf50-6741199b76f8",
+    "name": "Boards&Beyond / BnB Step 2 and 3 Vids / 10. Obstetrics and Gynaecology",
+    "video_count": 33
+  },
+  {
+    "id": "2ad73e53-b705-4c7b-9038-481dc12bcb6c",
+    "name": "Boards&Beyond / BnB Step 2 and 3 Vids / 1. Behavoiral Science",
+    "video_count": 8
+  },
+  {
+    "id": "e136c16a-7539-4209-b1e8-8f22992d80a2",
+    "name": "Boards&Beyond / Biostats.Epi / 02. Epidemiology",
+    "video_count": 7
+  },
+  {
+    "id": "a35bb55b-2550-4b92-976e-f3ccc9264cc4",
+    "name": "Boards&Beyond / Biostats.Epi / 01. Biostatistics",
+    "video_count": 4
+  },
+  {
+    "id": "b982828b-64b3-45f7-822f-e8f8ca5c5a78",
+    "name": "Boards&Beyond / Biochemistry / 06. Other Topics",
+    "video_count": 1
+  },
+  {
+    "id": "775e7e46-6da3-4478-8a1b-0cfae1034b3f",
+    "name": "Boards&Beyond / Biochemistry / 05. Lipids",
+    "video_count": 3
+  },
+  {
+    "id": "5f4968c1-9349-4227-b320-b2c27f110825",
+    "name": "Boards&Beyond / Biochemistry / 04. Vitamins",
+    "video_count": 2
+  },
+  {
+    "id": "d0e38941-e25a-4d52-bdd4-d8e81fb73766",
+    "name": "Boards&Beyond / Biochemistry / 04. Vitamins",
+    "video_count": 1
+  },
+  {
+    "id": "4b6316a2-53dd-4ae3-9d89-f9764b9e169a",
+    "name": "Boards&Beyond / Biochemistry / 03. Amino Acids",
+    "video_count": 4
+  },
+  {
+    "id": "5d6aaf7c-3eee-4573-93cd-6e80d32d5384",
+    "name": "Boards&Beyond / Biochemistry / 02. Metabolism",
+    "video_count": 14
+  },
+  {
+    "id": "a29327e2-e259-4cd5-a1ef-703ebffb3587",
+    "name": "Boards&Beyond / Biochemistry / 01. Molecular Biochemistry",
+    "video_count": 3
+  },
+  {
+    "id": "ea9512c6-8fd6-48b5-b0bf-50ef12391369",
+    "name": "Boards&Beyond / Behavorial Science / General Topics",
+    "video_count": 5
+  },
+  {
+    "id": "278282f9-17d0-492d-9395-fe5426c31a41",
+    "name": "Boards&Beyond / Behavorial Science / General Topics",
+    "video_count": 1
+  },
+  {
+    "id": "5c14f4b9-ef87-4503-a2d7-3b6bb4da425e",
+    "name": "Boards&Beyond / Basic Pharmacology / 01. General Topics in Basic Pharmacology",
+    "video_count": 4
+  },
+  {
+    "id": "fa411ec8-a537-4b6b-a021-6c701b1e11d0",
+    "name": "Boards&Beyond / 18.Pulmonary",
+    "video_count": 22
+  },
+  {
+    "id": "01291594-be54-4138-a25f-f660caa3428c",
+    "name": "Boards&Beyond / 16. Pathology / I. General Topics",
+    "video_count": 11
+  },
+  {
+    "id": "6f764ad1-eaa9-4548-8c26-550290825ae6",
+    "name": "Boards&Beyond / 07. Dermatology / I. General Topics",
+    "video_count": 12
+  },
+  {
+    "id": "29301784-4595-47a7-a63b-82f9e5cb5668",
+    "name": "Boards&Beyond / 07. Dermatology / I. General Topics",
+    "video_count": 1
+  },
+  {
+    "id": "03e0c4ce-e15e-40a7-9049-74ec8901eb21",
+    "name": "Boards&Beyond / 07. Dermatology / I. General Topics",
+    "video_count": 1
+  },
+  {
+    "id": "36cce9ae-e2ab-4443-8956-7b08ddbd36b0",
+    "name": "Boards&Beyond / 07. Dermatology / I. General Topics",
+    "video_count": 1
+  },
+  {
+    "id": "2fa233b4-1e34-468f-ba95-04396c3ce4ec",
+    "name": "Boards&Beyond / 07. Dermatology / I. General Topics",
+    "video_count": 1
+  }
+]

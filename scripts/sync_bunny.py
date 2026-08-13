@@ -193,6 +193,40 @@ def format_duration(seconds: Any) -> str:
     return f"{h}:{m:02d}:{s:02d}" if h else f"{m}:{s:02d}"
 
 
+def fetch_collections(client: "httpx.Client", library_id: str) -> list[dict[str, Any]]:
+    """
+    The library's collections, so a video's collectionId can be resolved to a
+    name. A collection is the closest thing Bunny has to a folder: when videos
+    were uploaded into one, it maps to the source folder directly and none of
+    the title/runtime matching is needed.
+
+    Failure here is not fatal — the sync still writes its videos, and the
+    placement pipeline falls back to matching as before.
+    """
+    out: list[dict[str, Any]] = []
+    page = 1
+    while page <= MAX_PAGES:
+        url = f"{API_BASE}/library/{library_id}/collections"
+        res = client.get(url, params={"page": page, "itemsPerPage": ITEMS_PER_PAGE})
+        if res.status_code != 200:
+            print(f"  collections: {res.status_code} from Bunny; continuing without them")
+            return out
+        data = res.json()
+        items = data.get("items") or []
+        if not items:
+            break
+        for c in items:
+            out.append({
+                "id": c.get("guid", ""),
+                "name": c.get("name", ""),
+                "video_count": c.get("videoCount", 0),
+            })
+        if len(out) >= (data.get("totalItems") or len(out)):
+            break
+        page += 1
+    return out
+
+
 def to_record(video: dict[str, Any], cdn_hostname: str) -> dict[str, Any]:
     guid = video.get("guid", "")
     thumb = video.get("thumbnailFileName") or "thumbnail.jpg"
@@ -208,6 +242,20 @@ def to_record(video: dict[str, Any], cdn_hostname: str) -> dict[str, Any]:
         "thumbnail_url": f"https://{cdn_hostname}/{guid}/{thumb}" if guid else "",
         "created_at": video.get("dateUploaded", ""),
         "status": STATUS_NAMES.get(status_code, f"unknown_{status_code}"),
+
+        # --- placement keys ---
+        # collectionId is the direct one: if a video was uploaded into a Bunny
+        # collection, that collection *is* its folder, and no title matching,
+        # runtime comparison or tie-breaking is needed at all.
+        "collection_id": video.get("collectionId", "") or "",
+        # Fallbacks for videos with no collection. The Video Comparison sheet
+        # carries resolution and size per file on disk, so these let two copies
+        # of one title be told apart by how they were encoded rather than by
+        # runtime alone — which is what left 48 cross-publisher ties unplaced.
+        "width": int(video.get("width") or 0),
+        "height": int(video.get("height") or 0),
+        "framerate": video.get("framerate") or 0,
+        "storage_size": int(video.get("storageSize") or 0),
     }
 
 
@@ -238,6 +286,9 @@ def main(argv: list[str] | None = None) -> int:
     print(f"Fetching library {cfg['libraryId']} from {API_BASE} ...")
     try:
         raw = list(fetch_videos(cfg))
+        with httpx.Client(headers={"AccessKey": cfg["apiKey"], "accept": "application/json"},
+                          timeout=REQUEST_TIMEOUT) as client:
+            collections = fetch_collections(client, cfg["libraryId"])
     except SyncError as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 1
@@ -275,6 +326,18 @@ def main(argv: list[str] | None = None) -> int:
     tmp = args.out.with_suffix(args.out.suffix + ".tmp")
     tmp.write_text(json.dumps(records, indent=2, ensure_ascii=False), encoding="utf-8")
     tmp.replace(args.out)
+
+    # Collections go to their own file so bunny_catalog.json keeps its shape
+    # and every existing reader is unaffected.
+    if collections:
+        coll_path = args.out.with_name("bunny_collections.json")
+        coll_path.write_text(json.dumps(collections, indent=2, ensure_ascii=False),
+                             encoding="utf-8")
+        with_id = sum(1 for r in records if r.get("collection_id"))
+        print(f"Wrote {coll_path.name}  ({len(collections)} collections)")
+        print(f"  videos carrying a collection id: {with_id:,} of {len(records):,}")
+    else:
+        print("No collections returned; placement falls back to title/runtime matching.")
 
     print(f"\nWrote {args.out}  ({len(records)} videos)")
     return 0
