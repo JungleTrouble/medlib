@@ -9,6 +9,7 @@ from pydantic import Field, field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 from .bunny_token import HARD_MAX_TTL
+from .similar import HF_PIPELINE_BASE
 
 
 class Settings(BaseSettings):
@@ -45,6 +46,21 @@ class Settings(BaseSettings):
     # --- Catalog ---
     catalog_path: Path = Path("data/catalog.json")
     buckets_config: Path = Path("config/buckets.yaml")
+
+    # --- Semantic similarity (optional) ---
+    # Deliberately absent from missing_required(): the library is fully usable
+    # without these, and a server that refuses to start because a third-party
+    # recommendation service is unconfigured would be trading a working site
+    # for a broken one. /api/suggest-similar reports its own 503 instead.
+    hf_api_key: str = ""
+    hf_embed_model: str = "sentence-transformers/all-MiniLM-L6-v2"
+    hf_api_base: str = HF_PIPELINE_BASE
+    pinecone_api_key: str = ""
+    pinecone_index: str = "usme-prep-library"
+    pinecone_namespace: str = ""
+    # Optional: skips the control-plane lookup that turns an index name into
+    # its data-plane host. Leave blank unless you have a reason.
+    pinecone_host: str = ""
 
     @field_validator("bunny_cdn_hostname")
     @classmethod

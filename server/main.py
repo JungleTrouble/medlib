@@ -9,6 +9,8 @@ Endpoints
     GET  /api/me
     GET  /api/catalog           buckets, levels, tags, paged items
     GET  /api/catalog/{key}     one item by id or path
+    GET  /api/related/{key}     the same lesson from other publishers
+    POST /api/suggest-similar   nearest neighbours by meaning (HF + Pinecone)
     GET  /api/token/{path}      mint a short-lived signed playback URL
     GET  /api/health
 
@@ -27,6 +29,7 @@ from contextlib import asynccontextmanager
 from pathlib import Path
 from urllib.parse import urlsplit
 
+import httpx
 from fastapi import Depends, FastAPI, HTTPException, Query, Request, Response, status
 from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
@@ -36,6 +39,7 @@ from .auth import COOKIE_NAME, SessionCodec, verify_password
 from .bunny_token import TokenError, directory_scope_for, sign_bunny_url
 from .catalog import Catalog, CatalogError
 from .settings import get_settings
+from .similar import SimilarityError, embed_title, query_index, shape_matches
 
 log = logging.getLogger("medlib")
 
@@ -269,7 +273,7 @@ def _public_item(item: dict) -> dict:
 
 
 # --------------------------------------------------------------------------
-#  Token minting
+#  Related lessons — the same topic, another publisher
 # --------------------------------------------------------------------------
 
 
@@ -347,6 +351,82 @@ def get_related(key: str, _: dict = Depends(require_session)):
     related.sort(key=lambda r: r["collection"])
 
     return {"id": item["id"], "title": item["title"], "related": related}
+
+
+# --------------------------------------------------------------------------
+#  Semantic similarity — the only endpoint that leaves this machine
+# --------------------------------------------------------------------------
+
+
+class SuggestBody(BaseModel):
+    videoTitle: str = Field(min_length=1, max_length=500)
+    topK: int = Field(3, ge=1, le=20)
+
+
+@app.post("/api/suggest-similar")
+async def suggest_similar(body: SuggestBody, _: dict = Depends(require_session)):
+    """
+    Videos that are *about* the same thing as a title, whether or not they
+    share a word with it.
+
+    /api/related answers a narrower question — the same lesson from another
+    publisher, matched on a normalised title — and answers it exactly, from
+    data already in memory. This one embeds the title and asks a vector index,
+    so it can connect "Clostridium botulinum" to "Flaccid paralysis" with no
+    string in common. It is also two network hops and two API keys, so it
+    fails in ways /api/related cannot, and every one of them is reported
+    rather than swallowed.
+
+    Requires the index to have been populated elsewhere; an empty index and a
+    title with no neighbours are the same empty list from here.
+    """
+    if not settings.hf_api_key or not settings.pinecone_api_key:
+        missing = [
+            name for name, val in (
+                ("HF_API_KEY", settings.hf_api_key),
+                ("PINECONE_API_KEY", settings.pinecone_api_key),
+            ) if not val
+        ]
+        raise HTTPException(
+            status.HTTP_503_SERVICE_UNAVAILABLE,
+            f"semantic search not configured — set {', '.join(missing)} in .env",
+        )
+
+    try:
+        catalog.refresh_if_stale()
+    except CatalogError:
+        # The catalogue only enriches the answer here; Pinecone's metadata is
+        # the source. A stale or missing catalogue is not a reason to fail.
+        pass
+
+    async with httpx.AsyncClient() as client:
+        try:
+            vector = await embed_title(
+                body.videoTitle,
+                api_key=settings.hf_api_key,
+                model=settings.hf_embed_model,
+                base_url=settings.hf_api_base,
+                client=client,
+            )
+            matches = await query_index(
+                vector,
+                index=settings.pinecone_index,
+                api_key=settings.pinecone_api_key,
+                top_k=body.topK,
+                namespace=settings.pinecone_namespace,
+                host=settings.pinecone_host,
+                client=client,
+            )
+        except SimilarityError as exc:
+            log.warning("suggest-similar failed: %s", exc)
+            raise HTTPException(exc.status, str(exc))
+
+    return shape_matches(matches, lookup=catalog.get if catalog.loaded else None)
+
+
+# --------------------------------------------------------------------------
+#  Token minting
+# --------------------------------------------------------------------------
 
 
 @app.get("/api/token/{path:path}")
