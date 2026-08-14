@@ -662,7 +662,15 @@ video { width: 100%; height: 100%; display: block; background: #000; }
   border: 0;
   background: none;
   padding: 0;
+  /* `font: inherit` is what strips the button's user-agent font — but it is a
+     shorthand, so it also reset the weight and tracking set on .brand up in
+     the topbar block. The wordmark had been rendering at 400 ever since it
+     became a button. Restated here, after the shorthand, so both survive. */
   font: inherit;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
   color: inherit;
   cursor: pointer;
 }
@@ -1140,17 +1148,24 @@ video { width: 100%; height: 100%; display: block; background: #000; }
   .view-tab { flex: 1; }
 }
 
-/* ---------- playback speed ---------- */
+/* ---------- one control row ---------- */
 
-.speed {
+.controls {
   display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  margin: 10px 0 0;
+  align-items: center;
+  gap: 8px;
+  margin: 12px 0 0;
 }
 
-.speed button {
-  padding: 3px 9px;
+/* Everything that is not the queue sits hard right, so the row reads as two
+   groups rather than a line of scattered pills. */
+.ctl-right { display: flex; align-items: center; gap: 6px; margin-left: auto; }
+
+.ctl {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
   border: 1px solid var(--line);
   border-radius: 999px;
   background: transparent;
@@ -1161,8 +1176,244 @@ video { width: 100%; height: 100%; display: block; background: #000; }
   cursor: pointer;
 }
 
-.speed button:hover { color: var(--fg); border-color: currentColor; }
-.speed button.on { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 650; }
+.ctl:hover:not(:disabled) { color: var(--fg); border-color: currentColor; }
+.ctl:disabled { opacity: .3; cursor: default; }
+.ctl.on { color: var(--accent); border-color: var(--accent); }
+
+/* Square-ish, so a single glyph does not sit in a stretched lozenge. */
+.ctl-icon { padding: 3px 9px; font-size: 13px; line-height: 1.15; }
+
+.queue { display: flex; align-items: center; gap: 6px; }
+.queue-pos { font-variant-numeric: tabular-nums; }
+.queue-caret { font-size: 9px; opacity: .75; transition: transform .18s ease; }
+.queue-open[aria-expanded="true"] { color: var(--accent); border-color: var(--accent); }
+.queue-open[aria-expanded="true"] .queue-caret { transform: rotate(180deg); }
+
+/* ---------- speed popover ---------- */
+
+.speed-wrap { position: relative; }
+
+.speed {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 6px);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 4px;
+  min-width: 78px;
+  background: var(--bg-3);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .5);
+}
+
+.speed button {
+  padding: 4px 10px;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--fg-dim);
+  font: inherit;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  text-align: left;
+  cursor: pointer;
+}
+
+.speed button:hover { background: var(--bg-2); color: var(--fg); }
+.speed button.on { color: var(--accent); font-weight: 650; }
+
+/* ---------- queue panel ---------- */
+
+.queue-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 4;
+  width: min(330px, 86%);
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-2);
+  border-left: 1px solid var(--line);
+  box-shadow: -18px 0 40px rgba(0, 0, 0, .45);
+  /* Parked off-canvas rather than display:none so it can slide. The player's
+     own overflow:hidden is what stops it showing outside the dialog. */
+  transform: translateX(100%);
+  visibility: hidden;
+  transition: transform .22s ease, visibility .22s;
+}
+
+.queue-panel.open { transform: none; visibility: visible; }
+
+@media (prefers-reduced-motion: reduce) {
+  .queue-panel { transition: none; }
+}
+
+.qp-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 10px 11px 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.qp-head h3 { margin: 0; font-size: 13px; letter-spacing: -0.01em; }
+.qp-count { color: var(--fg-dim); font-size: 11px; font-variant-numeric: tabular-nums; }
+
+.qp-auto {
+  margin-left: auto;
+  padding: 2px 9px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--fg-dim);
+  font: inherit;
+  font-size: 10.5px;
+  cursor: pointer;
+}
+
+.qp-auto:hover { color: var(--fg); border-color: currentColor; }
+.qp-auto.on { color: var(--accent); border-color: var(--accent); }
+
+.qp-close {
+  width: 26px; height: 26px;
+  border: 0; border-radius: 50%;
+  background: transparent; color: var(--fg-dim);
+  font-size: 19px; line-height: 1; cursor: pointer;
+}
+
+.qp-close:hover { background: var(--bg-3); color: var(--fg); }
+
+.qp-list {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  margin: 0;
+  padding: 5px;
+  list-style: none;
+}
+
+.qp-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  padding: 7px 9px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--fg-dim);
+  font: inherit;
+  font-size: 12px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.qp-item:hover { background: var(--bg-3); color: var(--fg); }
+
+.qp-item.current {
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+  color: var(--fg);
+}
+
+.qp-item.done .qp-title { opacity: .55; }
+
+.qp-n {
+  flex: none;
+  width: 18px;
+  color: var(--fg-dim);
+  font-size: 10.5px;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+
+.qp-item.current .qp-n { color: var(--accent); font-size: 9px; }
+.qp-item.done .qp-n { color: var(--accent); }
+
+.qp-title {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.qp-dur {
+  flex: none;
+  font-size: 10.5px;
+  font-variant-numeric: tabular-nums;
+  opacity: .8;
+}
+
+/* Sits on the row's bottom edge so a part-watched item reads at a glance
+   without adding a line of height. */
+.qp-bar {
+  position: absolute;
+  left: 9px; right: 9px; bottom: 2px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--line);
+  overflow: hidden;
+}
+
+.qp-bar i { display: block; height: 100%; background: var(--accent); }
+
+/* The shortcut hint is behind a toggle now, and touch has no keyboard. */
+@media (hover: none) { #helpToggle { display: none; } }
+
+/* ---------- next up ---------- */
+
+.next-up {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.next-up-title {
+  font-size: 13px;
+  color: var(--fg);
+}
+
+.next-up button {
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--fg-dim);
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.next-up-go { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 650; }
+.next-up button:hover { border-color: currentColor; }
+.next-up-go:hover { color: #fff; }
+
+/* ---------- saved views ---------- */
+
+.save-view {
+  padding: 3px 10px;
+  border: 1px dashed var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--fg-dim);
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.save-view:hover { color: var(--accent); border-color: var(--accent); }
+
+/* A saved view has no fixed size, so it carries a marker where a manual
+   playlist shows its count. */
+.pl-smart { color: var(--accent); font-size: 13px; }
 
 /* ---------- related lessons ---------- */
 

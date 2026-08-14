@@ -31,8 +31,9 @@ const state = {
   loading: false,
   exhausted: false,
   view: "videos",
-  filters: { bucket: null, level: null, tag: null, collection: null, section: null, folder: null, tags: [], playlist: null, search: "" },
+  filters: { bucket: null, level: null, tag: null, collection: null, section: null, folder: null, tags: [], playlist: null, progress: null, search: "" },
   current: null,      // { id, expires, type }
+  queue: null,        // { items, at } — see the Queue section
   hls: null,
 };
 
@@ -50,7 +51,11 @@ const el = {
   playlistList: $("playlistList"), assetList: $("assetList"), viewVideos: $("viewVideos"), viewAssets: $("viewAssets"),
   docBackdrop: $("docBackdrop"), docFrame: $("docFrame"), docTitle: $("docTitle"),
   docDownload: $("docDownload"), docClose: $("docClose"),
-  relatedBox: $("relatedBox"), speedBox: $("speedBox"),
+  relatedBox: $("relatedBox"), speedBox: $("speedBox"), queueBox: $("queueBox"),
+  saveView: $("saveView"), progressList: $("progressList"),
+  speedTrigger: $("speedTrigger"), helpToggle: $("helpToggle"), shortcuts: $("shortcuts"),
+  queuePanel: $("queuePanel"), queueList: $("queueList"), queueAuto: $("queueAuto"),
+  queueClose: $("queueClose"), queuePanelCount: $("queuePanelCount"),
   resultsTitle: $("resultsTitle"), resultsCount: $("resultsCount"),
   activeFilters: $("activeFilters"), grid: $("grid"), sentinel: $("sentinel"),
   shelves: $("shelves"),
@@ -181,9 +186,16 @@ async function loadPage(reset = false) {
     if (reset || !el.bucketList.childElementCount) renderFilters(data);
     if (data.generated_at) el.buildStamp.textContent = `Indexed ${data.generated_at}`;
 
-    state.items.push(...data.items);
+    /* Paging is counted in what the server sent; the grid is filled with
+       what survives the watch-state filter. Advancing the offset by the
+       filtered count instead would re-request the rows it just dropped and
+       loop forever on a page where nothing matches. */
     state.offset += data.items.length;
     state.exhausted = data.items.length < PAGE_SIZE || state.offset >= data.total;
+    const shown = state.filters.progress
+      ? data.items.filter((i) => passesProgress(i.id))
+      : data.items;
+    state.items.push(...shown);
 
     const folderNode = state.filters.folder ? folderIndex.get(state.filters.folder) : null;
     const stackable = folderNode && folderNode.children && folderNode.children.length;
@@ -208,7 +220,7 @@ async function loadPage(reset = false) {
       el.shelves.hidden = true;
       el.grid.hidden = false;
       el.sentinel.hidden = false;
-      appendCards(data.items);
+      appendCards(shown);
     }
     renderSummary();
     el.loading.hidden = true;
@@ -233,24 +245,36 @@ function renderSummary() {
   syncUrl();
   const f = state.filters;
   const bucket = state.buckets.find((b) => b.id === f.bucket);
+  const smart = f.playlist ? smartPlaylist(f.playlist) : null;
   el.resultsTitle.textContent =
-    f.folder ? f.folder.split("/").join(" › ")
+    smart ? smart.name
+    : f.folder ? f.folder.split("/").join(" › ")
     : f.section ? `${f.collection} › ${f.section}`
     : f.collection ? f.collection
     : bucket ? bucket.label
     : "All subjects";
+
+  /* With a watch-state filter the server's total is not the answer — it
+     counts rows before localStorage got a say. Saying how far the scan has
+     got is honest; showing "12 of 7,333" would not be. */
   el.resultsCount.textContent = browsing()
     ? `${state.total.toLocaleString()} videos`
-    : `${state.items.length.toLocaleString()} of ${state.total.toLocaleString()}`;
-  el.empty.hidden = browsing() || state.total !== 0;
+    : f.progress
+      ? `${state.items.length.toLocaleString()} shown · ` +
+        `${state.offset.toLocaleString()} of ${state.total.toLocaleString()} checked`
+      : `${state.items.length.toLocaleString()} of ${state.total.toLocaleString()}`;
 
-  el.activeFilters.innerHTML = "";
+  el.empty.hidden = browsing() ||
+    (f.progress ? state.items.length !== 0 || !state.exhausted : state.total !== 0);
+
+  for (const old of el.activeFilters.querySelectorAll(".chip")) old.remove();
   const chips = [
     ["bucket", bucket ? bucket.label : null],
     ["level", f.level],
     ["collection", f.collection],
     ["section", f.section],
     ["folder", f.folder ? f.folder.split("/").slice(-2).join(" › ") : null],
+    ["progress", progressLabel(f.progress)],
     ["search", f.search ? `“${f.search}”` : null],
   ];
   // One chip per selected tag, each removable on its own.
@@ -282,6 +306,18 @@ function renderSummary() {
     });
     el.activeFilters.appendChild(chip);
   }
+
+  renderSaveView();
+}
+
+/* Offered whenever the current view is something worth naming. appendChild
+   on an element already in the box moves it, which keeps the button after
+   the chips however many were just rebuilt. */
+function renderSaveView() {
+  if (!el.saveView) return;
+  el.activeFilters.appendChild(el.saveView);
+  const already = state.filters.playlist && smartPlaylist(state.filters.playlist);
+  el.saveView.hidden = browsing() || state.view === "assets" || !!already;
 }
 
 function renderFilters(data) {
@@ -306,6 +342,7 @@ function renderFilters(data) {
   }
 
   renderTagCloud(data.tagFacets || (data.tags || []).map((id) => ({ id, label: id, count: 0 })));
+  renderProgressFilter();
   renderPlaylistNav();
 
   /* The sidebar is rebuilt from scratch on every load, which throws away the
@@ -513,6 +550,8 @@ function syncFilterUI() {
     b.classList.toggle("on", b.dataset.bucket === state.filters.bucket);
   for (const b of el.levelList.querySelectorAll("button"))
     b.classList.toggle("on", b.dataset.level === state.filters.level);
+  for (const b of el.progressList.querySelectorAll("button"))
+    b.classList.toggle("on", b.dataset.progress === state.filters.progress);
   for (const b of el.tagCloud.querySelectorAll("button[data-tag]")) {
     const on = state.filters.tags.includes(b.dataset.tag);
     b.classList.toggle("on", on);
@@ -539,7 +578,7 @@ function markSelectedGroups() {
     box.classList.remove("has-selection");
   }
   for (const on of document.querySelectorAll(
-    "#bucketGroups .on, #collectionGroups .on, #tagCloud .on, #levelList .on"
+    "#bucketGroups .on, #collectionGroups .on, #tagCloud .on, #levelList .on, #progressList .on"
   )) {
     let box = on.closest("details.side-group");
     while (box) {
@@ -613,7 +652,12 @@ function appendCards(items, container = el.grid) {
           ${sourcePill(item)}
         </p>
       </div>`;
-    const open = () => play(item);
+    /* The card carries its own item so a queue can be read straight off the
+       DOM at play time. That is what makes "play continues through whatever
+       you were looking at" work in the grid, in a shelf rail and inside a
+       playlist without any of them knowing about queues. */
+    card._item = item;
+    const open = () => play(item, queueFrom(card));
     card.addEventListener("click", open);
     card.addEventListener("keydown", (e) => {
       if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); }
@@ -683,7 +727,7 @@ let shelfBudget = FRONT_SHELVES;
 function browsing() {
   const f = state.filters;
   return !f.bucket && !f.level && !f.tags.length && !f.collection && !f.section &&
-    !f.folder && !f.search.trim();
+    !f.folder && !f.progress && !f.search.trim();
 }
 
 function renderShelves(reset = true) {
@@ -1123,11 +1167,44 @@ function createPlaylist(name) {
   return all[id];
 }
 
+/* A smart playlist stores the filters, not the results, so it is never out
+   of date — a video added to the library next week is in it already.
+   Entries written before this existed have no `kind`, which is why absent
+   means "manual" rather than there being a migration. */
+function createSmartPlaylist(name, filters) {
+  const all = loadPlaylists();
+  const id = `pl_${Date.now().toString(36)}`;
+  all[id] = {
+    id,
+    kind: "smart",
+    name: name.trim() || "Untitled view",
+    // Snapshot, and without `playlist` — a saved view that remembers being
+    // opened as a playlist would reopen itself forever.
+    filters: { ...EMPTY_STATE_FILTERS(), ...filters, playlist: null },
+    at: Date.now(),
+  };
+  persistPlaylists();
+  return all[id];
+}
+
+function isSmart(pl) {
+  return !!pl && pl.kind === "smart";
+}
+
+/** The playlist behind an id, but only if it is a smart one. */
+function smartPlaylist(id) {
+  const pl = loadPlaylists()[id];
+  return isSmart(pl) ? pl : null;
+}
+
 function renamePlaylist(id, name) {
   const pl = loadPlaylists()[id];
   if (!pl) return;
   pl.name = name.trim() || pl.name;
   persistPlaylists();
+  // The heading is only rewritten by a load, and a rename does not trigger
+  // one — so the open list would keep its old name until the next click.
+  if (state.filters.playlist === id) el.resultsTitle.textContent = pl.name;
 }
 
 function deletePlaylist(id) {
@@ -1151,7 +1228,12 @@ function togglePlaylistItem(playlistId, videoId) {
 }
 
 function playlistsFor(videoId) {
-  return Object.values(loadPlaylists()).filter((pl) => pl.ids.includes(videoId));
+  return manualPlaylists().filter((pl) => pl.ids.includes(videoId));
+}
+
+/** Only these can hold a video; a smart playlist has filters, not members. */
+function manualPlaylists() {
+  return Object.values(loadPlaylists()).filter((pl) => !isSmart(pl) && Array.isArray(pl.ids));
 }
 
 /* ---- sidebar ---- */
@@ -1164,13 +1246,25 @@ function renderPlaylistNav() {
   const lists = Object.values(loadPlaylists()).sort((a, b) => b.at - a.at);
 
   for (const pl of lists) {
+    const smart = isSmart(pl);
     const li = document.createElement("li");
     const btn = document.createElement("button");
     btn.dataset.playlist = pl.id;
     btn.className = state.filters.playlist === pl.id ? "on" : "";
+    // A saved view has no fixed size to report, so it gets a marker where a
+    // manual list gets its count. Printing a stale number would be worse.
     btn.innerHTML =
-      `<span class="lbl">${escapeHtml(pl.name)}</span><span class="n">${pl.ids.length}</span>`;
-    btn.addEventListener("click", () => openPlaylist(pl.id));
+      `<span class="lbl">${escapeHtml(pl.name)}</span>` +
+      (smart ? `<span class="n pl-smart" title="Saved view">⌁</span>`
+             : `<span class="n">${pl.ids.length}</span>`);
+    btn.addEventListener("click", () => (smart ? openSmartPlaylist(pl.id) : openPlaylist(pl.id)));
+    // Double-click to rename: discoverable enough for a control you use
+    // once per playlist, and it costs no sidebar width.
+    btn.addEventListener("dblclick", (e) => {
+      e.preventDefault();
+      const name = prompt("Rename", pl.name);
+      if (name !== null) renamePlaylist(pl.id, name);
+    });
 
     const kill = document.createElement("button");
     kill.className = "pl-del";
@@ -1179,9 +1273,10 @@ function renderPlaylistNav() {
     kill.textContent = "×";
     kill.addEventListener("click", (e) => {
       e.stopPropagation();
-      if (confirm(`Delete the playlist "${pl.name}"? The videos stay in the library.`)) {
-        deletePlaylist(pl.id);
-      }
+      const warn = smart
+        ? `Delete the saved view "${pl.name}"?`
+        : `Delete the playlist "${pl.name}"? The videos stay in the library.`;
+      if (confirm(warn)) deletePlaylist(pl.id);
     });
 
     li.appendChild(btn);
@@ -1232,7 +1327,7 @@ async function openPlaylist(id) {
     }
   }
 
-  el.resultsCount.textContent = `${items.length.toLocaleString()} saved`;
+  el.resultsCount.textContent = rollup(items);
   el.loading.hidden = true;
   if (!items.length) {
     el.grid.innerHTML =
@@ -1242,6 +1337,61 @@ async function openPlaylist(id) {
   appendCards(items, el.grid);
 }
 
+/**
+ * Open a saved view: restore its filters and let the ordinary catalog path
+ * do the rest.
+ *
+ * This is the whole reason smart playlists are cheap. A manual playlist has
+ * to fetch its members one id at a time; a saved view is one paginated
+ * request that already knows how to infinite-scroll, so it is both less
+ * code and faster the moment a list gets long.
+ */
+async function openSmartPlaylist(id) {
+  const pl = smartPlaylist(id);
+  if (!pl) return;
+
+  state.filters = { ...EMPTY_STATE_FILTERS(), ...pl.filters, playlist: id };
+  el.searchInput.value = state.filters.search || "";
+  syncFilterUI();
+  renderPlaylistNav();
+  closeSidebar();
+  setView("videos", { reload: false });
+  loadPage(true);
+}
+
+/* ---- how much of a list is left ---- */
+
+/** "12:04" or "1:02:03" back into seconds. The inverse of formatClock. */
+function parseClock(text) {
+  if (!text) return 0;
+  const parts = String(text).split(":").map((n) => parseInt(n, 10));
+  if (parts.some((n) => !Number.isFinite(n))) return 0;
+  return parts.reduce((total, n) => total * 60 + n, 0);
+}
+
+/**
+ * "12 of 40 watched · 6.2 h left".
+ *
+ * Only offered where the whole list is known. A saved view is paged, so its
+ * count says how far the scan has got instead — a rollup over the first page
+ * would read as a total and be wrong.
+ */
+function rollup(items) {
+  if (!items.length) return "0 saved";
+  let done = 0;
+  let left = 0;
+  for (const item of items) {
+    const secs = parseClock(item.duration);
+    const frac = progressFraction(item.id);
+    if (frac >= 1) done += 1;
+    left += secs * (1 - frac);
+  }
+  const hours = left / 3600;
+  const remaining = hours >= 1 ? `${hours.toFixed(1)} h left`
+    : `${Math.max(0, Math.round(left / 60))} min left`;
+  return `${done} of ${items.length} watched · ${remaining}`;
+}
+
 /* ---- the + control on a card ---- */
 
 function openPlaylistMenu(anchor, videoId) {
@@ -1249,7 +1399,7 @@ function openPlaylistMenu(anchor, videoId) {
 
   const menu = document.createElement("div");
   menu.className = "pl-menu";
-  const lists = Object.values(loadPlaylists()).sort((a, b) => b.at - a.at);
+  const lists = manualPlaylists().sort((a, b) => b.at - a.at);
 
   if (!lists.length) {
     menu.innerHTML = `<p class="pl-menu-empty">No playlists yet.</p>`;
@@ -1296,7 +1446,58 @@ function openPlaylistMenu(anchor, videoId) {
 
 function EMPTY_STATE_FILTERS() {
   return { bucket: null, level: null, collection: null, section: null,
-           folder: null, tags: [], playlist: null, search: "" };
+           folder: null, tags: [], playlist: null, progress: null, search: "" };
+}
+
+/* ---------------------------------------------------------------
+   Watch-state filter
+
+   The one filter the server cannot answer. Progress lives in localStorage,
+   so these are applied to each page after it arrives — which is why the
+   result count has to say how much was scanned rather than pretending the
+   server's total is the answer.
+   --------------------------------------------------------------- */
+
+const PROGRESS_MODES = [
+  ["unwatched", "Not started"],
+  ["inprogress", "In progress"],
+  ["done", "Finished"],
+];
+
+function passesProgress(id) {
+  const mode = state.filters.progress;
+  if (!mode) return true;
+  const p = getProgress(id);
+  // Below RESUME_MIN_SECONDS you did not really start it, which is the same
+  // threshold the Continue shelf uses. Two definitions of "started" would be
+  // one too many.
+  const started = !!p && !p.done && p.t >= RESUME_MIN_SECONDS;
+  if (mode === "unwatched") return !p || (!p.done && !started);
+  if (mode === "inprogress") return started;
+  if (mode === "done") return !!p && p.done;
+  return true;
+}
+
+function renderProgressFilter() {
+  if (!el.progressList) return;
+  el.progressList.innerHTML = "";
+  for (const [id, label] of PROGRESS_MODES) {
+    const li = document.createElement("li");
+    const btn = document.createElement("button");
+    btn.dataset.progress = id;
+    btn.innerHTML = `<span class="lbl">${label}</span>`;
+    btn.addEventListener("click", () => {
+      state.filters.progress = state.filters.progress === id ? null : id;
+      syncFilterUI();
+      loadPage(true);
+    });
+    li.appendChild(btn);
+    el.progressList.appendChild(li);
+  }
+}
+
+function progressLabel(mode) {
+  return (PROGRESS_MODES.find(([id]) => id === mode) || [null, null])[1];
 }
 
 /* ---------------------------------------------------------------
@@ -1503,6 +1704,7 @@ function filtersToQuery() {
   if (f.collection) p.set("source", f.collection);
   if (f.section) p.set("section", f.section);
   if (f.playlist) p.set("playlist", f.playlist);
+  if (f.progress) p.set("progress", f.progress);
   for (const tag of f.tags || []) p.append("tag", tag);
   if (f.search) p.set("q", f.search);
   if (state.view === "assets") p.set("view", "materials");
@@ -1535,6 +1737,7 @@ function filtersFromUrl() {
       collection: p.get("source"),
       section: p.get("section"),
       playlist: p.get("playlist"),
+      progress: PROGRESS_MODES.some(([id]) => id === p.get("progress")) ? p.get("progress") : null,
       tags: p.getAll("tag"),
       search: p.get("q") || "",
     },
@@ -1548,8 +1751,17 @@ function applyUrlState({ replace = false } = {}) {
   el.searchInput.value = state.filters.search;
   urlPrimed = !replace;
 
-  if (state.filters.playlist && loadPlaylists()[state.filters.playlist]) {
-    openPlaylist(state.filters.playlist);
+  const saved = state.filters.playlist && loadPlaylists()[state.filters.playlist];
+  if (saved) {
+    // A smart playlist's filters are already in the URL, so it takes the
+    // ordinary path; a manual one has to be fetched by id.
+    if (isSmart(saved)) {
+      syncFilterUI();
+      renderPlaylistNav();
+      setView(view === "assets" ? "assets" : "videos");
+    } else {
+      openPlaylist(saved.id);
+    }
     return;
   }
   syncFilterUI();
@@ -1621,6 +1833,12 @@ function setSpeed(rate) {
   for (const b of el.speedBox.querySelectorAll("button")) {
     b.classList.toggle("on", Number(b.dataset.speed) === rate);
   }
+  // The trigger is the only speed indicator left on screen, so it has to
+  // carry the current rate.
+  if (el.speedTrigger) {
+    el.speedTrigger.textContent = `${rate}x`;
+    el.speedTrigger.classList.toggle("on", rate !== 1);
+  }
 }
 
 function buildSpeedControls() {
@@ -1630,7 +1848,7 @@ function buildSpeedControls() {
     b.type = "button";
     b.dataset.speed = String(rate);
     b.textContent = `${rate}x`;
-    b.addEventListener("click", () => setSpeed(rate));
+    b.addEventListener("click", () => { setSpeed(rate); closeSpeedMenu(); });
     el.speedBox.appendChild(b);
   }
 }
@@ -1666,23 +1884,321 @@ document.addEventListener("keydown", (e) => {
       break;
     case ">": case ".": nudgeSpeed(1); break;
     case "<": case ",": nudgeSpeed(-1); break;
+    case "n": if (!stepQueue(1)) setMsg("End of the queue", { transient: true }); break;
+    case "p": if (!stepQueue(-1)) setMsg("Start of the queue", { transient: true }); break;
+    case "q": if (state.queue) toggleQueuePanel(); break;
+    /* Escape unwinds one layer at a time. Closing the whole player because a
+       popover happened to be open loses your place for the sake of a menu. */
+    case "Escape":
+      if (speedMenuOpen()) closeSpeedMenu();
+      else if (queuePanelOpen()) closeQueuePanel();
+      else closePlayer();
+      break;
     default: break;
   }
 });
 
 /* ---------------------------------------------------------------
+   The queue
+
+   There is no separate "add to queue" anywhere, on purpose. The queue is
+   whatever list you pressed play inside — the grid, one shelf rail, or a
+   playlist — read off the DOM at play time from the cards sitting next to
+   the one you clicked. That is why a card carries its own item in
+   appendCards: it means continuous playback works in every list in the app
+   without any of those lists knowing that queues exist.
+
+   The queue is a snapshot, deliberately. It is held in state, never in
+   localStorage: a queue is where you are in one sitting, and finding
+   yesterday's half-finished rail waiting for you would be a bug, not a
+   feature.
+   --------------------------------------------------------------- */
+
+const AUTOPLAY_KEY = "medlib:autoplay";
+
+/* Long enough to reach for the mouse, short enough not to feel stalled.
+   Advancing the instant a video ends is the thing people hate about
+   autoplay, and it is entirely avoidable. */
+const NEXT_DELAY_MS = 6000;
+
+function autoplayOn() {
+  return localStorage.getItem(AUTOPLAY_KEY) !== "0";
+}
+
+function setAutoplay(on) {
+  try { localStorage.setItem(AUTOPLAY_KEY, on ? "1" : "0"); } catch { /* private mode */ }
+  syncAutoplayButton();
+}
+
+/* Autoplay lives in the queue panel's header rather than on the control row.
+   It is a property of the queue, not a transport control, and the row it used
+   to sit on is the one thing that has to stay readable at 375px. */
+function syncAutoplayButton() {
+  const on = autoplayOn();
+  if (!el.queueAuto) return;
+  el.queueAuto.classList.toggle("on", on);
+  el.queueAuto.setAttribute("aria-pressed", String(on));
+  el.queueAuto.textContent = on ? "Autoplay on" : "Autoplay off";
+}
+
+/** The cards either side of this one, and where in them it sits. */
+function queueFrom(card) {
+  const box = card.parentElement;
+  if (!box) return null;
+  const items = [];
+  let at = -1;
+  for (const sibling of box.querySelectorAll(":scope > .card")) {
+    if (!sibling._item) continue;
+    if (sibling === card) at = items.length;
+    items.push(sibling._item);
+  }
+  // A queue of one is just a video; leaving it null keeps the controls hidden.
+  return at < 0 || items.length < 2 ? null : { items, at };
+}
+
+function queueAt(delta) {
+  const q = state.queue;
+  if (!q) return null;
+  const i = q.at + delta;
+  return i >= 0 && i < q.items.length ? q.items[i] : null;
+}
+
+/** Move by one. Returns false when there is nothing there, so callers can
+    decide whether that is the end of a run or a no-op. */
+function stepQueue(delta) {
+  const q = state.queue;
+  const next = queueAt(delta);
+  if (!next) return false;
+  q.at += delta;
+  play(next, q);          // same object back, so `at` survives the hop
+  return true;
+}
+
+function renderQueueControls() {
+  const box = el.queueBox;
+  if (!box) return;
+  const q = state.queue;
+  box.innerHTML = "";
+  box.hidden = !q;
+  if (!q) {
+    closeQueuePanel();
+    return;
+  }
+
+  const arrow = (glyph, aria, delta) => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "ctl ctl-icon";
+    b.textContent = glyph;
+    b.setAttribute("aria-label", aria);
+    b.disabled = !queueAt(delta);
+    b.addEventListener("click", () => stepQueue(delta));
+    return b;
+  };
+
+  box.appendChild(arrow("‹", "Previous in queue", -1));
+  box.appendChild(arrow("›", "Next in queue", 1));
+
+  /* Position doubles as the panel's handle. One control instead of two, and
+     the number is the thing you were going to reach for anyway. */
+  const open = document.createElement("button");
+  open.type = "button";
+  open.className = "ctl queue-open";
+  open.title = "Show the queue";
+  open.setAttribute("aria-expanded", String(queuePanelOpen()));
+  open.innerHTML =
+    `<span class="queue-pos">${q.at + 1} / ${q.items.length}</span>` +
+    `<span class="queue-caret" aria-hidden="true">⌃</span>`;
+  open.addEventListener("click", toggleQueuePanel);
+  box.appendChild(open);
+
+  if (queuePanelOpen()) renderQueuePanel();
+}
+
+/* ---- the slide-out list ---- */
+
+function queuePanelOpen() {
+  return !!el.queuePanel && el.queuePanel.classList.contains("open");
+}
+
+function openQueuePanel() {
+  if (!el.queuePanel || !state.queue) return;
+  closeSpeedMenu();
+  renderQueuePanel();
+  el.queuePanel.classList.add("open");
+  syncQueueOpenButton();
+  // Land on the video you are actually watching rather than the top of 300.
+  el.queueList.querySelector(".qp-item.current")
+    ?.scrollIntoView({ block: "center" });
+}
+
+function closeQueuePanel() {
+  if (!el.queuePanel) return;
+  el.queuePanel.classList.remove("open");
+  syncQueueOpenButton();
+}
+
+function toggleQueuePanel() {
+  queuePanelOpen() ? closeQueuePanel() : openQueuePanel();
+}
+
+function syncQueueOpenButton() {
+  el.queueBox?.querySelector(".queue-open")
+    ?.setAttribute("aria-expanded", String(queuePanelOpen()));
+}
+
+function renderQueuePanel() {
+  const q = state.queue;
+  if (!el.queueList) return;
+  el.queueList.innerHTML = "";
+  syncAutoplayButton();
+  if (!q) return;
+
+  el.queuePanelCount.textContent = `${q.at + 1} of ${q.items.length}`;
+
+  const frag = document.createDocumentFragment();
+  q.items.forEach((item, i) => {
+    const frac = progressFraction(item.id);
+    const li = document.createElement("li");
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "qp-item" +
+      (i === q.at ? " current" : "") +
+      (frac >= 1 ? " done" : "");
+    if (i === q.at) btn.setAttribute("aria-current", "true");
+    btn.innerHTML =
+      `<span class="qp-n">${i === q.at ? "▶" : frac >= 1 ? "✓" : i + 1}</span>` +
+      `<span class="qp-title">${escapeHtml(item.title)}</span>` +
+      `<span class="qp-dur">${escapeHtml(item.duration || "")}</span>` +
+      // Part-watched only: a full bar on every finished row would be noise
+      // next to the tick that already says the same thing.
+      (frac > 0 && frac < 1
+        ? `<span class="qp-bar"><i style="width:${Math.round(frac * 100)}%"></i></span>`
+        : "");
+    btn.addEventListener("click", () => jumpToQueue(i));
+    li.appendChild(btn);
+    frag.appendChild(li);
+  });
+  el.queueList.appendChild(frag);
+}
+
+function jumpToQueue(i) {
+  const q = state.queue;
+  if (!q || i < 0 || i >= q.items.length) return;
+  if (i === q.at) return;
+  q.at = i;
+  play(q.items[i], q);
+}
+
+/* ---- speed, now behind a trigger ---- */
+
+function speedMenuOpen() {
+  return !!el.speedBox && !el.speedBox.hidden;
+}
+
+function closeSpeedMenu() {
+  if (!el.speedBox) return;
+  el.speedBox.hidden = true;
+  el.speedTrigger?.setAttribute("aria-expanded", "false");
+}
+
+function toggleSpeedMenu() {
+  if (speedMenuOpen()) return closeSpeedMenu();
+  el.speedBox.hidden = false;
+  el.speedTrigger?.setAttribute("aria-expanded", "true");
+}
+
+/* ---- the countdown between videos ---- */
+
+let nextTimer = null;
+let nextCountdown = null;
+
+function cancelNextPrompt() {
+  clearTimeout(nextTimer);
+  clearInterval(nextCountdown);
+  nextTimer = nextCountdown = null;
+}
+
+/**
+ * Offer the next video, counting down if autoplay is on.
+ *
+ * Written into the same overlay setMsg uses, so any later status message
+ * replaces it — but the timer would keep running behind that, which is why
+ * every path that changes what is playing calls cancelNextPrompt first.
+ */
+function promptNext(item) {
+  cancelNextPrompt();
+  const auto = autoplayOn();
+
+  el.videoMsg.hidden = false;
+  el.videoMsg.innerHTML = "";
+
+  const wrap = document.createElement("div");
+  wrap.className = "next-up";
+
+  const label = document.createElement("span");
+  label.className = "next-up-title";
+  wrap.appendChild(label);
+
+  const go = document.createElement("button");
+  go.type = "button";
+  go.className = "next-up-go";
+  go.textContent = "Play now";
+  go.addEventListener("click", () => { cancelNextPrompt(); stepQueue(1); });
+  wrap.appendChild(go);
+
+  if (auto) {
+    const stop = document.createElement("button");
+    stop.type = "button";
+    stop.className = "next-up-stop";
+    stop.textContent = "Stay here";
+    stop.addEventListener("click", () => {
+      cancelNextPrompt();
+      setMsg(null);
+    });
+    wrap.appendChild(stop);
+  }
+
+  el.videoMsg.appendChild(wrap);
+
+  let left = Math.round(NEXT_DELAY_MS / 1000);
+  const paint = () => {
+    label.textContent = auto
+      ? `Next in ${left}s — ${item.title}`
+      : `Next up — ${item.title}`;
+  };
+  paint();
+
+  if (!auto) return;
+  nextCountdown = setInterval(() => { left -= 1; paint(); }, 1000);
+  nextTimer = setTimeout(() => { cancelNextPrompt(); stepQueue(1); }, NEXT_DELAY_MS);
+}
+
+/* ---------------------------------------------------------------
    Playback
    --------------------------------------------------------------- */
 
-async function play(item) {
+/* Two clicks on Next in quick succession start two mints. Without a
+   generation the slower response wins and you land on the wrong video —
+   the same race loadPage guards, for the same reason. */
+let playGeneration = 0;
+
+async function play(item, queue = null) {
+  cancelNextPrompt();
+  state.queue = queue;
+  const mine = ++playGeneration;
+
   openPlayer(item);
+  renderQueueControls();
   remintAttempts = 0;
   setMsg("Requesting playback token…");
   try {
     const tok = await api(`/api/token/${encodeURIComponent(item.id)}`);
+    if (mine !== playGeneration) return;   // superseded while in flight
     state.current = { id: item.id, expires: tok.expires, type: tok.type };
     if (tok.poster) el.video.poster = tok.poster;
     await attach(tok);
+    if (mine !== playGeneration) return;
     setMsg(null);
     renderExpiry(tok.expires);
 
@@ -1865,6 +2381,15 @@ function closePlayer() {
     refreshProgressUI();
   }
 
+  // Closing ends the run: a queue is where you are in one sitting, and a
+  // stale one left behind would silently auto-advance the next video you
+  // open from a card.
+  cancelNextPrompt();
+  state.queue = null;
+  closeQueuePanel();
+  closeSpeedMenu();
+  renderQueueControls();
+
   // Cleared first: load() on an empty source fires an async error event, and
   // the error handler must not read that as an expired token and re-mint.
   state.current = null;
@@ -1921,6 +2446,14 @@ for (const evt of ["pause", "ended"]) {
   });
 }
 
+/* Offer the next one. Separate from the progress listener above so the order
+   is explicit: the finished video is recorded first, then the queue moves —
+   otherwise advancing tears down the element whose currentTime we still need. */
+el.video.addEventListener("ended", () => {
+  const next = queueAt(1);
+  if (next) promptNext(next);
+});
+
 /* Leaving the page mid-video is the common case, and it fires neither pause
    nor close. pagehide is the reliable one on mobile Safari. */
 window.addEventListener("pagehide", () => {
@@ -1960,12 +2493,29 @@ function applyProgress(card, id) {
 el.playerClose.addEventListener("click", closePlayer);
 el.backdrop.addEventListener("click", (e) => { if (e.target === el.backdrop) closePlayer(); });
 
-document.addEventListener("keydown", (e) => {
-  if (el.backdrop.hidden) return;
-  if (e.key === "Escape") closePlayer();
-  if (e.key === "f") el.video.requestFullscreen && el.video.requestFullscreen();
-  if (e.key === "ArrowRight") el.video.currentTime += 10;
-  if (e.key === "ArrowLeft") el.video.currentTime -= 10;
+/* A second copy of these shortcuts used to live here, and both handlers ran:
+   ArrowRight seeked 20s rather than 10, and `f` toggled fullscreen off and
+   straight back on. The single handler in "Playback speed and keyboard
+   control" is the one that stays — it also honours shift and skips keypresses
+   made while typing in a field. */
+
+el.speedTrigger.addEventListener("click", (e) => { e.stopPropagation(); toggleSpeedMenu(); });
+
+el.helpToggle.addEventListener("click", () => {
+  const show = el.shortcuts.hidden;
+  el.shortcuts.hidden = !show;
+  el.helpToggle.setAttribute("aria-expanded", String(show));
+  el.helpToggle.classList.toggle("on", show);
+});
+
+el.queueAuto.addEventListener("click", () => setAutoplay(!autoplayOn()));
+el.queueClose.addEventListener("click", closeQueuePanel);
+
+/* A popover that survives the next click is a popover you have to dismiss
+   twice. The panel is excluded: it has a close button and holds a long list
+   you scroll through. */
+document.addEventListener("click", (e) => {
+  if (speedMenuOpen() && !e.target.closest(".speed-wrap")) closeSpeedMenu();
 });
 
 /* ---------------------------------------------------------------
@@ -2014,6 +2564,17 @@ el.clearFilters.addEventListener("click", () => {
   syncFilterUI();
   closeSidebar();
   loadPage(true);
+});
+
+/* Saving a view names what the filters already describe. The default name is
+   the heading you are looking at, because that is what you would have typed. */
+el.saveView.addEventListener("click", () => {
+  const name = prompt("Name this view", el.resultsTitle.textContent || "Saved view");
+  if (name === null) return;
+  const pl = createSmartPlaylist(name, state.filters);
+  state.filters.playlist = pl.id;
+  renderPlaylistNav();
+  renderSummary();
 });
 
 let searchTimer = null;

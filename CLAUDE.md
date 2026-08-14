@@ -31,8 +31,38 @@ and nothing beneath it, and playback dies at the first variant. Query-style
 is correct for single files like thumbnails. See `server/bunny_token.py`;
 `token_path` must be omitted from path-style tokens or the edge 403s.
 
-**Progress and playlists live in `localStorage`**, so they do not follow you
-between devices. Moving them server-side is the top outstanding task.
+**Progress, playlists and the watch-state filter live in `localStorage`**, so
+they do not follow you between devices. Moving them server-side is the top
+outstanding task. One consequence shows in the UI: the server cannot select
+on watch state, so the Progress filter is applied to each page *after* it
+arrives — which is why that view reports "297 shown · 300 of 359 checked"
+rather than pretending the server's total is the answer. Paging still
+advances by what the server sent; advancing by the filtered count would
+re-request the dropped rows forever.
+
+**Playlists come in two kinds.** A manual one stores ids; a smart one stores
+the `filters` object and is therefore never stale. Entries written before
+smart playlists existed have no `kind` field, so absent means manual and
+there is no migration. A smart playlist opens through the ordinary catalog
+path, which makes it both less code and faster than a manual one — the
+manual opener fetches its members one id at a time.
+
+**The queue is read off the DOM, not stored.** `play(item, queue)` takes
+whatever list you pressed play inside — grid, shelf rail or playlist —
+because `appendCards` hangs the item on the card element. That is why
+continuous playback works everywhere without any list knowing queues exist,
+and why there is no "add to queue" control. It lives in `state`, never in
+`localStorage`: finding yesterday's half-finished rail waiting for you would
+be a bug.
+
+**`/api/suggest-similar` is the only endpoint that leaves the machine.**
+Hugging Face embeds the title, Pinecone returns neighbours. Unconfigured it
+returns 503 and nothing else is affected — deliberately absent from
+`missing_required()`, because refusing to boot over a recommendation service
+would trade a working site for a broken one. Worth knowing before extending
+it: at 7,333 titles this is two network hops to do what a numpy dot product
+does faster than the round trip, and for video-to-video the query vector
+could be precomputed. See `server/similar.py`.
 
 ---
 
@@ -88,7 +118,20 @@ needs a redeploy.
 
 **Bump `?v=` in `player/index.html`** after editing `player.js` or
 `player.css`. The browser will otherwise serve a stale copy and your change
-will appear to do nothing. Currently `?v=22`.
+will appear to do nothing. Currently `?v=24`. Note this does not cover
+`index.html` itself — a cached index keeps asking for the old version, so
+"nothing changed" after a bump usually means a hard refresh is needed.
+
+**`font: inherit` is a shorthand.** `.brand` sets `font-weight: 700` in the
+topbar block; a later rule used `font: inherit` to strip the button's
+user-agent styling and silently reset the weight with it. The wordmark
+rendered at 400 for months. Restate weight and tracking *after* any `font:`
+shorthand.
+
+**Two keydown handlers for the same keys is one too many.** There used to be
+a second listener duplicating the player shortcuts, and both ran: ArrowRight
+seeked 20s instead of 10, `f` toggled fullscreen off and back on. The single
+handler in "Playback speed and keyboard control" is the one that stays.
 
 **There are two referrer allowlists.** The app checks `ALLOWED_REFERRERS`
 before signing; Bunny's pull zone checks its own list before serving. Both
@@ -121,7 +164,22 @@ upscaled to a 1080p/5,000 kbps ladder. Turning off originals and dropping
 storage is not meaningfully cheaper once the footprint is sane.
 
 **Progress and playlists server-side** — needed the moment a second device
-is used. A JSON file plus two endpoints, or a Render disk.
+is used. A JSON file plus two endpoints. The blocker is not accounts: there
+is one user and the passphrase already identifies them. It is that Render's
+free filesystem is ephemeral, so a JSON file there loses data on every
+deploy and idle restart. Options, cheapest first: an UpCloud €3/mo Starter
+box (1 GB / 1 vCPU / 10 GB *persistent* disk, less than half Render's $7/mo
+paid tier); a single `state.json` PUT/GET against Bunny Storage, which adds
+no new vendor; or a Render disk. A URL-fragment export is the zero-infra
+stopgap — a 40-id playlist is about 1 KB.
+
+**Do not move the video to object storage.** Checked August 2026: UpCloud
+Managed Object Storage is €5/mo per 250 GB — €0.02/GB against Bunny Stream's
+$0.01/GB, so roughly double, before losing free transcoding and the CDN. The
+decisive part is signing: S3-compatible presigned URLs are query-style only,
+which is exactly the failure documented under "Two token styles" — the
+master playlist authorises and every variant 403s. Replicating Bunny's
+path-style token means putting a signing proxy in the delivery path.
 
 **Transcript search.** 1,838 subtitle files sit unused on disk. Uploading
 them to Bunny as captions and indexing them would let you search what was
@@ -136,6 +194,12 @@ index was built from OneDrive paths. Supply `data/asset-links.json` mapping
 filenames to links, or serve them from Bunny Storage instead.
 
 **A collection called "IBM" with 4 videos** looks out of place.
+
+**Populate the Pinecone index, or drop `/api/suggest-similar`.** Nothing
+writes to it, so the endpoint returns an empty array against an empty index —
+indistinguishable from a title with no neighbours. Either add an upsert
+script or take the local-embeddings path described under Architecture. The
+index must be 384-dimensional to match MiniLM.
 
 ---
 

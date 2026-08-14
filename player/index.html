@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#0d1016">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>MedLib — Player</title>
-<link rel="stylesheet" href="player.css?v=22">
+<link rel="stylesheet" href="player.css?v=24">
 </head>
 <body>
 
@@ -67,6 +67,13 @@
           <summary>Tags</summary>
           <div class="tag-cloud" id="tagCloud"></div>
         </details>
+        <!-- Watch state is a filter like any other from here, but it is the
+             only one applied in the browser: progress lives in localStorage,
+             so the server cannot select on it. -->
+        <details class="side-group">
+          <summary>Progress</summary>
+          <ul class="filter-list" id="progressList"></ul>
+        </details>
         <details class="side-group" open>
           <summary>Playlists</summary>
           <ul class="filter-list" id="playlistList"></ul>
@@ -94,7 +101,11 @@
           <button role="tab" id="viewAssets" class="view-tab" aria-selected="false">Materials</button>
         </div>
       </div>
-      <div class="chips" id="activeFilters"></div>
+      <!-- Saving a view is how a smart playlist is made: you have already
+           described it by filtering, so there is no second query builder. -->
+      <div class="chips" id="activeFilters">
+        <button class="save-view" id="saveView" type="button" hidden>＋ Save this view</button>
+      </div>
 
       <!-- Browse view: one row per subject. Shown when no filter is active;
            picking a filter swaps to the flat grid below. -->
@@ -143,22 +154,52 @@
       <h2 id="playerTitle"></h2>
       <p class="player-sub"><span id="playerBucket"></span><span id="playerExpiry"></span></p>
 
-      <!-- Speed is a primary control here, not a buried setting: lectures
-           get watched well above 1x. -->
-      <div class="speed" id="speedBox" role="group" aria-label="Playback speed"></div>
+      <!-- One row for every transport control. Three stacked rows of pills
+           was more furniture than the video they framed, so the seven speed
+           buttons and the shortcut list now live behind their own triggers
+           and only the position stays on screen. -->
+      <div class="controls">
+        <!-- Only present when play started inside a list of more than one.
+             There is no "add to queue" — the list you pressed play in is the
+             queue. -->
+        <div class="queue" id="queueBox" role="group" aria-label="Queue" hidden></div>
+
+        <div class="ctl-right">
+          <div class="speed-wrap">
+            <button class="ctl" id="speedTrigger" type="button" aria-haspopup="true"
+                    aria-expanded="false" aria-label="Playback speed">1x</button>
+            <div class="speed" id="speedBox" role="group" aria-label="Playback speed" hidden></div>
+          </div>
+          <button class="ctl ctl-icon" id="helpToggle" type="button" aria-expanded="false"
+                  aria-label="Keyboard shortcuts" title="Keyboard shortcuts">?</button>
+        </div>
+      </div>
 
       <!-- The same lesson from another publisher. -->
       <div class="related" id="relatedBox" hidden></div>
 
-      <p class="shortcuts">
+      <p class="shortcuts" id="shortcuts" hidden>
         <kbd>space</kbd> play · <kbd>←</kbd><kbd>→</kbd> 10s
         (<kbd>shift</kbd> 30s) · <kbd>,</kbd><kbd>.</kbd> speed ·
+        <kbd>n</kbd><kbd>p</kbd> queue · <kbd>q</kbd> queue list ·
         <kbd>m</kbd> mute · <kbd>f</kbd> fullscreen
       </p>
     </div>
+
+    <!-- Slides in over the player from the right. Clipped by the player's
+         own overflow, so it never escapes the dialog. -->
+    <aside class="queue-panel" id="queuePanel" aria-label="Queue">
+      <header class="qp-head">
+        <h3>Up next</h3>
+        <span class="qp-count" id="queuePanelCount"></span>
+        <button class="qp-auto" id="queueAuto" type="button" aria-pressed="true">Autoplay</button>
+        <button class="qp-close" id="queueClose" type="button" aria-label="Close queue">&times;</button>
+      </header>
+      <ol class="qp-list" id="queueList"></ol>
+    </aside>
   </div>
 </div>
 
-<script src="player.js?v=22"></script>
+<script src="player.js?v=24"></script>
 </body>
 </html>
