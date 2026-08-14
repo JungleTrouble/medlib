@@ -818,6 +818,22 @@ function renderRibbon() {
   return `<p class="hero-ribbon">${parts.join("<span class='dot'>·</span>")}</p>`;
 }
 
+/* How many lectures the carousel will hold. Beyond this the Continue
+   watching shelf takes over — a carousel you have to page through seven
+   times is a list wearing a costume. */
+const HERO_PANES = 7;
+
+/* Geometry of the fan. The side panes rotate *inward* so the row reads as a
+   shallow arc rather than a flat filmstrip; that rotation is the whole
+   difference between this and a row of cards. */
+const PANE_STEP = 58;     // % of pane width between neighbours
+const PANE_TILT = 24;     // degrees of Y-rotation per step
+const PANE_SHRINK = 0.17; // scale lost per step
+const PANE_VISIBLE = 2;   // neighbours drawn either side
+
+let heroItems = [];
+let heroAt = 0;
+
 async function renderHero() {
   const box = el.hero;
   if (!box) return;
@@ -827,27 +843,154 @@ async function renderHero() {
     return;
   }
 
-  const resumeId = resumableIds(1)[0];
   box.hidden = false;
+  const ids = resumableIds(HERO_PANES);
+  if (!ids.length) return renderColdHero(box);
 
-  if (!resumeId) return renderColdHero(box);
+  const items = [];
+  for (const id of ids) {
+    try {
+      items.push(await api(`/api/catalog/${encodeURIComponent(id)}`));
+    } catch {
+      forgetProgress(id);   // gone from the catalogue since it was watched
+    }
+  }
+  if (!items.length) return renderColdHero(box);
 
-  let item;
-  try {
-    item = await api(`/api/catalog/${encodeURIComponent(resumeId)}`);
-  } catch {
-    forgetProgress(resumeId);
-    return renderColdHero(box);
+  heroItems = items;
+  heroAt = 0;
+
+  box.innerHTML = `
+    <p class="hero-eyebrow">Pick up where you left off</p>
+    <div class="hero-stage" id="heroStage" role="group" aria-label="Lectures in progress"></div>
+    <div class="hero-dots" id="heroDots" role="tablist" aria-label="Choose a lecture"></div>
+    <div class="hero-detail" id="heroDetail"></div>
+    ${renderRibbon()}`;
+
+  buildHeroPanes();
+  buildHeroDots();
+  centreHero(0, { instant: true });
+  wireHeroGestures();
+  loadHeroPosters();
+}
+
+function buildHeroPanes() {
+  const stage = el.hero.querySelector("#heroStage");
+  stage.innerHTML = "";
+  heroItems.forEach((item, i) => {
+    const bucket = state.buckets.find((b) => b.id === item.bucket);
+    const accent = bucket ? bucket.color : "var(--accent)";
+    const pane = document.createElement("article");
+    pane.className = "pane";
+    pane.dataset.index = String(i);
+    pane.dataset.id = item.id;
+    pane.style.setProperty("--sub", accent);
+    pane.innerHTML = `
+      <div class="pane-art">
+        <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true">
+          <path d="M6 4l15 8-15 8V4z" fill="currentColor"/>
+        </svg>
+      </div>
+      <div class="pane-veil"></div>
+      <div class="pane-label">
+        <span class="pane-pub">${escapeHtml(item.collection || "")}</span>
+        <span class="pane-title">${escapeHtml(item.title)}</span>
+      </div>
+      <span class="pane-dur">${escapeHtml(item.duration || "")}</span>
+      <div class="pane-bar"><i style="background:${accent}"></i></div>`;
+    pane.querySelector(".pane-bar i").style.width =
+      `${Math.round(progressFraction(item.id) * 100)}%`;
+
+    // A side pane centres; the centre pane plays. Same click, read from
+    // where the pane currently sits rather than from what it holds.
+    pane.addEventListener("click", () => {
+      if (Number(pane.dataset.index) === heroAt) playFromFolder(heroItems[heroAt]);
+      else centreHero(Number(pane.dataset.index));
+    });
+    stage.appendChild(pane);
+  });
+}
+
+function buildHeroDots() {
+  const dots = el.hero.querySelector("#heroDots");
+  dots.innerHTML = "";
+  // One lecture is not a carousel; the dots would be a single dead dot.
+  dots.hidden = heroItems.length < 2;
+  if (dots.hidden) return;
+
+  heroItems.forEach((item, i) => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "hero-dot";
+    b.setAttribute("role", "tab");
+    b.setAttribute("aria-label", item.title);
+    b.addEventListener("click", () => centreHero(i));
+    dots.appendChild(b);
+  });
+}
+
+/** Lay the fan out around `i`, and swap the detail block underneath. */
+function centreHero(i, { instant = false } = {}) {
+  const n = heroItems.length;
+  if (!n) return;
+
+  /* The ring wraps. Centring the most recent lecture would otherwise leave
+     nothing to its left and the fan would lean off one side of the stage —
+     and "cycle through" is what the dots imply anyway. */
+  heroAt = ((i % n) + n) % n;
+  const stage = el.hero.querySelector("#heroStage");
+  if (!stage) return;
+
+  stage.classList.toggle("no-anim", instant);
+
+  for (const pane of stage.querySelectorAll(".pane")) {
+    // Shortest signed way round, so pane 4 of 5 sits to the *left* of pane 0.
+    let off = Number(pane.dataset.index) - heroAt;
+    if (off > n / 2) off -= n;
+    if (off < -n / 2) off += n;
+    const dist = Math.abs(off);
+    const beyond = dist > PANE_VISIBLE;
+    const scale = Math.max(0.4, 1 - dist * PANE_SHRINK);
+
+    pane.style.transform =
+      `translate(-50%, 0) translateX(${off * PANE_STEP}%) ` +
+      `rotateY(${off * -PANE_TILT}deg) scale(${scale})`;
+    pane.style.zIndex = String(20 - dist);
+    pane.style.opacity = beyond ? "0" : String(1 - dist * 0.22);
+    pane.style.pointerEvents = beyond ? "none" : "auto";
+    pane.classList.toggle("is-centre", off === 0);
+    pane.setAttribute("aria-hidden", String(beyond));
   }
 
-  const p = getProgress(resumeId) || { t: 0, d: 0 };
-  const pct = Math.round(progressFraction(resumeId) * 100);
+  for (const [n, dot] of [...el.hero.querySelectorAll(".hero-dot")].entries()) {
+    dot.classList.toggle("on", n === heroAt);
+    dot.setAttribute("aria-selected", String(n === heroAt));
+  }
+
+  if (instant) {
+    // Force the layout in before animations are allowed again, or the first
+    // paint animates every pane in from the centre.
+    void stage.offsetWidth;
+    stage.classList.remove("no-anim");
+  }
+
+  renderHeroDetail(heroItems[heroAt]);
+}
+
+/* The title, progress and actions live below the fan rather than inside the
+   centre pane. Panes stay a uniform size that way, so nothing reflows as the
+   carousel moves — only this block changes. */
+function renderHeroDetail(item) {
+  const box = el.hero.querySelector("#heroDetail");
+  if (!box || !item) return;
+
+  const p = getProgress(item.id) || { t: 0, d: 0 };
+  const pct = Math.round(progressFraction(item.id) * 100);
   const left = Math.max(0, (p.d || 0) - (p.t || 0));
   const bucket = state.buckets.find((b) => b.id === item.bucket);
   const accent = bucket ? bucket.color : "var(--accent)";
 
   box.innerHTML = `
-    <p class="hero-eyebrow">Pick up where you left off</p>
     <h2 class="hero-title">${escapeHtml(item.title)}</h2>
     <p class="hero-meta">
       ${item.collection ? `<span>${escapeHtml(item.collection)}</span>` : ""}
@@ -861,8 +1004,7 @@ async function renderHero() {
       <button class="hero-go" type="button" id="heroResume">Resume at ${formatClock(p.t || 0)}</button>
       <button class="hero-alt" type="button" id="heroFolder">Rest of this section</button>
     </div>
-    <div class="hero-also" id="heroAlso" hidden></div>
-    ${renderRibbon()}`;
+    <div class="hero-also" id="heroAlso" hidden></div>`;
 
   box.querySelector("#heroResume").addEventListener("click", () => playFromFolder(item));
   box.querySelector("#heroFolder").addEventListener("click", () => {
@@ -870,6 +1012,57 @@ async function renderHero() {
   });
 
   renderHeroAlso(item);
+}
+
+/* Arrow keys when the fan has focus, and a horizontal drag anywhere on it.
+   No auto-advance: this is a list of things you left unfinished, and having
+   it move on its own while you read a title would be hostile. */
+function wireHeroGestures() {
+  const stage = el.hero.querySelector("#heroStage");
+  if (!stage || heroItems.length < 2) return;
+
+  stage.tabIndex = 0;
+  stage.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight") { e.preventDefault(); centreHero(heroAt + 1); }
+    if (e.key === "ArrowLeft") { e.preventDefault(); centreHero(heroAt - 1); }
+  });
+
+  let startX = null;
+  let moved = false;
+  stage.addEventListener("pointerdown", (e) => { startX = e.clientX; moved = false; });
+  stage.addEventListener("pointermove", (e) => {
+    if (startX === null) return;
+    if (Math.abs(e.clientX - startX) > 8) moved = true;
+  });
+  const end = (e) => {
+    if (startX === null) return;
+    const dx = e.clientX - startX;
+    startX = null;
+    if (Math.abs(dx) < 40) return;
+    centreHero(heroAt + (dx < 0 ? 1 : -1));
+  };
+  stage.addEventListener("pointerup", end);
+  stage.addEventListener("pointercancel", () => { startX = null; });
+  // A drag should not also count as a click on whichever pane it ended over.
+  stage.addEventListener("click", (e) => { if (moved) { e.stopPropagation(); moved = false; } }, true);
+}
+
+/** One signed request for every pane's still, rather than one per pane. */
+async function loadHeroPosters() {
+  const ids = heroItems.map((i) => i.id).join(",");
+  if (!ids) return;
+  try {
+    const posters = await api(`/api/posters?ids=${encodeURIComponent(ids)}`);
+    for (const pane of el.hero.querySelectorAll(".pane")) {
+      const art = posters[pane.dataset.id];
+      if (!art || !art.poster) continue;
+      const img = pane.querySelector(".pane-art");
+      img.style.backgroundImage = `url("${art.poster}")`;
+      img.classList.add("has-art");
+    }
+  } catch {
+    /* the gradient placeholder is a perfectly good fallback */
+  }
 }
 
 /**
@@ -1033,9 +1226,9 @@ function renderFolderShelves(node) {
    It cannot use createShelf: the entries come from localStorage as a list of
    ids, not from a catalog query, so it fetches them individually. */
 async function renderContinueShelf() {
-  // The hero is showing the most recent one, so this row picks up
-  // after it rather than repeating it directly underneath.
-  const ids = resumableIds().slice(1);
+  // The carousel is holding the first HERO_PANES of these, so this row
+  // picks up after them rather than repeating what is already on screen.
+  const ids = resumableIds().slice(HERO_PANES);
   if (!ids.length) return;
 
   const shelf = document.createElement("section");

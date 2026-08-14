@@ -77,6 +77,17 @@ commercial library can do. Resume hands the whole folder over as the queue,
 which is why there is no separate "and then keep going" button. With nothing
 watched it inverts into an invitation rather than an apology.
 
+The hero is a **fan**, not a filmstrip: absolutely positioned panes on a
+`perspective` stage, side ones rotated inward with `rotateY`. That rotation
+is the entire difference between an arc and a row of shrinking cards. The
+ring wraps, because centring the most recent lecture would otherwise leave
+nothing to its left and the whole thing would lean off one side; offsets are
+computed as the shortest signed way round. Panes are a uniform size and the
+title, progress and buttons live *below* the stage, so nothing reflows as it
+moves — only that block changes. It never auto-advances: this is a list of
+things you left unfinished, and having it move while you read a title would
+be hostile.
+
 **`/api/suggest-similar` is the only endpoint that leaves the machine.**
 Hugging Face embeds the title, Pinecone returns neighbours. Unconfigured it
 returns 503 and nothing else is affected — deliberately absent from
@@ -140,7 +151,7 @@ needs a redeploy.
 
 **Bump `?v=` in `player/index.html`** after editing `player.js` or
 `player.css`. The browser will otherwise serve a stale copy and your change
-will appear to do nothing. Currently `?v=27`. Note this does not cover
+will appear to do nothing. Currently `?v=28`. Note this does not cover
 `index.html` itself — a cached index keeps asking for the old version, so
 "nothing changed" after a bump usually means a hard refresh is needed.
 

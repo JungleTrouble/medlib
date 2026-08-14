@@ -801,6 +801,164 @@ video { width: 100%; height: 100%; display: block; background: #000; }
   color: var(--fg-dim);
 }
 
+/* ---------- the fan ----------
+
+   Absolute panes on a perspective stage. The side ones rotate inward, which
+   is the whole difference between an arc and a filmstrip — without the
+   rotateY this is just a row of shrinking cards. Panes are a uniform size
+   and the title block lives below, so nothing reflows as it moves. */
+
+.hero-stage {
+  position: relative;
+  height: 232px;
+  margin: 6px 0 0;
+  perspective: 1500px;
+  perspective-origin: 50% 46%;
+  touch-action: pan-y;                 /* horizontal drag is ours */
+  outline-offset: 6px;
+}
+
+.pane {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 340px;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--bg-3);
+  border: 1px solid var(--line);
+  cursor: pointer;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  transition: transform .46s cubic-bezier(.22, .61, .36, 1),
+              opacity .46s ease,
+              box-shadow .46s ease;
+}
+
+.hero-stage.no-anim .pane { transition: none; }
+
+.pane-art {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background-size: cover;
+  background-position: center;
+  background-image: linear-gradient(140deg,
+    color-mix(in srgb, var(--sub) 34%, var(--bg-3)), var(--bg-3) 78%);
+  color: color-mix(in srgb, var(--sub) 65%, #fff);
+}
+
+/* Once a real still loads the play glyph is noise on top of it. */
+.pane-art.has-art > svg { display: none; }
+
+/* Keeps a white slide legible under the label without dimming artwork. */
+.pane-veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.82) 0%, rgba(0,0,0,.28) 42%, transparent 72%);
+}
+
+.pane-label {
+  position: absolute;
+  left: 16px; right: 16px; bottom: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pane-pub {
+  font-size: var(--t-micro);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--sub) 55%, #fff);
+}
+
+.pane-title {
+  font-family: ui-serif, "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  font-size: var(--t-lead);
+  font-weight: 600;
+  line-height: var(--lh-tight);
+  color: #fff;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.pane-dur {
+  position: absolute;
+  top: 12px; right: 12px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, .66);
+  color: #fff;
+  font-size: var(--t-micro);
+  font-variant-numeric: tabular-nums;
+}
+
+.pane-bar {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 3px;
+  background: rgba(255, 255, 255, .14);
+}
+
+.pane-bar i { display: block; height: 100%; }
+
+/* Only the centred pane gets the lift; the others stay flat so the arc
+   reads as depth rather than as four competing cards. */
+.pane.is-centre {
+  border-color: color-mix(in srgb, var(--sub) 55%, var(--line));
+  box-shadow: 0 26px 60px rgba(0, 0, 0, .55);
+}
+
+.pane:not(.is-centre) .pane-title { -webkit-line-clamp: 1; }
+
+/* ---------- dots ---------- */
+
+.hero-dots {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  margin: 16px 0 0;
+}
+
+.hero-dot {
+  width: 7px;
+  height: 7px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--line);
+  cursor: pointer;
+  transition: background .2s ease, width .2s ease;
+}
+
+.hero-dot:hover { background: var(--fg-dim); }
+
+/* The active dot stretches rather than just recolouring — readable at a
+   glance on a phone, where seven 7px circles all look alike. */
+.hero-dot.on {
+  width: 20px;
+  border-radius: 999px;
+  background: var(--accent);
+}
+
+.hero-detail { margin: 20px 0 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pane { transition: none; }
+  .hero-dot { transition: none; }
+}
+
+@media (max-width: 700px) {
+  .hero-stage { height: 178px; }
+  .pane { width: 250px; border-radius: 16px; }
+  .pane-title { font-size: var(--t-small); }
+}
+
 /* The one place a display size earns its keep. The serif is already the
    library's voice on shelf headings; here it gets room. */
 .hero-title {
