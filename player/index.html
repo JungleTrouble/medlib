@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#0d1016">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>MedLib — Player</title>
-<link rel="stylesheet" href="player.css?v=26">
+<link rel="stylesheet" href="player.css?v=27">
 </head>
 <body>
 
@@ -118,6 +118,10 @@
         <button class="save-view" id="saveView" type="button" hidden>＋ Save this view</button>
       </div>
 
+      <!-- Front page only. Not a poster wall: the question this library has
+           to answer is "where was I", not "what's on tonight". -->
+      <section class="hero" id="hero" hidden></section>
+
       <!-- Browse view: one row per subject. Shown when no filter is active;
            picking a filter swaps to the flat grid below. -->
       <div id="shelves"></div>
@@ -215,6 +219,6 @@
   </div>
 </div>
 
-<script src="player.js?v=26"></script>
+<script src="player.js?v=27"></script>
 </body>
 </html>

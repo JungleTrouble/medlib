@@ -66,6 +66,17 @@ ids so a re-titled video stays put; a queue is a short-lived working set,
 and copies make restore cost zero API calls. `QUEUE_MAX_PERSIST` guards
 against writing an entire result set.
 
+**The front page is a resume card, not a poster.** Every streaming service
+opens on something you have not seen, because their question is "what should
+I watch tonight". This library's is "where was I" — the syllabus was already
+chosen. So the hero shows the one lecture you stopped in the middle of, with
+the progress bar as the largest graphic on the page, and carries the "also
+taught by" row from `/api/related`, because 431 topics exist in two to four
+publishers' versions and switching teacher mid-concept is the thing no
+commercial library can do. Resume hands the whole folder over as the queue,
+which is why there is no separate "and then keep going" button. With nothing
+watched it inverts into an invitation rather than an apology.
+
 **`/api/suggest-similar` is the only endpoint that leaves the machine.**
 Hugging Face embeds the title, Pinecone returns neighbours. Unconfigured it
 returns 503 and nothing else is affected — deliberately absent from
@@ -129,7 +140,7 @@ needs a redeploy.
 
 **Bump `?v=` in `player/index.html`** after editing `player.js` or
 `player.css`. The browser will otherwise serve a stale copy and your change
-will appear to do nothing. Currently `?v=25`. Note this does not cover
+will appear to do nothing. Currently `?v=27`. Note this does not cover
 `index.html` itself — a cached index keeps asking for the old version, so
 "nothing changed" after a bump usually means a hard refresh is needed.
 
@@ -200,9 +211,17 @@ value item on this list.
 **151 videos failed transcoding** on Bunny and are excluded from the
 catalogue. Real content, worth investigating.
 
-**Asset share links.** `data/assets.json` has 1,251 files and no URLs — the
-index was built from OneDrive paths. Supply `data/asset-links.json` mapping
-filenames to links, or serve them from Bunny Storage instead.
+**Asset share links.** `data/assets.json` has 1,251 files and no URLs, so
+the Materials tab is browsable and entirely unopenable. The files themselves
+are all present: matching filenames against the index's `source_root` —
+`OneDrive - rush.edu/updated resources 11.09.24`, 37,564 files — resolves
+1,078 of 1,251 exactly (103.8 GB), leaves 173 ambiguous because the filename
+repeats across folders, and finds none missing. Blocked only on a Bunny
+**Storage** zone: that is a separate product from Stream and has no
+credentials in `.env` yet. Two things to know before starting — 75 archive
+files are 73.6 GB of the 103.8, so the 574 PDFs at 30 GB are the cheaper
+first pass; and resolve the ambiguous 173 by folder path rather than
+picking, because a wrong file is invisible once uploaded.
 
 **A collection called "IBM" with 4 videos** looks out of place.
 

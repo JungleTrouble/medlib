@@ -27,6 +27,7 @@ const state = {
   levels: [],
   tags: [],
   total: 0,
+  stats: {},
   offset: 0,
   loading: false,
   exhausted: false,
@@ -62,7 +63,7 @@ const el = {
   queueClear: $("queueClear"),
   resultsTitle: $("resultsTitle"), resultsCount: $("resultsCount"),
   activeFilters: $("activeFilters"), grid: $("grid"), sentinel: $("sentinel"),
-  shelves: $("shelves"),
+  shelves: $("shelves"), hero: $("hero"),
   empty: $("empty"), loading: $("loading"),
   backdrop: $("playerBackdrop"), video: $("video"),
   videoMsg: $("videoMsg"), playerTitle: $("playerTitle"),
@@ -201,6 +202,7 @@ async function loadPage(reset = false) {
     state.tags = data.tags;
     state.total = data.total;
     state.fuzzy = !!data.fuzzy;
+    state.stats = data.stats || state.stats;
 
     if (reset || !el.bucketList.childElementCount) renderFilters(data);
     if (data.generated_at) el.buildStamp.textContent = `Indexed ${data.generated_at}`;
@@ -227,6 +229,7 @@ async function loadPage(reset = false) {
       el.grid.hidden = true;
       el.sentinel.hidden = true;
       renderShelves();
+      renderHero();
     } else if (stackable && !state.filters.search.trim()) {
       // A folder with children: stack them as rows instead of pouring every
       // video in the branch into one grid.
@@ -239,6 +242,7 @@ async function loadPage(reset = false) {
       el.shelves.hidden = true;
       el.grid.hidden = false;
       el.sentinel.hidden = false;
+      if (el.hero) el.hero.hidden = true;
       appendCards(shown);
     }
     renderSummary();
@@ -765,6 +769,184 @@ function browsing() {
     !f.folder && !f.progress && !f.confidence && !state.sort && !f.search.trim();
 }
 
+/* ---------------------------------------------------------------
+   The front page
+
+   Every streaming service opens on a poster for something you have never
+   seen, because their question is "what should I watch tonight". This
+   library's question is "where was I, and what is next" — you already chose
+   the syllabus. So the hero is a resume card: the one lecture you actually
+   stopped in the middle of, with the progress bar as the largest graphic on
+   the page.
+
+   The other half is the thing no commercial service has. 431 of these
+   topics exist in two to four publishers' versions, and /api/related
+   already finds them. When an explanation is not landing, the useful move
+   is the same lesson from someone else — so that sits inside the hero
+   rather than three clicks into the player.
+
+   With nothing watched the card inverts into an invitation, because an
+   empty first screen should point somewhere rather than apologise.
+   --------------------------------------------------------------- */
+
+function libraryHours() {
+  const secs = state.stats?.total_seconds || 0;
+  return Math.round(secs / 3600);
+}
+
+/** Hours behind you and lectures finished, both exact from localStorage. */
+function watchedTotals() {
+  const all = loadProgress();
+  let seconds = 0;
+  let finished = 0;
+  for (const p of Object.values(all)) {
+    if (p.done) { seconds += p.d || 0; finished += 1; }
+    else seconds += p.t || 0;
+  }
+  return { hours: seconds / 3600, finished };
+}
+
+function renderRibbon() {
+  const { hours, finished } = watchedTotals();
+  const total = libraryHours();
+  const parts = [];
+  if (hours >= 1) parts.push(`<b>${hours.toFixed(0)}</b> hours watched`);
+  if (finished) parts.push(`<b>${finished.toLocaleString()}</b> finished`);
+  // Inventory alone is not a statistic worth leading with, so the library's
+  // size only appears next to what you have done with it.
+  parts.push(`<b>${total.toLocaleString()}</b> hours in the library`);
+  return `<p class="hero-ribbon">${parts.join("<span class='dot'>·</span>")}</p>`;
+}
+
+async function renderHero() {
+  const box = el.hero;
+  if (!box) return;
+
+  if (!browsing() || state.view === "assets") {
+    box.hidden = true;
+    return;
+  }
+
+  const resumeId = resumableIds(1)[0];
+  box.hidden = false;
+
+  if (!resumeId) return renderColdHero(box);
+
+  let item;
+  try {
+    item = await api(`/api/catalog/${encodeURIComponent(resumeId)}`);
+  } catch {
+    forgetProgress(resumeId);
+    return renderColdHero(box);
+  }
+
+  const p = getProgress(resumeId) || { t: 0, d: 0 };
+  const pct = Math.round(progressFraction(resumeId) * 100);
+  const left = Math.max(0, (p.d || 0) - (p.t || 0));
+  const bucket = state.buckets.find((b) => b.id === item.bucket);
+  const accent = bucket ? bucket.color : "var(--accent)";
+
+  box.innerHTML = `
+    <p class="hero-eyebrow">Pick up where you left off</p>
+    <h2 class="hero-title">${escapeHtml(item.title)}</h2>
+    <p class="hero-meta">
+      ${item.collection ? `<span>${escapeHtml(item.collection)}</span>` : ""}
+      ${bucket ? `<span style="color:${accent}">${escapeHtml(bucket.label)}</span>` : ""}
+      <span>${formatClock(left)} left</span>
+    </p>
+    <div class="hero-bar" role="img" aria-label="${pct}% watched">
+      <i style="width:${pct}%; background:${accent}"></i>
+    </div>
+    <div class="hero-actions">
+      <button class="hero-go" type="button" id="heroResume">Resume at ${formatClock(p.t || 0)}</button>
+      <button class="hero-alt" type="button" id="heroFolder">Rest of this section</button>
+    </div>
+    <div class="hero-also" id="heroAlso" hidden></div>
+    ${renderRibbon()}`;
+
+  box.querySelector("#heroResume").addEventListener("click", () => playFromFolder(item));
+  box.querySelector("#heroFolder").addEventListener("click", () => {
+    if (item.folder) openFolder(item.folder);
+  });
+
+  renderHeroAlso(item);
+}
+
+/**
+ * Resume, with the rest of the section queued behind it.
+ *
+ * Pressing play in a list is what normally builds a queue, and the hero is
+ * not a list — so it fetches the folder and hands it over, which is also
+ * what makes "and then keep going" work without a second button.
+ */
+async function playFromFolder(item) {
+  if (!item.folder) return play(item);
+  try {
+    const data = await api(`/api/catalog?folder=${encodeURIComponent(item.folder)}&limit=200`);
+    const items = data.items || [];
+    const at = items.findIndex((i) => i.id === item.id);
+    if (at < 0 || items.length < 2) return play(item);
+    play(item, { items, at });
+  } catch {
+    play(item);
+  }
+}
+
+/** The same lesson, taught by someone else. The library's one real edge. */
+async function renderHeroAlso(item) {
+  const box = el.hero.querySelector("#heroAlso");
+  if (!box) return;
+  try {
+    const data = await api(`/api/related/${encodeURIComponent(item.id)}`);
+    const related = data.related || [];
+    if (!related.length) return;
+
+    box.hidden = false;
+    box.innerHTML = `<span class="hero-also-label">Also taught by</span>`;
+    for (const r of related.slice(0, 4)) {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "hero-also-item";
+      btn.style.setProperty("--accent", collectionColors.get(r.collection) || "var(--accent)");
+      btn.innerHTML =
+        `<span>${escapeHtml(r.collection || "Another")}</span>` +
+        `<span class="hero-also-dur">${escapeHtml(r.duration || "")}</span>`;
+      btn.addEventListener("click", () => play(r));
+      box.appendChild(btn);
+    }
+  } catch {
+    /* related is a bonus; the hero stands without it */
+  }
+}
+
+function renderColdHero(box) {
+  const total = libraryHours();
+  box.innerHTML = `
+    <p class="hero-eyebrow">Nothing started yet</p>
+    <h2 class="hero-title">${total.toLocaleString()} hours, ${state.total.toLocaleString()} lectures.</h2>
+    <p class="hero-meta"><span>Begin anywhere — the short ones are a gentle way in.</span></p>
+    <div class="hero-actions">
+      <button class="hero-go" type="button" id="heroShort">Start with something short</button>
+      <button class="hero-alt" type="button" id="heroBrowse">Browse by subject</button>
+    </div>
+    ${renderRibbon()}`;
+
+  // No ribbon here: with nothing watched it could only repeat the library
+  // size, which the headline just said.
+  box.querySelector(".hero-ribbon")?.remove();
+
+  box.querySelector("#heroShort").addEventListener("click", () => {
+    state.sort = "duration";
+    state.filters.progress = "unwatched";
+    syncFilterUI();
+    loadPage(true);
+  });
+  box.querySelector("#heroBrowse").addEventListener("click", () => {
+    el.sidebar.classList.add("open");
+    el.scrim.classList.add("on");
+  });
+}
+
 function renderShelves(reset = true) {
   if (shelfObserver) shelfObserver.disconnect();
   el.shelves.innerHTML = "";
@@ -851,7 +1033,9 @@ function renderFolderShelves(node) {
    It cannot use createShelf: the entries come from localStorage as a list of
    ids, not from a catalog query, so it fetches them individually. */
 async function renderContinueShelf() {
-  const ids = resumableIds();
+  // The hero is showing the most recent one, so this row picks up
+  // after it rather than repeating it directly underneath.
+  const ids = resumableIds().slice(1);
   if (!ids.length) return;
 
   const shelf = document.createElement("section");

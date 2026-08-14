@@ -775,6 +775,148 @@ video { width: 100%; height: 100%; display: block; background: #000; }
   letter-spacing: 0.01em;
 }
 
+/* ---------- the front page hero ----------
+
+   Deliberately not a poster. The one graphic that carries weight is the
+   progress bar, because "how far in am I" is the question the page exists
+   to answer. Everything else is set quietly around it. */
+
+.hero {
+  position: relative;
+  margin: 18px 0 26px;
+  padding: 26px 26px 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(120% 140% at 0% 0%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 62%),
+    var(--bg-2);
+  overflow: hidden;
+}
+
+.hero-eyebrow {
+  margin: 0 0 10px;
+  font-size: var(--t-micro);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+}
+
+/* The one place a display size earns its keep. The serif is already the
+   library's voice on shelf headings; here it gets room. */
+.hero-title {
+  margin: 0;
+  font-family: ui-serif, "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  font-size: var(--t-hero);
+  font-weight: 600;
+  line-height: var(--lh-tight);
+  letter-spacing: -0.02em;
+}
+
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 10px 0 0;
+  font-size: var(--t-small);
+  color: var(--fg-dim);
+}
+
+/* The largest graphic on the page, and the only one that means anything. */
+.hero-bar {
+  height: 6px;
+  margin: 18px 0 0;
+  border-radius: 999px;
+  background: var(--bg-3);
+  overflow: hidden;
+}
+
+.hero-bar i {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  transition: width .4s ease;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin: 18px 0 0;
+}
+
+.hero-go, .hero-alt {
+  padding: 9px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--fg-dim);
+  font: inherit;
+  font-size: var(--t-small);
+  cursor: pointer;
+}
+
+.hero-go {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  font-weight: 650;
+}
+
+.hero-go:hover { filter: brightness(1.08); }
+.hero-alt:hover { color: var(--fg); border-color: var(--fg-dim); }
+
+/* Also taught by — the fact no commercial library has. */
+.hero-also {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 20px 0 0;
+  padding: 16px 0 0;
+  border-top: 1px solid var(--line);
+}
+
+.hero-also-label {
+  font-size: var(--t-micro);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+  margin-right: 2px;
+}
+
+.hero-also-item {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 7px;
+  padding: 5px 12px;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--fg);
+  font: inherit;
+  font-size: var(--t-micro);
+  cursor: pointer;
+}
+
+.hero-also-item:hover { background: color-mix(in srgb, var(--accent) 18%, transparent); }
+.hero-also-dur { color: var(--fg-dim); font-variant-numeric: tabular-nums; }
+
+/* Hours behind you, not inventory in front of you. */
+.hero-ribbon {
+  margin: 18px 0 0;
+  font-size: var(--t-micro);
+  color: var(--fg-dim);
+}
+
+.hero-ribbon b { color: var(--fg); font-weight: 650; font-variant-numeric: tabular-nums; }
+.hero-ribbon .dot { margin: 0 8px; opacity: .5; }
+
+@media (max-width: 560px) {
+  .hero { padding: 20px 18px 18px; margin: 14px 0 20px; }
+  .hero-title { font-size: var(--t-title); }
+  .hero-actions .hero-go, .hero-actions .hero-alt { flex: 1; text-align: center; }
+}
+
 /* ---------- sort ---------- */
 
 /* Takes the right edge that the view switch used to claim, so the two sit

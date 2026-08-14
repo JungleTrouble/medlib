@@ -87,6 +87,7 @@ class Catalog:
         self._data: dict[str, Any] = {}
         self._by_id: dict[str, dict] = {}
         self._by_path: dict[str, dict] = {}
+        self._total_seconds: int | None = None
 
     # -- loading -----------------------------------------------------------
 
@@ -104,6 +105,7 @@ class Catalog:
             self._data = data
             self._by_id = {i["id"]: i for i in items}
             self._by_path = {i["path"].lstrip("/"): i for i in items}
+            self._total_seconds = None      # recomputed on next read
             self._mtime = mtime
 
     def refresh_if_stale(self) -> None:
@@ -160,7 +162,21 @@ class Catalog:
 
     @property
     def stats(self) -> dict:
-        return self._data.get("stats", {})
+        """
+        Catalogue stats, plus the library's total runtime.
+
+        Computed here rather than baked into catalog.json so it cannot drift
+        from the items actually loaded, and cached because parsing 7,333
+        duration strings on every request would be silly.
+        """
+        stats = dict(self._data.get("stats", {}))
+        if self._total_seconds is None:
+            self._total_seconds = sum(
+                max(0, duration_seconds(i.get("duration", "")))
+                for i in self._data.get("items", [])
+            )
+        stats["total_seconds"] = self._total_seconds
+        return stats
 
     def get(self, key: str) -> dict | None:
         """Resolve by item id first, then by exact library-relative path."""
