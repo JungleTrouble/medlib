@@ -31,7 +31,9 @@ const state = {
   loading: false,
   exhausted: false,
   view: "videos",
-  filters: { bucket: null, level: null, tag: null, collection: null, section: null, folder: null, tags: [], playlist: null, progress: null, search: "" },
+  filters: { bucket: null, level: null, tag: null, collection: null, section: null, folder: null, tags: [], playlist: null, progress: null, confidence: null, search: "" },
+  sort: null,         // null = catalogue order; see SORTS
+  fuzzy: false,       // last search fell back to approximate matching
   current: null,      // { id, expires, type }
   queue: null,        // { items, at } — see the Queue section
   hls: null,
@@ -53,6 +55,7 @@ const el = {
   docDownload: $("docDownload"), docClose: $("docClose"),
   relatedBox: $("relatedBox"), speedBox: $("speedBox"), queueBox: $("queueBox"),
   saveView: $("saveView"), progressList: $("progressList"),
+  reviewList: $("reviewList"), sortBox: $("sortBox"), fuzzyNote: $("fuzzyNote"),
   speedTrigger: $("speedTrigger"), helpToggle: $("helpToggle"), shortcuts: $("shortcuts"),
   queuePanel: $("queuePanel"), queueList: $("queueList"), queueAuto: $("queueAuto"),
   queueClose: $("queueClose"), queuePanelCount: $("queuePanelCount"),
@@ -144,10 +147,24 @@ function queryString(extra = {}) {
   if (f.collection) p.set("collection", f.collection);
   if (f.section) p.set("section", f.section);
   if (f.folder) p.set("folder", f.folder);
+  if (f.confidence) p.set("confidence", f.confidence);
   if (f.search) p.set("search", f.search);
+  if (state.sort) p.set("sort", state.sort);
   for (const [k, v] of Object.entries(extra)) p.set(k, v);
   return p.toString();
 }
+
+/* Ordering is a server concern: sorting only the page you happen to have
+   would put the shortest video *of the first 300* at the top and call it the
+   shortest. "Recently added" is deliberately absent — every item carries
+   mtime 0, so there is no honest date to sort on. */
+const SORTS = [
+  ["relevance", "Catalogue order"],
+  ["title", "Title A–Z"],
+  ["-title", "Title Z–A"],
+  ["duration", "Shortest first"],
+  ["-duration", "Longest first"],
+];
 
 /* Bumped on every reset. An in-flight response from an older generation is
    discarded rather than painted, so changing a filter mid-load cannot be
@@ -183,6 +200,7 @@ async function loadPage(reset = false) {
     state.levels = data.levels;
     state.tags = data.tags;
     state.total = data.total;
+    state.fuzzy = !!data.fuzzy;
 
     if (reset || !el.bucketList.childElementCount) renderFilters(data);
     if (data.generated_at) el.buildStamp.textContent = `Indexed ${data.generated_at}`;
@@ -276,6 +294,7 @@ function renderSummary() {
     ["section", f.section],
     ["folder", f.folder ? f.folder.split("/").slice(-2).join(" › ") : null],
     ["progress", progressLabel(f.progress)],
+    ["confidence", confidenceLabel(f.confidence)],
     ["search", f.search ? `“${f.search}”` : null],
   ];
   // One chip per selected tag, each removable on its own.
@@ -309,6 +328,17 @@ function renderSummary() {
   }
 
   renderSaveView();
+  renderSortControl();
+
+  /* Say when a result set is approximate. Silently showing near misses for a
+     query that matched nothing reads as the search being bad at its job. */
+  if (el.fuzzyNote) {
+    el.fuzzyNote.hidden = !(state.fuzzy && f.search);
+    if (!el.fuzzyNote.hidden) {
+      el.fuzzyNote.textContent =
+        `Nothing matched “${f.search}” exactly — showing close spellings.`;
+    }
+  }
 }
 
 /* Offered whenever the current view is something worth naming. appendChild
@@ -344,6 +374,7 @@ function renderFilters(data) {
 
   renderTagCloud(data.tagFacets || (data.tags || []).map((id) => ({ id, label: id, count: 0 })));
   renderProgressFilter();
+  renderReviewFilter();
   renderPlaylistNav();
 
   /* The sidebar is rebuilt from scratch on every load, which throws away the
@@ -553,6 +584,8 @@ function syncFilterUI() {
     b.classList.toggle("on", b.dataset.level === state.filters.level);
   for (const b of el.progressList.querySelectorAll("button"))
     b.classList.toggle("on", b.dataset.progress === state.filters.progress);
+  for (const b of el.reviewList.querySelectorAll("button"))
+    b.classList.toggle("on", b.dataset.confidence === state.filters.confidence);
   for (const b of el.tagCloud.querySelectorAll("button[data-tag]")) {
     const on = state.filters.tags.includes(b.dataset.tag);
     b.classList.toggle("on", on);
@@ -579,7 +612,8 @@ function markSelectedGroups() {
     box.classList.remove("has-selection");
   }
   for (const on of document.querySelectorAll(
-    "#bucketGroups .on, #collectionGroups .on, #tagCloud .on, #levelList .on, #progressList .on"
+    "#bucketGroups .on, #collectionGroups .on, #tagCloud .on, #levelList .on, "
+    + "#progressList .on, #reviewList .on"
   )) {
     let box = on.closest("details.side-group");
     while (box) {
@@ -728,7 +762,7 @@ let shelfBudget = FRONT_SHELVES;
 function browsing() {
   const f = state.filters;
   return !f.bucket && !f.level && !f.tags.length && !f.collection && !f.section &&
-    !f.folder && !f.progress && !f.search.trim();
+    !f.folder && !f.progress && !f.confidence && !state.sort && !f.search.trim();
 }
 
 function renderShelves(reset = true) {
@@ -1456,6 +1490,28 @@ function openPlaylistMenu(anchor, videoId) {
       });
       menu.appendChild(row);
     }
+    /* Progress you did not earn by playing. You learn things elsewhere, and
+       a library that only believes its own player will drift away from what
+       you actually still need to watch — which is exactly what the Progress
+       filters and smart playlists are reading. */
+    const done = progressFraction(item.id) >= 1;
+    const mark = document.createElement("button");
+    mark.className = "pl-menu-item pl-menu-queue";
+    mark.textContent = done ? "Mark as unwatched" : "Mark as watched";
+    mark.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (done) {
+        forgetProgress(item.id);
+      } else {
+        const secs = parseClock(item.duration) || 1;
+        recordProgress(item.id, secs, secs, item.title);
+      }
+      refreshProgressUI();
+      toast(done ? "Marked unwatched" : "Marked watched");
+      menu.remove();
+    });
+    menu.appendChild(mark);
+
     const rule = document.createElement("div");
     rule.className = "pl-menu-rule";
     menu.appendChild(rule);
@@ -1512,7 +1568,8 @@ function openPlaylistMenu(anchor, videoId) {
 
 function EMPTY_STATE_FILTERS() {
   return { bucket: null, level: null, collection: null, section: null,
-           folder: null, tags: [], playlist: null, progress: null, search: "" };
+           folder: null, tags: [], playlist: null, progress: null,
+           confidence: null, search: "" };
 }
 
 /* ---------------------------------------------------------------
@@ -1564,6 +1621,65 @@ function renderProgressFilter() {
 
 function progressLabel(mode) {
   return (PROGRESS_MODES.find(([id]) => id === mode) || [null, null])[1];
+}
+
+/* ---------------------------------------------------------------
+   Needs review
+
+   1,248 videos were placed by the weakest tier and 193 by none at all.
+   Until they can be reached they can only be fixed as a batch job, which
+   means never. One filter turns them into something you can chip at while
+   you are already here.
+   --------------------------------------------------------------- */
+
+function renderReviewFilter() {
+  if (!el.reviewList) return;
+  el.reviewList.innerHTML = "";
+  for (const [id, label] of [["review", "Low confidence"], ["none", "No subject at all"]]) {
+    const li = document.createElement("li");
+    const btn = document.createElement("button");
+    btn.dataset.confidence = id;
+    btn.innerHTML = `<span class="lbl">${label}</span>`;
+    btn.addEventListener("click", () => {
+      state.filters.confidence = state.filters.confidence === id ? null : id;
+      syncFilterUI();
+      loadPage(true);
+    });
+    li.appendChild(btn);
+    el.reviewList.appendChild(li);
+  }
+}
+
+function confidenceLabel(mode) {
+  return mode === "review" ? "Low confidence" : mode === "none" ? "No subject" : null;
+}
+
+/* ---- ordering ---- */
+
+/* Built once and then only re-synced. renderSummary runs on every load, and
+   rebuilding the <select> there would drop keyboard focus out of the control
+   the moment your choice took effect. */
+function renderSortControl() {
+  const box = el.sortBox;
+  if (!box) return;
+
+  let sel = box.querySelector("select");
+  if (!sel) {
+    sel = document.createElement("select");
+    sel.setAttribute("aria-label", "Sort order");
+    for (const [id, label] of SORTS) {
+      const opt = document.createElement("option");
+      opt.value = id;
+      opt.textContent = label;
+      sel.appendChild(opt);
+    }
+    sel.addEventListener("change", () => {
+      state.sort = sel.value === "relevance" ? null : sel.value;
+      loadPage(true);
+    });
+    box.appendChild(sel);
+  }
+  sel.value = state.sort || "relevance";
 }
 
 /* ---------------------------------------------------------------
@@ -1771,6 +1887,8 @@ function filtersToQuery() {
   if (f.section) p.set("section", f.section);
   if (f.playlist) p.set("playlist", f.playlist);
   if (f.progress) p.set("progress", f.progress);
+  if (f.confidence) p.set("review", f.confidence);
+  if (state.sort) p.set("sort", state.sort);
   for (const tag of f.tags || []) p.append("tag", tag);
   if (f.search) p.set("q", f.search);
   if (state.view === "assets") p.set("view", "materials");
@@ -1804,6 +1922,7 @@ function filtersFromUrl() {
       section: p.get("section"),
       playlist: p.get("playlist"),
       progress: PROGRESS_MODES.some(([id]) => id === p.get("progress")) ? p.get("progress") : null,
+      confidence: ["review", "none"].includes(p.get("review")) ? p.get("review") : null,
       tags: p.getAll("tag"),
       search: p.get("q") || "",
     },
@@ -1813,6 +1932,8 @@ function filtersFromUrl() {
 
 function applyUrlState({ replace = false } = {}) {
   const { filters, view } = filtersFromUrl();
+  const sort = new URLSearchParams(location.search).get("sort");
+  state.sort = SORTS.some(([id]) => id === sort) && sort !== "relevance" ? sort : null;
   state.filters = { ...EMPTY_STATE_FILTERS(), ...filters, tags: filters.tags || [] };
   el.searchInput.value = state.filters.search;
   urlPrimed = !replace;
@@ -2814,6 +2935,18 @@ el.saveView.addEventListener("click", () => {
   state.filters.playlist = pl.id;
   renderPlaylistNav();
   renderSummary();
+});
+
+/* "/" jumps to search, the way it does everywhere else. Only when the player
+   is closed and you are not already typing — otherwise it would swallow the
+   slash in a title. */
+document.addEventListener("keydown", (e) => {
+  if (e.key !== "/" || e.metaKey || e.ctrlKey || e.altKey) return;
+  if (!el.backdrop.hidden || !el.docBackdrop.hidden) return;
+  if (/^(input|textarea|select)$/i.test(e.target.tagName) || e.target.isContentEditable) return;
+  e.preventDefault();
+  el.searchInput.focus();
+  el.searchInput.select();
 });
 
 let searchTimer = null;

@@ -14,6 +14,7 @@ up without a restart.
 from __future__ import annotations
 
 import json
+import re
 import threading
 from pathlib import Path
 from typing import Any
@@ -21,6 +22,61 @@ from typing import Any
 
 class CatalogError(RuntimeError):
     pass
+
+
+def duration_seconds(text: str) -> int:
+    """'4:48' or '1:02:03' -> seconds. Unparseable durations sort last."""
+    if not text:
+        return -1
+    parts = text.split(":")
+    try:
+        total = 0
+        for p in parts:
+            total = total * 60 + int(p)
+        return total
+    except ValueError:
+        return -1
+
+
+_WORD = re.compile(r"[a-z0-9]+")
+
+
+def _tokens(text: str) -> list[str]:
+    return _WORD.findall(text.lower())
+
+
+def _within(a: str, b: str, budget: int) -> bool:
+    """
+    Is `a` reachable from `b` in `budget` edits or fewer?
+
+    Full Levenshtein with early exit on the row minimum. Only ever runs on
+    the fallback path, so the common case pays nothing for it.
+    """
+    if abs(len(a) - len(b)) > budget:
+        return False
+    prev = list(range(len(b) + 1))
+    for i, ca in enumerate(a, 1):
+        cur = [i]
+        for j, cb in enumerate(b, 1):
+            cur.append(min(
+                prev[j] + 1,
+                cur[j - 1] + 1,
+                prev[j - 1] + (ca != cb),
+            ))
+        if min(cur) > budget:
+            return False
+        prev = cur
+    return prev[-1] <= budget
+
+
+def _budget(token: str) -> int:
+    """Short words get no slack — 'cat' and 'bat' are different questions."""
+    if len(token) <= 3:
+        return 0
+    return 1 if len(token) <= 6 else 2
+
+
+SORTS = ("relevance", "title", "-title", "duration", "-duration")
 
 
 class Catalog:
@@ -120,9 +176,11 @@ class Catalog:
         section: str | None = None,
         folder: str | None = None,
         search: str | None = None,
+        confidence: str | None = None,
+        sort: str | None = None,
         offset: int = 0,
         limit: int | None = None,
-    ) -> tuple[list[dict], int]:
+    ) -> tuple[list[dict], int, bool]:
         rows = self._data.get("items", [])
         if bucket:
             rows = [r for r in rows if r["bucket"] == bucket]
@@ -146,18 +204,79 @@ class Catalog:
                 r for r in rows
                 if (f := r.get("folder", "")) == prefix or f.startswith(prefix + "/")
             ]
+        if confidence:
+            # "needs review" is two buckets, not one — nothing was resolved for
+            # `none`, and `low` was resolved by the weakest tier.
+            wanted_conf = {"low", "none"} if confidence == "review" else {confidence}
+            rows = [r for r in rows if r.get("confidence") in wanted_conf]
+
+        fuzzy = False
         if search:
             needle = search.lower().strip()
             if needle:
-                rows = [
+                exact = [
                     r for r in rows
                     if needle in r["title"].lower()
                     or needle in r.get("path", "").lower()
                     or any(needle in t for t in r.get("tags", []))
                 ]
+                # Only reach for approximate matching when the literal one found
+                # nothing. Medical spelling is unforgiving and a single slipped
+                # letter should not read as "you do not own this lecture".
+                if exact:
+                    rows = exact
+                else:
+                    rows = self._fuzzy(rows, needle)
+                    fuzzy = bool(rows)
+
+        rows = self._sorted(rows, sort)
+
         total = len(rows)
         if offset:
             rows = rows[offset:]
         if limit is not None:
             rows = rows[:limit]
-        return rows, total
+        return rows, total, fuzzy
+
+    # -- search and ordering -----------------------------------------------
+
+    @staticmethod
+    def _fuzzy(rows: list[dict], needle: str) -> list[dict]:
+        """Every query word has to match some title word, give or take a typo."""
+        wanted = _tokens(needle)
+        if not wanted:
+            return []
+        budgets = [(w, _budget(w)) for w in wanted]
+
+        out = []
+        for r in rows:
+            have = _tokens(r["title"])
+            if not have:
+                continue
+            if all(
+                any(
+                    w == h or (b and _within(w, h, b)) or (len(w) > 4 and h.startswith(w[:4]) and _within(w, h, b + 1))
+                    for h in have
+                )
+                for w, b in budgets
+            ):
+                out.append(r)
+        return out
+
+    @staticmethod
+    def _sorted(rows: list[dict], sort: str | None) -> list[dict]:
+        if not sort or sort == "relevance":
+            return rows
+        if sort == "title":
+            return sorted(rows, key=lambda r: r["title"].lower())
+        if sort == "-title":
+            return sorted(rows, key=lambda r: r["title"].lower(), reverse=True)
+        if sort in ("duration", "-duration"):
+            # Unparseable durations come back as -1; park them at the end of
+            # either direction rather than letting them lead the shortest list.
+            keyed = [(duration_seconds(r.get("duration", "")), r) for r in rows]
+            known = [(d, r) for d, r in keyed if d >= 0]
+            unknown = [r for d, r in keyed if d < 0]
+            known.sort(key=lambda pair: pair[0], reverse=sort == "-duration")
+            return [r for _, r in known] + unknown
+        return rows

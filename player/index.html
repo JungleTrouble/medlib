@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#0d1016">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>MedLib — Player</title>
-<link rel="stylesheet" href="player.css?v=25">
+<link rel="stylesheet" href="player.css?v=26">
 </head>
 <body>
 
@@ -74,6 +74,13 @@
           <summary>Progress</summary>
           <ul class="filter-list" id="progressList"></ul>
         </details>
+        <!-- 1,248 videos were placed by the weakest classifier tier and 193
+             by none. Reachable here so they can be fixed while browsing
+             rather than only as a batch job. -->
+        <details class="side-group">
+          <summary>Needs review</summary>
+          <ul class="filter-list" id="reviewList"></ul>
+        </details>
         <details class="side-group" open>
           <summary>Playlists</summary>
           <ul class="filter-list" id="playlistList"></ul>
@@ -96,11 +103,15 @@
         <!-- Videos and reference material are different kinds of thing, not
              different filters, so they get a view switch rather than a facet.
              The sidebar's subject and tag filters apply to both. -->
+        <!-- Ordering is a server concern: sorting one page would rank the
+             shortest video *of the first 300* and call it the shortest. -->
+        <div class="sort" id="sortBox"></div>
         <div class="view-switch" role="tablist" aria-label="Library view">
           <button role="tab" id="viewVideos" class="view-tab on" aria-selected="true">Videos</button>
           <button role="tab" id="viewAssets" class="view-tab" aria-selected="false">Materials</button>
         </div>
       </div>
+      <p class="fuzzy-note" id="fuzzyNote" hidden></p>
       <!-- Saving a view is how a smart playlist is made: you have already
            described it by filtering, so there is no second query builder. -->
       <div class="chips" id="activeFilters">
@@ -204,6 +215,6 @@
   </div>
 </div>
 
-<script src="player.js?v=25"></script>
+<script src="player.js?v=26"></script>
 </body>
 </html>

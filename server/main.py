@@ -37,7 +37,7 @@ from pydantic import BaseModel, Field
 
 from .auth import COOKIE_NAME, SessionCodec, verify_password
 from .bunny_token import TokenError, directory_scope_for, sign_bunny_url
-from .catalog import Catalog, CatalogError
+from .catalog import SORTS, Catalog, CatalogError
 from .settings import get_settings
 from .similar import SimilarityError, embed_title, query_index, shape_matches
 
@@ -67,7 +67,7 @@ async def lifespan(_: FastAPI):
         sessions = SessionCodec(settings.session_secret, settings.session_ttl_seconds)
     try:
         catalog.load()
-        _, total = catalog.query(limit=1)
+        _, total, _fuzzy = catalog.query(limit=1)
         log.info("catalog: %d items, generated %s", total, catalog.generated_at)
     except CatalogError as exc:
         log.warning("%s", exc)
@@ -216,6 +216,8 @@ def get_catalog(
     section: str | None = None,
     folder: str | None = None,
     search: str | None = None,
+    confidence: str | None = Query(None, description="'review' for low + unclassified"),
+    sort: str | None = Query(None, description=f"one of {', '.join(SORTS)}"),
     offset: int = Query(0, ge=0),
     limit: int = Query(500, ge=1, le=5000),
 ):
@@ -224,11 +226,18 @@ def get_catalog(
     except CatalogError as exc:
         raise HTTPException(status.HTTP_503_SERVICE_UNAVAILABLE, str(exc))
 
-    items, total = catalog.query(
+    if sort and sort not in SORTS:
+        raise HTTPException(status.HTTP_400_BAD_REQUEST, f"sort must be one of {', '.join(SORTS)}")
+
+    items, total, fuzzy = catalog.query(
         bucket=bucket, level=level, tags=tag, collection=collection, section=section,
-        folder=folder, search=search, offset=offset, limit=limit,
+        folder=folder, search=search, confidence=confidence, sort=sort,
+        offset=offset, limit=limit,
     )
     return {
+        # True when the literal search found nothing and these are near misses,
+        # so the client can say so rather than quietly showing something else.
+        "fuzzy": fuzzy,
         "generated_at": catalog.generated_at,
         "buckets": catalog.buckets,
         "levels": catalog.levels,
