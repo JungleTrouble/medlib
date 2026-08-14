@@ -47,13 +47,24 @@ there is no migration. A smart playlist opens through the ordinary catalog
 path, which makes it both less code and faster than a manual one — the
 manual opener fetches its members one id at a time.
 
-**The queue is read off the DOM, not stored.** `play(item, queue)` takes
-whatever list you pressed play inside — grid, shelf rail or playlist —
-because `appendCards` hangs the item on the card element. That is why
-continuous playback works everywhere without any list knowing queues exist,
-and why there is no "add to queue" control. It lives in `state`, never in
-`localStorage`: finding yesterday's half-finished rail waiting for you would
-be a bug.
+**Queues come in two kinds, and ownership is the whole rule.** An
+*inherited* queue is read off the DOM — `play(item, queue)` takes whatever
+list you pressed play inside, because `appendCards` hangs the item on the
+card element. That is why continuous playback works everywhere without any
+list knowing queues exist, and it is never written to `localStorage`:
+finding yesterday's half-finished rail waiting for you would be a bug.
+
+An *owned* queue is one you built with Play next / Add to queue on a card's
+`+` menu, or rearranged in the panel. Any manual edit sets `owned` and
+persists it, which is also what stops a 300-row grid queue from quietly
+overwriting the handful you assembled yesterday — only owned queues are
+written, so clicking a card can never clobber the stored one. It comes back
+as a pinned "▶ Queue" row above the playlists.
+
+Unlike playlists, a queue stores whole items rather than ids. Playlists hold
+ids so a re-titled video stays put; a queue is a short-lived working set,
+and copies make restore cost zero API calls. `QUEUE_MAX_PERSIST` guards
+against writing an entire result set.
 
 **`/api/suggest-similar` is the only endpoint that leaves the machine.**
 Hugging Face embeds the title, Pinecone returns neighbours. Unconfigured it
@@ -118,7 +129,7 @@ needs a redeploy.
 
 **Bump `?v=` in `player/index.html`** after editing `player.js` or
 `player.css`. The browser will otherwise serve a stale copy and your change
-will appear to do nothing. Currently `?v=24`. Note this does not cover
+will appear to do nothing. Currently `?v=25`. Note this does not cover
 `index.html` itself — a cached index keeps asking for the old version, so
 "nothing changed" after a bump usually means a hard refresh is needed.
 

@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#0d1016">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>MedLib — Player</title>
-<link rel="stylesheet" href="player.css?v=24">
+<link rel="stylesheet" href="player.css?v=25">
 </head>
 <body>
 
@@ -159,9 +159,10 @@
            buttons and the shortcut list now live behind their own triggers
            and only the position stays on screen. -->
       <div class="controls">
-        <!-- Only present when play started inside a list of more than one.
-             There is no "add to queue" — the list you pressed play in is the
-             queue. -->
+        <!-- Present once there is a queue. The default one is inherited —
+             the list you pressed play in — so most of the time nothing had
+             to be assembled; Play next / Add to queue on a card's + menu is
+             for when it does. -->
         <div class="queue" id="queueBox" role="group" aria-label="Queue" hidden></div>
 
         <div class="ctl-right">
@@ -193,6 +194,9 @@
         <h3>Up next</h3>
         <span class="qp-count" id="queuePanelCount"></span>
         <button class="qp-auto" id="queueAuto" type="button" aria-pressed="true">Autoplay</button>
+        <!-- Only offered for a queue you built; there is nothing to clear
+             about the list you happened to press play in. -->
+        <button class="qp-clear" id="queueClear" type="button" hidden>Clear</button>
         <button class="qp-close" id="queueClose" type="button" aria-label="Close queue">&times;</button>
       </header>
       <ol class="qp-list" id="queueList"></ol>
@@ -200,6 +204,6 @@
   </div>
 </div>
 
-<script src="player.js?v=24"></script>
+<script src="player.js?v=25"></script>
 </body>
 </html>

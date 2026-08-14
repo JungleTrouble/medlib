@@ -56,6 +56,7 @@ const el = {
   speedTrigger: $("speedTrigger"), helpToggle: $("helpToggle"), shortcuts: $("shortcuts"),
   queuePanel: $("queuePanel"), queueList: $("queueList"), queueAuto: $("queueAuto"),
   queueClose: $("queueClose"), queuePanelCount: $("queuePanelCount"),
+  queueClear: $("queueClear"),
   resultsTitle: $("resultsTitle"), resultsCount: $("resultsCount"),
   activeFilters: $("activeFilters"), grid: $("grid"), sentinel: $("sentinel"),
   shelves: $("shelves"),
@@ -1243,6 +1244,37 @@ function renderPlaylistNav() {
   if (!box) return;
   box.innerHTML = "";
 
+  /* A queue you built by hand outlives the player it was built in, so it
+     needs a way back. Pinned above the playlists because it is the thing
+     you are most likely to be returning to. */
+  const stored = state.queue?.owned ? state.queue : loadStoredQueue();
+  if (stored) {
+    const li = document.createElement("li");
+    li.className = "queue-nav";
+
+    const resume = document.createElement("button");
+    resume.innerHTML =
+      `<span class="lbl">▶ Queue</span><span class="n">${stored.items.length}</span>`;
+    resume.title = `Resume: ${stored.items[stored.at]?.title || ""}`;
+    resume.addEventListener("click", () => {
+      closeSidebar();
+      play(stored.items[stored.at], stored);
+    });
+
+    const kill = document.createElement("button");
+    kill.className = "pl-del";
+    kill.textContent = "×";
+    kill.setAttribute("aria-label", "Clear the queue");
+    kill.addEventListener("click", (e) => {
+      e.stopPropagation();
+      clearStoredQueue();
+    });
+
+    li.appendChild(resume);
+    li.appendChild(kill);
+    box.appendChild(li);
+  }
+
   const lists = Object.values(loadPlaylists()).sort((a, b) => b.at - a.at);
 
   for (const pl of lists) {
@@ -1399,10 +1431,44 @@ function openPlaylistMenu(anchor, videoId) {
 
   const menu = document.createElement("div");
   menu.className = "pl-menu";
+
+  /* Queueing sits above the playlists because it is the lighter action.
+     Lining something up for the next twenty minutes should not require
+     inventing and naming a playlist first. */
+  const item = state.items.find((i) => i.id === videoId) ||
+    document.querySelector(`.card[data-id="${CSS.escape(videoId)}"]`)?._item;
+
+  if (item) {
+    const said = {
+      started: "Queue started",
+      added: "Added to the queue",
+      moved: "Moved in the queue",
+      current: "That one is playing now",
+    };
+    for (const [label, where] of [["Play next", "next"], ["Add to queue", "end"]]) {
+      const row = document.createElement("button");
+      row.className = "pl-menu-item pl-menu-queue";
+      row.textContent = label;
+      row.addEventListener("click", (e) => {
+        e.stopPropagation();
+        toast(said[queueInsert(item, where)] || "Queued");
+        menu.remove();
+      });
+      menu.appendChild(row);
+    }
+    const rule = document.createElement("div");
+    rule.className = "pl-menu-rule";
+    menu.appendChild(rule);
+  }
+
   const lists = manualPlaylists().sort((a, b) => b.at - a.at);
 
   if (!lists.length) {
-    menu.innerHTML = `<p class="pl-menu-empty">No playlists yet.</p>`;
+    // Appended, not assigned: innerHTML here would wipe the queue rows above.
+    const none = document.createElement("p");
+    none.className = "pl-menu-empty";
+    none.textContent = "No playlists yet.";
+    menu.appendChild(none);
   }
   for (const pl of lists) {
     const row = document.createElement("button");
@@ -1901,20 +1967,26 @@ document.addEventListener("keydown", (e) => {
 /* ---------------------------------------------------------------
    The queue
 
-   There is no separate "add to queue" anywhere, on purpose. The queue is
-   whatever list you pressed play inside — the grid, one shelf rail, or a
-   playlist — read off the DOM at play time from the cards sitting next to
-   the one you clicked. That is why a card carries its own item in
-   appendCards: it means continuous playback works in every list in the app
-   without any of those lists knowing that queues exist.
+   Most of the time nothing has to be assembled: the queue is whatever list
+   you pressed play inside — the grid, one shelf rail, or a playlist — read
+   off the DOM at play time from the cards sitting next to the one you
+   clicked. That is why a card carries its own item in appendCards, and it
+   is what makes continuous playback work in every list in the app without
+   any of those lists knowing that queues exist.
 
-   The queue is a snapshot, deliberately. It is held in state, never in
-   localStorage: a queue is where you are in one sitting, and finding
-   yesterday's half-finished rail waiting for you would be a bug, not a
-   feature.
+   That covers the common case but not the deliberate one, so a card's +
+   menu also offers Play next and Add to queue, and the panel can reorder
+   and drop rows. See "Owning a queue" for why only the hand-built kind
+   survives the sitting.
    --------------------------------------------------------------- */
 
 const AUTOPLAY_KEY = "medlib:autoplay";
+const QUEUE_KEY = "medlib:queue:v1";
+
+/* An inherited queue can be 300 rows of a filtered grid; a hand-built one is
+   a handful. Only the second is worth keeping, so the cap is really a guard
+   against writing a whole result set into localStorage by accident. */
+const QUEUE_MAX_PERSIST = 500;
 
 /* Long enough to reach for the mouse, short enough not to feel stalled.
    Advancing the instant a video ends is the thing people hate about
@@ -1939,6 +2011,145 @@ function syncAutoplayButton() {
   el.queueAuto.classList.toggle("on", on);
   el.queueAuto.setAttribute("aria-pressed", String(on));
   el.queueAuto.textContent = on ? "Autoplay on" : "Autoplay off";
+}
+
+/* ---------------------------------------------------------------
+   Owning a queue
+
+   Two kinds, and the difference is who built it. An *inherited* queue is
+   whatever list you pressed play in: disposable by design, because finding
+   yesterday's half-finished rail waiting for you would be a bug. An *owned*
+   queue is one you assembled yourself with Play next / Add to queue or
+   rearranged by hand — that is work, and losing it on close would be rude.
+
+   So ownership is the persistence rule. Any manual edit marks the queue
+   owned and writes it; inherited queues are never written, which is also
+   why clicking a card in a grid cannot quietly overwrite the queue you
+   built yesterday.
+
+   Items are stored whole rather than as ids. Playlists deliberately hold
+   ids so a re-titled video stays put, but a queue is a short-lived working
+   set — copies keep restore to zero API calls, and a stale title for one
+   sitting is a fair price.
+   --------------------------------------------------------------- */
+
+function ownQueue() {
+  if (!state.queue) return;
+  const wasOwned = state.queue.owned;
+  state.queue.owned = true;
+  persistQueue();
+  // Only the first edit changes what the sidebar shows; later ones just move
+  // the position, and rebuilding that list on every video change is waste.
+  if (!wasOwned) renderPlaylistNav();
+}
+
+function persistQueue() {
+  const q = state.queue;
+  if (!q || !q.owned) return;
+  if (q.items.length > QUEUE_MAX_PERSIST) return;
+  try {
+    localStorage.setItem(QUEUE_KEY, JSON.stringify({ items: q.items, at: q.at }));
+  } catch {
+    /* quota or private mode — the queue simply will not outlive the tab */
+  }
+}
+
+function loadStoredQueue() {
+  try {
+    const raw = JSON.parse(localStorage.getItem(QUEUE_KEY) || "null");
+    if (!raw || !Array.isArray(raw.items) || !raw.items.length) return null;
+    const at = Number.isInteger(raw.at) ? Math.min(raw.at, raw.items.length - 1) : 0;
+    return { items: raw.items, at: Math.max(0, at), owned: true };
+  } catch {
+    return null;
+  }
+}
+
+function clearStoredQueue() {
+  try { localStorage.removeItem(QUEUE_KEY); } catch { /* private mode */ }
+  if (state.queue && state.queue.owned) {
+    state.queue = null;
+    closeQueuePanel();
+    renderQueueControls();
+  }
+  renderPlaylistNav();
+  toast("Queue cleared");
+}
+
+/**
+ * Put a video into the queue, at the front of what is coming or at the end.
+ *
+ * Any existing copy is pulled out first, so a video cannot appear twice and
+ * "play next" on something already further down moves it rather than
+ * duplicating it.
+ */
+function queueInsert(item, where) {
+  const q = state.queue;
+
+  if (!q) {
+    // Nothing playing. Start a queue rather than start playback — you asked
+    // to line something up, not to interrupt yourself.
+    state.queue = { items: [item], at: 0, owned: true };
+    persistQueue();
+    renderPlaylistNav();
+    return "started";
+  }
+
+  const found = q.items.findIndex((i) => i.id === item.id);
+  if (found === q.at) return "current";
+  if (found > -1) {
+    q.items.splice(found, 1);
+    if (found < q.at) q.at -= 1;
+  }
+
+  q.items.splice(where === "next" ? q.at + 1 : q.items.length, 0, item);
+  ownQueue();
+  renderQueueControls();
+  return found > -1 ? "moved" : "added";
+}
+
+function queueRemove(i) {
+  const q = state.queue;
+  // Never drop what is playing: the row would vanish from under the video.
+  if (!q || i === q.at || i < 0 || i >= q.items.length) return;
+  q.items.splice(i, 1);
+  if (i < q.at) q.at -= 1;
+  ownQueue();
+  renderQueueControls();
+}
+
+function queueMove(i, delta) {
+  const q = state.queue;
+  const j = i + delta;
+  if (!q || j < 0 || j >= q.items.length) return;
+  [q.items[i], q.items[j]] = [q.items[j], q.items[i]];
+  // The pointer follows whichever row it was on, so the video keeps playing
+  // and the ▶ marker stays with it.
+  if (q.at === i) q.at = j;
+  else if (q.at === j) q.at = i;
+  ownQueue();
+  renderQueueControls();
+}
+
+/* ---- a word outside the player ----
+
+   setMsg writes into the player overlay, which is no help when the queue is
+   being built from a card in the grid with nothing playing. */
+
+let toastTimer = null;
+
+function toast(text) {
+  let box = document.querySelector(".toast");
+  if (!box) {
+    box = document.createElement("div");
+    box.className = "toast";
+    box.setAttribute("role", "status");
+    document.body.appendChild(box);
+  }
+  box.textContent = text;
+  box.classList.add("on");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => box.classList.remove("on"), 2400);
 }
 
 /** The cards either side of this one, and where in them it sits. */
@@ -2055,11 +2266,14 @@ function renderQueuePanel() {
   if (!q) return;
 
   el.queuePanelCount.textContent = `${q.at + 1} of ${q.items.length}`;
+  if (el.queueClear) el.queueClear.hidden = !q.owned;
 
   const frag = document.createDocumentFragment();
   q.items.forEach((item, i) => {
     const frac = progressFraction(item.id);
     const li = document.createElement("li");
+    li.className = "qp-row";
+
     const btn = document.createElement("button");
     btn.type = "button";
     btn.className = "qp-item" +
@@ -2077,6 +2291,27 @@ function renderQueuePanel() {
         : "");
     btn.addEventListener("click", () => jumpToQueue(i));
     li.appendChild(btn);
+
+    /* Buttons rather than drag: dragging a row is miserable on a phone, and
+       this list is most useful on one. Nested inside the row but as siblings
+       of the jump button — a button cannot contain a button. */
+    const tools = document.createElement("span");
+    tools.className = "qp-tools";
+    const tool = (glyph, aria, enabled, on) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "qp-tool";
+      b.textContent = glyph;
+      b.setAttribute("aria-label", `${aria}: ${item.title}`);
+      b.disabled = !enabled;
+      b.addEventListener("click", (e) => { e.stopPropagation(); on(); });
+      return b;
+    };
+    tools.appendChild(tool("▲", "Move up", i > 0, () => queueMove(i, -1)));
+    tools.appendChild(tool("▼", "Move down", i < q.items.length - 1, () => queueMove(i, 1)));
+    tools.appendChild(tool("×", "Remove from queue", i !== q.at, () => queueRemove(i)));
+    li.appendChild(tools);
+
     frag.appendChild(li);
   });
   el.queueList.appendChild(frag);
@@ -2186,6 +2421,9 @@ let playGeneration = 0;
 async function play(item, queue = null) {
   cancelNextPrompt();
   state.queue = queue;
+  // Position is part of what was saved, so an owned queue has to be rewritten
+  // every time it moves — otherwise resuming lands you back at the start.
+  persistQueue();
   const mine = ++playGeneration;
 
   openPlayer(item);
@@ -2510,6 +2748,7 @@ el.helpToggle.addEventListener("click", () => {
 
 el.queueAuto.addEventListener("click", () => setAutoplay(!autoplayOn()));
 el.queueClose.addEventListener("click", closeQueuePanel);
+el.queueClear.addEventListener("click", clearStoredQueue);
 
 /* A popover that survives the next click is a popover you have to dismiss
    twice. The panel is excluded: it has a close button and holds a long list

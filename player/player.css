@@ -1297,6 +1297,21 @@ video { width: 100%; height: 100%; display: block; background: #000; }
   list-style: none;
 }
 
+.qp-clear {
+  padding: 2px 9px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--fg-dim);
+  font: inherit;
+  font-size: 10.5px;
+  cursor: pointer;
+}
+
+.qp-clear:hover { color: var(--danger); border-color: var(--danger); }
+
+.qp-row { position: relative; display: flex; align-items: center; }
+
 .qp-item {
   position: relative;
   display: flex;
@@ -1362,6 +1377,84 @@ video { width: 100%; height: 100%; display: block; background: #000; }
 }
 
 .qp-bar i { display: block; height: 100%; background: var(--accent); }
+
+/* Reorder and remove. Parked over the right end of the row and revealed on
+   hover, so 300 rows are not 900 competing buttons — but always visible on
+   touch, where there is no hover to reveal them with. */
+.qp-tools {
+  position: absolute;
+  right: 6px;
+  display: flex;
+  gap: 1px;
+  padding-left: 10px;
+  opacity: 0;
+  background: linear-gradient(to right, transparent, var(--bg-3) 12px);
+  transition: opacity .12s ease;
+}
+
+.qp-row:hover .qp-tools,
+.qp-row:focus-within .qp-tools { opacity: 1; }
+.qp-row:has(.qp-item.current) .qp-tools {
+  background: linear-gradient(to right, transparent,
+    color-mix(in srgb, var(--accent) 16%, var(--bg-2)) 12px);
+}
+
+.qp-tool {
+  width: 21px; height: 21px;
+  display: grid; place-items: center;
+  border: 0; border-radius: 5px;
+  background: transparent;
+  color: var(--fg-dim);
+  font: inherit; font-size: 9px; line-height: 1;
+  cursor: pointer;
+}
+
+.qp-tool:hover:not(:disabled) { background: var(--bg-2); color: var(--fg); }
+.qp-tool:disabled { opacity: .25; cursor: default; }
+.qp-tool:last-child { font-size: 14px; }
+.qp-tool:last-child:hover:not(:disabled) { color: var(--danger); }
+
+@media (hover: none) {
+  .qp-tools { opacity: 1; }
+  .qp-tool { width: 26px; height: 26px; }
+}
+
+/* ---------- queueing from a card ---------- */
+
+.pl-menu-queue { color: var(--fg); }
+.pl-menu-queue:hover { color: var(--accent); }
+.pl-menu-rule { height: 1px; margin: 4px 6px; background: var(--line); }
+
+/* Resume row above the playlists. */
+.queue-nav .lbl { color: var(--accent); }
+
+/* ---------- toast ---------- */
+
+/* setMsg lives inside the player overlay, which is no use when the queue is
+   being built from a card with nothing playing. */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 26px;
+  z-index: 80;
+  transform: translate(-50%, 12px);
+  padding: 9px 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--bg-3);
+  color: var(--fg);
+  font-size: 12.5px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .18s ease, transform .18s ease;
+}
+
+.toast.on { opacity: 1; transform: translate(-50%, 0); }
+
+@media (prefers-reduced-motion: reduce) {
+  .toast, .qp-tools { transition: none; }
+}
 
 /* The shortcut hint is behind a toggle now, and touch has no keyboard. */
 @media (hover: none) { #helpToggle { display: none; } }
