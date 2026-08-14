@@ -2348,31 +2348,59 @@ async function renderRelated(item) {
   el.relatedBox.hidden = true;
   try {
     const data = await api(`/api/related/${encodeURIComponent(item.id)}`);
-    if (!data.related.length) return;
+    const same = data.sameTopic || [];
+    if (!data.related.length && !same.length) return;
 
-    const head = document.createElement("p");
-    head.className = "related-head";
-    head.textContent = data.related.length === 1
-      ? "Also explained by"
-      : `Also explained by ${data.related.length} others`;
-    el.relatedBox.appendChild(head);
+    /* Two tiers, labelled apart. An exact title match is a fact — the same
+       lesson, taught elsewhere. A topic match is a judgement, so it says
+       which words it matched on and sits underneath. Merging them into one
+       ranked row would launder the difference. */
+    if (data.related.length) {
+      const head = document.createElement("p");
+      head.className = "related-head";
+      head.textContent = data.related.length === 1
+        ? "Also explained by"
+        : `Also explained by ${data.related.length} others`;
+      el.relatedBox.appendChild(head);
 
-    for (const r of data.related) {
-      const btn = document.createElement("button");
-      btn.className = "related-item";
-      btn.type = "button";
-      const colour = collectionColors.get(r.collection) || "var(--fg-dim)";
-      btn.innerHTML =
-        `<span class="related-src" style="border-color:${colour};color:${colour}">` +
-        `${escapeHtml(r.collection)}</span>` +
-        `<span class="related-dur">${escapeHtml(r.duration || "")}</span>`;
-      btn.addEventListener("click", () => play(r));
-      el.relatedBox.appendChild(btn);
+      for (const r of data.related) {
+        el.relatedBox.appendChild(relatedButton(r));
+      }
     }
+
+    if (same.length) {
+      const head = document.createElement("p");
+      head.className = "related-head related-head-topic";
+      head.textContent = "On the same topic";
+      el.relatedBox.appendChild(head);
+
+      for (const r of same.slice(0, 6)) {
+        const btn = relatedButton(r, { title: true });
+        btn.title = `matched on ${r.shared.join(", ")}`;
+        el.relatedBox.appendChild(btn);
+      }
+    }
+
     el.relatedBox.hidden = false;
   } catch {
     /* related is a bonus; its absence is not worth an error */
   }
+}
+
+/** A publisher chip. Topic matches also carry the title, since unlike an
+    exact match you cannot assume you know what the lesson is called. */
+function relatedButton(r, { title = false } = {}) {
+  const btn = document.createElement("button");
+  btn.className = "related-item";
+  btn.type = "button";
+  const colour = collectionColors.get(r.collection) || "var(--fg-dim)";
+  btn.innerHTML =
+    `<span class="related-src" style="border-color:${colour};color:${colour}">` +
+    `${escapeHtml(r.collection)}</span>` +
+    (title ? `<span class="related-title">${escapeHtml(r.title)}</span>` : "") +
+    `<span class="related-dur">${escapeHtml(r.duration || "")}</span>`;
+  btn.addEventListener("click", () => play(r));
+  return btn;
 }
 
 /* ---------------------------------------------------------------

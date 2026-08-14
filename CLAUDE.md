@@ -88,6 +88,29 @@ moves — only that block changes. It never auto-advances: this is a list of
 things you left unfinished, and having it move while you read a title would
 be hostile.
 
+**Related lessons come in two tiers, and they are kept apart.** An exact
+normalised-title match is a fact — the same lesson, taught elsewhere — and
+reaches 564 topics, 1,438 videos, one in five. `server/topics.py` adds the
+rest: cosine over IDF-weighted title words, which finds "Botulinum Toxin"
+from "Clostridium botulinum" and takes coverage to 4,141 videos, 56%. No
+model, no network hop, no vectors on disk — the index builds in ~20ms at
+first use and a lookup is a tenth of a millisecond, because medical titles
+are dense with distinctive nouns and IDF does most of what an embedding
+would.
+
+Two thresholds carry the precision, and both were tuned against real
+failures. Two shared content words are evidence enough; a single shared word
+has to score 0.75 or the match is a coincidence — that is what separates
+"Clostridium botulinum" → "Botulinum Toxin" (right) from
+"Wolff-Parkinson-White" → "Parkinson Disease" (a surname collision). The
+matcher returns the words it matched on, so a wrong suggestion can be
+interrogated rather than just distrusted.
+
+Precision is tested against `data/catalog.json`, never a fixture. IDF over a
+dozen invented titles is meaningless — every word looks equally rare, a
+single coincidental match scores 1.0, and the fixture cheerfully proves the
+opposite of what production does.
+
 **`/api/suggest-similar` is the only endpoint that leaves the machine.**
 Hugging Face embeds the title, Pinecone returns neighbours. Unconfigured it
 returns 503 and nothing else is affected — deliberately absent from
@@ -151,7 +174,7 @@ needs a redeploy.
 
 **Bump `?v=` in `player/index.html`** after editing `player.js` or
 `player.css`. The browser will otherwise serve a stale copy and your change
-will appear to do nothing. Currently `?v=28`. Note this does not cover
+will appear to do nothing. Currently `?v=29`. Note this does not cover
 `index.html` itself — a cached index keeps asking for the old version, so
 "nothing changed" after a bump usually means a hard refresh is needed.
 

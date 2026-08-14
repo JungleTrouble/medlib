@@ -1934,6 +1934,18 @@ video { width: 100%; height: 100%; display: block; background: #000; }
   font-variant-numeric: tabular-nums;
 }
 
+/* Second tier. An exact title match needs no title — you are looking at it.
+   A topic match does, because the lesson is called something else. */
+.related-head-topic { margin-top: 4px; }
+
+.related-title {
+  max-width: 30ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--fg);
+}
+
 /* ---------- shortcut hint ---------- */
 
 .shortcuts {

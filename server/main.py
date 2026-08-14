@@ -359,7 +359,32 @@ def get_related(key: str, _: dict = Depends(require_session)):
     ]
     related.sort(key=lambda r: r["collection"])
 
-    return {"id": item["id"], "title": item["title"], "related": related}
+    # Two tiers, kept apart rather than merged into one ranked list. An exact
+    # title match is a fact: the same lesson, taught elsewhere. A topic match
+    # is a judgement, and one the reader should be able to weigh — so it
+    # travels with the words it matched on and is labelled differently.
+    already = {r["id"] for r in related} | {item["id"]}
+    same_topic = [
+        {
+            "id": other["id"],
+            "title": other["title"],
+            "collection": other.get("collection", ""),
+            "folder": other.get("folder", ""),
+            "duration": other.get("duration", ""),
+            "bucket": other.get("bucket", ""),
+            "score": score,
+            "shared": shared,
+        }
+        for other, score, shared in catalog.topics.similar(item["id"], limit=12)
+        if other["id"] not in already
+    ]
+
+    return {
+        "id": item["id"],
+        "title": item["title"],
+        "related": related,
+        "sameTopic": same_topic,
+    }
 
 
 # --------------------------------------------------------------------------

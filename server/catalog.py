@@ -19,6 +19,8 @@ import threading
 from pathlib import Path
 from typing import Any
 
+from .topics import TopicIndex
+
 
 class CatalogError(RuntimeError):
     pass
@@ -88,6 +90,7 @@ class Catalog:
         self._by_id: dict[str, dict] = {}
         self._by_path: dict[str, dict] = {}
         self._total_seconds: int | None = None
+        self._topics: TopicIndex | None = None
 
     # -- loading -----------------------------------------------------------
 
@@ -106,6 +109,7 @@ class Catalog:
             self._by_id = {i["id"]: i for i in items}
             self._by_path = {i["path"].lstrip("/"): i for i in items}
             self._total_seconds = None      # recomputed on next read
+            self._topics = None             # rebuilt on next lookup
             self._mtime = mtime
 
     def refresh_if_stale(self) -> None:
@@ -177,6 +181,19 @@ class Catalog:
             )
         stats["total_seconds"] = self._total_seconds
         return stats
+
+    @property
+    def topics(self) -> TopicIndex:
+        """
+        Same-topic index over titles, built on first use.
+
+        ~20ms over 7,333 titles, so it is not worth doing at load when most
+        requests never ask for it — but it is worth keeping once built,
+        because a lookup is then a tenth of a millisecond.
+        """
+        if self._topics is None:
+            self._topics = TopicIndex(self._data.get("items", []))
+        return self._topics
 
     def get(self, key: str) -> dict | None:
         """Resolve by item id first, then by exact library-relative path."""
