@@ -229,13 +229,28 @@ paid tier); a single `state.json` PUT/GET against Bunny Storage, which adds
 no new vendor; or a Render disk. A URL-fragment export is the zero-infra
 stopgap — a 40-id playlist is about 1 KB.
 
-**Do not move the video to object storage.** Checked August 2026: UpCloud
-Managed Object Storage is €5/mo per 250 GB — €0.02/GB against Bunny Stream's
-$0.01/GB, so roughly double, before losing free transcoding and the CDN. The
-decisive part is signing: S3-compatible presigned URLs are query-style only,
-which is exactly the failure documented under "Two token styles" — the
-master playlist authorises and every variant 403s. Replicating Bunny's
-path-style token means putting a signing proxy in the delivery path.
+**Leaving Bunny Stream for Bunny Storage.** Measured August 2026: the
+source is 7,341 MP4s, 258 GB, 1,401 hours — about 394 kbps. Stream holds
+2,834 GB of the same content at 4,494 kbps, an 11x inflation, because it
+transcodes an already-efficient recording into a 1080p ladder nothing needs.
+Storage at $0.01/GB for the originals is ~$2.58/mo against ~$28.
+
+The player already speaks progressive MP4: `attach()` branches on
+`tok.type !== "hls"`, `mint_token` already returns `type: "file"`, and
+`bunny_token.py` signs pull-zone URLs, which is what a Storage zone sits
+behind. What is lost is adaptive bitrate — meaningless at 394 kbps — and
+Bunny's generated thumbnails, which become an ffmpeg pass.
+
+`scripts/map_sources.py` is the safety rail: it maps 7,329 of 7,333 videos
+to their file on disk, so the catalogue keeps its Bunny GUID as `id` and
+only `path` changes. Ids key the watch history and every playlist; renaming
+them would throw away months of progress. It declines rather than guesses,
+and currently declines nothing.
+
+Do **not** move to third-party object storage. S3-compatible presigned URLs
+are query-style only, which is the failure under "Two token styles". That
+does not apply to Bunny Storage, which sits behind an ordinary pull zone and
+takes the same path-style token the app already mints.
 
 **Transcript search.** 1,838 subtitle files sit unused on disk. Uploading
 them to Bunny as captions and indexing them would let you search what was
@@ -257,7 +272,11 @@ files are 73.6 GB of the 103.8, so the 574 PDFs at 30 GB are the cheaper
 first pass; and resolve the ambiguous 173 by folder path rather than
 picking, because a wrong file is invisible once uploaded.
 
-**A collection called "IBM" with 4 videos** looks out of place.
+**The "IBM" collection is solved — delete it.** Its 4 videos are
+`pluck-pcm8/16/24/32`, audio test fixtures from inside an SPSS Python
+install (`IBM / SPSS / Statistics / 26 / Python3 / Lib`) that got swept up
+by an early upload. They are the only 4 of 7,333 with no source file on
+disk, which is how they surfaced.
 
 **Populate the Pinecone index, or drop `/api/suggest-similar`.** Nothing
 writes to it, so the endpoint returns an empty array against an empty index —
