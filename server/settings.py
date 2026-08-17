@@ -43,6 +43,15 @@ class Settings(BaseSettings):
     session_ttl_seconds: int = 2592000
     session_cookie_secure: bool = False
 
+    # --- Bunny Storage ---
+    # Only the migration scripts touch these; the server never talks to
+    # Storage at runtime. It signs pull-zone URLs, and a Storage zone sits
+    # behind an ordinary pull zone — so BUNNY_CDN_HOSTNAME is all the app
+    # needs, exactly as it was for Stream.
+    bunny_storage_zone: str = ""
+    bunny_storage_password: str = ""
+    bunny_storage_region: str = "ny"     # ny la de uk se sg syd br jh
+
     # --- Catalog ---
     catalog_path: Path = Path("data/catalog.json")
     buckets_config: Path = Path("config/buckets.yaml")

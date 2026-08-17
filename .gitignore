@@ -67,3 +67,4 @@ desktop.ini
 *.swp
 .idea/
 .vscode/
+data/upload-state.json
